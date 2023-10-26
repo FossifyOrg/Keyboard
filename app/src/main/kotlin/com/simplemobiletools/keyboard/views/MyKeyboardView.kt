@@ -6,11 +6,13 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.Paint.Align
 import android.graphics.drawable.*
+import android.inputmethodservice.InputMethodService
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -20,6 +22,8 @@ import android.util.TypedValue
 import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodSubtype
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.PopupWindow
@@ -61,6 +65,7 @@ import com.simplemobiletools.keyboard.models.Clip
 import com.simplemobiletools.keyboard.models.ClipsSectionLabel
 import com.simplemobiletools.keyboard.models.ListItem
 import java.util.*
+
 
 @SuppressLint("UseCompatLoadingForDrawables", "ClickableViewAccessibility")
 class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyleRes: Int = 0) : View(context, attrs, defStyleRes) {
@@ -323,6 +328,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 toggleClipboardVisibility(false)
             }
 
+            voiceInput.setOnLongClickListener { context.toast("voice input"); true; }
+            voiceInput.setOnClickListener {
+                switchToVoiceTypingIME()
+            }
+
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
                 override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
                     updateSuggestionsToolbarLayout()
@@ -419,6 +429,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             settingsCog.applyColorFilter(mTextColor)
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
+            voiceInput.applyColorFilter(mTextColor)
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 
@@ -1729,6 +1740,23 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             containerWidth / popupKeyCount
         } else {
             this.width
+        }
+    }
+
+    // voice input
+
+    private fun getVoiceTypingIm(imm: InputMethodManager): AbstractMap.SimpleEntry<String, InputMethodSubtype>? {
+        val enabledKeyboards = imm.enabledInputMethodList
+        for (im in enabledKeyboards) for (imst in imm.getEnabledInputMethodSubtypeList(im, true))
+            if (imst.mode == "voice") return AbstractMap.SimpleEntry<String, InputMethodSubtype>(im.id, imst)
+        return null
+    }
+
+    private fun switchToVoiceTypingIME() {
+        val imm: InputMethodManager = (context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)!!;
+        val im = getVoiceTypingIm(imm)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            InputMethodService().switchInputMethod(im?.key, im?.value)
         }
     }
 }

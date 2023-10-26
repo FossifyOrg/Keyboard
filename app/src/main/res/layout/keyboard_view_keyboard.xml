@@ -74,6 +74,19 @@
         </com.simplemobiletools.keyboard.views.InlineContentViewHorizontalScrollView>
 
         <ImageView
+            android:id="@+id/voice_input"
+            android:layout_width="@dimen/toolbar_icon_height"
+            android:layout_height="@dimen/toolbar_icon_height"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Voice Input"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/ic_microphone_vector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/pinned_clipboard_items"
             android:layout_width="@dimen/toolbar_icon_height"
             android:layout_height="@dimen/toolbar_icon_height"
