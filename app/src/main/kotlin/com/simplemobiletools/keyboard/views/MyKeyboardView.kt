@@ -330,7 +330,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 toggleClipboardVisibility(false)
             }
 
-            voiceInputButton.setOnLongClickListener { context.toast("Voice Input"); true }
+            voiceInputButton.setOnLongClickListener { context.toast(R.string.voice_input_button); true }
 
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
                 override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
