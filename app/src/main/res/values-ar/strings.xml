@@ -38,6 +38,7 @@
     <string name="start_sentences_capitalized">بدء الجمل بحرف كبير</string>
     <!-- Emojis -->
     <string name="emojis">الرموز التعبيرية</string>
+    <!-- Voice Input -->
     <string name="voice_input_button">التبديل إلى أسلوب الإدخال الصوتي</string>
     <string name="enable_voice_input_button">إظهار زر الإدخال الصوتي</string>
     <!--

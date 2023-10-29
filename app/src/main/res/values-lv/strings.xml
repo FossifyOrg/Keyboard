@@ -38,6 +38,7 @@
     <string name="start_sentences_capitalized">Sākt teikumus ar lielo burtu</string>
     <!-- Emojis -->
     <string name="emojis">Emocijzīmes</string>
+    <!-- Voice Input -->
     <string name="voice_input_button">Switch to voice input method</string>
     <string name="enable_voice_input_button">Show voice input button</string>
     <!--

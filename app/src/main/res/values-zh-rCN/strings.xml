@@ -38,6 +38,7 @@
     <string name="start_sentences_capitalized">句子开头使用大写字母</string>
     <!-- Emojis -->
     <string name="emojis">表情符号</string>
+    <!-- Voice Input -->
     <string name="voice_input_button">Switch to voice input method</string>
     <string name="enable_voice_input_button">Show voice input button</string>
     <!--
