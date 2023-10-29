@@ -6,7 +6,6 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.*
@@ -64,6 +63,7 @@ import com.simplemobiletools.keyboard.interfaces.RefreshClipsListener
 import com.simplemobiletools.keyboard.models.Clip
 import com.simplemobiletools.keyboard.models.ClipsSectionLabel
 import com.simplemobiletools.keyboard.models.ListItem
+import com.simplemobiletools.keyboard.services.SimpleKeyboardIME
 import java.util.*
 
 
@@ -328,10 +328,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 toggleClipboardVisibility(false)
             }
 
-            voiceInput.setOnLongClickListener { context.toast("voice input"); true; }
-            voiceInput.setOnClickListener {
-                switchToVoiceTypingIME()
-            }
+            voiceInputButton.setOnLongClickListener { context.toast("Voice Input"); true }
 
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
                 override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
@@ -429,7 +426,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             settingsCog.applyColorFilter(mTextColor)
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
-            voiceInput.applyColorFilter(mTextColor)
+            voiceInputButton.applyColorFilter(mTextColor)
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 
@@ -1740,23 +1737,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             containerWidth / popupKeyCount
         } else {
             this.width
-        }
-    }
-
-    // voice input
-
-    private fun getVoiceTypingIm(imm: InputMethodManager): AbstractMap.SimpleEntry<String, InputMethodSubtype>? {
-        val enabledKeyboards = imm.enabledInputMethodList
-        for (im in enabledKeyboards) for (imst in imm.getEnabledInputMethodSubtypeList(im, true))
-            if (imst.mode == "voice") return AbstractMap.SimpleEntry<String, InputMethodSubtype>(im.id, imst)
-        return null
-    }
-
-    private fun switchToVoiceTypingIME() {
-        val imm: InputMethodManager = (context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)!!;
-        val im = getVoiceTypingIm(imm)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            InputMethodService().switchInputMethod(im?.key, im?.value)
         }
     }
 }

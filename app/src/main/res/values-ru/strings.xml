@@ -38,6 +38,7 @@
     <string name="start_sentences_capitalized">Начинать предложения с заглавной буквы</string>
     <!-- Emojis -->
     <string name="emojis">Эмодзи</string>
+    <string name="voice_input">Switch to voice input method</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

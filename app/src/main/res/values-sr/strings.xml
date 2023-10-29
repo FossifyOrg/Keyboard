@@ -38,4 +38,5 @@
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
     <!-- Emojis -->
     <string name="emojis">Емоји</string>
+    <string name="voice_input">Switch to voice input method</string>
 </resources>

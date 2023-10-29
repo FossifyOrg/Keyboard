@@ -38,4 +38,5 @@
     <string name="start_sentences_capitalized">ਵਾਕ ਵੱਡੇ ਅੱਖਰ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
+    <string name="voice_input">Switch to voice input method</string>
 </resources>
