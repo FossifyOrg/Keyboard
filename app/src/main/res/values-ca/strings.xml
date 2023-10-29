@@ -38,7 +38,8 @@
     <string name="start_sentences_capitalized">Comença les frases amb una lletra majúscula</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
-    <string name="voice_input">Switch to voice input method</string>
+    <string name="voice_input_button">Switch to voice input method</string>
+    <string name="enable_voice_input_button">Show voice input button</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

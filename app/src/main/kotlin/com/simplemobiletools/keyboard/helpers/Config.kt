@@ -51,6 +51,10 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
+    var showVoiceButton: Boolean
+        get() = prefs.getBoolean(SHOW_VOICE_BUTTON, false)
+        set(showVoiceButton) = prefs.edit().putBoolean(SHOW_VOICE_BUTTON, showVoiceButton).apply()
+
     private fun getDefaultLanguage(): Int {
         val conf = context.resources.configuration
         return if (conf.locale.toString().toLowerCase(Locale.getDefault()).startsWith("ru_")) {

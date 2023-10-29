@@ -38,7 +38,8 @@
     <string name="start_sentences_capitalized">بدء الجمل بحرف كبير</string>
     <!-- Emojis -->
     <string name="emojis">الرموز التعبيرية</string>
-    <string name="voice_input">التبديل إلى أسلوب الإدخال الصوتي</string>
+    <string name="voice_input_button">التبديل إلى أسلوب الإدخال الصوتي</string>
+    <string name="enable_voice_input_button">إظهار زر الإدخال الصوتي</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

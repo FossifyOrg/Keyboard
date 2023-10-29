@@ -11,7 +11,6 @@ import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.Paint.Align
 import android.graphics.drawable.*
-import android.inputmethodservice.InputMethodService
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -21,8 +20,6 @@ import android.util.TypedValue
 import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
-import android.view.inputmethod.InputMethodSubtype
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.PopupWindow
@@ -63,7 +60,6 @@ import com.simplemobiletools.keyboard.interfaces.RefreshClipsListener
 import com.simplemobiletools.keyboard.models.Clip
 import com.simplemobiletools.keyboard.models.ClipsSectionLabel
 import com.simplemobiletools.keyboard.models.ListItem
-import com.simplemobiletools.keyboard.services.SimpleKeyboardIME
 import java.util.*
 
 
@@ -263,6 +259,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         super.onVisibilityChanged(changedView, visibility)
         closeClipboardManager()
         closeEmojiPalette()
+
+        if (context.config.showVoiceButton) {
+            keyboardViewBinding?.voiceInputButton?.visibility = VISIBLE
+        } else {
+            keyboardViewBinding?.voiceInputButton?.visibility = GONE
+        }
 
         if (visibility == VISIBLE) {
             setupKeyboard(changedView)

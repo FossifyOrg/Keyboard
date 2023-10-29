@@ -222,6 +222,21 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_show_voice_button_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_voice_button"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_voice_input_button" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_keyboard_language_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"

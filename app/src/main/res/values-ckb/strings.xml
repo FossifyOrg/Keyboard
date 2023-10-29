@@ -38,5 +38,6 @@
     <string name="start_sentences_capitalized">گەورەکردنی یەکەم پیتی لاتینی</string>
     <!-- Emojis -->
     <string name="emojis">خەندەکان</string>
-    <string name="voice_input">بگۆڕە بۆ شێوازی نوسينی دەنگ</string>
+    <string name="voice_input_button">بگۆڕە بۆ شێوازی نوسينی دەنگ</string>
+    <string name="enable_voice_input_button">دوگمەی نوسينی دەنگ پیشان بدە</string>
 </resources>
