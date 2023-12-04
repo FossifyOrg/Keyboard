@@ -36,7 +36,7 @@
         <Key
             app:code="-1"
             app:keyEdgeFlags="left"
-            app:keyLabel="\?123"
+            app:keyLabel="123"
             app:keyWidth="15%p" />
         <Key app:keyLabel="¡" />
         <Key

@@ -50,6 +50,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private val KEYBOARD_SYMBOLS_SHIFT = 2
     private val KEYBOARD_NUMBERS = 3
     private val KEYBOARD_PHONE = 4
+    private val KEYBOARD_NUMBERS_ALT = 5
 
     private var keyboard: MyKeyboard? = null
     private var keyboardView: MyKeyboardView? = null
@@ -183,6 +184,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     val keyboardXml = if (keyboardMode == KEYBOARD_SYMBOLS) {
                         keyboardMode = KEYBOARD_SYMBOLS_SHIFT
                         R.xml.keys_symbols_shift
+
+                    } else if (keyboardMode == KEYBOARD_SYMBOLS_SHIFT) {
+                        keyboardMode = KEYBOARD_NUMBERS_ALT
+                        R.xml.keys_numbers_alt
                     } else {
                         keyboardMode = KEYBOARD_SYMBOLS
                         R.xml.keys_symbols
@@ -238,7 +243,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     inputConnection.commitText(codeChar.toString(), 1)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
-                        switchToLetters = true
+                        if (keyboardMode != KEYBOARD_NUMBERS_ALT) {
+                            switchToLetters = true
+                        }
                     }
                 } else {
                     when {
