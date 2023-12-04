@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Nesens</string>
     <string name="clipboard_current">Pašreizējais</string>
     <string name="clipboard_pinned">Piesprausts</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Pievienot jaunu datu</string>
     <string name="manage_clips">Šeit jūs varat vadīt vai pievienot datus ātrai piekļuvei.</string>
     <string name="clip_text">Atlasīt tekstu</string>

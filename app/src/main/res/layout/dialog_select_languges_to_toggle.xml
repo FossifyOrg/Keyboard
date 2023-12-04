@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dialog_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_bengali_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_bengali"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_bengali" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_bulgarian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_bulgarian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_bulgarian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_danish_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_danish"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_danish" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_english_qwerty_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_english_qwerty"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_english" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_english_qwertz_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_english_qwertz"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_english" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_english_dvorak_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_english_dvorak"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_english" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_french_azerty_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_french_azerty"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_french" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_french_bepo_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_french_bepo"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_french" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_german_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_german"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_german" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_greek_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_greek"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_greek" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_lithuanian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_lithuanian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_lithuanian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_norwegian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_norwegian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_norwegian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_polish_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_polish"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_polish" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_romanian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_romanian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_romanian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_russian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_russian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_russian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_slovenian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_slovenian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_slovenian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_spanish_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_spanish"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_spanish" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_swedish_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_swedish"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_swedish" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_turkish_q_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_turkish_q"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_turkish" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_ukrainian_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_ukrainian"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_ukrainian" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_language_vietnamese_telex_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_language_vietnamese_telex"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/translation_vietnamese" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

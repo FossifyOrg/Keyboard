@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Huidig</string>
     <string name="clipboard_pinned">Vastgezet</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Nieuw item</string>
     <string name="manage_clips">Voor snelle toegang kunnen hier tekstfragmenten worden toegevoegd en beheerd.</string>
     <string name="clip_text">Tekst naar klembord</string>

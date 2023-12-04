@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Nedavni</string>
     <string name="clipboard_current">Aktualni</string>
     <string name="clipboard_pinned">Prikvačeni</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Dodaj novu stavku</string>
     <string name="manage_clips">Ovdje možeš upravljati ili dodati isječke za brzi pristup.</string>
     <string name="clip_text">Odreži tekst</string>

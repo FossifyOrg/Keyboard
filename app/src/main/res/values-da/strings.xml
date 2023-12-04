@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Nuværende</string>
     <string name="clipboard_pinned">Fastgjort</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Tilføj nyt element</string>
     <string name="manage_clips">Du kan administrere eller tilføje klip her for hurtig adgang.</string>
     <string name="clip_text">Udklip tekst</string>

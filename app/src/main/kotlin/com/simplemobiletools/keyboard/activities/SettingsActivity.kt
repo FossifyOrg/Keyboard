@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.isTiramisuPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.keyboard.databinding.ActivitySettingsBinding
+import com.simplemobiletools.keyboard.dialogs.SelectLanguagesToToggle
 import com.simplemobiletools.keyboard.extensions.config
 import com.simplemobiletools.keyboard.extensions.getKeyboardLanguageText
 import com.simplemobiletools.keyboard.extensions.getKeyboardLanguages
@@ -41,6 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupVibrateOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
+        setupSelectedLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
         setupShowClipboardContent()
@@ -130,6 +132,14 @@ class SettingsActivity : SimpleActivity() {
             settingsShowKeyBordersHolder.setOnClickListener {
                 settingsShowKeyBorders.toggle()
                 config.showKeyBorders = settingsShowKeyBorders.isChecked
+            }
+        }
+    }
+
+    private fun setupSelectedLanguages() {
+        binding.apply {
+            settingsSelectedKeyboardLanguageHolder.setOnClickListener {
+                SelectLanguagesToToggle(this@SettingsActivity)
             }
         }
     }

@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Legutóbbi</string>
     <string name="clipboard_current">Jelenlegi</string>
     <string name="clipboard_pinned">Kijelölt</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Új elem hozzáadása</string>
     <string name="manage_clips">A gyors hozzáférés érdekében itt kezelheted vagy hozzáadhatod a klipeket.</string>
     <string name="clip_text">Szöveg klippelése</string>

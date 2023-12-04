@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Son kopyalananlar</string>
     <string name="clipboard_current">Geçerli</string>
     <string name="clipboard_pinned">Sabitlendi</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Yeni öge ekle</string>
     <string name="manage_clips">Hızlı erişim için burada panoları yönetebilir veya ekleyebilirsiniz.</string>
     <string name="clip_text">Metni panoya kopyala</string>

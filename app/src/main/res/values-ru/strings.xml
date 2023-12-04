@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Недавнее</string>
     <string name="clipboard_current">Текущее</string>
     <string name="clipboard_pinned">Закреплено</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Добавить</string>
     <string name="manage_clips">Здесь вы можете изменять или добавлять данные для быстрого доступа.</string>
     <string name="clip_text">Выбрать текст</string>

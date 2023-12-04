@@ -14,6 +14,7 @@
     <string name="clipboard_recent">അടുത്തിടെ</string>
     <string name="clipboard_current">നിലവിലുള്ളത്</string>
     <string name="clipboard_pinned">പിൻ ചെയ്തു</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">ഒരു പുതിയ ഇനം ചേർക്കുക</string>
     <string name="manage_clips">പെട്ടെന്നുള്ള ആക്‌സസിനായി നിങ്ങൾക്ക് ഇവിടെ ക്ലിപ്പുകൾ മാനേജ് ചെയ്യാനോ ചേർക്കാനോ കഴിയും.</string>
     <string name="clip_text">വാചകം കൊളുത്ത്</string>

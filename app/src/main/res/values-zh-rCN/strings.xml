@@ -14,6 +14,7 @@
     <string name="clipboard_recent">最近</string>
     <string name="clipboard_current">当前</string>
     <string name="clipboard_pinned">已固定</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">添加新项目</string>
     <string name="manage_clips">您可在此处管理或添加文本片段以便快速访问。</string>
     <string name="clip_text">片段文本</string>

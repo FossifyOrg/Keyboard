@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Terkini</string>
     <string name="clipboard_current">Saat ini</string>
     <string name="clipboard_pinned">Disematkan</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Tambahkan item baru</string>
     <string name="manage_clips">Anda dapat mengelola atau menambahkan klip di sini untuk akses cepat.</string>
     <string name="clip_text">Teks klip</string>

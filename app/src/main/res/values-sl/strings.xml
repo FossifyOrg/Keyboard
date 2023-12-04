@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Nedavno</string>
     <string name="clipboard_current">Trenutno</string>
     <string name="clipboard_pinned">Pripeto</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Dodaj nov element</string>
     <string name="manage_clips">Tukaj lahko upravljate ali dodajate izrezke za hiter dostop.</string>
     <string name="clip_text">Besedilo izrezka</string>

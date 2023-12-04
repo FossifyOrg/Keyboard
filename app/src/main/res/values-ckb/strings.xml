@@ -14,6 +14,7 @@
     <string name="clipboard_recent">دوایین لەبەرگیراوە</string>
     <string name="clipboard_current">لەبەرگیراوەکان</string>
     <string name="clipboard_pinned">جێگیرکراو</string>
+    <string name="selected_keyboard_languages">زمانەکانی کیبۆردی هەڵبژێردراو</string>
     <string name="add_new_item">زیادکردنی نوێ</string>
     <string name="manage_clips">ئەتوانی لێرە نووسینی نوێ زیاد بکەیت یان دەستکاری هەڵگیراوەکان بکەیت.</string>
     <string name="clip_text">نووسینی نوێ</string>

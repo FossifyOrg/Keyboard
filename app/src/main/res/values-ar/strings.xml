@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">حالي</string>
     <string name="clipboard_pinned">المثبته</string>
+    <string name="selected_keyboard_languages">لغات لوحة المفاتيح المحددة</string>
     <string name="add_new_item">أضف عنصرًا جديدًا</string>
     <string name="manage_clips">يمكنك إدارة أو إضافة مقاطع هنا للوصول السريع.</string>
     <string name="clip_text">نص القصاصة</string>

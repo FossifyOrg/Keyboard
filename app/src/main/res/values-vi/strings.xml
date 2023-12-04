@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Gần đây</string>
     <string name="clipboard_current">Hiện tại</string>
     <string name="clipboard_pinned">Đã ghim</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Thêm mục mới</string>
     <string name="manage_clips">Bạn có thể quản lý hoặc thêm clip tại đây để truy cập nhanh.</string>
     <string name="clip_text">Clip văn bản</string>

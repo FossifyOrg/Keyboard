@@ -47,6 +47,28 @@ const val LANGUAGE_VIETNAMESE_TELEX = 18
 const val LANGUAGE_POLISH = 19
 const val LANGUAGE_UKRAINIAN = 20
 
+const val LANGUAGE_ENGLISH_QWERTY_SELECTED = "language_english_qwerty_selected"
+const val LANGUAGE_RUSSIAN_SELECTED = "language_russian_selected"
+const val LANGUAGE_FRENCH_AZERTY_SELECTED = "language_french_azerty_selected"
+const val LANGUAGE_ENGLISH_QWERTZ_SELECTED = "language__selected"
+const val LANGUAGE_SPANISH_SELECTED = "language_spanish_selected"
+const val LANGUAGE_GERMAN_SELECTED = "language_german_selected"
+const val LANGUAGE_ENGLISH_DVORAK_SELECTED = "language_english_dvorak_selected"
+const val LANGUAGE_ROMANIAN_SELECTED = "language_romanian_selected"
+const val LANGUAGE_SLOVENIAN_SELECTED = "language_slovenian_selected"
+const val LANGUAGE_BULGARIAN_SELECTED = "language_bulgarian_selected"
+const val LANGUAGE_TURKISH_Q_SELECTED = "language_turkish_q_selected"
+const val LANGUAGE_LITHUANIAN_SELECTED = "language_lithuanian_selected"
+const val LANGUAGE_BENGALI_SELECTED = "language_bengali_selected"
+const val LANGUAGE_GREEK_SELECTED = "language_greek_selected"
+const val LANGUAGE_NORWEGIAN_SELECTED = "language_norwegian_selected"
+const val LANGUAGE_SWEDISH_SELECTED = "language_swedish_selected"
+const val LANGUAGE_DANISH_SELECTED = "language_danish_selected"
+const val LANGUAGE_FRENCH_BEPO_SELECTED = "language_french_bepo_selected"
+const val LANGUAGE_VIETNAMESE_TELEX_SELECTED = "language_vietnamese_selected"
+const val LANGUAGE_POLISH_SELECTED = "language_polish_selected"
+const val LANGUAGE_UKRAINIAN_SELECTED = "language_ukrainian_selected"
+
 // keyboard height percentage options
 const val KEYBOARD_HEIGHT_70_PERCENT = 70
 const val KEYBOARD_HEIGHT_80_PERCENT = 80

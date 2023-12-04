@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Апошнія</string>
     <string name="clipboard_current">Ток</string>
     <string name="clipboard_pinned">Замацаваны</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Дадайце новы элемент</string>
     <string name="manage_clips">Вы можаце кіраваць або дадаваць кліпы тут для хуткага доступу.</string>
     <string name="clip_text">Тэкст кліпа</string>

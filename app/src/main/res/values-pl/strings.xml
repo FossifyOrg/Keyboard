@@ -14,6 +14,7 @@
     <string name="clipboard_recent">Ostatnie</string>
     <string name="clipboard_current">Bieżący</string>
     <string name="clipboard_pinned">Przypięte</string>
+    <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Dodaj nowy element</string>
     <string name="manage_clips">Tutaj możesz zarządzać wpisami lub dodawać je, aby mieć do nich szybki dostęp.</string>
     <string name="clip_text">Tekst wpisu</string>
