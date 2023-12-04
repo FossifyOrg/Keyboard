@@ -169,6 +169,7 @@ fun Context.setupKeyboardDialogStuff(
 
 fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
     return arrayListOf(
+        RadioItem(LANGUAGE_ARABIC, getKeyboardLanguageText(LANGUAGE_ARABIC)),
         RadioItem(LANGUAGE_BENGALI, getKeyboardLanguageText(LANGUAGE_BENGALI)),
         RadioItem(LANGUAGE_BULGARIAN, getKeyboardLanguageText(LANGUAGE_BULGARIAN)),
         RadioItem(LANGUAGE_DANISH, getKeyboardLanguageText(LANGUAGE_DANISH)),
@@ -195,6 +196,7 @@ fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
 
 fun Context.getKeyboardLanguageText(language: Int): String {
     return when (language) {
+        LANGUAGE_ARABIC -> "${getString(R.string.translation_arabic)}(العربية) "
         LANGUAGE_BENGALI -> getString(R.string.translation_bengali)
         LANGUAGE_BULGARIAN -> getString(R.string.translation_bulgarian)
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
