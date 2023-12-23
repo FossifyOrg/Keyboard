@@ -1,4 +1,4 @@
-<com.simplemobiletools.keyboard.views.MyKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.fossify.keyboard.views.MyKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mini_keyboard_view"
     style="@style/MyKeyboardViewPopup"
     android:layout_width="match_parent"

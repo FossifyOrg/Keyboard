@@ -1,8 +1,7 @@
-<com.simplemobiletools.commons.views.MyRecyclerView
+<org.fossify.commons.views.MyRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/emojis_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:padding="@dimen/small_margin"
-    android:scrollbars="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:scrollbars="vertical" />
