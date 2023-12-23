@@ -1,2 +1,0 @@
- * Added some letter capitalization related fixes
- * Added some stability, UI and translation improvements

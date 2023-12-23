@@ -1,4 +1,0 @@
- * Added polish and ukrainian layouts
- * Added a slash at numeric keyboard
- * Do not trim text in clipboard
- * Added some stability, UI and translation improvements

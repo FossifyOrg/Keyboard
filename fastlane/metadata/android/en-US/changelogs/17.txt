@@ -1,2 +1,0 @@
- * Allow always showing a separate numeric row
- * Added some stability, UI and translation improvements

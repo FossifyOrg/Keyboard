@@ -1,4 +1,0 @@
- * Added more keyboard height options
- * Added support for autofilling passwords, addresses etc
- * Added Vietnamese language support
- * Added some stability, UI and translation improvements
