@@ -1,5 +1,0 @@
- * Allow using the app directly after startup, for unlocking the device
- * Improve Talkback support
- * Added an option to disable starting sentences with a capital letter
- * Added a couple more language layouts
- * Added some stability, UI and translation improvements

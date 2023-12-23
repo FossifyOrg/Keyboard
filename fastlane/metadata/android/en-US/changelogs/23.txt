@@ -1,2 +1,0 @@
- * Split emojis into groups
- * Added some stability, UI and translation improvements

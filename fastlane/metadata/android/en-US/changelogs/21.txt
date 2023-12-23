@@ -1,2 +1,0 @@
- * Fixed some glitches with keyboard not working properly
- * Added some stability, UI and translation improvements
