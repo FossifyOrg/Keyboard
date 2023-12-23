@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.simplemobiletools.keyboard.views.InlineContentViewHorizontalScrollView
+        <org.fossify.keyboard.views.InlineContentViewHorizontalScrollView
             android:id="@+id/suggestions_holder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             </LinearLayout>
 
 
-        </com.simplemobiletools.keyboard.views.InlineContentViewHorizontalScrollView>
+        </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
 
         <ImageView
             android:id="@+id/pinned_clipboard_items"
@@ -111,7 +111,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.simplemobiletools.keyboard.views.MyKeyboardView
+    <org.fossify.keyboard.views.MyKeyboardView
         android:id="@+id/keyboard_view"
         style="@style/MyKeyboardView"
         android:layout_width="match_parent"
@@ -173,7 +173,7 @@
             android:layout_above="@id/emoji_palette_bottom_bar"
             android:layout_below="@+id/emoji_palette_top_bar">
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/emojis_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -319,7 +319,7 @@
                 android:textSize="@dimen/normal_text_size"
                 android:visibility="gone" />
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/clips_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
