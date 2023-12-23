@@ -2,7 +2,7 @@
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:icon="@mipmap/ic_launcher"
-    android:settingsActivity="com.simplemobiletools.keyboard.activities.SettingsActivity"
+    android:settingsActivity="org.fossify.keyboard.activities.SettingsActivity"
     android:supportsInlineSuggestions="true"
     tools:targetApi="r">
 

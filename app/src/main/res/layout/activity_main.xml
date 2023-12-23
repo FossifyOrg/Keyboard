@@ -47,7 +47,7 @@
                 android:layout_below="@+id/change_keyboard_holder"
                 android:orientation="vertical">
 
-                <com.simplemobiletools.commons.views.MyEditText
+                <org.fossify.commons.views.MyEditText
                     android:id="@+id/text_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                     android:layout_marginBottom="@dimen/activity_margin"
                     android:inputType="textCapSentences" />
 
-                <com.simplemobiletools.commons.views.MyEditText
+                <org.fossify.commons.views.MyEditText
                     android:id="@+id/text_editphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:layout_marginBottom="@dimen/activity_margin"
                     android:inputType="phone" />
 
-                <com.simplemobiletools.commons.views.MyEditText
+                <org.fossify.commons.views.MyEditText
                     android:id="@+id/text_editemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                     android:layout_marginBottom="@dimen/activity_margin"
                     android:inputType="textEmailAddress" />
 
-                <com.simplemobiletools.commons.views.MyEditText
+                <org.fossify.commons.views.MyEditText
                     android:id="@+id/text_editpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
