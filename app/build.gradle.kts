@@ -97,7 +97,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.simple.tools.commons)
+    implementation(libs.fossify.commons)
     implementation(libs.androidx.emoji2.bundled)
     implementation(libs.androidx.autofill)
 
