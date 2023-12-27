@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Keyboard</string>
     <string name="app_launcher_name">Bàn phím</string>
-    <string name="redirection_note">Vui lòng bật Bàn phím đơn giản trên màn hình tiếp theo để biến nó thành bàn phím khả dụng. Nhấn \'Quay lại\' sau khi được bật.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Thay đổi bàn phím</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Quản lý các mục trong khay nhớ tạm</string>

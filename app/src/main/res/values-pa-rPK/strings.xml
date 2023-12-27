@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">سادہ کیبورڈ</string>
     <string name="app_launcher_name">کیبورڈ</string>
-    <string name="redirection_note">اگلی سکرین تے سادہ کیبورڈ چالو کریو۔ چالو فیر، ”پچھے“ چݨو۔</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">کیبورڈ بدلو</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">کاپی پیٹ چیزاں دیاں سیٹنگاں</string>

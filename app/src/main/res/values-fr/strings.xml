@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Clavier simple</string>
     <string name="app_launcher_name">Clavier</string>
-    <string name="redirection_note">Veuillez activer Clavier simple sur l\'écran suivant, pour en faire un clavier disponible. Appuyez sur « Retour » une fois activé.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Changer de clavier</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Gérer les éléments du presse-papiers</string>

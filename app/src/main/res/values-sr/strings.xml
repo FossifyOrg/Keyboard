@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Једноставна тастатура</string>
     <string name="app_launcher_name">Тастатура</string>
-    <string name="redirection_note">Омогућите Једноставну тастатуру на следећем екрану да бисте је учинили доступном тастатуром. Притисните \'Назад\' када је омогућено.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Промените тастатуру</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Управљајте ставкама међумеморије</string>

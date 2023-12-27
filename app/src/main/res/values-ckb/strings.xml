@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">تەختەکلیلی سادە</string>
     <string name="app_launcher_name">تەختەکلیل</string>
-    <string name="redirection_note">تەختەکلیلی سادە چالاک بکە و لە شاشەی دواتر بیکە بە سەرەکی بۆ بەکارهێنان، پاشان پەنجەبنێ بە دوگمەی گەڕانەوە \'Back\' دا.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">گۆڕینی تەختەکلیل</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">ڕێکخستنی لەبەرگیراوەکان</string>

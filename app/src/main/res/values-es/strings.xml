@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Teclado sencillo</string>
     <string name="app_launcher_name">Teclado</string>
-    <string name="redirection_note">Por favor, active el Teclado Simple en la siguiente pantalla, para que sea su teclado. Pulse \"Atrás\" una vez habilitado.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Cambio de teclado</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestionar los elementos del portapapeles</string>

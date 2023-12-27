@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eenvoudig Toetsenbord</string>
     <string name="app_launcher_name">Toetsenbord</string>
-    <string name="redirection_note">Schakel Eenvoudig Toetsenbord in bij het hierop volgende scherm om het beschikbaar te maken als toetsenbord. Druk daarna eenmaal op de Terug-knop.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Toetsenbord veranderen</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Klemborditems beheren</string>

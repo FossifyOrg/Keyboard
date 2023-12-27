@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jednostavna tipkovnica</string>
     <string name="app_launcher_name">Tipkovnica</string>
-    <string name="redirection_note">Aktiviraj jednostavnu tipkovnicu na sljedećem ekranu kako bi tipkovnica bila dostupna. Nakon što je aktivirana pritisni „Natrag”.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Promijeni tipkovnicu</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Upravljaj stavkama međuspremnika</string>

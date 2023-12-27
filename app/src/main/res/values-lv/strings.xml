@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vienkārša tastatūra</string>
     <string name="app_launcher_name">Tastatūra</string>
-    <string name="redirection_note">Lūdzu, iespējiet Vienkāršu tastatūru nākamajā ekrānā. Spiediet \'Atpakaļ\' pēc pabeigšanas.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Mainīt tastatūru</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Vadīt starpliktuves datus</string>

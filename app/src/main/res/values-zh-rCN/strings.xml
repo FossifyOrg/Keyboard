@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">简单键盘</string>
     <string name="app_launcher_name">键盘</string>
-    <string name="redirection_note">要让简单键盘成为可用的键盘，请在下个屏幕启用它。一旦启用，按“返回”。</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">更改键盘</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">管理剪贴板项目</string>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Простая клавиатура</string>
     <string name="app_launcher_name">Клавиатура</string>
-    <string name="redirection_note">Активируйте Simple Keyboard на следующем экране, затем нажмите \"назад\".</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Сменить клавиатуру</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Управлять данными из буфера обмена</string>

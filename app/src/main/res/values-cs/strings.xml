@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jednoduchá klávesnice</string>
     <string name="app_launcher_name">Klávesnice</string>
-    <string name="redirection_note">Prosím, povolte na následující obrazovce Jednoduchou klávesnici, aby byla dostupná jako klávesnice. Jakmile bude povolená, stiskněte „Zpět“.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Změnit klávesnici</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Spravovat položky schránky</string>
