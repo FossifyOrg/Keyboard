@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Prosta klawiatura</string>
     <string name="app_launcher_name">Klawiatura</string>
-    <string name="redirection_note">Włącz Prostą klawiaturę na następnym ekranie, aby stała się dostępną klawiaturą. Naciśnij przycisk Wstecz po włączeniu.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Zmień klawiaturę</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Zarządzaj elementami schowka</string>

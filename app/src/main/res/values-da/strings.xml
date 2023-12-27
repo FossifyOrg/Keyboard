@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simpelt tastatur</string>
     <string name="app_launcher_name">Tastatur</string>
-    <string name="redirection_note">Aktivér Simpelt tastatur på det næste skærmbillede for at gøre det til et tilgængeligt tastatur. Tryk på \'Tilbage\' når det er aktiveret.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Skift tastatur</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Administrér elementer i Udklipsholder</string>

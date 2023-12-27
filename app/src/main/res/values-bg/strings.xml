@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Обикновена Клавиатура</string>
     <string name="app_launcher_name">Клавиатура</string>
-    <string name="redirection_note">Моля, активирайте Обикновена Клавиатура на следващия екран, за да я направите налична. Натиснете \'Назад\' щом сте готови.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Промяна на клавиатура</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Управление на клипборд елементи</string>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Yksinkertainen näppäimistö</string>
     <string name="app_launcher_name">Näppäimistö</string>
-    <string name="redirection_note">Ota Simple Keyboard käyttöön seuraavasta ruudusta lisätäksesi sen käytettävissä oleviin näppäimistöihin. Paina käyttöönoton jälkeen \'Takaisin\'.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Vaihda näppäimistö</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Hallitse leikepöydän kohteita</string>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Schlichte Tastatur</string>
     <string name="app_launcher_name">Tastatur</string>
-    <string name="redirection_note">Bitte aktivieren Sie Schlichte Tastatur auf dem nächsten Bildschirm, damit sie als Tastatur verfügbar ist. Drücken Sie nach der Aktivierung „Zurück“.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Tastatur wechseln</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Elemente der Zwischenablage verwalten</string>

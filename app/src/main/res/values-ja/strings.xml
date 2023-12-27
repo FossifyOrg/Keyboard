@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">シンプル キーボード</string>
     <string name="app_launcher_name">キーボード</string>
-    <string name="redirection_note">次の画面でシンプルキーボードを有効にして、使用可能にしてください。有効になったら「戻る」を押してください。</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">キーボードを変更</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">クリップボードアイテムの管理</string>

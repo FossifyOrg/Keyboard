@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">מקלדת פשוטה</string>
     <string name="app_launcher_name">מקלדת</string>
-    <string name="redirection_note">אנא הפעל את מקלדת פשוטה במסך הבא, כדי להפוך אותה למקלדת זמינה. לחץ על \'הקודם\' לאחר הפעלתו.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">שנה מקלדת</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">נהל פריטי לוח</string>

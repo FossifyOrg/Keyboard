@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lihtne klahvistik</string>
     <string name="app_launcher_name">Klahvistik</string>
-    <string name="redirection_note">Et saaksid Lihtsat klaviatuuri kasutada, siis palun võta ta järgmises vaates kasutusele. Peale seda vajuta „Tagasi“ nuppu.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Muuda klaviatuuri</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Halda kirjeid lõikelaual</string>

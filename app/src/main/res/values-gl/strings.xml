@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Teclado sinxelo</string>
     <string name="app_launcher_name">Teclado</string>
-    <string name="redirection_note">Activa o teclado sinxelo na seguinte pantalla pra ser o teclado dispoñible. Preme \"Atrás\" despois de activado.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Cambialo teclado</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Xestionar elementos do portapapeis</string>

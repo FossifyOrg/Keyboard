@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Keyboard</string>
     <string name="app_launcher_name">Teclado</string>
-    <string name="redirection_note">Ative Simple Keyboard no próximo ecrã para o tornar disponível. Depois prima \'Back\'.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Trocar de teclado</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Gerir itens da area de transferência</string>

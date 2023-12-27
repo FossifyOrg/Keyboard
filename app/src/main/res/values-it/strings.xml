@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tastiera Semplice</string>
     <string name="app_launcher_name">Tastiera</string>
-    <string name="redirection_note">Abilita Simple Keyboard nella prossima schermata, per renderla una tastiera disponibile. Premi «Indietro» una volta abilitata.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Cambia la tastiera</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestisci gli elementi degli appunti</string>

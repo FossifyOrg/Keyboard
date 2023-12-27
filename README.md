@@ -1,4 +1,4 @@
-# Simple Keyboard
+# Fossify Keyboard
 <img alt="Logo" src="graphics/icon.webp" width="120" />
 
 A lightweight keyboard app that helps chatting with your friends, or inserting any other texts, numbers or symbols. You can choose from multiple different languages and layouts.

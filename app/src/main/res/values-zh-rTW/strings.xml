@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">簡易鍵盤</string>
     <string name="app_launcher_name">鍵盤</string>
-    <string name="redirection_note">請在下個畫面啟用簡易鍵盤，這樣才能使用此鍵盤。啟用後請按返回鍵。</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">變更鍵盤</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">管理剪貼簿項目</string>

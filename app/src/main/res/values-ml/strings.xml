@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ലളിതമായ കീബോർഡ്</string>
     <string name="app_launcher_name">കീബോർഡ്</string>
-    <string name="redirection_note">ലഭ്യമായ കീബോർഡ് ആക്കുന്നതിന്, അടുത്ത സ്ക്രീനിൽ ലളിതമായ കീബോർഡ് പ്രവർത്തനക്ഷമമാക്കുക. പ്രവർത്തനക്ഷമമാക്കിയാൽ \'ബാക്ക്\' അമർത്തുക.</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">കീബോർഡ് മാറ്റുക</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">ക്ലിപ്പ്ബോർഡ് ഇനങ്ങൾ നിയന്ത്രിക്കുക</string>

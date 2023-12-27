@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ਸਿੰਪਲ ਕੀਬੋਰਡ</string>
     <string name="app_launcher_name">ਕੀਬੋਰਡ</string>
-    <string name="redirection_note">ਇਸ ਨੂੰ ਇੱਕ ਉਪਲਬਧ ਕੀ-ਬੋਰਡ ਬਣਾਉਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਅਗਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਸਿੰਪਲ ਕੀ-ਬੋਰਡ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਸਮਰੱਥ ਕੀਤੇ ਜਾਣ ਤੋਂ ਬਾਅਦ \'ਪਿੱਛੇ\' ਨੂੰ ਦਬਾਓ।</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">ਕੀਬੋਰਡ ਬਦਲੋ</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">ਕਲਿੱਪਬੋਰਡ ਆਈਟਮਾਂ ਦਾ ਪ੍ਰਬੰਧ</string>

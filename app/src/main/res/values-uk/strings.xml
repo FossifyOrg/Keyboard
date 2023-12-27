@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Проста Клавіатура</string>
     <string name="app_launcher_name">Клавіатура</string>
-    <string name="redirection_note">Будь ласка, увімкніть Просту Клавіатуру на наступному екрані, щоб зробити її доступною. Після ввімкнення натисніть «Назад».</string>
+    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Змінити клавіатуру</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Керувати елементами буфера обміну</string>
