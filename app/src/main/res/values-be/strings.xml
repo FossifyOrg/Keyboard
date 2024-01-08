@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Клавіятура</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Змяніць клавіятуру</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Кіраванне элементамі буфера абмену</string>
     <string name="manage_clipboard_empty">Ваш буфер абмену пусты.</string>
     <string name="manage_clipboard_label">Калі вы скапіруеце тэкст, ён з\'явіцца тут. Вы таксама можаце замацаваць кліпы, каб яны не зніклі пазней.</string>
@@ -20,13 +18,10 @@
     <string name="text_pinned">Тэкст замацаваны</string>
     <string name="export_clipboard_items">Экспарт элементаў буфера абмену</string>
     <string name="import_clipboard_items">Імпартаваць элементы буфера абмену</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Выдаліць</string>
     <string name="keycode_mode_change">Змяніць тып клавіятуры</string>
     <string name="keycode_shift">Зрух</string>
     <string name="keycode_enter">Увайдзіце</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Паказаць змесціва буфера абмену, калі яно даступна</string>
     <string name="show_popup">Паказваць усплывальнае акно пры націску клавішы</string>
     <string name="vibrate_on_keypress">Вібрацыя пры націсканні клавіш</string>
@@ -34,11 +29,5 @@
     <string name="keyboard_height">Вышыня клавіятуры</string>
     <string name="show_key_borders">Паказаць контуры клавіш</string>
     <string name="show_numbers_row">Паказаць лічбы ў асобным радку</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">Эмодзі</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

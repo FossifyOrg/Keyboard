@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Клавиатура</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Промяна на клавиатура</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Управление на клипборд елементи</string>
     <string name="manage_clipboard_empty">Вашият клипборд е празен.</string>
     <string name="manage_clipboard_label">След като копирате някакъв текст, той ще се появи тук. Можете също да закачите клипове, за да не изчезнат по-късно.</string>
@@ -20,25 +18,12 @@
     <string name="text_pinned">Текстът е закачен</string>
     <string name="export_clipboard_items">Експортиране на елементи от клипборда</string>
     <string name="import_clipboard_items">Импортиране на елементи от клипборда</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Изтрий</string>
     <string name="keycode_mode_change">Промяна на типа клавиатура</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Показване на клипборд съдържанието, ако е налично</string>
     <string name="show_popup">Показване на изскачащ прозорец при натискане на клавиш</string>
     <string name="vibrate_on_keypress">Вибриране при натискане на клавиш</string>
     <string name="keyboard_language">Език на клавиатурата</string>
     <string name="keyboard_height">Височина на клавиатурата</string>
-    <string name="show_key_borders">Show key borders</string>
-    <string name="show_numbers_row">Show numbers on a separate row</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">Емоджита</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

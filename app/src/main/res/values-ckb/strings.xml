@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">تەختەکلیل</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">گۆڕینی تەختەکلیل</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">ڕێکخستنی لەبەرگیراوەکان</string>
     <string name="manage_clipboard_empty">بەشی لەبەرگیراوەکان بەتاڵە.</string>
     <string name="manage_clipboard_label">هەرکاتێ نووسینێکت کۆپی کرد بە خۆکاری لێرەدا دەرەکەون، بۆ هێشتنەوە لەبەرگیراوەکان پێویستە جێگیریان بکەیت.</string>
@@ -20,13 +18,11 @@
     <string name="text_pinned">نووسینەکە جێگیرکرا</string>
     <string name="export_clipboard_items">هەڵگرتنی لەبەرگیراوەکان</string>
     <string name="import_clipboard_items">هێنانی لەبەرگیراوە</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">سڕینەوە</string>
     <string name="keycode_mode_change">گۆڕینی شێواز</string>
     <string name="keycode_shift">شێفت</string>
     <string name="keycode_enter">ئینتەر</string>
     <string name="keycode_space">بۆشایی</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">پیشاندانی دوایین لەبەرگیراوە</string>
     <string name="show_popup">بچووککراوەی پیت</string>
     <string name="vibrate_on_keypress">لەرزین لەکاتی نووسین</string>
@@ -35,6 +31,5 @@
     <string name="show_key_borders">لێواری دوگمەکان</string>
     <string name="show_numbers_row">پیشاندانی لیستی ژمارەکان بەجیا</string>
     <string name="start_sentences_capitalized">گەورەکردنی یەکەم پیتی لاتینی</string>
-    <!-- Emojis -->
     <string name="emojis">خەندەکان</string>
 </resources>

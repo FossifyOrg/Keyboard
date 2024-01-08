@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">キーボード</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">キーボードを変更</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">クリップボードアイテムの管理</string>
     <string name="manage_clipboard_empty">クリップボードが空です。</string>
     <string name="manage_clipboard_label">テキストをコピーすると、ここに表示されます。また、後で消えないように、クリップをピン留めしておけます。</string>
@@ -20,13 +18,10 @@
     <string name="text_pinned">テキストがピン留めされました</string>
     <string name="export_clipboard_items">クリップボードアイテムをエクスポート</string>
     <string name="import_clipboard_items">クリップボードアイテムをインポート</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">削除</string>
     <string name="keycode_mode_change">キーボードの種類を変更する</string>
     <string name="keycode_shift">シフト</string>
     <string name="keycode_enter">エンター</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">クリップボードの内容がある場合、それを表示する</string>
     <string name="show_popup">キー入力時にポップアップを表示する</string>
     <string name="vibrate_on_keypress">キー入力時にバイブする</string>
@@ -34,11 +29,5 @@
     <string name="keyboard_height">キーボードの高さ</string>
     <string name="show_key_borders">キー枠を表示する</string>
     <string name="show_numbers_row">数字を別の行に表示する</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">絵文字</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

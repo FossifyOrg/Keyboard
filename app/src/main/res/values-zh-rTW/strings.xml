@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">鍵盤</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">變更鍵盤</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">管理剪貼簿項目</string>
     <string name="manage_clipboard_empty">您的剪貼簿空空的。</string>
     <string name="manage_clipboard_label">當您複製了文字之後，它們就會出現在這裡。也可以釘選起來，讓它們之後不會消失。</string>
@@ -14,32 +12,14 @@
     <string name="clipboard_current">目前</string>
     <string name="clipboard_pinned">釘選</string>
     <string name="add_new_item">新增項目</string>
-    <string name="manage_clips">You can manage or add clips here for quick access.</string>
-    <string name="clip_text">Clip text</string>
     <string name="pin_text">釘選文字</string>
     <string name="text_pinned">已釘選文字</string>
-    <!-- Accessibility -->
     <string name="export_clipboard_items">匯出剪貼簿項目</string>
     <string name="import_clipboard_items">匯入剪貼簿項目</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">刪除</string>
     <string name="keycode_mode_change">變更鍵盤類型</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">可以的話顯示剪貼簿內容</string>
     <string name="show_popup">按下按鍵時顯示彈出效果</string>
     <string name="vibrate_on_keypress">按下按鍵時震動</string>
     <string name="keyboard_language">鍵盤語言</string>
-    <string name="keyboard_height">Keyboard height</string>
-    <string name="show_key_borders">Show key borders</string>
-    <string name="show_numbers_row">Show numbers on a separate row</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

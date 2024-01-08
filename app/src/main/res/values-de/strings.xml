@@ -3,7 +3,6 @@
     <string name="app_launcher_name">Tastatur</string>
     <string name="redirection_note">Bitte aktiviere Fossify Tastatur auf dem nächsten Bildschirm, damit sie als Tastatur verfügbar ist. Drücke nach der Aktivierung „Zurück“.</string>
     <string name="change_keyboard">Tastatur wechseln</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Elemente der Zwischenablage verwalten</string>
     <string name="manage_clipboard_empty">Ihre Zwischenablage ist leer.</string>
     <string name="manage_clipboard_label">Sobald du einen Text kopierst, wird er hier angezeigt. Du kannst auch Clips anheften, damit sie später nicht verschwinden.</string>
@@ -20,13 +19,11 @@
     <string name="text_pinned">Der Text wurde angeheftet</string>
     <string name="export_clipboard_items">Elemente der Zwischenablage exportieren</string>
     <string name="import_clipboard_items">Elemente der Zwischenablage importieren</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Entfernen</string>
     <string name="keycode_mode_change">Tastaturtyp ändern</string>
     <string name="keycode_shift">Umschalttaste</string>
     <string name="keycode_enter">Eingabe</string>
     <string name="keycode_space">Leertaste</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Inhalt der Zwischenablage anzeigen, falls vorhanden</string>
     <string name="show_popup">Bei Tastendruck ein Popup anzeigen</string>
     <string name="vibrate_on_keypress">Bei Tastendruck vibrieren</string>
@@ -35,10 +32,4 @@
     <string name="show_key_borders">Tastenränder anzeigen</string>
     <string name="show_numbers_row">Zahlen in einer separaten Zeile anzeigen</string>
     <string name="start_sentences_capitalized">Sätze mit einem Großbuchstaben beginnen</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

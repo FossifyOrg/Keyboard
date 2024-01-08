@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Клавіатура</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Змінити клавіатуру</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Керувати елементами буфера обміну</string>
     <string name="manage_clipboard_empty">Ваш буфер обміну порожній.</string>
     <string name="manage_clipboard_label">Як тільки ви скопіюєте текст, він з\'явиться тут. Ви також можете закріпити буфер, щоб він пізніше не зник.</string>
@@ -20,13 +18,9 @@
     <string name="text_pinned">Текст закріплено</string>
     <string name="export_clipboard_items">Експорт елементів буфера обміну</string>
     <string name="import_clipboard_items">Імпорт елементів буфера обміну</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Видалити</string>
     <string name="keycode_mode_change">Змінити тип клавіатури</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Пробіл</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Показувати вміст буфера обміну, якщо він є</string>
     <string name="show_popup">Показувати popup при натисканні</string>
     <string name="vibrate_on_keypress">Вібрувати при натисканні</string>
@@ -35,10 +29,5 @@
     <string name="show_key_borders">Показати рамки клавіш</string>
     <string name="show_numbers_row">Відображення чисел в окремому рядку</string>
     <string name="start_sentences_capitalized">Починати речення з великої літери</string>
-    <!-- Emojis -->
     <string name="emojis">Емодзі</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>
