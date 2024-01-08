@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tastatūra</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Mainīt tastatūru</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Vadīt starpliktuves datus</string>
     <string name="manage_clipboard_empty">Jūsu starpliktuve ir tukša.</string>
     <string name="manage_clipboard_label">Šeit parādīsies teksts pēc tam, kad jūs to nokopēsiet. Jūs arī varat piespraust datus, lai nepazaudētu tos.</string>
@@ -21,13 +19,9 @@
     <string name="text_pinned">Teksts tika piesprausts</string>
     <string name="export_clipboard_items">Eksportēt starpliktuves datus</string>
     <string name="import_clipboard_items">Importēt starpliktuves datus</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Izdzēst</string>
     <string name="keycode_mode_change">Mainīt tastatūras tipu</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Atstarpe</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Pēc iespējas rādīt starpliktuves saturu</string>
     <string name="show_popup">Ievades procesā rādīt burtus uznirstošajā lodziņā</string>
     <string name="vibrate_on_keypress">Vibrēt pēc ievades</string>
@@ -36,10 +30,5 @@
     <string name="show_key_borders">Rādīt taustiņu robežas</string>
     <string name="show_numbers_row">Rādīt ciparus atsevišķā rindā</string>
     <string name="start_sentences_capitalized">Sākt teikumus ar lielo burtu</string>
-    <!-- Emojis -->
     <string name="emojis">Emocijzīmes</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

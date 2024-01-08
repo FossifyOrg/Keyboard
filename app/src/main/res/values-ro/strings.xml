@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tastatură</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Schimbați tastatura</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestionați elementele din clipboard</string>
     <string name="manage_clipboard_empty">Clipboard-ul dvs. este gol.</string>
     <string name="manage_clipboard_label">Odată ce ați copiat un text, acesta va apărea aici. De asemenea, puteți fixa clipuri pentru ca acestea să nu dispară mai târziu.</string>
     <string name="clear_clipboard_data">Ștergeți datele din clipboard</string>
     <string name="clear_clipboard_data_confirmation">Sunteți sigur că doriți să ștergeți datele din clipboard\?</string>
-    <string name="clipboard">Clipboard</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Curent</string>
     <string name="clipboard_pinned">Fixat</string>
     <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
@@ -21,25 +17,12 @@
     <string name="text_pinned">Textul a fost fixat</string>
     <string name="export_clipboard_items">Exportați elementele din clipboard</string>
     <string name="import_clipboard_items">Importați elemente în clipboard</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Ștergeți</string>
     <string name="keycode_mode_change">Schimbați tipul de tastatură</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Afișează conținutul clipboard-ului, dacă este disponibil</string>
     <string name="show_popup">Afișați o fereastră pop-up la apăsarea unei taste</string>
     <string name="vibrate_on_keypress">Vibrează la apăsarea tastelor</string>
     <string name="keyboard_language">Limba tastaturii</string>
     <string name="keyboard_height">Înălțime tastatură</string>
-    <string name="show_key_borders">Show key borders</string>
-    <string name="show_numbers_row">Show numbers on a separate row</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">Emoticoane</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

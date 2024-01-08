@@ -3,7 +3,6 @@
     <string name="app_launcher_name">Klawiatura</string>
     <string name="redirection_note">Włącz Fossify Keyboard na następnym ekranie, aby stała się dostępną klawiaturą. Naciśnij przycisk Wstecz po włączeniu.</string>
     <string name="change_keyboard">Zmień klawiaturę</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Zarządzaj elementami schowka</string>
     <string name="manage_clipboard_empty">Twój schowek jest pusty.</string>
     <string name="manage_clipboard_label">Gdy skopiujesz jakiś tekst, pojawi się on tutaj. Możesz także przypinać wpisy, aby później nie zniknęły.</string>
@@ -21,13 +20,9 @@
     <string name="text_pinned">Tekst został przypięty</string>
     <string name="export_clipboard_items">Eksportuj elementy schowka</string>
     <string name="import_clipboard_items">Importuj elementy schowka</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Usuń</string>
     <string name="keycode_mode_change">Zmień typ klawiatury</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Spacja</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Pokazuj zawartość schowka, jeśli jest dostępna</string>
     <string name="show_popup">Pokazuj wyskakujące okienko przy naciśnięciu klawisza</string>
     <string name="vibrate_on_keypress">Wibracja przy naciśnięciu klawisza</string>
@@ -36,10 +31,5 @@
     <string name="show_key_borders">Pokazuj obramowania klawiszy</string>
     <string name="show_numbers_row">Pokazuj cyfry w osobnym wierszu</string>
     <string name="start_sentences_capitalized">Zaczynaj zdania wielką literą</string>
-    <!-- Emojis -->
     <string name="emojis">Emoji</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

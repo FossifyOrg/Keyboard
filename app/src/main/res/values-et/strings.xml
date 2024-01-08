@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Klahvistik</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Muuda klaviatuuri</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Halda kirjeid lõikelaual</string>
     <string name="manage_clipboard_empty">Lõikelaud on tühi.</string>
     <string name="manage_clipboard_label">Kui sa mingi teksti oled kopeerinud, siis on ta siin nähtav. Et kirjed hiljem ei kaoks, siis võid neid ka klammerdada.</string>
@@ -21,13 +19,10 @@
     <string name="text_pinned">Tekst on klammerdatud</string>
     <string name="export_clipboard_items">Ekspordi lõikelaua kirjed</string>
     <string name="import_clipboard_items">Impordi lõikelaua kirjed</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Kustuta</string>
     <string name="keycode_mode_change">Muuda klaviatuuri tüüpi</string>
-    <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Sisestusklahv</string>
     <string name="keycode_space">Tühikuklahv</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Näita lõikelaua kirjeid</string>
     <string name="show_popup">Klahvivajutusel näita hüpikakent</string>
     <string name="vibrate_on_keypress">Klahvivajutusel kasuta värinat</string>
@@ -36,10 +31,5 @@
     <string name="show_key_borders">Näita klahvide ääriseid</string>
     <string name="show_numbers_row">Näita numbreid eraldi real</string>
     <string name="start_sentences_capitalized">Alusta lauseid suurtähega</string>
-    <!-- Emojis -->
     <string name="emojis">Emojid</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Toetsenbord</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Toetsenbord veranderen</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Klemborditems beheren</string>
     <string name="manage_clipboard_empty">Het klembord is leeg.</string>
     <string name="manage_clipboard_label">Bij het kopiëren van tekst zal die hier als clip verschijnen. Clips kunnen ook worden vastgezet, zodat ze later niet zullen verdwijnen.</string>
     <string name="clear_clipboard_data">Klembord wissen</string>
     <string name="clear_clipboard_data_confirmation">Klembordgegevens verwijderen\?</string>
     <string name="clipboard">Klembord</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Huidig</string>
     <string name="clipboard_pinned">Vastgezet</string>
     <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
@@ -21,13 +18,9 @@
     <string name="text_pinned">Tekst is vastgezet</string>
     <string name="export_clipboard_items">Klemborditems exporteren</string>
     <string name="import_clipboard_items">Klemborditems importeren</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Verwijderen</string>
     <string name="keycode_mode_change">Type toetsenbord veranderen</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Spatiebalk</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Klembordinhoud tonen indien beschikbaar</string>
     <string name="show_popup">Pop-up tonen bij toetsaanslagen</string>
     <string name="vibrate_on_keypress">Trillen bij toetsaanslagen</string>
@@ -36,10 +29,5 @@
     <string name="show_key_borders">Toetsen omranden</string>
     <string name="show_numbers_row">Cijfers op een aparte rij</string>
     <string name="start_sentences_capitalized">Zinnen met een hoofdletter beginnen</string>
-    <!-- Emojis -->
     <string name="emojis">Emoji\'s</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

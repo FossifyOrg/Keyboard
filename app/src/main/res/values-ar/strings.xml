@@ -1,33 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Keyboard</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">تغيير لوحة المفاتيح</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">إدارة عناصر الحافظة</string>
     <string name="manage_clipboard_empty">سجل الحافظة فارغ.</string>
     <string name="manage_clipboard_label">بمجرد نسخ بعض النص ، سيظهر هنا. يمكنك أيضًا تثبيت المقاطع حتى لا تختفي لاحقًا.</string>
     <string name="clear_clipboard_data">مسح بيانات الحافظة</string>
     <string name="clear_clipboard_data_confirmation">هل أنت متأكد أنك تريد مسح بيانات الحافظة؟</string>
-    <string name="clipboard">Clipboard</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">حالي</string>
     <string name="clipboard_pinned">المثبته</string>
     <string name="selected_keyboard_languages">لغات لوحة المفاتيح المحددة</string>
     <string name="add_new_item">أضف عنصرًا جديدًا</string>
     <string name="manage_clips">يمكنك إدارة أو إضافة مقاطع هنا للوصول السريع.</string>
     <string name="clip_text">نص القصاصة</string>
-    <string name="pin_text">Pin text</string>
     <string name="text_pinned">تم تثبيت النص</string>
-    <string name="export_clipboard_items">Export clipboard items</string>
-    <string name="import_clipboard_items">Import clipboard items</string>
-    <!-- Accessibility -->
-    <string name="keycode_delete">Delete</string>
     <string name="keycode_mode_change">تغيير نوع لوحة المفاتيح</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">شريط المسافة</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">إظهار محتوى الحافظة إذا كان متوفرا</string>
     <string name="show_popup">إظهار نافذة منبثقة عند الضغط على المفاتيح</string>
     <string name="vibrate_on_keypress">يهتز عند ضغط الزر</string>
@@ -36,10 +23,5 @@
     <string name="show_key_borders">إظهار حدود المفاتيح</string>
     <string name="show_numbers_row">إظهار الأرقام في صف منفصل</string>
     <string name="start_sentences_capitalized">بدء الجمل بحرف كبير</string>
-    <!-- Emojis -->
     <string name="emojis">الرموز التعبيرية</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

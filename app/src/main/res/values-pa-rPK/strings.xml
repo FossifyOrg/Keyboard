@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">کیبورڈ</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">کیبورڈ بدلو</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">کاپی پیٹ چیزاں دیاں سیٹنگاں</string>
     <string name="manage_clipboard_empty">کوئی کاپی نہیں اے۔</string>
     <string name="manage_clipboard_label">جدوں کجھ لکھت کاپی کرن، اِتھے ویکھو۔ اِتھے تسی لکھت لگ وی سکدے او تاں جو اوہ بعد وچ غائب نا ہوݨ۔</string>
@@ -21,13 +19,8 @@
     <string name="text_pinned">لکھت لگی گئی</string>
     <string name="export_clipboard_items">کاپی کیتیاں چیزاں ایکسپورٹ کرو</string>
     <string name="import_clipboard_items">پیسٹ کرن لئی چیزاں ایمپورٹ کرو</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">مٹاؤ</string>
     <string name="keycode_mode_change">کیبورڈ دی قسم بدلو</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">جے اُپلبدھ ہووے تاں کاپی کیتی لکھت ویکھو</string>
     <string name="show_popup">جدوں کنجی دباؤݨ کنجی تے وڈا اکھر ویکھو</string>
     <string name="vibrate_on_keypress">جدوں کنجی دباؤݨ فون چلاؤ</string>
@@ -35,7 +28,5 @@
     <string name="keyboard_height">کیبورڈ دی اُچائی</string>
     <string name="show_key_borders">کنجیاں دے حد ویکھو</string>
     <string name="show_numbers_row">وکھری قطار وچ نمبر ویکھو</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">ایموجیاں</string>
 </resources>

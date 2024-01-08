@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">കീബോർഡ്</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">കീബോർഡ് മാറ്റുക</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">ക്ലിപ്പ്ബോർഡ് ഇനങ്ങൾ നിയന്ത്രിക്കുക</string>
     <string name="manage_clipboard_empty">നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡ് ശൂന്യമാണ്.</string>
     <string name="manage_clipboard_label">നിങ്ങൾ കുറച്ച് വാചകം പകർത്തിക്കഴിഞ്ഞാൽ, അത് ഇവിടെ കാണിക്കും. നിങ്ങൾക്ക് ക്ലിപ്പുകൾ പിൻ ചെയ്യാനും കഴിയും, അതിനാൽ അവ പിന്നീട് അപ്രത്യക്ഷമാകില്ല.</string>
@@ -21,13 +19,10 @@
     <string name="text_pinned">വാചകം പിൻ ചെയ്‌തു</string>
     <string name="export_clipboard_items">ക്ലിപ്പ്ബോർഡ് ഇനങ്ങൾ കയറ്റുമതി ചെയ്യുക</string>
     <string name="import_clipboard_items">ക്ലിപ്പ്ബോർഡ് ഇനങ്ങൾ ഇറക്കുമതി ചെയ്യുക</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">ഇല്ലാതാക്കുക</string>
     <string name="keycode_mode_change">കീബോർഡ് തരം മാറ്റുക</string>
     <string name="keycode_shift">ഷിഫ്റ്റ്</string>
     <string name="keycode_enter">നൽകുക</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">ക്ലിപ്പ്ബോർഡ് ഉള്ളടക്കം ലഭ്യമാണെങ്കിൽ കാണിക്കുക</string>
     <string name="show_popup">കീപ്രസ്സിൽ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക</string>
     <string name="vibrate_on_keypress">കീ അമർത്തുമ്പോൾ വൈബ്രേറ്റ് ചെയ്യുക</string>
@@ -35,7 +30,5 @@
     <string name="keyboard_height">കീബോർഡ് ഉയരം</string>
     <string name="show_key_borders">പ്രധാന അതിരുകൾ കാണിക്കുക</string>
     <string name="show_numbers_row">ഒരു പ്രത്യേക വരിയിൽ സംഖ്യകൾ കാണിക്കുക</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">ഇമോജികൾ</string>
 </resources>

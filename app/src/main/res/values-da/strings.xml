@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tastatur</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Skift tastatur</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Administrér elementer i Udklipsholder</string>
     <string name="manage_clipboard_empty">Din udklipsholder er tom.</string>
     <string name="manage_clipboard_label">Når du har kopieret noget tekst, vil det dukke op her. Du kan også fastgøre klip, så de ikke forsvinder senere.</string>
     <string name="clear_clipboard_data">Ryd data i udklipsholder</string>
     <string name="clear_clipboard_data_confirmation">Er du sikker på, at du vil slette data i udklipsholderen\?</string>
-    <string name="clipboard">Clipboard</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Nuværende</string>
     <string name="clipboard_pinned">Fastgjort</string>
     <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Tilføj nyt element</string>
     <string name="manage_clips">Du kan administrere eller tilføje klip her for hurtig adgang.</string>
     <string name="clip_text">Udklip tekst</string>
-    <string name="pin_text">Pin text</string>
     <string name="text_pinned">Tekst er blevet fastgjort</string>
-    <string name="export_clipboard_items">Export clipboard items</string>
-    <string name="import_clipboard_items">Import clipboard items</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Slet</string>
     <string name="keycode_mode_change">Skift tastaturtype</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Vis indhold i udklipsholder, hvis det er tilgængeligt</string>
     <string name="show_popup">Vis en popup ved tastetryk</string>
     <string name="vibrate_on_keypress">Vibrér ved tastetryk</string>
     <string name="keyboard_language">Tastatursprog</string>
-    <string name="keyboard_height">Keyboard height</string>
-    <string name="show_key_borders">Show key borders</string>
-    <string name="show_numbers_row">Show numbers on a separate row</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Teclado</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Cambio de teclado</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestionar los elementos del portapapeles</string>
     <string name="manage_clipboard_empty">Su portapapeles está vacío.</string>
     <string name="manage_clipboard_label">Una vez que copies un texto, aparecerá aquí. También puedes anclar clips para que no desaparezcan después.</string>
@@ -21,13 +19,9 @@
     <string name="text_pinned">El texto se ha fijado</string>
     <string name="export_clipboard_items">Exportar elementos del portapapeles</string>
     <string name="import_clipboard_items">Importar elementos al portapapeles</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Eliminar</string>
     <string name="keycode_mode_change">Cambiar el tipo de teclado</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Barra espaciadora</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Mostrar el contenido del portapapeles si está disponible</string>
     <string name="show_popup">Mostrar una ventana emergente al pulsar una tecla</string>
     <string name="vibrate_on_keypress">Vibrar al pulsar una tecla</string>
@@ -36,10 +30,5 @@
     <string name="show_key_borders">Mostrar bordes de las teclas</string>
     <string name="show_numbers_row">Mostrar los números en una fila separada</string>
     <string name="start_sentences_capitalized">Empezar las frases con mayúsculas</string>
-    <!-- Emojis -->
     <string name="emojis">Emoticonos</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

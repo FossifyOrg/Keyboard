@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Тастатура</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Промените тастатуру</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Управљајте ставкама међумеморије</string>
     <string name="manage_clipboard_empty">Ваш међуспремник је празан.</string>
     <string name="manage_clipboard_label">Када копирате неки текст, он ће се појавити овде. Такође можете да закачите клипове како касније не би нестали.</string>
@@ -21,13 +19,10 @@
     <string name="text_pinned">Текст је закачен</string>
     <string name="export_clipboard_items">Извезите ставке међуспремника</string>
     <string name="import_clipboard_items">Увезите ставке међуспремника</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Избриши</string>
     <string name="keycode_mode_change">Промените тип тастатуре</string>
     <string name="keycode_shift">Смена</string>
     <string name="keycode_enter">Унеси</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Прикажи садржај међуспремника ако је доступан</string>
     <string name="show_popup">Прикажи искачући прозор при притиску на тастер</string>
     <string name="vibrate_on_keypress">Вибрација при притиску на тастер</string>
@@ -35,7 +30,5 @@
     <string name="keyboard_height">Висина тастатуре</string>
     <string name="show_key_borders">Прикажи ивице кључева</string>
     <string name="show_numbers_row">Прикажи бројеве у посебном реду</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">Емоји</string>
 </resources>

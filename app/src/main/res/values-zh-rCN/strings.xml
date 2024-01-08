@@ -3,7 +3,6 @@
     <string name="app_launcher_name">键盘</string>
     <string name="redirection_note">要让 Fossify 键盘成为可用的键盘，请在下个屏幕启用它。一旦启用，请按“返回”。</string>
     <string name="change_keyboard">更改键盘</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">管理剪贴板项目</string>
     <string name="manage_clipboard_empty">您的剪贴板是空的。</string>
     <string name="manage_clipboard_label">您复制的文本将显示在此处。 你还可以固定文本片段，这样它们之后不会消失。</string>
@@ -21,13 +20,11 @@
     <string name="text_pinned">文本已固定</string>
     <string name="export_clipboard_items">导出剪贴板项目</string>
     <string name="import_clipboard_items">导入剪贴板项目</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">删除</string>
     <string name="keycode_mode_change">更改键盘类型</string>
     <string name="keycode_shift">上档</string>
     <string name="keycode_enter">输入</string>
     <string name="keycode_space">空格键</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">如可用显示剪贴板内容</string>
     <string name="show_popup">按键时显示弹框</string>
     <string name="vibrate_on_keypress">按键时振动</string>
@@ -36,10 +33,5 @@
     <string name="show_key_borders">显示键符边界</string>
     <string name="show_numbers_row">在单独的行上显示数字</string>
     <string name="start_sentences_capitalized">句子开头使用大写字母</string>
-    <!-- Emojis -->
     <string name="emojis">表情符号</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

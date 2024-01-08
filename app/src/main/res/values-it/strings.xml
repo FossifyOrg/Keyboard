@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tastiera</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Cambia la tastiera</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestisci gli elementi degli appunti</string>
     <string name="manage_clipboard_empty">Gli appunti sono vuoti.</string>
     <string name="manage_clipboard_label">Una volta copiato del testo, verrà mostrato qui. Puoi anche appuntare le clip in modo che non spariscano più tardi.</string>
     <string name="clear_clipboard_data">Elimina i dati degli appunti</string>
     <string name="clear_clipboard_data_confirmation">Vuoi davvero eliminare i dati degli appunti\?</string>
-    <string name="clipboard">Clipboard</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Attuale</string>
     <string name="clipboard_pinned">Appuntato</string>
     <string name="selected_keyboard_languages">Selected Keyboard Languages</string>
     <string name="add_new_item">Aggiungi un nuovo elemento</string>
     <string name="manage_clips">Puoi gestire o aggiungere clip qui per un accesso rapido.</string>
     <string name="clip_text">Ritaglia il testo</string>
-    <string name="pin_text">Pin text</string>
     <string name="text_pinned">Il testo è stato appuntato</string>
     <string name="export_clipboard_items">Esporta gli elementi degli appunti</string>
     <string name="import_clipboard_items">Importa gli elementi degli appunti</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Elimina</string>
     <string name="keycode_mode_change">Cambia il tipo di tastiera</string>
     <string name="keycode_shift">Maiusc</string>
     <string name="keycode_enter">Invio</string>
     <string name="keycode_space">Barra spaziatrice</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Mostra il contenuto degli appunti se disponibile</string>
     <string name="show_popup">Mostra un popup alla pressione di un tasto</string>
     <string name="vibrate_on_keypress">Vibra premendo un tasto</string>
@@ -36,10 +29,5 @@
     <string name="show_key_borders">Mostra i bordi dei tasti</string>
     <string name="show_numbers_row">Mostra i numeri su una riga separata</string>
     <string name="start_sentences_capitalized">Inizia le frasi con la lettera maiuscola</string>
-    <!-- Emojis -->
     <string name="emojis">Emoji</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

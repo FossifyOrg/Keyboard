@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Keyboard</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Billentyűzet módosítása</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Vágólap elemek kezelése</string>
     <string name="manage_clipboard_empty">A vágólapod üres.</string>
     <string name="manage_clipboard_label">Ha bemásolsz egy szöveget, az itt fog megjelenni. A klipeket is rögzítheted, hogy később ne tűnjenek el.</string>
@@ -21,13 +18,9 @@
     <string name="text_pinned">A szöveg ki lett tűzve</string>
     <string name="export_clipboard_items">Vágólapelemek exportálása</string>
     <string name="import_clipboard_items">Vágólapelemek importálása</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Törlés</string>
     <string name="keycode_mode_change">Billentyűzet típusának módosítása</string>
     <string name="keycode_shift">Váltás</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Vágólap tartalmának megjelenítése, ha rendelkezésre áll</string>
     <string name="show_popup">Felugró ablak megjelenítése billentyűleütéskor</string>
     <string name="vibrate_on_keypress">Rezgés a billentyű lenyomásakor</string>
@@ -35,11 +28,5 @@
     <string name="keyboard_height">Billentyűzet magassága</string>
     <string name="show_key_borders">Gombszélek megjelenítése</string>
     <string name="show_numbers_row">Számok megjelenítése külön sorban</string>
-    <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
-    <!-- Emojis -->
     <string name="emojis">Emojik</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

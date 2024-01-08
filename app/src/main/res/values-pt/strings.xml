@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Teclado</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Trocar de teclado</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Gerir itens da area de transferência</string>
     <string name="manage_clipboard_empty">Área de transferência vazia.</string>
     <string name="manage_clipboard_label">Assim que algum texto for copiado será apresentado aqui. Pode marcar entradas para que não desapareçam.</string>
@@ -21,13 +19,9 @@
     <string name="text_pinned">Texto fixado</string>
     <string name="export_clipboard_items">Exportar itens da área de transferência</string>
     <string name="import_clipboard_items">Importar itens da área de transferência</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Eliminar</string>
     <string name="keycode_mode_change">Alterar tipo de teclado</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Barra de espaço</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Mostrar conteúdo da área de transferência, se disponível</string>
     <string name="show_popup">Mostrar pop-up ao premir as teclas</string>
     <string name="vibrate_on_keypress">Vibrar ao premir as teclas</string>
@@ -36,10 +30,4 @@
     <string name="show_key_borders">Mostrar contorno das teclas</string>
     <string name="show_numbers_row">Mostrar números em linha distinta</string>
     <string name="start_sentences_capitalized">Iniciar frases com letra maiúscula</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

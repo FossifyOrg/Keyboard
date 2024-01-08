@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Klávesnice</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Změnit klávesnici</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Spravovat položky schránky</string>
     <string name="manage_clipboard_empty">Vaše schránka je prázdná.</string>
     <string name="manage_clipboard_label">Jakmile zkopírujete nějaký text, zobrazí se zde. Výstřižky můžete také připnout, aby později nezmizely.</string>
@@ -21,13 +19,8 @@
     <string name="text_pinned">Text byl připnut</string>
     <string name="export_clipboard_items">Exportovat položky schránky</string>
     <string name="import_clipboard_items">Importovat položky schránky</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Smazat</string>
     <string name="keycode_mode_change">Změnit typ klávesnice</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Zobrazit obsah schránky, pokud je k dispozici</string>
     <string name="show_popup">Zobrazit vyskakovací okno při stisknutí klávesy</string>
     <string name="vibrate_on_keypress">Vibrovat při stisknutí klávesy</string>
@@ -36,10 +29,5 @@
     <string name="show_key_borders">Zobrazit ohraničení kláves</string>
     <string name="show_numbers_row">Zobrazit čísla na samostatném řádku</string>
     <string name="start_sentences_capitalized">Začínat věty velkým písmenem</string>
-    <!-- Emojis -->
     <string name="emojis">Emotikony</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

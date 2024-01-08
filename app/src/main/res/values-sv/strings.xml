@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tangentbord</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Skifta tangentbord</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Hantera urklippsobjekt</string>
     <string name="manage_clipboard_empty">Ditt urklipp är tomt.</string>
     <string name="manage_clipboard_label">När du kopierar text visas den här. Du kan också fästa klipp så att de inte försvinner senare.</string>
@@ -21,13 +19,10 @@
     <string name="text_pinned">Text har blivit nålad</string>
     <string name="export_clipboard_items">Exportera urklippsobjekt</string>
     <string name="import_clipboard_items">Importera urklippsobjekt</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Radera</string>
     <string name="keycode_mode_change">Ändra tangentbordstyp</string>
     <string name="keycode_shift">Skift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Blanksteg</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Visa urklippets innehåll om tillgängligt</string>
     <string name="show_popup">Visa en popupp vid knapptryck</string>
     <string name="vibrate_on_keypress">Vibrera på knapptryck</string>
@@ -36,10 +31,5 @@
     <string name="show_key_borders">Visa ramar runt tangenterna</string>
     <string name="show_numbers_row">Visa siffror på en separat rad</string>
     <string name="start_sentences_capitalized">Börja meningar med stor bokstav</string>
-    <!-- Emojis -->
     <string name="emojis">Emojier</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

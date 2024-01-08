@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Klavye</string>
-    <string name="redirection_note">Kullanılabilir bir klavye yapmak için lütfen bir sonraki ekranda Fossify Klavye\'yi etkinleştirin. Etkinleştirildikten sonra \'Geri\' düğmesine basın.</string>
     <string name="change_keyboard">Klavye Değiştir</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Pano ögelerini yönet</string>
     <string name="manage_clipboard_empty">Panonuz boş.</string>
     <string name="manage_clipboard_label">Bir metni kopyaladığınızda, burada görünecektir. Daha sonra kaybolmamaları için panoları da sabitleyebilirsiniz.</string>
@@ -21,13 +19,9 @@
     <string name="text_pinned">Metin sabitlendi</string>
     <string name="export_clipboard_items">Pano ögelerini dışa aktar</string>
     <string name="import_clipboard_items">Pano ögelerini içe aktar</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Sil</string>
     <string name="keycode_mode_change">Klavye türünü değiştir</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Boşluk tuşu</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Varsa pano içeriğini göster</string>
     <string name="show_popup">Tuşa basıldığında bir açılır menü göster</string>
     <string name="vibrate_on_keypress">Tuşa basıldığında titret</string>
@@ -36,10 +30,5 @@
     <string name="show_key_borders">Tuş sınırlarını göster</string>
     <string name="show_numbers_row">Sayıları ayrı bir satırda göster</string>
     <string name="start_sentences_capitalized">Cümlelere büyük harfle başla</string>
-    <!-- Emojis -->
     <string name="emojis">Emojiler</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

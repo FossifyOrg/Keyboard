@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">ਕੀਬੋਰਡ</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">ਕੀਬੋਰਡ ਬਦਲੋ</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">ਕਲਿੱਪਬੋਰਡ ਆਈਟਮਾਂ ਦਾ ਪ੍ਰਬੰਧ</string>
     <string name="manage_clipboard_empty">ਤੁਹਾਡਾ ਕਲਿੱਪਬੋਰਡ ਖਾਲੀ ਹੈ।</string>
     <string name="manage_clipboard_label">ਇੱਕ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਟੈਕਸਟ ਨੂੰ ਕਾਪੀ ਕਰ ਲੈਂਦੇ ਹੋ, ਤਾਂ ਇਹ ਏਥੇ ਦਿਖਾਈ ਦੇਵੇਗਾ। ਤੁਸੀਂ ਕਲਿੱਪਾਂ ਨੂੰ ਪਿੰਨ ਵੀ ਕਰ ਸਕਦੇ ਹੋ ਤਾਂ ਜੋ ਉਹ ਬਾਅਦ ਵਿੱਚ ਗਾਇਬ ਨਾ ਹੋਣ।</string>
@@ -21,13 +19,8 @@
     <string name="text_pinned">ਟੈਕਸਟ ਨੂੰ ਪਿੰਨ ਕੀਤਾ ਗਿਆ</string>
     <string name="export_clipboard_items">ਕਲਿੱਪਬੋਰਡ ਆਈਟਮਾਂ ਐਕਸਪੋਰਟ ਕਰੋ</string>
     <string name="import_clipboard_items">ਕਲਿੱਪਬੋਰਡ ਆਈਟਮਾਂ ਇੰਮਪੋਰਟ ਕਰੋ</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">ਮਿਟਾਓ</string>
     <string name="keycode_mode_change">ਕੀਬੋਰਡ ਦੀ ਕਿਸਮ ਬਦਲੋ</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
-    <string name="keycode_space">Spacebar</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਵਿਖਾਓ ਜੇ ਉਪਲੱਬਧ ਹੋਵੇ</string>
     <string name="show_popup">ਕੀ- ਦਬਾਉਣ ਉੱਤੇ ਇੱਕ ਪੋਪਅੱਪ ਵੇਖੋ</string>
     <string name="vibrate_on_keypress">ਕੀ- ਦਬਾਉਣ ਉੱਤੇ ਵਾਈਬ੍ਰੇਟ ਕਰੋ</string>
@@ -36,6 +29,4 @@
     <string name="show_key_borders">ਕੀਬਾਰਡਰ ਵੇਖੋ</string>
     <string name="show_numbers_row">ਨੰਬਰ ਇੱਕ ਵੱਖਰੀ ਕਤਾਰ ਉੱਤੇ ਵੇਖੋ</string>
     <string name="start_sentences_capitalized">ਵਾਕ ਵੱਡੇ ਅੱਖਰ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
 </resources>
