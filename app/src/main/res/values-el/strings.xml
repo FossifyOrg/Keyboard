@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Πληκτρολόγιο</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Αλλαγή πληκτρολογίου</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Διαχείριση στοιχείων πρόχειρου</string>
     <string name="manage_clipboard_empty">Το πρόχειρό σας είναι άδειο.</string>
     <string name="manage_clipboard_label">Μόλις αντιγράψετε κάποιο κείμενο, θα εμφανιστεί εδώ. Μπορείτε επίσης να καρφιτσώσετε κλιπ ώστε να μην εξαφανιστούν αργότερα.</string>
@@ -20,13 +18,9 @@
     <string name="text_pinned">Το κείμενο έχει καρφιτσωθεί</string>
     <string name="export_clipboard_items">Εξαγωγή στοιχείων πρόχειρου</string>
     <string name="import_clipboard_items">Εισαγωγή στοιχείων πρόχειρου</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Διαγραφή</string>
     <string name="keycode_mode_change">Αλλαγή τύπου πληκτρολογίου</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Πλήκτρο διαστήματος</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Εμφάνιση περιεχομένου πρόχειρου εάν είναι διαθέσιμο</string>
     <string name="show_popup">Εμφάνιση ανάδυσης στο πάτημα πλήκτρων</string>
     <string name="vibrate_on_keypress">Δόνηση στο πάτημα πλήκτρου</string>
@@ -35,10 +29,4 @@
     <string name="show_key_borders">Εμφάνιση ορίων πλήκτρου</string>
     <string name="show_numbers_row">Εμφάνιση αριθμών σε ξεχωριστή γραμμή</string>
     <string name="start_sentences_capitalized">Αρχίστε τις προτάσεις με κεφαλαίο γράμμα</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

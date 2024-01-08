@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Teclat</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Canvia el teclat</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Gestió dels elements del porta-retalls</string>
     <string name="manage_clipboard_empty">El porta-retalls està buit.</string>
     <string name="manage_clipboard_label">Després de copiar text, es mostrarà aquí. També podeu fixar clips perquè no desapareguin més tard.</string>
     <string name="clear_clipboard_data">Neteja les dades del porta-retalls</string>
     <string name="clear_clipboard_data_confirmation">Esteu segur que voleu netejar les dades del porta-retalls\?</string>
     <string name="clipboard">Porta-retalls</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Actual</string>
     <string name="clipboard_pinned">Fixat</string>
     <string name="add_new_item">Afegeix un element nou</string>
     <string name="manage_clips">Podeu gestionar o afegir clips aquí per accedir-hi ràpidament.</string>
     <string name="clip_text">Text del clip</string>
-    <string name="pin_text">Pin text</string>
     <string name="text_pinned">S\'ha fixat el text</string>
     <string name="export_clipboard_items">Exporta elements del porta-retalls</string>
     <string name="import_clipboard_items">Importa elements del porta-retalls</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Suprimeix</string>
     <string name="keycode_mode_change">Canvia el tipus de teclat</string>
     <string name="keycode_shift">Majúscules</string>
     <string name="keycode_enter">Retorn</string>
     <string name="keycode_space">Barra espaiadora</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Mostra el contingut del porta-retalls si està disponible</string>
     <string name="show_popup">Mostra una finestra emergent en prémer les tecles</string>
     <string name="vibrate_on_keypress">Vibra en prémer les tecles</string>
@@ -35,10 +29,4 @@
     <string name="show_key_borders">Mostra les vores de les tecles</string>
     <string name="show_numbers_row">Mostra els números en una fila separada</string>
     <string name="start_sentences_capitalized">Comença les frases amb una lletra majúscula</string>
-    <!-- Emojis -->
-    <string name="emojis">Emojis</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
-</resources>
+    </resources>

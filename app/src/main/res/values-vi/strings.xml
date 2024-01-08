@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Bàn phím</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
     <string name="change_keyboard">Thay đổi bàn phím</string>
-    <!-- Clipboard -->
     <string name="manage_clipboard_items">Quản lý các mục trong khay nhớ tạm</string>
     <string name="manage_clipboard_empty">Khay nhớ tạm của bạn trống.</string>
     <string name="manage_clipboard_label">Sau khi bạn sao chép một số văn bản, văn bản đó sẽ hiển thị ở đây. Bạn cũng có thể ghim các clip để sau này chúng không biến mất.</string>
@@ -20,13 +18,10 @@
     <string name="text_pinned">Văn bản đã được ghim</string>
     <string name="export_clipboard_items">Xuất các mục trong khay nhớ tạm</string>
     <string name="import_clipboard_items">Nhập các mục trong khay nhớ tạm</string>
-    <!-- Accessibility -->
     <string name="keycode_delete">Xóa</string>
     <string name="keycode_mode_change">Thay đổi kiểu bàn phím</string>
-    <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Nhập</string>
     <string name="keycode_space">Phím cách</string>
-    <!-- Settings -->
     <string name="show_clipboard_content">Hiển thị nội dung khay nhớ tạm nếu có</string>
     <string name="show_popup">Hiển thị cửa sổ bật lên khi nhấn phím</string>
     <string name="vibrate_on_keypress">Rung khi nhấn phím</string>
@@ -35,10 +30,5 @@
     <string name="show_key_borders">Hiển thị đường viền phím</string>
     <string name="show_numbers_row">Hiển thị số trên một hàng riêng</string>
     <string name="start_sentences_capitalized">Bắt đầu câu bằng chữ in hoa</string>
-    <!-- Emojis -->
     <string name="emojis">Biểu tượng cảm xúc</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>
