@@ -32,4 +32,6 @@
     <string name="show_numbers_row">Pokazuj cyfry w osobnym wierszu</string>
     <string name="start_sentences_capitalized">Zaczynaj zdania wielką literą</string>
     <string name="emojis">Emoji</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
 </resources>
