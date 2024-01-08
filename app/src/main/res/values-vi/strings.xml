@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Bàn phím</string>
+    <string name="redirection_note">Vui lòng bật Bàn phím Fossify trên màn hình tiếp theo để biến nó thành bàn phím khả dụng. Nhấn \'Quay lại\' sau khi đã bật.</string>
     <string name="change_keyboard">Thay đổi bàn phím</string>
     <string name="manage_clipboard_items">Quản lý các mục trong khay nhớ tạm</string>
     <string name="manage_clipboard_empty">Khay nhớ tạm của bạn trống.</string>

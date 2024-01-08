@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Klavye</string>
+    <string name="redirection_note">Kullanılabilir bir klavye yapmak için lütfen bir sonraki ekranda Fossify Klavye\'yi etkinleştirin. Etkinleştirildikten sonra \'Geri\' düğmesine basın.</string>
     <string name="change_keyboard">Klavye Değiştir</string>
     <string name="manage_clipboard_items">Pano ögelerini yönet</string>
     <string name="manage_clipboard_empty">Panonuz boş.</string>
