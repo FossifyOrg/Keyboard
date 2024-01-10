@@ -1,0 +1,18 @@
+Una aplicación de teclado ligera que te ayuda a chatear con tus amigos o a insertar cualquier otro texto, número o símbolo. Puedes elegir entre varios idiomas y diseños.
+
+Puedes crear prácticos clips y anclar los que utilices con frecuencia para acceder a ellos fácilmente. Puedes activar vibraciones, ventanas emergentes al pulsar teclas o seleccionar tu idioma de la lista de idiomas compatibles.
+
+También puedes elegir entre una gran variedad de emojis disponibles.
+
+Viene con material design y tema oscuro por defecto, proporciona una gran experiencia de usuario para un uso fácil. La falta de acceso a Internet le da más privacidad, seguridad y estabilidad que otras aplicaciones.
+
+No contiene anuncios ni permisos innecesarios. Es completamente de código abierto, proporciona colores personalizables.
+
+Echa un vistazo a la suite completa de Simple Tools aquí:
+https://www.fossify.org
+
+Reddit:
+https://www.reddit.com/r/Fossify
+
+Telegram:
+https://t.me/Fossify
