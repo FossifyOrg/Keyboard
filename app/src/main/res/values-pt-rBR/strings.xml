@@ -19,10 +19,11 @@
     <string name="text_pinned">O texto foi fixado</string>
     <string name="export_clipboard_items">Exportar itens da área de transferência</string>
     <string name="import_clipboard_items">Importar itens da área de transferência</string>
-    <string name="keycode_delete">Deletar</string>
+    <string name="keycode_delete">Apagar</string>
     <string name="keycode_mode_change">Mudar tipo de teclado</string>
     <string name="show_clipboard_content">Mostrar conteúdo da área de transferência se houver</string>
     <string name="show_popup">Mostrar pop-up ao digitar</string>
     <string name="vibrate_on_keypress">Vibrar ao digitar</string>
     <string name="keyboard_language">Idioma do teclado</string>
-    </resources>
+    <string name="redirection_note">Por favor, ative o Teclado Fossify na próxima tela para torná-lo um teclado disponível. Pressione \"Voltar\" depois de ativado.</string>
+</resources>
