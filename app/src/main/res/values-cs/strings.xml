@@ -29,4 +29,8 @@
     <string name="show_numbers_row">Zobrazit čísla na samostatném řádku</string>
     <string name="start_sentences_capitalized">Začínat věty velkým písmenem</string>
     <string name="emojis">Emotikony</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_space">Mezerník</string>
+    <string name="redirection_note">Na další obrazovce prosím povolte Fossify Keyboard, abyste ji zařadili mezi dostupné klávesnice. Jakmile budete mít hotovo, klepněte na „Zpět“.</string>
 </resources>
