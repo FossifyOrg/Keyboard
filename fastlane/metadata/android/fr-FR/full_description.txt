@@ -1,0 +1,18 @@
+Un clavier léger qui vous permet de discuter avec vos amis ou d'insérer d'autres textes, chiffres ou symboles. Vous pouvez choisir parmi plusieurs langues et mises en page.
+
+Vous pouvez créer des clips pratiques et épingler ceux que vous utilisez fréquemment pour y accéder facilement. Vous pouvez activer les vibrations, les fenêtres contextuelles sur les touches ou sélectionner votre langue dans la liste des langues prises en charge.
+
+Vous pouvez également choisir parmi une grande variété d'emojis disponibles.
+
+Il est livré avec un design matériel et un thème sombre par défaut, ce qui offre une excellente expérience utilisateur pour une utilisation facile. L'absence d'accès à Internet vous offre plus de confidentialité, de sécurité et de stabilité que les autres applications.
+
+Ne contient pas de publicités ni de permissions inutiles. Elle est entièrement opensource et offre des couleurs personnalisables.
+
+Découvrez la suite complète de Simple Tools ici :
+https://www.fossify.org
+
+Reddit :
+https://www.reddit.com/r/Fossify
+
+Telegram :
+https://t.me/Fossify
