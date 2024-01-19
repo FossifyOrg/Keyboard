@@ -31,6 +31,4 @@
     <string name="show_numbers_row">Sayıları ayrı bir satırda göster</string>
     <string name="start_sentences_capitalized">Cümlelere büyük harfle başla</string>
     <string name="emojis">Emojiler</string>
-    <string name="keycode_shift">Shift</string>
-    <string name="keycode_enter">Enter</string>
 </resources>
