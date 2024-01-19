@@ -23,4 +23,7 @@
     <string name="show_numbers_row">إظهار الأرقام في صف منفصل</string>
     <string name="start_sentences_capitalized">بدء الجمل بحرف كبير</string>
     <string name="emojis">الرموز التعبيرية</string>
+    <!-- Voice Input -->
+    <string name="voice_input_button">التبديل إلى أسلوب الإدخال الصوتي</string>
+    <string name="enable_voice_input_button">إظهار زر الإدخال الصوتي</string>
 </resources>
