@@ -178,6 +178,7 @@ fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
         RadioItem(LANGUAGE_FRENCH_AZERTY, getKeyboardLanguageText(LANGUAGE_FRENCH_AZERTY)),
         RadioItem(LANGUAGE_FRENCH_BEPO, getKeyboardLanguageText(LANGUAGE_FRENCH_BEPO)),
         RadioItem(LANGUAGE_GERMAN, getKeyboardLanguageText(LANGUAGE_GERMAN)),
+        RadioItem(LANGUAGE_GUJARATI, getKeyboardLanguageText(LANGUAGE_GUJARATI)),
         RadioItem(LANGUAGE_GREEK, getKeyboardLanguageText(LANGUAGE_GREEK)),
         RadioItem(LANGUAGE_LITHUANIAN, getKeyboardLanguageText(LANGUAGE_LITHUANIAN)),
         RadioItem(LANGUAGE_NORWEGIAN, getKeyboardLanguageText(LANGUAGE_NORWEGIAN)),
