@@ -145,12 +145,11 @@
             app:code="-1"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="11%p" />
         <Key
             app:keyLabel="ઠ"
             app:popupCharacters="ঢ়"
             app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="ম" />
         <Key
             app:keyLabel="ડ"
             app:popupCharacters="ণ"
@@ -159,7 +158,6 @@
             app:keyLabel="ઢ"
             app:popupCharacters="ঙঞ্জ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="ল" />
         <Key
             app:keyLabel="ણ"
             app:popupCharacters="ক্ষ"
@@ -173,6 +171,10 @@
             app:popupCharacters="য"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
+            app:keyLabel="દ"
+            app:popupCharacters="য"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
             app:keyLabel="્"
             app:popupCharacters="॥"
             app:popupKeyboard="@xml/keyboard_popup_template" />
@@ -181,7 +183,7 @@
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
             app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="11%p" />
     </Row>
     <Row>
         <Key
