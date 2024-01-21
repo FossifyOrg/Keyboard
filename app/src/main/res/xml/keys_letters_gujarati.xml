@@ -4,35 +4,55 @@
         <Key
             app:keyEdgeFlags="left"
             app:keyLabel="૧"
-            app:topSmallNumber="૧" />
+            app:topSmallNumber="૧"
+            app:popupCharacters="1"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૨"
-            app:topSmallNumber="૨" />
+            app:topSmallNumber="૨" 
+            app:popupCharacters="2"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૩"
-            app:topSmallNumber="૩" />
+            app:topSmallNumber="૩" 
+            app:popupCharacters="3"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૪"
-            app:topSmallNumber="૪" />
+            app:topSmallNumber="૪" 
+            app:popupCharacters="4"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૫"
-            app:topSmallNumber="૫" />
+            app:topSmallNumber="૫" 
+            app:popupCharacters="5"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૬"
-            app:topSmallNumber="૬" />
+            app:topSmallNumber="૬" 
+            app:popupCharacters="6"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૭"
-            app:topSmallNumber="૭" />
+            app:topSmallNumber="૭" 
+            app:popupCharacters="7"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૮"
-            app:topSmallNumber="૮" />
+            app:topSmallNumber="૮" 
+            app:popupCharacters="8"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyLabel="૯"
-            app:topSmallNumber="૯" />
+            app:topSmallNumber="૯" 
+            app:popupCharacters="9"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
         <Key
             app:keyEdgeFlags="right"
             app:keyLabel="૦"
-            app:topSmallNumber="૦" />
+            app:topSmallNumber="૦" 
+            app:popupCharacters="0"
+            app:popupKeyboard="@xml/keyboard_popup_template"/>
     </Row>
     <Row app:keyWidth="9.091%p">
         <Key
