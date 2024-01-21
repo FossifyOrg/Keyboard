@@ -111,32 +111,32 @@
             app:popupCharacters="ি"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ઙ"
+            app:keyLabel="ઘ"
             app:popupCharacters="ু"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ચ"
+            app:keyLabel="ઙ"
             app:popupCharacters="ফ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="છ"
+            app:keyLabel="ચ"
             app:popupCharacters="ৃঋত্র"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="જ"
+            app:keyLabel="છ"
             app:popupCharacters="খ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ઝ"
+            app:keyLabel="જ"
             app:popupCharacters="ৎথত্ত"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ઞ"
+            app:keyLabel="ઝ"
             app:popupCharacters="ছ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel="ટ"
+            app:keyLabel="ઞ"
             app:popupCharacters="ঠ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
@@ -147,31 +147,31 @@
             app:keyIcon="@drawable/ic_caps_outline_vector"
             app:keyWidth="11%p" />
         <Key
-            app:keyLabel="ઠ"
+            app:keyLabel="ટ"
             app:popupCharacters="ঢ়"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ડ"
+            app:keyLabel="ઠ"
             app:popupCharacters="ণ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ઢ"
+            app:keyLabel="ડ"
             app:popupCharacters="ঙঞ্জ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ણ"
+            app:keyLabel="ઢ"
             app:popupCharacters="ক্ষ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="ત"
+            app:keyLabel="ણ"
             app:popupCharacters="শ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="થ"
+            app:keyLabel="ત"
             app:popupCharacters="য"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
-            app:keyLabel="દ"
+            app:keyLabel="થ"
             app:popupCharacters="য"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
