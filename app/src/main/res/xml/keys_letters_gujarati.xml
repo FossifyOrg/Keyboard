@@ -3,36 +3,36 @@
     <Row app:isNumbersRow="true">
         <Key
             app:keyEdgeFlags="left"
-            app:keyLabel="1"
-            app:topSmallNumber="1" />
+            app:keyLabel="૧"
+            app:topSmallNumber="૧" />
         <Key
-            app:keyLabel="2"
-            app:topSmallNumber="2" />
+            app:keyLabel="૨"
+            app:topSmallNumber="૨" />
         <Key
-            app:keyLabel="3"
-            app:topSmallNumber="3" />
+            app:keyLabel="૩"
+            app:topSmallNumber="૩" />
         <Key
-            app:keyLabel="4"
-            app:topSmallNumber="4" />
+            app:keyLabel="૪"
+            app:topSmallNumber="૪" />
         <Key
-            app:keyLabel="5"
-            app:topSmallNumber="5" />
+            app:keyLabel="૫"
+            app:topSmallNumber="૫" />
         <Key
-            app:keyLabel="6"
-            app:topSmallNumber="6" />
+            app:keyLabel="૬"
+            app:topSmallNumber="૬" />
         <Key
-            app:keyLabel="7"
-            app:topSmallNumber="7" />
+            app:keyLabel="૭"
+            app:topSmallNumber="૭" />
         <Key
-            app:keyLabel="8"
-            app:topSmallNumber="8" />
+            app:keyLabel="૮"
+            app:topSmallNumber="૮" />
         <Key
-            app:keyLabel="9"
-            app:topSmallNumber="9" />
+            app:keyLabel="૯"
+            app:topSmallNumber="૯" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel="0"
-            app:topSmallNumber="0" />
+            app:keyLabel="૦"
+            app:topSmallNumber="૦" />
     </Row>
     <Row app:keyWidth="9.091%p">
         <Key
