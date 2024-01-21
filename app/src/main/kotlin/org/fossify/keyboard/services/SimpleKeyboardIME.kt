@@ -408,8 +408,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
             LANGUAGE_GERMAN -> R.xml.keys_letters_german
-            LANGUAGE_GUJARATI -> R.xml.keys_letters_gujarati
             LANGUAGE_GREEK -> R.xml.keys_letters_greek
+            LANGUAGE_GUJARATI -> R.xml.keys_letters_gujarati
             LANGUAGE_LITHUANIAN -> R.xml.keys_letters_lithuanian
             LANGUAGE_NORWEGIAN -> R.xml.keys_letters_norwegian
             LANGUAGE_POLISH -> R.xml.keys_letters_polish
