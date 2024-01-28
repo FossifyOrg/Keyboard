@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Tangentbord</string>
-    <string name="change_keyboard">Skifta tangentbord</string>
+    <string name="change_keyboard">Byt tangentbord</string>
     <string name="manage_clipboard_items">Hantera urklippsobjekt</string>
     <string name="manage_clipboard_empty">Ditt urklipp är tomt.</string>
     <string name="manage_clipboard_label">När du kopierar text visas den här. Du kan också fästa klipp så att de inte försvinner senare.</string>
@@ -31,4 +31,5 @@
     <string name="show_numbers_row">Visa siffror på en separat rad</string>
     <string name="start_sentences_capitalized">Börja meningar med stor bokstav</string>
     <string name="emojis">Emojier</string>
+    <string name="keycode_enter">Enter</string>
 </resources>
