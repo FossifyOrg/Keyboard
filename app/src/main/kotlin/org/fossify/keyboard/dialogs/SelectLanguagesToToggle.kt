@@ -29,6 +29,7 @@ class SelectLanguagesToToggle(
             dialogLanguageDanish.isChecked = config.languageDanishSelected
             dialogLanguageEnglishQwerty.isChecked = config.languageEnglishQwertySelected
             dialogLanguageEnglishQwertz.isChecked = config.languageEnglishQwertzSelected
+            dialogLanguageEnglishDvorak.isChecked = config.languageEnglishDvorakSelected
             dialogLanguageFrenchAzerty.isChecked = config.languageFrenchAzertySelected
             dialogLanguageFrenchBepo.isChecked = config.languageFrenchBepoSelected
             dialogLanguageGerman.isChecked = config.languageGermanSelected
