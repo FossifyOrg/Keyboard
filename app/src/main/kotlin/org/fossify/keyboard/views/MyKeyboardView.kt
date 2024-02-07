@@ -259,6 +259,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         closeClipboardManager()
         closeEmojiPalette()
 
+        if (context.config.showVoiceButton) {
+            keyboardViewBinding?.voiceInputButton?.visibility = VISIBLE
+        } else {
+            keyboardViewBinding?.voiceInputButton?.visibility = GONE
+        }
+
         if (visibility == VISIBLE) {
             setupKeyboard(changedView)
         }
@@ -322,6 +328,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 clearClipboardContent()
                 toggleClipboardVisibility(false)
             }
+
+            voiceInputButton.setOnLongClickListener { context.toast(R.string.voice_input_button); true }
 
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
                 override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
@@ -419,6 +427,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             settingsCog.applyColorFilter(mTextColor)
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
+            voiceInputButton.applyColorFilter(mTextColor)
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 

@@ -20,6 +20,7 @@ const val KEYBOARD_LANGUAGE = "keyboard_language"
 const val HEIGHT_PERCENTAGE = "height_percentage"
 const val SHOW_CLIPBOARD_CONTENT = "show_clipboard_content"
 const val SHOW_NUMBERS_ROW = "show_numbers_row"
+const val SHOW_VOICE_BUTTON = "show_voice_button"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0

@@ -46,6 +46,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
+        setupShowVoiceButton()
 
         binding.apply {
             updateTextColors(settingsNestedScrollview)
@@ -197,6 +198,16 @@ class SettingsActivity : SimpleActivity() {
             settingsShowNumbersRowHolder.setOnClickListener {
                 settingsShowNumbersRow.toggle()
                 config.showNumbersRow = settingsShowNumbersRow.isChecked
+            }
+        }
+    }
+
+    private fun setupShowVoiceButton() {
+        binding.apply {
+            settingsShowVoiceButton.isChecked = config.showVoiceButton
+            settingsShowVoiceButtonHolder.setOnClickListener {
+                settingsShowVoiceButton.toggle()
+                config.showVoiceButton = settingsShowVoiceButton.isChecked
             }
         }
     }

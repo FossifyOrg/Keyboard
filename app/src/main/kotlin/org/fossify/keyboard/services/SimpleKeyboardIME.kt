@@ -43,6 +43,7 @@ import org.fossify.keyboard.helpers.*
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.views.MyKeyboardView
 import java.io.ByteArrayOutputStream
+import java.util.AbstractMap
 import java.util.Locale
 
 // based on https://www.androidauthority.com/lets-build-custom-keyboard-android-832362/
@@ -74,6 +75,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     override fun onCreateInputView(): View {
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
         keyboardView = binding.keyboardView.apply {
+            val voiceInputButton = binding.voiceInputButton
+            voiceInputButton.setOnClickListener {
+                switchToVoiceTypingIME()
+            }
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
             setEditorInfo(currentInputEditorInfo)
@@ -487,5 +492,22 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         this.recycle()
 
         return Icon.createWithData(byteArray, 0, byteArray.size)
+    }
+
+    // voice input
+
+    private fun getVoiceTypingIm(imm: InputMethodManager): AbstractMap.SimpleEntry<String, InputMethodSubtype>? {
+        val enabledKeyboards = imm.enabledInputMethodList
+        for (im in enabledKeyboards) for (imst in imm.getEnabledInputMethodSubtypeList(im, true))
+            if (imst.mode == "voice") return AbstractMap.SimpleEntry<String, InputMethodSubtype>(im.id, imst)
+        return null
+    }
+
+    private fun switchToVoiceTypingIME() {
+        val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager;
+        val im = getVoiceTypingIm(imm)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            switchInputMethod(im?.key, im?.value)
+        }
     }
 }
