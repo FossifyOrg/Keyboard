@@ -402,6 +402,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         return when (baseContext.config.keyboardLanguage) {
             LANGUAGE_BENGALI -> R.xml.keys_letters_bengali
             LANGUAGE_BULGARIAN -> R.xml.keys_letters_bulgarian
+            LANGUAGE_CHUVASH -> R.xml.keys_letters_chuvash
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
             LANGUAGE_ENGLISH_DVORAK -> R.xml.keys_letters_english_dvorak
             LANGUAGE_ENGLISH_QWERTZ -> R.xml.keys_letters_english_qwertz
