@@ -175,6 +175,7 @@ fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
         RadioItem(LANGUAGE_ENGLISH_QWERTY, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTY)),
         RadioItem(LANGUAGE_ENGLISH_QWERTZ, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTZ)),
         RadioItem(LANGUAGE_ENGLISH_DVORAK, getKeyboardLanguageText(LANGUAGE_ENGLISH_DVORAK)),
+        RadioItem(LANGUAGE_ESPERANTO, getKeyboardLanguageText(LANGUAGE_ESPERANTO)),
         RadioItem(LANGUAGE_FRENCH_AZERTY, getKeyboardLanguageText(LANGUAGE_FRENCH_AZERTY)),
         RadioItem(LANGUAGE_FRENCH_BEPO, getKeyboardLanguageText(LANGUAGE_FRENCH_BEPO)),
         RadioItem(LANGUAGE_GERMAN, getKeyboardLanguageText(LANGUAGE_GERMAN)),
@@ -200,6 +201,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
+        LANGUAGE_ESPERANTO -> "Esperanto"
         LANGUAGE_FRENCH_AZERTY -> "${getString(R.string.translation_french)} (AZERTY)"
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
         LANGUAGE_GERMAN -> getString(R.string.translation_german)
