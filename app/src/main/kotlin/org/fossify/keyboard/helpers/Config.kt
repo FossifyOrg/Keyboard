@@ -135,6 +135,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() =  prefs.getBoolean(LANGUAGE_VIETNAMESE_TELEX_SELECTED, false)
         set(languageVietnameseTelexSelected) = prefs.edit().putBoolean(LANGUAGE_VIETNAMESE_TELEX_SELECTED, languageVietnameseTelexSelected).apply()
 
+    var selectedLanguages: MutableSet<String>
+        get() = prefs.getStringSet(SELECTED_LANGUAGES, HashSet())!!
+        set(excludedFolders) = prefs.edit().remove(SELECTED_LANGUAGES).putStringSet(SELECTED_LANGUAGES, excludedFolders).apply()
+
     private fun getDefaultLanguage(): Int {
         val conf = context.resources.configuration
         return if (conf.locale.toString().lowercase(Locale.getDefault()).startsWith("ru_")) {

@@ -13,6 +13,7 @@ class SelectLanguagesToToggle(
 ) : DialogInterface.OnClickListener {
     private var config = activity.config
     private val binding: DialogSelectLanguagesToToggleBinding
+    private val selectedLanguages = mutableSetOf<String>()
 
     init {
         binding = DialogSelectLanguagesToToggleBinding.inflate(activity.layoutInflater).apply {
@@ -24,27 +25,27 @@ class SelectLanguagesToToggle(
             dialogLanguageTurkishQ.text = "${activity.getString(R.string.translation_turkish)} (Q)"
             dialogLanguageVietnameseTelex.text = "${activity.getString(R.string.translation_vietnamese)} (TELEX)"
 
-            dialogLanguageBengali.isChecked = config.languageBengaliSelected
-            dialogLanguageBulgarian.isChecked = config.languageBulgarianSelected
-            dialogLanguageDanish.isChecked = config.languageDanishSelected
-            dialogLanguageEnglishQwerty.isChecked = config.languageEnglishQwertySelected
-            dialogLanguageEnglishQwertz.isChecked = config.languageEnglishQwertzSelected
-            dialogLanguageEnglishDvorak.isChecked = config.languageEnglishDvorakSelected
-            dialogLanguageFrenchAzerty.isChecked = config.languageFrenchAzertySelected
-            dialogLanguageFrenchBepo.isChecked = config.languageFrenchBepoSelected
-            dialogLanguageGerman.isChecked = config.languageGermanSelected
-            dialogLanguageGreek.isChecked = config.languageGreekSelected
-            dialogLanguageLithuanian.isChecked = config.languageLithuanianSelected
-            dialogLanguageNorwegian.isChecked = config.languageNorwegianSelected
-            dialogLanguagePolish.isChecked = config.languagePolishSelected
-            dialogLanguageRomanian.isChecked = config.languageRomanianSelected
-            dialogLanguageRussian.isChecked = config.languageRussianSelected
-            dialogLanguageSlovenian.isChecked = config.languageSlovenianSelected
-            dialogLanguageSpanish.isChecked = config.languageSpanishSelected
-            dialogLanguageSwedish.isChecked = config.languageSwedishSelected
-            dialogLanguageTurkishQ.isChecked = config.languageTurkishQSelected
-            dialogLanguageUkrainian.isChecked = config.languageUkrainianSelected
-            dialogLanguageVietnameseTelex.isChecked = config.languageVietnameseTelexSelected
+            dialogLanguageBengali.isChecked = selectedLanguages.add("bengali")
+            dialogLanguageBulgarian.isChecked = selectedLanguages.add("bulgarian")
+            dialogLanguageDanish.isChecked = selectedLanguages.add("danish")
+            dialogLanguageEnglishQwerty.isChecked = selectedLanguages.add("english_qwerty")
+            dialogLanguageEnglishQwertz.isChecked = selectedLanguages.add("english_qwertz")
+            dialogLanguageEnglishDvorak.isChecked = selectedLanguages.add("english_dvorak")
+            dialogLanguageFrenchAzerty.isChecked = selectedLanguages.add("english_azerty")
+            dialogLanguageFrenchBepo.isChecked =  selectedLanguages.add("french_bepo")
+            dialogLanguageGerman.isChecked =  selectedLanguages.add("german")
+            dialogLanguageGreek.isChecked = selectedLanguages.add("greek")
+            dialogLanguageLithuanian.isChecked =  selectedLanguages.add("lithuanian")
+            dialogLanguageNorwegian.isChecked = selectedLanguages.add("norwegian")
+            dialogLanguagePolish.isChecked =  selectedLanguages.add("polish")
+            dialogLanguageRomanian.isChecked = selectedLanguages.add("romanian")
+            dialogLanguageRussian.isChecked = selectedLanguages.add("russian")
+            dialogLanguageSlovenian.isChecked =  selectedLanguages.add("slovenian")
+            dialogLanguageSpanish.isChecked =  selectedLanguages.add("spanish")
+            dialogLanguageSwedish.isChecked =  selectedLanguages.add("swedish")
+            dialogLanguageTurkishQ.isChecked =  selectedLanguages.add("turkish_q")
+            dialogLanguageUkrainian.isChecked =  selectedLanguages.add("ukrainian")
+            dialogLanguageVietnameseTelex.isChecked = selectedLanguages.add("vietnamese_telex")
 
             dialogLanguageBengaliHolder.setOnClickListener { dialogLanguageBengali.toggle()}
             dialogLanguageBulgarianHolder.setOnClickListener { dialogLanguageBulgarian.toggle()}
@@ -78,26 +79,6 @@ class SelectLanguagesToToggle(
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
-        config.languageBengaliSelected = binding.dialogLanguageBengali.isChecked
-        config.languageBulgarianSelected = binding.dialogLanguageBulgarian.isChecked
-        config.languageDanishSelected = binding.dialogLanguageDanish.isChecked
-        config.languageEnglishQwertySelected = binding.dialogLanguageEnglishQwerty.isChecked
-        config.languageEnglishQwertzSelected = binding.dialogLanguageEnglishQwertz.isChecked
-        config.languageEnglishDvorakSelected = binding.dialogLanguageEnglishDvorak.isChecked
-        config.languageFrenchAzertySelected = binding.dialogLanguageFrenchAzerty.isChecked
-        config.languageFrenchBepoSelected = binding.dialogLanguageFrenchBepo.isChecked
-        config.languageGermanSelected = binding.dialogLanguageGerman.isChecked
-        config.languageGreekSelected = binding.dialogLanguageGreek.isChecked
-        config.languageLithuanianSelected = binding.dialogLanguageLithuanian.isChecked
-        config.languageNorwegianSelected = binding.dialogLanguageNorwegian.isChecked
-        config.languagePolishSelected = binding.dialogLanguagePolish.isChecked
-        config.languageRomanianSelected = binding.dialogLanguageRomanian.isChecked
-        config.languageRussianSelected = binding.dialogLanguageRussian.isChecked
-        config.languageSlovenianSelected = binding.dialogLanguageSlovenian.isChecked
-        config.languageSpanishSelected = binding.dialogLanguageSpanish.isChecked
-        config.languageSwedishSelected = binding.dialogLanguageSwedish.isChecked
-        config.languageTurkishQSelected = binding.dialogLanguageTurkishQ.isChecked
-        config.languageUkrainianSelected = binding.dialogLanguageUkrainian.isChecked
-        config.languageVietnameseTelexSelected = binding.dialogLanguageVietnameseTelex.isChecked
+        config.selectedLanguages = selectedLanguages
     }
 }

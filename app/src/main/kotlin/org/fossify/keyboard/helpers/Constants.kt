@@ -47,6 +47,7 @@ const val LANGUAGE_VIETNAMESE_TELEX = 18
 const val LANGUAGE_POLISH = 19
 const val LANGUAGE_UKRAINIAN = 20
 
+const val SELECTED_LANGUAGES = "selected_languages"
 const val LANGUAGE_ENGLISH_QWERTY_SELECTED = "language_english_qwerty_selected"
 const val LANGUAGE_RUSSIAN_SELECTED = "language_russian_selected"
 const val LANGUAGE_FRENCH_AZERTY_SELECTED = "language_french_azerty_selected"

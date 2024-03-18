@@ -167,58 +167,31 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
-    val selectedLanguages = arrayListOf<RadioItem>()
+fun Context.getKeyboardLanguages(): ArrayList<Int> {
+    val selectedLanguages = arrayListOf<Int>()
+    val selectedLanguagesFromConfig = config.selectedLanguages
 
-    if (config.languageBengaliSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_BENGALI, getKeyboardLanguageText(LANGUAGE_BENGALI)))
-    if (config.languageBulgarianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_BULGARIAN, getKeyboardLanguageText(LANGUAGE_BULGARIAN)))
-    if (config.languageDanishSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_DANISH, getKeyboardLanguageText(LANGUAGE_DANISH)))
-    if (config.languageEnglishQwertySelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_ENGLISH_QWERTY, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTY)))
-    if (config.languageEnglishQwertzSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_ENGLISH_QWERTZ, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTZ)))
-    if (config.languageEnglishDvorakSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_ENGLISH_DVORAK, getKeyboardLanguageText(LANGUAGE_ENGLISH_DVORAK)))
-    if (config.languageFrenchAzertySelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_FRENCH_AZERTY, getKeyboardLanguageText(LANGUAGE_FRENCH_AZERTY)))
-    if (config.languageFrenchBepoSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_FRENCH_BEPO, getKeyboardLanguageText(LANGUAGE_FRENCH_BEPO)))
-    if (config.languageGermanSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_GERMAN, getKeyboardLanguageText(LANGUAGE_GERMAN)))
-    if (config.languageGreekSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_GREEK, getKeyboardLanguageText(LANGUAGE_GREEK)))
-    if (config.languageLithuanianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_LITHUANIAN, getKeyboardLanguageText(LANGUAGE_LITHUANIAN)))
-    if (config.languageNorwegianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_NORWEGIAN, getKeyboardLanguageText(LANGUAGE_NORWEGIAN)))
-    if (config.languagePolishSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_POLISH, getKeyboardLanguageText(LANGUAGE_POLISH)))
-    if (config.languageRomanianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_ROMANIAN, getKeyboardLanguageText(LANGUAGE_ROMANIAN)))
-    if (config.languageRussianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_RUSSIAN, getKeyboardLanguageText(LANGUAGE_RUSSIAN)))
-    if (config.languageSlovenianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_SLOVENIAN, getKeyboardLanguageText(LANGUAGE_SLOVENIAN)))
-    if (config.languageSpanishSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_SPANISH, getKeyboardLanguageText(LANGUAGE_SPANISH)))
-    if (config.languageSwedishSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_SWEDISH, getKeyboardLanguageText(LANGUAGE_SWEDISH)))
-    if (config.languageTurkishQSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_TURKISH_Q, getKeyboardLanguageText(LANGUAGE_TURKISH_Q)))
-    if (config.languageUkrainianSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_UKRAINIAN, getKeyboardLanguageText(LANGUAGE_UKRAINIAN)))
-    if (config.languageVietnameseTelexSelected)
-        selectedLanguages.add(RadioItem(LANGUAGE_VIETNAMESE_TELEX, getKeyboardLanguageText(LANGUAGE_VIETNAMESE_TELEX)))
+    for (language in selectedLanguagesFromConfig) {
+        val lang = language.uppercase().toInt()
+        selectedLanguages.add(lang)
+    }
 
     if (selectedLanguages.size == 0) {
-        selectedLanguages.add(RadioItem(LANGUAGE_ENGLISH_QWERTY, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTY)))
+        selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
         config.languageEnglishQwertySelected = true
     }
 
     return selectedLanguages
+}
+
+fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
+    val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
+
+    for (lang in getKeyboardLanguages()) {
+        selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
+    }
+
+    return selectedLanguagesRadioItems
 }
 
 fun Context.getKeyboardLanguageText(language: Int): String {
