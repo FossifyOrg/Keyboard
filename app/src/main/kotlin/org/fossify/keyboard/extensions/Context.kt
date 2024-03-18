@@ -172,13 +172,38 @@ fun Context.getKeyboardLanguages(): ArrayList<Int> {
     val selectedLanguagesFromConfig = config.selectedLanguages
 
     for (language in selectedLanguagesFromConfig) {
-        val lang = language.uppercase().toInt()
-        selectedLanguages.add(lang)
+        when (language) {
+            "bengali" -> selectedLanguages.add(LANGUAGE_BENGALI)
+            "bulgarian" -> selectedLanguages.add(LANGUAGE_BULGARIAN)
+            "danish" -> selectedLanguages.add(LANGUAGE_DANISH)
+            "english_qwerty" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
+            "english_dvorak" -> selectedLanguages.add(LANGUAGE_ENGLISH_DVORAK)
+            "english_qwertz" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTZ)
+            "french_azerty" -> selectedLanguages.add(LANGUAGE_FRENCH_AZERTY)
+            "french_bepo" -> selectedLanguages.add(LANGUAGE_FRENCH_BEPO)
+            "german" -> selectedLanguages.add(LANGUAGE_GERMAN)
+            "greek" -> selectedLanguages.add(LANGUAGE_GREEK)
+            "lithuanian" -> selectedLanguages.add(LANGUAGE_LITHUANIAN)
+            "norwegian" -> selectedLanguages.add(LANGUAGE_NORWEGIAN)
+            "polish" -> selectedLanguages.add(LANGUAGE_POLISH)
+            "romanian" -> selectedLanguages.add(LANGUAGE_ROMANIAN)
+            "russian" -> selectedLanguages.add(LANGUAGE_RUSSIAN)
+            "slovenian" -> selectedLanguages.add(LANGUAGE_SLOVENIAN)
+            "spanish" -> selectedLanguages.add(LANGUAGE_SPANISH)
+            "swedish" -> selectedLanguages.add(LANGUAGE_SWEDISH)
+            "turkish_q" -> selectedLanguages.add(LANGUAGE_TURKISH_Q)
+            "ukrainian" -> selectedLanguages.add(LANGUAGE_UKRAINIAN)
+            "vietnamese_telex" -> selectedLanguages.add(LANGUAGE_VIETNAMESE_TELEX)
+        }
     }
 
     if (selectedLanguages.size == 0) {
         selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
-        config.languageEnglishQwertySelected = true
+        config.selectedLanguages = mutableSetOf("english_qwerty")
+    }
+
+    if (config.keyboardLanguage !in selectedLanguages) {
+        config.keyboardLanguage = selectedLanguages[0]
     }
 
     return selectedLanguages
