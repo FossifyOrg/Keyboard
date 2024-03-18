@@ -167,30 +167,56 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
-    return arrayListOf(
-        RadioItem(LANGUAGE_BENGALI, getKeyboardLanguageText(LANGUAGE_BENGALI)),
-        RadioItem(LANGUAGE_BULGARIAN, getKeyboardLanguageText(LANGUAGE_BULGARIAN)),
-        RadioItem(LANGUAGE_DANISH, getKeyboardLanguageText(LANGUAGE_DANISH)),
-        RadioItem(LANGUAGE_ENGLISH_QWERTY, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTY)),
-        RadioItem(LANGUAGE_ENGLISH_QWERTZ, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTZ)),
-        RadioItem(LANGUAGE_ENGLISH_DVORAK, getKeyboardLanguageText(LANGUAGE_ENGLISH_DVORAK)),
-        RadioItem(LANGUAGE_FRENCH_AZERTY, getKeyboardLanguageText(LANGUAGE_FRENCH_AZERTY)),
-        RadioItem(LANGUAGE_FRENCH_BEPO, getKeyboardLanguageText(LANGUAGE_FRENCH_BEPO)),
-        RadioItem(LANGUAGE_GERMAN, getKeyboardLanguageText(LANGUAGE_GERMAN)),
-        RadioItem(LANGUAGE_GREEK, getKeyboardLanguageText(LANGUAGE_GREEK)),
-        RadioItem(LANGUAGE_LITHUANIAN, getKeyboardLanguageText(LANGUAGE_LITHUANIAN)),
-        RadioItem(LANGUAGE_NORWEGIAN, getKeyboardLanguageText(LANGUAGE_NORWEGIAN)),
-        RadioItem(LANGUAGE_POLISH, getKeyboardLanguageText(LANGUAGE_POLISH)),
-        RadioItem(LANGUAGE_ROMANIAN, getKeyboardLanguageText(LANGUAGE_ROMANIAN)),
-        RadioItem(LANGUAGE_RUSSIAN, getKeyboardLanguageText(LANGUAGE_RUSSIAN)),
-        RadioItem(LANGUAGE_SLOVENIAN, getKeyboardLanguageText(LANGUAGE_SLOVENIAN)),
-        RadioItem(LANGUAGE_SPANISH, getKeyboardLanguageText(LANGUAGE_SPANISH)),
-        RadioItem(LANGUAGE_SWEDISH, getKeyboardLanguageText(LANGUAGE_SWEDISH)),
-        RadioItem(LANGUAGE_TURKISH_Q, getKeyboardLanguageText(LANGUAGE_TURKISH_Q)),
-        RadioItem(LANGUAGE_UKRAINIAN, getKeyboardLanguageText(LANGUAGE_UKRAINIAN)),
-        RadioItem(LANGUAGE_VIETNAMESE_TELEX, getKeyboardLanguageText(LANGUAGE_VIETNAMESE_TELEX)),
-    )
+fun Context.getKeyboardLanguages(): ArrayList<Int> {
+    val selectedLanguages = arrayListOf<Int>()
+    val selectedLanguagesFromConfig = config.selectedLanguages
+
+    for (language in selectedLanguagesFromConfig) {
+        when (language) {
+            "bengali" -> selectedLanguages.add(LANGUAGE_BENGALI)
+            "bulgarian" -> selectedLanguages.add(LANGUAGE_BULGARIAN)
+            "danish" -> selectedLanguages.add(LANGUAGE_DANISH)
+            "english_qwerty" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
+            "english_dvorak" -> selectedLanguages.add(LANGUAGE_ENGLISH_DVORAK)
+            "english_qwertz" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTZ)
+            "french_azerty" -> selectedLanguages.add(LANGUAGE_FRENCH_AZERTY)
+            "french_bepo" -> selectedLanguages.add(LANGUAGE_FRENCH_BEPO)
+            "german" -> selectedLanguages.add(LANGUAGE_GERMAN)
+            "greek" -> selectedLanguages.add(LANGUAGE_GREEK)
+            "lithuanian" -> selectedLanguages.add(LANGUAGE_LITHUANIAN)
+            "norwegian" -> selectedLanguages.add(LANGUAGE_NORWEGIAN)
+            "polish" -> selectedLanguages.add(LANGUAGE_POLISH)
+            "romanian" -> selectedLanguages.add(LANGUAGE_ROMANIAN)
+            "russian" -> selectedLanguages.add(LANGUAGE_RUSSIAN)
+            "slovenian" -> selectedLanguages.add(LANGUAGE_SLOVENIAN)
+            "spanish" -> selectedLanguages.add(LANGUAGE_SPANISH)
+            "swedish" -> selectedLanguages.add(LANGUAGE_SWEDISH)
+            "turkish_q" -> selectedLanguages.add(LANGUAGE_TURKISH_Q)
+            "ukrainian" -> selectedLanguages.add(LANGUAGE_UKRAINIAN)
+            "vietnamese_telex" -> selectedLanguages.add(LANGUAGE_VIETNAMESE_TELEX)
+        }
+    }
+
+    if (selectedLanguages.size == 0) {
+        selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
+        config.selectedLanguages = mutableSetOf("english_qwerty")
+    }
+
+    if (config.keyboardLanguage !in selectedLanguages) {
+        config.keyboardLanguage = selectedLanguages[0]
+    }
+
+    return selectedLanguages
+}
+
+fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
+    val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
+
+    for (lang in getKeyboardLanguages()) {
+        selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
+    }
+
+    return selectedLanguagesRadioItems
 }
 
 fun Context.getKeyboardLanguageText(language: Int): String {

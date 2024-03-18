@@ -2,7 +2,7 @@ package org.fossify.keyboard.dialogs
 
 import android.view.View
 import org.fossify.keyboard.extensions.config
-import org.fossify.keyboard.extensions.getKeyboardLanguages
+import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
 
 class ChangeLanguagePopup(
     inputView: View,
@@ -12,7 +12,7 @@ class ChangeLanguagePopup(
     private val config = context.config
 
     init {
-        val items = context.getKeyboardLanguages()
+        val items = context.getKeyboardLanguagesRadioItems()
         KeyboardRadioGroupDialog(inputView, items, config.keyboardLanguage) {
             config.keyboardLanguage = it as Int
             onSelect.invoke()

@@ -51,6 +51,10 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
+    var selectedLanguages: MutableSet<String>
+        get() = prefs.getStringSet(SELECTED_LANGUAGES, HashSet())!!
+        set(selectedLanguages) = prefs.edit().remove(SELECTED_LANGUAGES).putStringSet(SELECTED_LANGUAGES, selectedLanguages).apply()
+
     private fun getDefaultLanguage(): Int {
         val conf = context.resources.configuration
         return if (conf.locale.toString().lowercase(Locale.getDefault()).startsWith("ru_")) {

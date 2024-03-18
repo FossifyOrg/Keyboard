@@ -14,6 +14,7 @@
     <string name="text_pinned">تم تثبيت النص</string>
     <string name="keycode_mode_change">تغيير نوع لوحة المفاتيح</string>
     <string name="keycode_space">شريط المسافة</string>
+    <string name="selected_keyboard_languages">لغات لوحة المفاتيح المحددة</string>
     <string name="show_clipboard_content">إظهار محتوى الحافظة إذا كان متوفرا</string>
     <string name="show_popup">إظهار نافذة منبثقة عند الضغط على المفاتيح</string>
     <string name="vibrate_on_keypress">يهتز عند ضغط الزر</string>

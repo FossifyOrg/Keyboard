@@ -47,6 +47,8 @@ const val LANGUAGE_VIETNAMESE_TELEX = 18
 const val LANGUAGE_POLISH = 19
 const val LANGUAGE_UKRAINIAN = 20
 
+const val SELECTED_LANGUAGES = "selected_languages"
+
 // keyboard height percentage options
 const val KEYBOARD_HEIGHT_70_PERCENT = 70
 const val KEYBOARD_HEIGHT_80_PERCENT = 80
