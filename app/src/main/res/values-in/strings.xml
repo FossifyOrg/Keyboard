@@ -30,7 +30,7 @@
     <string name="start_sentences_capitalized">Mulai kalimat dengan huruf kapital</string>
     <string name="emojis">Emoji</string>
     <string name="app_launcher_name">Keyboard</string>
-    <string name="redirection_note">Mohon aktifkan Fossify Keyboard pada layar berikutnya, untuk memunculkannya pada daftar keyboard yang tersedia. Tekan \'Kembali\' setelah mengaktifkannya.</string>
+    <string name="redirection_note">Mohon aktifkan Keyboard Fossify pada layar berikutnya, untuk memunculkannya pada daftar keyboard yang tersedia. Tekan \'Kembali\' setelah mengaktifkannya.</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
 </resources>
