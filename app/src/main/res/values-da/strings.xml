@@ -19,4 +19,5 @@
     <string name="show_popup">Vis en popup ved tastetryk</string>
     <string name="vibrate_on_keypress">Vibrér ved tastetryk</string>
     <string name="keyboard_language">Tastatursprog</string>
-    </resources>
+    <string name="redirection_note">Aktivér Fossify Tastatur på den næste skærm for at gøre den til et tilgængeligt tastatur. Tryk på \'Tilbage\', når det er aktiveret.</string>
+</resources>

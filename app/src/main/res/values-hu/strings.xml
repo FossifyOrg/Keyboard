@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="change_keyboard">Billentyűzet módosítása</string>
-    <string name="manage_clipboard_items">Vágólap elemek kezelése</string>
-    <string name="manage_clipboard_empty">A vágólapod üres.</string>
+    <string name="manage_clipboard_items">Vágólapelemek kezelése</string>
+    <string name="manage_clipboard_empty">A vágólapja üres.</string>
     <string name="manage_clipboard_label">Ha bemásolsz egy szöveget, az itt fog megjelenni. A klipeket is rögzítheted, hogy később ne tűnjenek el.</string>
-    <string name="clear_clipboard_data">Vágólap adatok törlése</string>
-    <string name="clear_clipboard_data_confirmation">Biztos, hogy törölni szeretné a vágólap adatait\?</string>
+    <string name="clear_clipboard_data">Vágólapadatok törlése</string>
+    <string name="clear_clipboard_data_confirmation">Biztos, hogy törli a vágólapadatokat?</string>
     <string name="clipboard">Vágólap</string>
     <string name="clipboard_recent">Legutóbbi</string>
     <string name="clipboard_current">Jelenlegi</string>
-    <string name="clipboard_pinned">Kijelölt</string>
+    <string name="clipboard_pinned">Kitűzve</string>
     <string name="add_new_item">Új elem hozzáadása</string>
-    <string name="manage_clips">A gyors hozzáférés érdekében itt kezelheted vagy hozzáadhatod a klipeket.</string>
-    <string name="clip_text">Szöveg klippelése</string>
-    <string name="pin_text">Szöveg kitűése</string>
+    <string name="manage_clips">A gyors hozzáférés érdekében itt kezelheti vagy adhatja hozzá a kivágásokat.</string>
+    <string name="clip_text">Szöveg kivágása</string>
+    <string name="pin_text">Szöveg kitűzése</string>
     <string name="text_pinned">A szöveg ki lett tűzve</string>
     <string name="export_clipboard_items">Vágólapelemek exportálása</string>
     <string name="import_clipboard_items">Vágólapelemek importálása</string>
     <string name="keycode_delete">Törlés</string>
     <string name="keycode_mode_change">Billentyűzet típusának módosítása</string>
-    <string name="keycode_shift">Váltás</string>
+    <string name="keycode_shift">Shift</string>
     <string name="show_clipboard_content">Vágólap tartalmának megjelenítése, ha rendelkezésre áll</string>
     <string name="show_popup">Felugró ablak megjelenítése billentyűleütéskor</string>
     <string name="vibrate_on_keypress">Rezgés a billentyű lenyomásakor</string>
@@ -27,5 +27,10 @@
     <string name="keyboard_height">Billentyűzet magassága</string>
     <string name="show_key_borders">Gombszélek megjelenítése</string>
     <string name="show_numbers_row">Számok megjelenítése külön sorban</string>
-    <string name="emojis">Emojik</string>
+    <string name="emojis">Emodzsik</string>
+    <string name="app_launcher_name">Billentyűzet</string>
+    <string name="redirection_note">Engedélyezze a Fossify Billentyűzetet a következő képernyőn, hogy elérhető legyen. Ha engedélyezte, nyomja meg a „Vissza” gombot.</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_space">Szóköz</string>
+    <string name="start_sentences_capitalized">Mondatok nagybetűvel kezdése</string>
 </resources>
