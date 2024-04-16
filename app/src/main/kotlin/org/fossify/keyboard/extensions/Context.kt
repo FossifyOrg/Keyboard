@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.Color
 import android.os.IBinder
 import android.os.UserManager
+import android.util.Log
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -167,11 +168,10 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getKeyboardLanguages(): ArrayList<Int> {
+fun Context.getKeyboardLanguages(selectedLangs: MutableSet<String>): ArrayList<Int> {
     val selectedLanguages = arrayListOf<Int>()
-    val selectedLanguagesFromConfig = config.selectedLanguages
 
-    for (language in selectedLanguagesFromConfig) {
+    for (language in selectedLangs) {
         when (language) {
             "bengali" -> selectedLanguages.add(LANGUAGE_BENGALI)
             "bulgarian" -> selectedLanguages.add(LANGUAGE_BULGARIAN)
@@ -199,11 +199,6 @@ fun Context.getKeyboardLanguages(): ArrayList<Int> {
 
     if (selectedLanguages.size == 0) {
         selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
-        config.selectedLanguages = mutableSetOf("english_qwerty")
-    }
-
-    if (config.keyboardLanguage !in selectedLanguages) {
-        config.keyboardLanguage = selectedLanguages[0]
     }
 
     return selectedLanguages
@@ -212,7 +207,7 @@ fun Context.getKeyboardLanguages(): ArrayList<Int> {
 fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
     val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
 
-    for (lang in getKeyboardLanguages()) {
+    for (lang in getKeyboardLanguages(config.selectedLanguages)) {
         selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
     }
 

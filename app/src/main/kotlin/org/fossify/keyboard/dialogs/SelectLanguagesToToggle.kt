@@ -6,10 +6,11 @@ import org.fossify.commons.extensions.setupDialogStuff
 import org.fossify.keyboard.R
 import org.fossify.keyboard.activities.SettingsActivity
 import org.fossify.keyboard.databinding.DialogSelectLanguagesToToggleBinding
-import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.*
 
 class SelectLanguagesToToggle(
     val activity: SettingsActivity,
+    private val onConfirm: (selectedLanguages: MutableSet<String>) -> Unit,
 ) : DialogInterface.OnClickListener {
     private var config = activity.config
     private val binding: DialogSelectLanguagesToToggleBinding
@@ -240,8 +241,8 @@ class SelectLanguagesToToggle(
         }
 
         activity.getAlertDialogBuilder()
-            .setPositiveButton(org.fossify.commons.R.string.ok, this)
-            .setNegativeButton(org.fossify.commons.R.string.cancel, null)
+            .setPositiveButton(R.string.ok, this)
+            .setNegativeButton(R.string.cancel, null)
             .apply {
                 activity.setupDialogStuff(binding.root, this)
             }
@@ -249,5 +250,6 @@ class SelectLanguagesToToggle(
 
     override fun onClick(dialog: DialogInterface, which: Int) {
         config.selectedLanguages = selectedLanguages
+        onConfirm(selectedLanguages)
     }
 }
