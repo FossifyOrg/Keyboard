@@ -6,11 +6,12 @@ import org.fossify.commons.extensions.setupDialogStuff
 import org.fossify.keyboard.R
 import org.fossify.keyboard.activities.SettingsActivity
 import org.fossify.keyboard.databinding.DialogSelectLanguagesToToggleBinding
-import org.fossify.keyboard.extensions.*
+import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.helpers.*
 
 class SelectLanguagesToToggle(
-    val activity: SettingsActivity,
-    private val onConfirm: (selectedLanguages: MutableSet<String>) -> Unit,
+    private val activity: SettingsActivity,
+    private val onConfirm: (selectedLanguages: MutableSet<Int>) -> Unit,
 ) : DialogInterface.OnClickListener {
     private var config = activity.config
     private val binding: DialogSelectLanguagesToToggleBinding
@@ -26,30 +27,30 @@ class SelectLanguagesToToggle(
             dialogLanguageTurkishQ.text = "${activity.getString(R.string.translation_turkish)} (Q)"
             dialogLanguageVietnameseTelex.text = "${activity.getString(R.string.translation_vietnamese)} (TELEX)"
 
-            dialogLanguageBengali.isChecked = "bengali" in config.selectedLanguages
-            dialogLanguageBulgarian.isChecked = "bulgarian" in config.selectedLanguages
-            dialogLanguageDanish.isChecked = "danish" in config.selectedLanguages
-            dialogLanguageEnglishQwerty.isChecked = "english_qwerty" in config.selectedLanguages
-            dialogLanguageEnglishQwertz.isChecked = "english_qwertz" in config.selectedLanguages
-            dialogLanguageEnglishDvorak.isChecked = "english_dvorak" in config.selectedLanguages
-            dialogLanguageFrenchAzerty.isChecked = "french_azerty" in config.selectedLanguages
-            dialogLanguageFrenchBepo.isChecked = "french_bepo" in config.selectedLanguages
-            dialogLanguageGerman.isChecked = "german" in config.selectedLanguages
-            dialogLanguageGreek.isChecked = "greek" in config.selectedLanguages
-            dialogLanguageLithuanian.isChecked = "lithuanian" in config.selectedLanguages
-            dialogLanguageNorwegian.isChecked = "norwegian" in config.selectedLanguages
-            dialogLanguagePolish.isChecked = "polish" in config.selectedLanguages
-            dialogLanguageRomanian.isChecked = "romanian" in config.selectedLanguages
-            dialogLanguageRussian.isChecked = "russian" in config.selectedLanguages
-            dialogLanguageSlovenian.isChecked = "slovenian" in config.selectedLanguages
-            dialogLanguageSpanish.isChecked = "spanish" in config.selectedLanguages
-            dialogLanguageSwedish.isChecked = "swedish" in config.selectedLanguages
-            dialogLanguageTurkishQ.isChecked = "turkish_q" in config.selectedLanguages
-            dialogLanguageUkrainian.isChecked = "ukrainian" in config.selectedLanguages
-            dialogLanguageVietnameseTelex.isChecked = "vietnamese_telex" in config.selectedLanguages
+            dialogLanguageBengali.isChecked = LANGUAGE_BENGALI in selectedLanguages
+            dialogLanguageBulgarian.isChecked = LANGUAGE_BULGARIAN in selectedLanguages
+            dialogLanguageDanish.isChecked = LANGUAGE_DANISH in config.selectedLanguages
+            dialogLanguageEnglishQwerty.isChecked = LANGUAGE_ENGLISH_QWERTY in selectedLanguages
+            dialogLanguageEnglishQwertz.isChecked = LANGUAGE_ENGLISH_QWERTZ in selectedLanguages
+            dialogLanguageEnglishDvorak.isChecked = LANGUAGE_ENGLISH_DVORAK in selectedLanguages
+            dialogLanguageFrenchAzerty.isChecked = LANGUAGE_FRENCH_AZERTY in selectedLanguages
+            dialogLanguageFrenchBepo.isChecked = LANGUAGE_FRENCH_BEPO in selectedLanguages
+            dialogLanguageGerman.isChecked = LANGUAGE_GERMAN in selectedLanguages
+            dialogLanguageGreek.isChecked = LANGUAGE_GREEK in selectedLanguages
+            dialogLanguageLithuanian.isChecked = LANGUAGE_LITHUANIAN in selectedLanguages
+            dialogLanguageNorwegian.isChecked = LANGUAGE_NORWEGIAN in selectedLanguages
+            dialogLanguagePolish.isChecked = LANGUAGE_POLISH in selectedLanguages
+            dialogLanguageRomanian.isChecked = LANGUAGE_ROMANIAN in selectedLanguages
+            dialogLanguageRussian.isChecked = LANGUAGE_RUSSIAN in selectedLanguages
+            dialogLanguageSlovenian.isChecked = LANGUAGE_SLOVENIAN in selectedLanguages
+            dialogLanguageSpanish.isChecked = LANGUAGE_SPANISH in selectedLanguages
+            dialogLanguageSwedish.isChecked = LANGUAGE_SWEDISH in selectedLanguages
+            dialogLanguageTurkishQ.isChecked = LANGUAGE_TURKISH_Q in selectedLanguages
+            dialogLanguageUkrainian.isChecked = LANGUAGE_UKRAINIAN in selectedLanguages
+            dialogLanguageVietnameseTelex.isChecked = LANGUAGE_VIETNAMESE_TELEX in selectedLanguages
 
             dialogLanguageBengaliHolder.setOnClickListener {
-                val language = "bengali"
+                val language = LANGUAGE_BENGALI
                 dialogLanguageBengali.isChecked = !dialogLanguageBengali.isChecked
                 if (dialogLanguageBengali.isChecked) {
                     selectedLanguages.add(language)
@@ -59,7 +60,7 @@ class SelectLanguagesToToggle(
             }
 
             dialogLanguageBulgarianHolder.setOnClickListener {
-                val language = "bulgarian"
+                val language = LANGUAGE_BULGARIAN
                 dialogLanguageBulgarian.isChecked = !dialogLanguageBulgarian.isChecked
                 if (dialogLanguageBulgarian.isChecked) {
                     selectedLanguages.add(language)
@@ -68,7 +69,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageDanishHolder.setOnClickListener {
-                val language = "danish"
+                val language = LANGUAGE_DANISH
                 dialogLanguageDanish.isChecked = !dialogLanguageDanish.isChecked
                 if (dialogLanguageDanish.isChecked) {
                     selectedLanguages.add(language)
@@ -77,7 +78,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageEnglishQwertyHolder.setOnClickListener {
-                val language = "english_qwerty"
+                val language = LANGUAGE_ENGLISH_QWERTY
                 dialogLanguageEnglishQwerty.isChecked = !dialogLanguageEnglishQwerty.isChecked
                 if (dialogLanguageEnglishQwerty.isChecked) {
                     selectedLanguages.add(language)
@@ -86,7 +87,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageEnglishQwertzHolder.setOnClickListener {
-                val language = "english_qwertz"
+                val language = LANGUAGE_ENGLISH_QWERTZ
                 dialogLanguageEnglishQwertz.isChecked = !dialogLanguageEnglishQwertz.isChecked
                 if (dialogLanguageEnglishQwertz.isChecked) {
                     selectedLanguages.add(language)
@@ -95,7 +96,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageEnglishDvorakHolder.setOnClickListener {
-                val language = "english_dvorak"
+                val language = LANGUAGE_ENGLISH_DVORAK
                 dialogLanguageEnglishDvorak.isChecked = !dialogLanguageEnglishDvorak.isChecked
                 if (dialogLanguageEnglishDvorak.isChecked) {
                     selectedLanguages.add(language)
@@ -104,7 +105,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageFrenchAzertyHolder.setOnClickListener {
-                val language = "french_azerty"
+                val language = LANGUAGE_FRENCH_AZERTY
                 dialogLanguageFrenchAzerty.isChecked = !dialogLanguageFrenchAzerty.isChecked
                 if (dialogLanguageFrenchAzerty.isChecked) {
                     selectedLanguages.add(language)
@@ -113,7 +114,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageFrenchBepoHolder.setOnClickListener {
-                val language = "english_bepo"
+                val language = LANGUAGE_FRENCH_BEPO
                 dialogLanguageFrenchBepo.isChecked = !dialogLanguageFrenchBepo.isChecked
                 if (dialogLanguageFrenchBepo.isChecked) {
                     selectedLanguages.add(language)
@@ -122,7 +123,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageGermanHolder.setOnClickListener {
-                val language = "german"
+                val language = LANGUAGE_GERMAN
                 dialogLanguageGerman.isChecked = !dialogLanguageGerman.isChecked
                 if (dialogLanguageGerman.isChecked) {
                     selectedLanguages.add(language)
@@ -131,7 +132,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageGreekHolder.setOnClickListener {
-                val language = "greek"
+                val language = LANGUAGE_GREEK
                 dialogLanguageGreek.isChecked = !dialogLanguageGreek.isChecked
                 if (dialogLanguageGreek.isChecked) {
                     selectedLanguages.add(language)
@@ -140,7 +141,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageLithuanianHolder.setOnClickListener {
-                val language = "lithuanian"
+                val language = LANGUAGE_LITHUANIAN
                 dialogLanguageLithuanian.isChecked = !dialogLanguageLithuanian.isChecked
                 if (dialogLanguageLithuanian.isChecked) {
                     selectedLanguages.add(language)
@@ -149,7 +150,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageNorwegianHolder.setOnClickListener {
-                val language = "norwegian"
+                val language = LANGUAGE_NORWEGIAN
                 dialogLanguageNorwegian.isChecked = !dialogLanguageNorwegian.isChecked
                 if (dialogLanguageNorwegian.isChecked) {
                     selectedLanguages.add(language)
@@ -158,7 +159,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguagePolishHolder.setOnClickListener {
-                val language = "polish"
+                val language = LANGUAGE_POLISH
                 dialogLanguagePolish.isChecked = !dialogLanguagePolish.isChecked
                 if (dialogLanguagePolish.isChecked) {
                     selectedLanguages.add(language)
@@ -167,7 +168,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageRomanianHolder.setOnClickListener {
-                val language = "romanian"
+                val language = LANGUAGE_ROMANIAN
                 dialogLanguageRomanian.isChecked = !dialogLanguageRomanian.isChecked
                 if (dialogLanguageRomanian.isChecked) {
                     selectedLanguages.add(language)
@@ -176,7 +177,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageRussianHolder.setOnClickListener {
-                val language = "russian"
+                val language = LANGUAGE_RUSSIAN
                 dialogLanguageRussian.isChecked = !dialogLanguageRussian.isChecked
                 if (dialogLanguageRussian.isChecked) {
                     selectedLanguages.add(language)
@@ -185,7 +186,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageSlovenianHolder.setOnClickListener {
-                val language = "slovenian"
+                val language = LANGUAGE_SLOVENIAN
                 dialogLanguageSlovenian.isChecked = !dialogLanguageSlovenian.isChecked
                 if (dialogLanguageSlovenian.isChecked) {
                     selectedLanguages.add(language)
@@ -194,7 +195,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageSpanishHolder.setOnClickListener {
-                val language = "spanish"
+                val language = LANGUAGE_SPANISH
                 dialogLanguageSpanish.isChecked = !dialogLanguageSpanish.isChecked
                 if (dialogLanguageSpanish.isChecked) {
                     selectedLanguages.add(language)
@@ -203,7 +204,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageSwedishHolder.setOnClickListener {
-                val language = "swedish"
+                val language = LANGUAGE_SWEDISH
                 dialogLanguageSwedish.isChecked = !dialogLanguageSwedish.isChecked
                 if (dialogLanguageSwedish.isChecked) {
                     selectedLanguages.add(language)
@@ -212,7 +213,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageTurkishQHolder.setOnClickListener {
-                val language = "turkish_q"
+                val language = LANGUAGE_TURKISH_Q
                 dialogLanguageTurkishQ.isChecked = !dialogLanguageTurkishQ.isChecked
                 if (dialogLanguageTurkishQ.isChecked) {
                     selectedLanguages.add(language)
@@ -221,7 +222,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageUkrainianHolder.setOnClickListener {
-                val language = "ukrainian"
+                val language = LANGUAGE_UKRAINIAN
                 dialogLanguageUkrainian.isChecked = !dialogLanguageUkrainian.isChecked
                 if (dialogLanguageUkrainian.isChecked) {
                     selectedLanguages.add(language)
@@ -230,7 +231,7 @@ class SelectLanguagesToToggle(
                 }
             }
             dialogLanguageVietnameseTelexHolder.setOnClickListener {
-                val language = "vietnamese_telex"
+                val language = LANGUAGE_VIETNAMESE_TELEX
                 dialogLanguageVietnameseTelex.isChecked = !dialogLanguageVietnameseTelex.isChecked
                 if (dialogLanguageVietnameseTelex.isChecked) {
                     selectedLanguages.add(language)
@@ -249,6 +250,10 @@ class SelectLanguagesToToggle(
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
+        val defaultLang = config.getDefaultLanguage()
+        if (selectedLanguages.size == 0) {
+            selectedLanguages.add(defaultLang)
+        }
         config.selectedLanguages = selectedLanguages
         onConfirm(selectedLanguages)
     }

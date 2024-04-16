@@ -11,7 +11,6 @@ import org.fossify.keyboard.databinding.ActivitySettingsBinding
 import org.fossify.keyboard.dialogs.SelectLanguagesToToggle
 import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardLanguageText
-import org.fossify.keyboard.extensions.getKeyboardLanguages
 import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
 import org.fossify.keyboard.helpers.*
 import java.util.Locale
@@ -140,10 +139,9 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSelectedLanguages() {
         binding.apply {
             settingsSelectedKeyboardLanguageHolder.setOnClickListener {
-                SelectLanguagesToToggle(this@SettingsActivity) {selectedLanguages ->
-                    val items = getKeyboardLanguages(selectedLanguages)
-                    if (config.keyboardLanguage !in items) {
-                        config.keyboardLanguage = items[0]
+                SelectLanguagesToToggle(this@SettingsActivity) { selectedLanguages ->
+                    if (config.keyboardLanguage !in selectedLanguages) {
+                        config.keyboardLanguage = selectedLanguages.first()
                     }
                     settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
                 }

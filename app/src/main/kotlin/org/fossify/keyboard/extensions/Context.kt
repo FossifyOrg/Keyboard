@@ -6,7 +6,6 @@ import android.content.Context
 import android.graphics.Color
 import android.os.IBinder
 import android.os.UserManager
-import android.util.Log
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -168,46 +167,10 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getKeyboardLanguages(selectedLangs: MutableSet<String>): ArrayList<Int> {
-    val selectedLanguages = arrayListOf<Int>()
-
-    for (language in selectedLangs) {
-        when (language) {
-            "bengali" -> selectedLanguages.add(LANGUAGE_BENGALI)
-            "bulgarian" -> selectedLanguages.add(LANGUAGE_BULGARIAN)
-            "danish" -> selectedLanguages.add(LANGUAGE_DANISH)
-            "english_qwerty" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
-            "english_dvorak" -> selectedLanguages.add(LANGUAGE_ENGLISH_DVORAK)
-            "english_qwertz" -> selectedLanguages.add(LANGUAGE_ENGLISH_QWERTZ)
-            "french_azerty" -> selectedLanguages.add(LANGUAGE_FRENCH_AZERTY)
-            "french_bepo" -> selectedLanguages.add(LANGUAGE_FRENCH_BEPO)
-            "german" -> selectedLanguages.add(LANGUAGE_GERMAN)
-            "greek" -> selectedLanguages.add(LANGUAGE_GREEK)
-            "lithuanian" -> selectedLanguages.add(LANGUAGE_LITHUANIAN)
-            "norwegian" -> selectedLanguages.add(LANGUAGE_NORWEGIAN)
-            "polish" -> selectedLanguages.add(LANGUAGE_POLISH)
-            "romanian" -> selectedLanguages.add(LANGUAGE_ROMANIAN)
-            "russian" -> selectedLanguages.add(LANGUAGE_RUSSIAN)
-            "slovenian" -> selectedLanguages.add(LANGUAGE_SLOVENIAN)
-            "spanish" -> selectedLanguages.add(LANGUAGE_SPANISH)
-            "swedish" -> selectedLanguages.add(LANGUAGE_SWEDISH)
-            "turkish_q" -> selectedLanguages.add(LANGUAGE_TURKISH_Q)
-            "ukrainian" -> selectedLanguages.add(LANGUAGE_UKRAINIAN)
-            "vietnamese_telex" -> selectedLanguages.add(LANGUAGE_VIETNAMESE_TELEX)
-        }
-    }
-
-    if (selectedLanguages.size == 0) {
-        selectedLanguages.add(LANGUAGE_ENGLISH_QWERTY)
-    }
-
-    return selectedLanguages
-}
-
 fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
     val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
 
-    for (lang in getKeyboardLanguages(config.selectedLanguages)) {
+    for (lang in config.selectedLanguages) {
         selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
     }
 
