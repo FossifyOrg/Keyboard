@@ -140,6 +140,7 @@ class SettingsActivity : SimpleActivity() {
         binding.apply {
             settingsSelectedKeyboardLanguageHolder.setOnClickListener {
                 SelectLanguagesToToggle(this@SettingsActivity) { selectedLanguages ->
+                    config.selectedLanguages = selectedLanguages
                     if (config.keyboardLanguage !in selectedLanguages) {
                         config.keyboardLanguage = selectedLanguages.first()
                     }
