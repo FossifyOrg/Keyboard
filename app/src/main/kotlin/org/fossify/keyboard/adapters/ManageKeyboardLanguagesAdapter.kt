@@ -1,21 +1,18 @@
 package org.fossify.keyboard.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.fossify.commons.views.MyAppCompatCheckbox
 import org.fossify.keyboard.R
-import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardLanguageText
+import org.fossify.keyboard.helpers.Config
 
-internal class LanguageCheckboxItemAdapter(
+internal class ManageKeyboardLanguagesAdapter(
+    private val config: Config,
     private var languagesList: List<Int>,
-    context: Context,
-) :
-    RecyclerView.Adapter<LanguageCheckboxItemAdapter.MyViewHolder>() {
-    private var config = context.config
+) : RecyclerView.Adapter<ManageKeyboardLanguagesAdapter.MyViewHolder>() {
     private val selectedLanguages = config.selectedLanguages
 
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -30,18 +27,16 @@ internal class LanguageCheckboxItemAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = languagesList[position]
-        holder.languageCheckboxItem.text = config.context.getKeyboardLanguageText(item)
+        holder.languageCheckboxItem.apply {
+            text = config.context.getKeyboardLanguageText(item)
+            isChecked = selectedLanguages.contains(item)
 
-        val isSelected = selectedLanguages.contains(item)
-
-        holder.languageCheckboxItem.isChecked = isSelected
-
-        holder.languageCheckboxItem.setOnClickListener {
-            val isChecked = holder.languageCheckboxItem.isChecked
-            if (isChecked) {
-                selectedLanguages.add(item)
-            } else {
-                selectedLanguages.remove(item)
+            setOnClickListener {
+                if (isChecked) {
+                    selectedLanguages.add(item)
+                } else {
+                    selectedLanguages.remove(item)
+                }
             }
         }
     }

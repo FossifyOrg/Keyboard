@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/keyboard_language_list_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dialog_select_languages_to_toggle"
+        android:id="@+id/keyboard_language_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager"
+        tools:listitem="@layout/language_checkbox_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,8 +52,15 @@ class Config(context: Context) : BaseConfig(context) {
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
     var selectedLanguages: MutableSet<Int>
-        get() = prefs.getStringSet(SELECTED_LANGUAGES, HashSet())!!.map { it.toInt() }.toMutableSet()
-        set(selectedLanguages) = prefs.edit().putStringSet(SELECTED_LANGUAGES, selectedLanguages.map { it.toString() }.toSet()).apply()
+        get() {
+            val defaultLanguage = getDefaultLanguage().toString()
+            val stringSet = prefs.getStringSet(SELECTED_LANGUAGES, hashSetOf(defaultLanguage))!!
+            return stringSet.map { it.toInt() }.toMutableSet()
+        }
+        set(selectedLanguages) {
+            val stringSet = selectedLanguages.map { it.toString() }.toSet()
+            prefs.edit().putStringSet(SELECTED_LANGUAGES, stringSet).apply()
+        }
 
     fun getDefaultLanguage(): Int {
         val conf = context.resources.configuration

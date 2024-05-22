@@ -8,7 +8,7 @@ import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
 import org.fossify.keyboard.databinding.ActivitySettingsBinding
-import org.fossify.keyboard.dialogs.SelectLanguagesToToggle
+import org.fossify.keyboard.dialogs.ManageKeyboardLanguagesDialog
 import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
@@ -42,7 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupVibrateOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
-        setupSelectedLanguages()
+        setupManageKeyboardLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
         setupShowClipboardContent()
@@ -136,10 +136,10 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupSelectedLanguages() {
+    private fun setupManageKeyboardLanguages() {
         binding.apply {
-            settingsSelectedKeyboardLanguageHolder.setOnClickListener {
-                SelectLanguagesToToggle(this@SettingsActivity) { selectedLanguages ->
+            settingsManageKeyboardLanguagesHolder.setOnClickListener {
+                ManageKeyboardLanguagesDialog(this@SettingsActivity) { selectedLanguages ->
                     config.selectedLanguages = selectedLanguages
                     if (config.keyboardLanguage !in selectedLanguages) {
                         config.keyboardLanguage = selectedLanguages.first()
