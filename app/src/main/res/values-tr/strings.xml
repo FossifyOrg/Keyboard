@@ -33,4 +33,5 @@
     <string name="emojis">Emojiler</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
+    <string name="manage_keyboard_languages">Klavye dillerini yönet</string>
 </resources>
