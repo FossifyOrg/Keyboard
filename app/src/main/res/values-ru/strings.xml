@@ -30,4 +30,7 @@
     <string name="show_numbers_row">Показывать цифры отдельной строкой</string>
     <string name="start_sentences_capitalized">Начинать предложения с заглавной буквы</string>
     <string name="emojis">Эмодзи</string>
+    <string name="redirection_note">Включите Fossify Keyboard на следующем экране, чтобы сделать её доступной для использования. Нажмите \"Назад\" после включения.</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Ввод</string>
 </resources>

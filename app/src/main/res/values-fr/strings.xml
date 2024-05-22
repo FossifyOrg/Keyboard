@@ -32,4 +32,5 @@
     <string name="show_numbers_row">Afficher les chiffres sur une ligne distincte</string>
     <string name="start_sentences_capitalized">Commencer les phrases par une majuscule</string>
     <string name="emojis">Émojis</string>
+    <string name="redirection_note">Veuillez activer le clavier Fossify sur l\'écran suivant, pour qu\'il soit disponible. Appuyez sur \"Retour\" une fois l\'option activée.</string>
 </resources>
