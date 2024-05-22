@@ -33,4 +33,5 @@
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Mezerník</string>
     <string name="redirection_note">Na další obrazovce prosím povolte Fossify Keyboard, abyste ji zařadili mezi dostupné klávesnice. Jakmile budete mít hotovo, klepněte na „Zpět“.</string>
+    <string name="manage_keyboard_languages">Správa jazyků klávesnice</string>
 </resources>
