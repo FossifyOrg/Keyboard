@@ -1,1 +1,0 @@
-Egyszerű billentyűzet szöveg, különleges karakterek és számok beviteléhez
