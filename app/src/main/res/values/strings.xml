@@ -14,6 +14,7 @@
     <string name="clipboard_current">Current</string>
     <string name="clipboard_pinned">Pinned</string>
     <string name="add_new_item">Add a new item</string>
+    <string name="manage_keyboard_languages">Manage keyboard languages</string>
     <string name="manage_clips">You can manage or add clips here for quick access.</string>
     <string name="clip_text">Clip text</string>
     <string name="pin_text">Pin text</string>

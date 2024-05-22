@@ -8,9 +8,10 @@ import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
 import org.fossify.keyboard.databinding.ActivitySettingsBinding
+import org.fossify.keyboard.dialogs.ManageKeyboardLanguagesDialog
 import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardLanguageText
-import org.fossify.keyboard.extensions.getKeyboardLanguages
+import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
 import org.fossify.keyboard.helpers.*
 import java.util.Locale
 import kotlin.system.exitProcess
@@ -41,6 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupVibrateOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
+        setupManageKeyboardLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
         setupShowClipboardContent()
@@ -135,11 +137,25 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupManageKeyboardLanguages() {
+        binding.apply {
+            settingsManageKeyboardLanguagesHolder.setOnClickListener {
+                ManageKeyboardLanguagesDialog(this@SettingsActivity) { selectedLanguages ->
+                    config.selectedLanguages = selectedLanguages
+                    if (config.keyboardLanguage !in selectedLanguages) {
+                        config.keyboardLanguage = selectedLanguages.first()
+                    }
+                    settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
+                }
+            }
+        }
+    }
+
     private fun setupKeyboardLanguage() {
         binding.apply {
             settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
             settingsKeyboardLanguageHolder.setOnClickListener {
-                val items = getKeyboardLanguages()
+                val items = getKeyboardLanguagesRadioItems()
                 RadioGroupDialog(this@SettingsActivity, items, config.keyboardLanguage) {
                     config.keyboardLanguage = it as Int
                     settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)

@@ -30,4 +30,7 @@
     <string name="show_numbers_row">Відображення чисел в окремому рядку</string>
     <string name="start_sentences_capitalized">Починати речення з великої літери</string>
     <string name="emojis">Емодзі</string>
+    <string name="redirection_note">Ввімкніть Fossify Keyboard на наступному екрані, щоб зробити її доступною. Натисніть «Назад», коли ввімкнено.</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_shift">Shift</string>
 </resources>

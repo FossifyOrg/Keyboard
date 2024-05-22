@@ -31,4 +31,6 @@
     <string name="show_numbers_row">Näita numbreid eraldi real</string>
     <string name="start_sentences_capitalized">Alusta lauseid suurtähega</string>
     <string name="emojis">Emojid</string>
+    <string name="redirection_note">Palun võta järgmises ekraanivaates Fossify klaviatuur kasutusele. Kui see on tehtud, siis vajuta „Tagasi“ nuppu.</string>
+    <string name="keycode_shift">Shift</string>
 </resources>
