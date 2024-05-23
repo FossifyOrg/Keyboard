@@ -33,4 +33,5 @@
     <string name="show_numbers_row">在单独的行上显示数字</string>
     <string name="start_sentences_capitalized">句子开头使用大写字母</string>
     <string name="emojis">表情符号</string>
+    <string name="manage_keyboard_languages">管理键盘语言</string>
 </resources>
