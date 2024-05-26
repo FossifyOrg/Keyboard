@@ -7,11 +7,10 @@ import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
+import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.ActivitySettingsBinding
 import org.fossify.keyboard.dialogs.ManageKeyboardLanguagesDialog
-import org.fossify.keyboard.extensions.config
-import org.fossify.keyboard.extensions.getKeyboardLanguageText
-import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
+import org.fossify.keyboard.extensions.*
 import org.fossify.keyboard.helpers.*
 import java.util.Locale
 import kotlin.system.exitProcess
@@ -48,7 +47,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
-        setupShowVoiceButton()
+        setupVoiceInputMethod()
 
         binding.apply {
             updateTextColors(settingsNestedScrollview)
@@ -218,12 +217,24 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowVoiceButton() {
+    private fun setupVoiceInputMethod() {
         binding.apply {
-            settingsShowVoiceButton.isChecked = config.showVoiceButton
-            settingsShowVoiceButtonHolder.setOnClickListener {
-                settingsShowVoiceButton.toggle()
-                config.showVoiceButton = settingsShowVoiceButton.isChecked
+            settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod()?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+            settingsVoiceInputMethodHolder.setOnClickListener {
+                val inputMethods = getVoiceInputMethods()
+                if (inputMethods.isEmpty()) {
+                    toast(R.string.no_app_found)
+                    return@setOnClickListener
+                }
+
+                RadioGroupDialog(
+                    activity = this@SettingsActivity,
+                    items = getVoiceInputRadioItems(),
+                    checkedItemId = inputMethods.indexOf(getCurrentVoiceInputMethod(inputMethods))
+                ) {
+                    config.voiceInputMethod = inputMethods.getOrNull(it as Int)?.first?.id.orEmpty()
+                    settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+                }
             }
         }
     }

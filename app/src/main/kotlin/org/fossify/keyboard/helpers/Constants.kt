@@ -21,7 +21,7 @@ const val HEIGHT_PERCENTAGE = "height_percentage"
 const val SHOW_CLIPBOARD_CONTENT = "show_clipboard_content"
 const val SHOW_NUMBERS_ROW = "show_numbers_row"
 const val SELECTED_LANGUAGES = "selected_languages"
-const val SHOW_VOICE_BUTTON = "show_voice_button"
+const val VOICE_INPUT_METHOD = "voice_input_method"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0
@@ -85,3 +85,6 @@ const val KEYBOARD_HEIGHT_160_PERCENT = 160
 
 const val EMOJI_SPEC_FILE_PATH = "media/emoji_spec.txt"
 const val LANGUAGE_VN_TELEX = "language/extension.json"
+
+// Android constant
+const val INPUT_METHOD_SUBTYPE_VOICE = "voice"

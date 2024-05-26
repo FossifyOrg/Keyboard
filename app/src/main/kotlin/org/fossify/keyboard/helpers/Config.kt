@@ -51,10 +51,9 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
-
-    var showVoiceButton: Boolean
-        get() = prefs.getBoolean(SHOW_VOICE_BUTTON, false)
-        set(showVoiceButton) = prefs.edit().putBoolean(SHOW_VOICE_BUTTON, showVoiceButton).apply()
+    var voiceInputMethod: String
+        get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
+        set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
 
     var selectedLanguages: MutableSet<Int>
         get() {

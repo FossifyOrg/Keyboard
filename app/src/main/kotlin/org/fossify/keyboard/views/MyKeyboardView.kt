@@ -190,8 +190,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         try {
             for (i in 0 until indexCnt) {
-                val attr = attributes.getIndex(i)
-                when (attr) {
+                when (val attr = attributes.getIndex(i)) {
                     R.styleable.MyKeyboardView_keyTextSize -> mKeyTextSize = attributes.getDimensionPixelSize(attr, 18)
                 }
             }
@@ -259,12 +258,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         closeClipboardManager()
         closeEmojiPalette()
 
-        if (context.config.showVoiceButton) {
-            keyboardViewBinding?.voiceInputButton?.visibility = VISIBLE
-        } else {
-            keyboardViewBinding?.voiceInputButton?.visibility = GONE
-        }
-
         if (visibility == VISIBLE) {
             setupKeyboard(changedView)
         }
@@ -307,6 +300,18 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mClipboardManagerHolder = clipboardManagerHolder
             mEmojiPaletteHolder = emojiPaletteHolder
 
+            voiceInputButton.setOnLongClickListener { context.toast(R.string.switch_to_voice_typing); true }
+            voiceInputButton.setOnClickListener {
+                val inputMethod = context.getCurrentVoiceInputMethod()
+                if (inputMethod == null) {
+                    context.toast(R.string.no_app_found)
+                    return@setOnClickListener
+                }
+
+                val (im, type) = inputMethod
+                mOnKeyboardActionListener?.changeInputMethod(im.id, type)
+            }
+
             settingsCog.setOnLongClickListener { context.toast(R.string.settings); true; }
             settingsCog.setOnClickListener {
                 vibrateIfNeeded()
@@ -328,8 +333,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 clearClipboardContent()
                 toggleClipboardVisibility(false)
             }
-
-            voiceInputButton.setOnLongClickListener { context.toast(R.string.voice_input_button); true }
 
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
                 override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
@@ -428,6 +431,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
             voiceInputButton.applyColorFilter(mTextColor)
+            voiceInputButton.beGoneIf(context.config.voiceInputMethod.isEmpty())
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 

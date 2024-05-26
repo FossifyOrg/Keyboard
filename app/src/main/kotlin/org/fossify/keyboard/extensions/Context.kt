@@ -4,9 +4,13 @@ import android.app.KeyguardManager
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Color
+import android.inputmethodservice.InputMethodService
 import android.os.IBinder
 import android.os.UserManager
 import android.view.*
+import android.view.inputmethod.InputMethodInfo
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodSubtype
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
@@ -41,6 +45,9 @@ val Context.isDeviceLocked: Boolean
         val keyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
         return keyguardManager.isDeviceLocked || keyguardManager.isKeyguardLocked || isDeviceInDirectBootMode
     }
+
+val Context.inputMethodManager: InputMethodManager
+    get() = getSystemService(InputMethodService.INPUT_METHOD_SERVICE) as InputMethodManager
 
 val Context.clipsDB: ClipsDao
     get() = ClipsDatabase.getInstance(applicationContext.safeStorageContext).ClipsDao()
@@ -203,4 +210,25 @@ fun Context.getKeyboardLanguageText(language: Int): String {
     }
 }
 
+fun Context.getVoiceInputMethods(imm: InputMethodManager = inputMethodManager): List<Pair<InputMethodInfo, InputMethodSubtype>> {
+    return imm.enabledInputMethodList.flatMap { im ->
+        imm.getEnabledInputMethodSubtypeList(im, true)
+            .filter { it.mode == INPUT_METHOD_SUBTYPE_VOICE }
+            .map { im to it }
+    }
+}
 
+fun Context.getCurrentVoiceInputMethod(
+    inputMethods: List<Pair<InputMethodInfo, InputMethodSubtype>> = getVoiceInputMethods()
+) = inputMethods.find { it.first.id == config.voiceInputMethod }
+
+fun Context.getVoiceInputRadioItems(
+    inputMethods: List<Pair<InputMethodInfo, InputMethodSubtype>> = getVoiceInputMethods()
+): ArrayList<RadioItem> {
+    val radioItems = arrayListOf(RadioItem(id = -1, title = getString(R.string.none)))
+    for ((index, pair) in inputMethods.withIndex()) {
+        radioItems += RadioItem(id = index, title = pair.first.loadLabel(packageManager).toString())
+    }
+
+    return radioItems
+}
