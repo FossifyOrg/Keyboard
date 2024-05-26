@@ -35,7 +35,7 @@
             android:layout_marginEnd="@dimen/normal_margin"
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
+            app:layout_constraintEnd_toStartOf="@+id/voice_input_button"
             app:layout_constraintStart_toEndOf="@+id/clipboard_clear"
             app:layout_constraintTop_toTopOf="parent">
 
