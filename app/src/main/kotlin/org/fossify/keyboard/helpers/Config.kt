@@ -51,6 +51,10 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
+    var voiceInputMethod: String
+        get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
+        set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
+
     var selectedLanguages: MutableSet<Int>
         get() {
             val defaultLanguage = getDefaultLanguage().toString()

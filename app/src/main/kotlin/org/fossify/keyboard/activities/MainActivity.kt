@@ -5,7 +5,6 @@ import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
 import android.os.Bundle
 import android.provider.Settings
-import android.view.inputmethod.InputMethodManager
 import org.fossify.commons.dialogs.ConfirmationAdvancedDialog
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.LICENSE_GSON
@@ -13,6 +12,7 @@ import org.fossify.commons.models.FAQItem
 import org.fossify.keyboard.BuildConfig
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.ActivityMainBinding
+import org.fossify.keyboard.extensions.inputMethodManager
 
 class MainActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityMainBinding::inflate)
@@ -30,7 +30,7 @@ class MainActivity : SimpleActivity() {
             setupMaterialScrollListener(mainNestedScrollview, mainToolbar)
 
             changeKeyboardHolder.setOnClickListener {
-                (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).showInputMethodPicker()
+                inputMethodManager.showInputMethodPicker()
             }
         }
     }
@@ -100,9 +100,7 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun isKeyboardEnabled(): Boolean {
-        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        val enabledKeyboards = inputMethodManager.enabledInputMethodList
-        return enabledKeyboards.any {
+        return inputMethodManager.enabledInputMethodList.any {
             it.settingsActivity == SettingsActivity::class.java.canonicalName
         }
     }
