@@ -34,4 +34,6 @@
     <string name="keycode_enter">Entrar</string>
     <string name="redirection_note">Por favor, activa Fossify Keyboard en la siguiente pantalla, para que sea un teclado disponible. Pulse \'Atrás\' una vez habilitado.</string>
     <string name="manage_keyboard_languages">Administrar idiomas del teclado</string>
+    <string name="voice_typing_method">Método de escritura por voz</string>
+    <string name="switch_to_voice_typing">Cambiar a escritura por voz</string>
 </resources>
