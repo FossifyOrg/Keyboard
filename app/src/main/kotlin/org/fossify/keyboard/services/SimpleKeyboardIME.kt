@@ -222,6 +222,16 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 keyboardView?.openEmojiPalette()
             }
 
+            MyKeyboard.KEYCODE_TOGGLE_LANGUAGE -> {
+                val selectedLanguages = config.selectedLanguages
+                if (selectedLanguages.size > 1) {
+                    val currentLanguage = selectedLanguages.indexOf(config.keyboardLanguage)
+                    val nextLanguage = (currentLanguage + 1) % selectedLanguages.size
+                    config.keyboardLanguage = selectedLanguages.elementAt(nextLanguage)
+                    keyboardView?.mOnKeyboardActionListener?.reloadKeyboard()
+                }
+            }
+
             else -> {
                 var codeChar = code.toChar()
                 val originalText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text

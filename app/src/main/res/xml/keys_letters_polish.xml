@@ -147,14 +147,16 @@
             app:keyLabel="123"
             app:keyWidth="15%p" />
         <Key
-            app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:code="-7"
+            app:keyEdgeFlags="left"
+            app:keyIcon="@drawable/ic_language_toggle"
+            app:keyWidth="10%p"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
-            app:keyWidth="10%p"
-            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
+            app:keyWidth="10%p" />
         <Key
             app:code="32"
             app:isRepeatable="true"

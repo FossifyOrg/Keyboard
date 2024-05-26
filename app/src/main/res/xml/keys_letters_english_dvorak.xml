@@ -132,7 +132,8 @@
             app:code="-1"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="10%p" />
+        <Key app:keyLabel="q" />
         <Key app:keyLabel="j" />
         <Key app:keyLabel="k" />
         <Key app:keyLabel="x" />
@@ -145,7 +146,7 @@
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
             app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="10%p" />
     </Row>
     <Row>
         <Key
@@ -154,13 +155,15 @@
             app:keyLabel="123"
             app:keyWidth="15%p" />
         <Key
-            app:keyLabel="q"
+            app:code="-7"
+            app:keyEdgeFlags="left"
+            app:keyIcon="@drawable/ic_language_toggle"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined"
             app:keyWidth="10%p" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
-            app:secondaryKeyIcon="@drawable/ic_language_outlined"
             app:keyWidth="10%p" />
         <Key
             app:code="32"

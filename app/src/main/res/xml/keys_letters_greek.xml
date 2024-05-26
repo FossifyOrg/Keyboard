@@ -165,13 +165,15 @@
             app:keyLabel="123"
             app:keyWidth="15%p" />
         <Key
-            app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:code="-7"
+            app:keyEdgeFlags="left"
+            app:keyIcon="@drawable/ic_language_toggle"
+            app:keyWidth="10%p"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
-            app:secondaryKeyIcon="@drawable/ic_language_outlined"
             app:keyWidth="10%p" />
         <Key
             app:code="32"
@@ -179,9 +181,9 @@
             app:keyWidth="40%p" />
         <Key
             app:keyLabel="."
+            app:keyWidth="10%p"
             app:popupCharacters=",?!;:…"
-            app:popupKeyboard="@xml/keyboard_popup_template"
-            app:keyWidth="10%p" />
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:code="-4"
             app:keyEdgeFlags="right"

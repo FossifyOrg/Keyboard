@@ -27,6 +27,7 @@
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Spacebar</string>
+    <string name="toggle_language">Toggle languages</string>
     <!-- Settings -->
     <string name="show_clipboard_content">Show clipboard content if available</string>
     <string name="show_popup">Show a popup on keypress</string>

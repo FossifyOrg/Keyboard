@@ -55,6 +55,7 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_TOGGLE_LANGUAGE
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
@@ -617,7 +618,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 if (code == KEYCODE_ENTER) {
                     key.icon!!.applyColorFilter(mPrimaryColor.getContrastColor())
                     key.secondaryIcon?.applyColorFilter(mPrimaryColor.getContrastColor())
-                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI) {
+                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI || code == KEYCODE_TOGGLE_LANGUAGE) {
                     key.icon!!.applyColorFilter(mTextColor)
                     key.secondaryIcon?.applyColorFilter(mTextColor)
                 }
@@ -996,7 +997,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
      * handle the call.
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
-        if (popupKey.code == KEYCODE_EMOJI) {
+        if (popupKey.code == KEYCODE_TOGGLE_LANGUAGE) {
             ChangeLanguagePopup(this, onSelect = {
                 mOnKeyboardActionListener?.reloadKeyboard()
             })
