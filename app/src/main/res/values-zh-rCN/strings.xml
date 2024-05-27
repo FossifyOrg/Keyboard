@@ -34,4 +34,6 @@
     <string name="start_sentences_capitalized">句子开头使用大写字母</string>
     <string name="emojis">表情符号</string>
     <string name="manage_keyboard_languages">管理键盘语言</string>
+    <string name="voice_typing_method">语音输入方式</string>
+    <string name="switch_to_voice_typing">切换到语音输入</string>
 </resources>
