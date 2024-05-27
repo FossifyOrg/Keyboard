@@ -22,16 +22,18 @@
     <string name="export_clipboard_items">क्लिपबोर्ड आइटम निर्यात करें</string>
     <string name="import_clipboard_items">क्लिपबोर्ड आइटम आयात करें</string>
     <string name="keycode_delete">मिटाएं</string>
-    <string name="keycode_shift">बदलाव</string>
-    <string name="keycode_enter">प्रवेश</string>
+    <string name="keycode_shift">शिफ्ट</string>
+    <string name="keycode_enter">एंटर</string>
     <string name="keycode_space">स्पेसबार</string>
     <string name="show_clipboard_content">यदि उपलब्ध हो तो क्लिपबोर्ड सामग्री दिखाएं</string>
     <string name="show_popup">कीप्रेस पर पॉपअप दिखाएं</string>
     <string name="vibrate_on_keypress">कीप्रेस पर कंपन करें</string>
     <string name="keyboard_language">कीबोर्ड भाषा</string>
-    <string name="show_key_borders">की सीमाएं दिखाएं</string>
+    <string name="show_key_borders">कुंजी सीमाएं दिखाएं</string>
     <string name="show_numbers_row">एक अलग पंक्ति में संख्याएं दिखाएं</string>
     <string name="emojis">इमोजी</string>
     <string name="change_keyboard">कीबोर्ड बदलें</string>
     <string name="manage_keyboard_languages">कीबोर्ड भाषाएं प्रबंधित करें</string>
+    <string name="voice_typing_method">वॉयस टाइपिंग विधि</string>
+    <string name="switch_to_voice_typing">वॉइस टाइपिंग पर जाएं</string>
 </resources>
