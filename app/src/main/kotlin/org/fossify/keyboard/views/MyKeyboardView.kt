@@ -190,8 +190,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         try {
             for (i in 0 until indexCnt) {
-                val attr = attributes.getIndex(i)
-                when (attr) {
+                when (val attr = attributes.getIndex(i)) {
                     R.styleable.MyKeyboardView_keyTextSize -> mKeyTextSize = attributes.getDimensionPixelSize(attr, 18)
                 }
             }
@@ -300,6 +299,18 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mToolbarHolder = toolbarHolder
             mClipboardManagerHolder = clipboardManagerHolder
             mEmojiPaletteHolder = emojiPaletteHolder
+
+            voiceInputButton.setOnLongClickListener { context.toast(R.string.switch_to_voice_typing); true }
+            voiceInputButton.setOnClickListener {
+                val inputMethod = context.getCurrentVoiceInputMethod()
+                if (inputMethod == null) {
+                    context.toast(R.string.no_app_found)
+                    return@setOnClickListener
+                }
+
+                val (im, type) = inputMethod
+                mOnKeyboardActionListener?.changeInputMethod(im.id, type)
+            }
 
             settingsCog.setOnLongClickListener { context.toast(R.string.settings); true; }
             settingsCog.setOnClickListener {
@@ -419,6 +430,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             settingsCog.applyColorFilter(mTextColor)
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
+            voiceInputButton.applyColorFilter(mTextColor)
+            voiceInputButton.beGoneIf(context.config.voiceInputMethod.isEmpty())
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 

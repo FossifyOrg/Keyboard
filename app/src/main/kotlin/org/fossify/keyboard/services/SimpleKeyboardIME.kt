@@ -34,6 +34,7 @@ import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.getSharedPrefs
 import org.fossify.commons.helpers.isNougatPlus
+import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
@@ -342,6 +343,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         val keyboard = createNewKeyboard()
         this.keyboard = keyboard
         keyboardView?.setKeyboard(keyboard)
+    }
+
+    override fun changeInputMethod(id: String, subtype: InputMethodSubtype) {
+        if (isPiePlus()) {
+            switchInputMethod(id, subtype)
+        } else {
+            switchInputMethod(id)
+        }
     }
 
     private fun createNewKeyboard(): MyKeyboard {
