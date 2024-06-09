@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto">
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <Row>
         <Key
             app:keyEdgeFlags="left"
@@ -42,7 +43,7 @@
             app:keyWidth="20%p" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel=""
+            app:keyLabel="="
             app:keyWidth="15%p" />
     </Row>
     <Row>
@@ -71,16 +72,20 @@
     </Row>
     <Row>
         <Key
-            app:code="-1"
+            app:code="-3"
             app:keyEdgeFlags="left"
-            app:keyLabel="\?123"
-            app:keyWidth="12.5%p" /> />
-        <Key
-            app:keyLabel=","
+            app:keyLabel="abc"
             app:keyWidth="12.5%p" />
         <Key
+            app:code="-2"
+            app:keyLabel="\?123"
+            app:keyWidth="12.5%p" />
+        <Key
+            app:keyLabel=","
+            app:keyWidth="10%p" />
+        <Key
             app:keyLabel="*"
-            app:keyWidth="20%p" />
+            app:keyWidth="10%p" />
         <Key
             app:keyLabel="0"
             app:keyWidth="20%p" />

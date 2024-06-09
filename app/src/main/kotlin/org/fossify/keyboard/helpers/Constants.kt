@@ -22,6 +22,7 @@ const val SHOW_CLIPBOARD_CONTENT = "show_clipboard_content"
 const val SHOW_NUMBERS_ROW = "show_numbers_row"
 const val SELECTED_LANGUAGES = "selected_languages"
 const val VOICE_INPUT_METHOD = "voice_input_method"
+const val LAST_SELECTED_MODE = "last_selected_mode"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0
@@ -48,6 +49,15 @@ const val LANGUAGE_FRENCH_BEPO = 17
 const val LANGUAGE_VIETNAMESE_TELEX = 18
 const val LANGUAGE_POLISH = 19
 const val LANGUAGE_UKRAINIAN = 20
+
+// keyboard modes
+
+const val KEYBOARD_LETTERS = 0
+const val KEYBOARD_SYMBOLS = 1
+const val KEYBOARD_SYMBOLS_SHIFT = 2
+const val KEYBOARD_NUMBERS = 3
+const val KEYBOARD_PHONE = 4
+const val KEYBOARD_NUMBERS_ALT = 5
 
 // Keep this sorted
 val SUPPORTED_LANGUAGES = listOf(

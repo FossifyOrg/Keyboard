@@ -63,7 +63,7 @@
     </Row>
     <Row>
         <Key
-            app:code="-2"
+            app:code="-3"
             app:keyEdgeFlags="left"
             app:keyLabel="abc"
             app:keyWidth="15%p" />
@@ -71,9 +71,13 @@
             app:keyLabel=","
             app:keyWidth="10%p" />
         <Key
+            app:code="-2"
+            app:keyLabel="123"
+            app:keyWidth="15%p" />
+        <Key
             app:code="32"
             app:isRepeatable="true"
-            app:keyWidth="50%p" />
+            app:keyWidth="35%p" />
         <Key
             app:keyLabel="."
             app:popupCharacters=",\?!;:…"

@@ -53,6 +53,7 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_LETTERS
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
@@ -941,7 +942,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         previewPopup.dismiss()
 
-        if (key.label.isNotEmpty() && key.code != KEYCODE_MODE_CHANGE && key.code != KEYCODE_SHIFT) {
+        if (key.label.isNotEmpty() && key.code != KEYCODE_MODE_CHANGE && key.code != KEYCODE_MODE_LETTERS && key.code != KEYCODE_SHIFT) {
             previewPopup.width = popupWidth
             previewPopup.height = popupHeight
             previewPopup.showAtLocation(mPopupParent, Gravity.NO_GRAVITY, mPopupPreviewX, mPopupPreviewY)
@@ -1348,7 +1349,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
-                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE) {
+                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_MODE_LETTERS) {
                     invalidateKey(keyIndex)
                 }
                 mRepeatKeyIndex = NOT_A_KEY

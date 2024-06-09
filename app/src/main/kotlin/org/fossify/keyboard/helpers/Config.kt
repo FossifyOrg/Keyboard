@@ -55,6 +55,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
         set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
 
+    var lastSelectedMode: Int
+        get() = prefs.getInt(LAST_SELECTED_MODE, KEYBOARD_SYMBOLS)
+        set(lastSelectedMode) = prefs.edit().putInt(LAST_SELECTED_MODE, lastSelectedMode).apply()
+
     var selectedLanguages: MutableSet<Int>
         get() {
             val defaultLanguage = getDefaultLanguage().toString()
