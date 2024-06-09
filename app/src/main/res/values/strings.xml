@@ -23,6 +23,7 @@
     <string name="import_clipboard_items">Import clipboard items</string>
     <!-- Accessibility -->
     <string name="keycode_delete">Delete</string>
+    <string name="keycode_mode_letters">Change to letters mode</string>
     <string name="keycode_mode_change">Change keyboard type</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>

@@ -12,6 +12,7 @@
     <string name="manage_clips">يمكنك إدارة أو إضافة مقاطع هنا للوصول السريع.</string>
     <string name="clip_text">نص القصاصة</string>
     <string name="text_pinned">تم تثبيت النص</string>
+    <string name="keycode_mode_letters">التغيير الى لوحة مفاتيح الاحرف</string>
     <string name="keycode_mode_change">تغيير نوع لوحة المفاتيح</string>
     <string name="keycode_space">شريط المسافة</string>
     <string name="manage_keyboard_languages">إدارة لغات لوحة المفاتيح</string>
