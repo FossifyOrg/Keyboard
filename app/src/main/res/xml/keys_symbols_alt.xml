@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto">
     <Row>
         <Key
             app:keyEdgeFlags="left"
@@ -19,9 +18,8 @@
             app:keyLabel="3"
             app:keyWidth="20%p" />
         <Key
-            app:code="32"
             app:keyEdgeFlags="right"
-            app:keyLabel="␣"
+            app:keyLabel="%"
             app:keyWidth="15%p" />
     </Row>
     <Row>
@@ -42,16 +40,17 @@
             app:keyLabel="6"
             app:keyWidth="20%p" />
         <Key
+            app:code="32"
             app:keyEdgeFlags="right"
-            app:keyLabel="="
+            app:keyLabel="␣"
             app:keyWidth="15%p" />
     </Row>
     <Row>
         <Key
-            app:keyLabel="/"
+            app:keyLabel="*"
             app:keyWidth="12.5%p" />
         <Key
-            app:keyLabel="%"
+            app:keyLabel="/"
             app:keyWidth="12.5%p" />
         <Key
             app:keyEdgeFlags="left"
@@ -72,26 +71,26 @@
     </Row>
     <Row>
         <Key
-            app:code="-3"
+            app:code="-2"
             app:keyEdgeFlags="left"
             app:keyLabel="abc"
-            app:keyWidth="12.5%p" />
-        <Key
-            app:code="-2"
-            app:keyLabel="\?123"
-            app:keyWidth="12.5%p" />
+            app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
             app:keyWidth="10%p" />
         <Key
-            app:keyLabel="*"
-            app:keyWidth="10%p" />
+            app:code="-3"
+            app:keyLabel="!?#&amp;"
+            app:keyWidth="20%p" />
         <Key
             app:keyLabel="0"
             app:keyWidth="20%p" />
         <Key
+            app:keyLabel="="
+            app:keyWidth="10%p" />
+        <Key
             app:keyLabel="."
-            app:keyWidth="20%p" />
+            app:keyWidth="10%p" />
         <Key
             app:code="-4"
             app:keyEdgeFlags="right"

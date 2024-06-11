@@ -49,7 +49,18 @@ import java.util.Locale
 
 // based on https://www.androidauthority.com/lets-build-custom-keyboard-android-832362/
 class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    private var SHIFT_PERM_TOGGLE_SPEED = 500   // how quickly do we have to doubletap shift to enable permanent caps lock
+    companion object {
+        // How quickly do we have to double tap shift to enable permanent caps lock
+        private var SHIFT_PERM_TOGGLE_SPEED = 500
+
+        // Keyboard modes
+        const val KEYBOARD_LETTERS = 0
+        const val KEYBOARD_SYMBOLS = 1
+        const val KEYBOARD_SYMBOLS_SHIFT = 2
+        const val KEYBOARD_NUMBERS = 3
+        const val KEYBOARD_PHONE = 4
+        const val KEYBOARD_SYMBOLS_ALT = 5
+    }
 
     private var keyboard: MyKeyboard? = null
     private var keyboardView: MyKeyboardView? = null
@@ -203,30 +214,28 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 }
             }
 
-            MyKeyboard.KEYCODE_MODE_LETTERS -> {
-                val keyboardXml = getKeyboardLayoutXML()
-                keyboardMode = KEYBOARD_LETTERS
+            MyKeyboard.KEYCODE_SYMBOLS_MODE_CHANGE -> {
+                val keyboardXML = if (keyboardMode == KEYBOARD_SYMBOLS || keyboardMode == KEYBOARD_SYMBOLS_SHIFT) {
+                    keyboardMode = KEYBOARD_SYMBOLS_ALT
+                    R.xml.keys_symbols_alt
+                } else {
+                    keyboardMode = KEYBOARD_SYMBOLS
+                    R.xml.keys_symbols
+                }
 
-                keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+                keyboard = MyKeyboard(this, keyboardXML, enterKeyType)
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
             MyKeyboard.KEYCODE_MODE_CHANGE -> {
-                val keyboardXml = if (keyboardMode == KEYBOARD_LETTERS && config.lastSelectedMode == KEYBOARD_SYMBOLS) {
+                val keyboardXml = if (keyboardMode == KEYBOARD_LETTERS) {
                     keyboardMode = KEYBOARD_SYMBOLS
                     R.xml.keys_symbols
-                } else if (keyboardMode == KEYBOARD_LETTERS && config.lastSelectedMode == KEYBOARD_NUMBERS_ALT) {
-                    keyboardMode = KEYBOARD_NUMBERS_ALT
-                    R.xml.keys_numbers_alt
-                } else if (keyboardMode == KEYBOARD_SYMBOLS || keyboardMode == KEYBOARD_SYMBOLS_SHIFT) {
-                    config.lastSelectedMode = KEYBOARD_NUMBERS_ALT
-                    keyboardMode = KEYBOARD_NUMBERS_ALT
-                    R.xml.keys_numbers_alt
                 } else {
-                    config.lastSelectedMode = KEYBOARD_SYMBOLS
-                    keyboardMode = KEYBOARD_SYMBOLS
-                    R.xml.keys_symbols
+                    keyboardMode = KEYBOARD_LETTERS
+                    getKeyboardLayoutXML()
                 }
+
                 keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
                 keyboardView!!.setKeyboard(keyboard!!)
             }
@@ -254,10 +263,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     inputConnection.commitText(codeChar.toString(), 1)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
-                        switchToLetters = true
-                        if (keyboardMode == KEYBOARD_NUMBERS_ALT) {
-                            switchToLetters = false
-                        }
+                        switchToLetters = keyboardMode != KEYBOARD_SYMBOLS_ALT
                     }
                 } else {
                     when {

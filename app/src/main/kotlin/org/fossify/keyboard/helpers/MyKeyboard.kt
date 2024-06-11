@@ -62,7 +62,7 @@ class MyKeyboard {
         private const val EDGE_RIGHT = 0x02
         const val KEYCODE_SHIFT = -1
         const val KEYCODE_MODE_CHANGE = -2
-        const val KEYCODE_MODE_LETTERS = -3
+        const val KEYCODE_SYMBOLS_MODE_CHANGE = -3
         const val KEYCODE_ENTER = -4
         const val KEYCODE_DELETE = -5
         const val KEYCODE_SPACE = 32
@@ -233,7 +233,7 @@ class MyKeyboard {
             return when (code) {
                 KEYCODE_SHIFT -> context.getString(R.string.keycode_shift)
                 KEYCODE_MODE_CHANGE -> context.getString(R.string.keycode_mode_change)
-                KEYCODE_MODE_LETTERS -> context.getString(R.string.keycode_mode_letters)
+                KEYCODE_SYMBOLS_MODE_CHANGE -> context.getString(R.string.keycode_mode_change)
                 KEYCODE_ENTER -> context.getString(R.string.keycode_enter)
                 KEYCODE_DELETE -> context.getString(R.string.keycode_delete)
                 KEYCODE_SPACE -> context.getString(R.string.keycode_space)
