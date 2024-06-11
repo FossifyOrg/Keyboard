@@ -430,16 +430,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
     private fun getKeyboardLayoutXML(): Int {
         return when (baseContext.config.keyboardLanguage) {
+            LANGUAGE_ARABIC -> R.xml.keys_letters_arabic
             LANGUAGE_BENGALI -> R.xml.keys_letters_bengali
             LANGUAGE_BULGARIAN -> R.xml.keys_letters_bulgarian
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
             LANGUAGE_ENGLISH_DVORAK -> R.xml.keys_letters_english_dvorak
             LANGUAGE_ENGLISH_QWERTZ -> R.xml.keys_letters_english_qwertz
+            LANGUAGE_ESPERANTO -> R.xml.keys_letters_esperanto
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
             LANGUAGE_GERMAN -> R.xml.keys_letters_german
             LANGUAGE_GREEK -> R.xml.keys_letters_greek
             LANGUAGE_GUJARATI -> R.xml.keys_letters_gujarati
+            LANGUAGE_HEBREW -> R.xml.keys_letters_hebrew
             LANGUAGE_LITHUANIAN -> R.xml.keys_letters_lithuanian
             LANGUAGE_NORWEGIAN -> R.xml.keys_letters_norwegian
             LANGUAGE_POLISH -> R.xml.keys_letters_polish
