@@ -188,7 +188,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
     return when (language) {
         LANGUAGE_BENGALI -> getString(R.string.translation_bengali)
         LANGUAGE_BULGARIAN -> getString(R.string.translation_bulgarian)
-        LANGUAGE_CHUVASH -> "Chuvash"
+        LANGUAGE_CHUVASH -> getString(R.string.translation_chuvash)
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
