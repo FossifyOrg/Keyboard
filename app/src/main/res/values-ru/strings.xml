@@ -33,4 +33,7 @@
     <string name="redirection_note">Включите Fossify Keyboard на следующем экране, чтобы сделать её доступной для использования. Нажмите \"Назад\" после включения.</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Ввод</string>
+    <string name="manage_keyboard_languages">Управление языками клавиатуры</string>
+    <string name="switch_to_voice_typing">Переключиться на голосовой ввод</string>
+    <string name="voice_typing_method">Метод голосового ввода</string>
 </resources>

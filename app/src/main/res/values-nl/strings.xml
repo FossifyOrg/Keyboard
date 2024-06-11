@@ -33,4 +33,7 @@
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
     <string name="clipboard_recent">Recent</string>
+    <string name="manage_keyboard_languages">Toetsenbordtalen beheren</string>
+    <string name="switch_to_voice_typing">Spraakgestuurd typen</string>
+    <string name="voice_typing_method">Methode voor spraakgestuurd typen</string>
 </resources>

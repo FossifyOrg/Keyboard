@@ -14,8 +14,8 @@
     <string name="add_new_item">Lägg till ett nytt objekt</string>
     <string name="manage_clips">Du kan hantera eller lägga till klipp här för snabb åtkomst.</string>
     <string name="clip_text">Klipp text</string>
-    <string name="pin_text">Nåla text</string>
-    <string name="text_pinned">Text har blivit nålad</string>
+    <string name="pin_text">Fäst text</string>
+    <string name="text_pinned">Texten har fästs</string>
     <string name="export_clipboard_items">Exportera urklippsobjekt</string>
     <string name="import_clipboard_items">Importera urklippsobjekt</string>
     <string name="keycode_delete">Radera</string>
@@ -32,4 +32,7 @@
     <string name="start_sentences_capitalized">Börja meningar med stor bokstav</string>
     <string name="emojis">Emojier</string>
     <string name="keycode_enter">Enter</string>
+    <string name="manage_keyboard_languages">Hantera tangentbordsspråk</string>
+    <string name="voice_typing_method">Röstinmatningsmetod</string>
+    <string name="switch_to_voice_typing">Växla till röstinmatning</string>
 </resources>
