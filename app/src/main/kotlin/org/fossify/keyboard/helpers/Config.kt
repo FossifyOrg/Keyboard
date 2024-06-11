@@ -51,7 +51,22 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
-    private fun getDefaultLanguage(): Int {
+    var voiceInputMethod: String
+        get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
+        set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
+
+    var selectedLanguages: MutableSet<Int>
+        get() {
+            val defaultLanguage = getDefaultLanguage().toString()
+            val stringSet = prefs.getStringSet(SELECTED_LANGUAGES, hashSetOf(defaultLanguage))!!
+            return stringSet.map { it.toInt() }.toMutableSet()
+        }
+        set(selectedLanguages) {
+            val stringSet = selectedLanguages.map { it.toString() }.toSet()
+            prefs.edit().putStringSet(SELECTED_LANGUAGES, stringSet).apply()
+        }
+
+    fun getDefaultLanguage(): Int {
         val conf = context.resources.configuration
         return if (conf.locale.toString().lowercase(Locale.getDefault()).startsWith("ru_")) {
             LANGUAGE_RUSSIAN
