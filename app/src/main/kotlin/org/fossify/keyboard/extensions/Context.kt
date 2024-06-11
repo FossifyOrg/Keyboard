@@ -196,6 +196,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
         LANGUAGE_GERMAN -> getString(R.string.translation_german)
         LANGUAGE_GREEK -> getString(R.string.translation_greek)
+        LANGUAGE_HEBREW -> getString(R.string.translation_hebrew)
         LANGUAGE_LITHUANIAN -> getString(R.string.translation_lithuanian)
         LANGUAGE_NORWEGIAN -> getString(R.string.translation_norwegian)
         LANGUAGE_POLISH -> getString(R.string.translation_polish)
