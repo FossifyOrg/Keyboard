@@ -33,4 +33,7 @@
     <string name="redirection_note">Ввімкніть Fossify Keyboard на наступному екрані, щоб зробити її доступною. Натисніть «Назад», коли ввімкнено.</string>
     <string name="keycode_enter">Enter</string>
     <string name="keycode_shift">Shift</string>
+    <string name="manage_keyboard_languages">Керувати мовами клавіатури</string>
+    <string name="voice_typing_method">Метод голосового набору</string>
+    <string name="switch_to_voice_typing">Перемкнути на голосовий ввід</string>
 </resources>
