@@ -107,7 +107,10 @@
             app:popupCharacters="₣"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="g" />
-        <Key app:keyLabel="h" />
+        <Key
+            app:keyLabel="h"
+            app:popupCharacters="ĥ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="j" />
         <Key app:keyLabel="k" />
         <Key
@@ -122,7 +125,8 @@
         <Key
             app:code="-1"
             app:keyEdgeFlags="left"
-            app:keyIcon="@drawable/ic_caps_outline_vector" />
+            app:keyIcon="@drawable/ic_caps_outline_vector"
+            app:keyWidth="15%p" />
         <Key
             app:keyLabel="z"
             app:popupCharacters="źžż"
@@ -142,18 +146,18 @@
             app:popupCharacters="ňńñ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="m" />
-        <Key app:keyLabel="ĥ" />
         <Key
             app:code="-5"
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
-            app:keyIcon="@drawable/ic_clear_vector" />
+            app:keyIcon="@drawable/ic_clear_vector"
+            app:keyWidth="15%p" />
     </Row>
     <Row>
         <Key
             app:code="-2"
             app:keyEdgeFlags="left"
-            app:keyLabel="123"
+            app:keyLabel="\?123"
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
