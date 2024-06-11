@@ -116,7 +116,7 @@
             app:popupCharacters="گ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
-    <Row app:keyWidth="9.50%p">
+    <Row app:keyWidth="9.4444%p">
         <Key
             app:keyLabel="ظ"
             app:popupCharacters="؟؛،"
@@ -146,7 +146,7 @@
         <Key
             app:code="-2"
             app:keyEdgeFlags="left"
-            app:keyLabel="123"
+            app:keyLabel="\?123"
             app:keyWidth="15%p" />
 
         <Key
