@@ -1,5 +1,7 @@
 package org.fossify.keyboard.interfaces
 
+import android.view.inputmethod.InputMethodSubtype
+
 /**
  * The SimpleKeyboardIME class uses this interface to communicate with the input connection
  */
@@ -41,4 +43,9 @@ interface OnKeyboardActionListener {
      * Called to force the KeyboardView to reload the keyboard
      */
     fun reloadKeyboard()
+
+    /**
+     * Called when input method is changed in-app.
+     */
+    fun changeInputMethod(id: String, subtype: InputMethodSubtype)
 }
