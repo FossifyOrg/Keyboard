@@ -4,35 +4,35 @@
         <Key
             app:keyEdgeFlags="left"
             app:keyLabel="૧"
-            app:topSmallNumber="૧"/>
+            app:topSmallNumber="૧" />
         <Key
             app:keyLabel="૨"
-            app:topSmallNumber="૨"/>
+            app:topSmallNumber="૨" />
         <Key
             app:keyLabel="૩"
-            app:topSmallNumber="૩"/>
+            app:topSmallNumber="૩" />
         <Key
             app:keyLabel="૪"
-            app:topSmallNumber="૪"/>
+            app:topSmallNumber="૪" />
         <Key
             app:keyLabel="૫"
-            app:topSmallNumber="૫"/>
+            app:topSmallNumber="૫" />
         <Key
             app:keyLabel="૬"
-            app:topSmallNumber="૬"/>
+            app:topSmallNumber="૬" />
         <Key
             app:keyLabel="૭"
-            app:topSmallNumber="૭"/>
+            app:topSmallNumber="૭" />
         <Key
             app:keyLabel="૮"
-            app:topSmallNumber="૮"/>
+            app:topSmallNumber="૮" />
         <Key
             app:keyLabel="૯"
-            app:topSmallNumber="૯"/>
+            app:topSmallNumber="૯" />
         <Key
             app:keyEdgeFlags="right"
             app:keyLabel="૦"
-            app:topSmallNumber="૦"/>
+            app:topSmallNumber="૦" />
     </Row>
     <Row app:keyWidth="9.091%p">
         <Key
@@ -43,7 +43,7 @@
         <Key
             app:keyLabel="ા"
             app:popupCharacters="ધઑ૱૨"
-            app:popupKeyboard="@xml/keyboard_popup_template"  />
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:keyLabel="િ"
             app:popupCharacters="ન ૅ૩"
@@ -188,17 +188,17 @@
             app:code="-6"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
-            app:secondaryKeyIcon="@drawable/ic_language_outlined"
-            app:keyWidth="10%p" />
+            app:keyWidth="10%p"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
         <Key
             app:code="32"
             app:isRepeatable="true"
             app:keyWidth="40%p" />
         <Key
             app:keyLabel="."
+            app:keyWidth="10%p"
             app:popupCharacters=",?!;:…"
-            app:popupKeyboard="@xml/keyboard_popup_template"
-            app:keyWidth="10%p" />
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:code="-4"
             app:keyEdgeFlags="right"
