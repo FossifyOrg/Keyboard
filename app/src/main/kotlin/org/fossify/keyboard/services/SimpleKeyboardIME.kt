@@ -34,6 +34,7 @@ import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.getSharedPrefs
 import org.fossify.commons.helpers.isNougatPlus
+import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
@@ -45,14 +46,21 @@ import org.fossify.keyboard.views.MyKeyboardView
 import java.io.ByteArrayOutputStream
 import java.util.Locale
 
+
 // based on https://www.androidauthority.com/lets-build-custom-keyboard-android-832362/
 class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    private var SHIFT_PERM_TOGGLE_SPEED = 500   // how quickly do we have to doubletap shift to enable permanent caps lock
-    private val KEYBOARD_LETTERS = 0
-    private val KEYBOARD_SYMBOLS = 1
-    private val KEYBOARD_SYMBOLS_SHIFT = 2
-    private val KEYBOARD_NUMBERS = 3
-    private val KEYBOARD_PHONE = 4
+    companion object {
+        // How quickly do we have to double tap shift to enable permanent caps lock
+        private var SHIFT_PERM_TOGGLE_SPEED = 500
+
+        // Keyboard modes
+        const val KEYBOARD_LETTERS = 0
+        const val KEYBOARD_SYMBOLS = 1
+        const val KEYBOARD_SYMBOLS_SHIFT = 2
+        const val KEYBOARD_NUMBERS = 3
+        const val KEYBOARD_PHONE = 4
+        const val KEYBOARD_SYMBOLS_ALT = 5
+    }
 
     private var keyboard: MyKeyboard? = null
     private var keyboardView: MyKeyboardView? = null
@@ -206,6 +214,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 }
             }
 
+            MyKeyboard.KEYCODE_SYMBOLS_MODE_CHANGE -> {
+                val keyboardXML = if (keyboardMode == KEYBOARD_SYMBOLS || keyboardMode == KEYBOARD_SYMBOLS_SHIFT) {
+                    keyboardMode = KEYBOARD_SYMBOLS_ALT
+                    R.xml.keys_symbols_alt
+                } else {
+                    keyboardMode = KEYBOARD_SYMBOLS
+                    R.xml.keys_symbols
+                }
+
+                keyboard = MyKeyboard(this, keyboardXML, enterKeyType)
+                keyboardView!!.setKeyboard(keyboard!!)
+            }
+
             MyKeyboard.KEYCODE_MODE_CHANGE -> {
                 val keyboardXml = if (keyboardMode == KEYBOARD_LETTERS) {
                     keyboardMode = KEYBOARD_SYMBOLS
@@ -214,6 +235,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     keyboardMode = KEYBOARD_LETTERS
                     getKeyboardLayoutXML()
                 }
+
                 keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
                 keyboardView!!.setKeyboard(keyboard!!)
             }
@@ -241,7 +263,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     inputConnection.commitText(codeChar.toString(), 1)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
-                        switchToLetters = true
+                        switchToLetters = keyboardMode != KEYBOARD_SYMBOLS_ALT
                     }
                 } else {
                     when {
@@ -334,6 +356,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         val keyboard = createNewKeyboard()
         this.keyboard = keyboard
         keyboardView?.setKeyboard(keyboard)
+    }
+
+    override fun changeInputMethod(id: String, subtype: InputMethodSubtype) {
+        if (isPiePlus()) {
+            switchInputMethod(id, subtype)
+        } else {
+            switchInputMethod(id)
+        }
     }
 
     private fun createNewKeyboard(): MyKeyboard {

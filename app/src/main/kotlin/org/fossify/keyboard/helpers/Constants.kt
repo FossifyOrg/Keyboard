@@ -20,6 +20,8 @@ const val KEYBOARD_LANGUAGE = "keyboard_language"
 const val HEIGHT_PERCENTAGE = "height_percentage"
 const val SHOW_CLIPBOARD_CONTENT = "show_clipboard_content"
 const val SHOW_NUMBERS_ROW = "show_numbers_row"
+const val SELECTED_LANGUAGES = "selected_languages"
+const val VOICE_INPUT_METHOD = "voice_input_method"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0
@@ -48,6 +50,31 @@ const val LANGUAGE_POLISH = 19
 const val LANGUAGE_UKRAINIAN = 20
 const val LANGUAGE_GUJARATI = 21
 
+// Keep this sorted
+val SUPPORTED_LANGUAGES = listOf(
+    LANGUAGE_BENGALI,
+    LANGUAGE_BULGARIAN,
+    LANGUAGE_DANISH,
+    LANGUAGE_ENGLISH_QWERTY,
+    LANGUAGE_ENGLISH_QWERTZ,
+    LANGUAGE_ENGLISH_DVORAK,
+    LANGUAGE_FRENCH_AZERTY,
+    LANGUAGE_FRENCH_BEPO,
+    LANGUAGE_GERMAN,
+    LANGUAGE_GREEK,
+    LANGUAGE_LITHUANIAN,
+    LANGUAGE_NORWEGIAN,
+    LANGUAGE_POLISH,
+    LANGUAGE_ROMANIAN,
+    LANGUAGE_RUSSIAN,
+    LANGUAGE_SLOVENIAN,
+    LANGUAGE_SPANISH,
+    LANGUAGE_SWEDISH,
+    LANGUAGE_TURKISH_Q,
+    LANGUAGE_UKRAINIAN,
+    LANGUAGE_VIETNAMESE_TELEX
+)
+
 // keyboard height percentage options
 const val KEYBOARD_HEIGHT_70_PERCENT = 70
 const val KEYBOARD_HEIGHT_80_PERCENT = 80
@@ -59,3 +86,6 @@ const val KEYBOARD_HEIGHT_160_PERCENT = 160
 
 const val EMOJI_SPEC_FILE_PATH = "media/emoji_spec.txt"
 const val LANGUAGE_VN_TELEX = "language/extension.json"
+
+// Android constant
+const val INPUT_METHOD_SUBTYPE_VOICE = "voice"
