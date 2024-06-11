@@ -435,6 +435,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
             LANGUAGE_ENGLISH_DVORAK -> R.xml.keys_letters_english_dvorak
             LANGUAGE_ENGLISH_QWERTZ -> R.xml.keys_letters_english_qwertz
+            LANGUAGE_ESPERANTO -> R.xml.keys_letters_esperanto
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
             LANGUAGE_GERMAN -> R.xml.keys_letters_german
