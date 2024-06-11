@@ -130,12 +130,7 @@
             app:popupCharacters="ઈ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
-    <Row app:keyWidth="8.75%p">
-        <Key
-            app:code="-1"
-            app:keyEdgeFlags="left"
-            app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
+    <Row app:keyWidth="10.625%p">
         <Key
             app:keyLabel="ટ"
             app:popupCharacters="ઉ"
