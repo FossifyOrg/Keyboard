@@ -55,6 +55,7 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SYMBOLS_MODE_CHANGE
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
@@ -607,9 +608,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     mTextColor
                 }
 
-                canvas.drawText(
-                    label, (key.width / 2).toFloat(), key.height / 2 + (paint.textSize - paint.descent()) / 2, paint
-                )
+                val rows = label.split("\n")
+                val textSize = paint.textSize
+                val startY = (key.height / 2f) + ((textSize - paint.descent()) / 2f) - ((textSize / 2f) * (rows.size - 1))
+                rows.forEachIndexed { index, row ->
+                    canvas.drawText(row, key.width / 2f, startY + textSize * index, paint)
+                }
 
                 if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))) {
                     canvas.drawText(key.topSmallNumber, key.width - mTopSmallNumberMarginWidth, mTopSmallNumberMarginHeight, smallLetterPaint)
@@ -941,7 +945,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         previewPopup.dismiss()
 
-        if (key.label.isNotEmpty() && key.code != KEYCODE_MODE_CHANGE && key.code != KEYCODE_SHIFT) {
+        if (key.label.isNotEmpty() && key.code != KEYCODE_MODE_CHANGE && key.code != KEYCODE_SYMBOLS_MODE_CHANGE && key.code != KEYCODE_SHIFT) {
             previewPopup.width = popupWidth
             previewPopup.height = popupHeight
             previewPopup.showAtLocation(mPopupParent, Gravity.NO_GRAVITY, mPopupPreviewX, mPopupPreviewY)
@@ -1348,9 +1352,10 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
-                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE) {
+                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_SYMBOLS_MODE_CHANGE) {
                     invalidateKey(keyIndex)
                 }
+
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
                 mIsLongPressingSpace = false
