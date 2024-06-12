@@ -1,7 +1,7 @@
 <resources>
     <dimen name="popup_max_move_distance">60dp</dimen>
-    <dimen name="top_small_number_margin_width">12dp</dimen>
-    <dimen name="top_small_number_margin_height">18dp</dimen>
+    <dimen name="top_small_number_margin_width">5dp</dimen>
+    <dimen name="top_small_number_margin_height">5dp</dimen>
     <dimen name="toolbar_height">46dp</dimen>
     <dimen name="toolbar_icon_height">32dp</dimen>
     <dimen name="clip_drag_icon_height">40dp</dimen>

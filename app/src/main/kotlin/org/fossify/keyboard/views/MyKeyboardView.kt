@@ -616,7 +616,16 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))) {
-                    canvas.drawText(key.topSmallNumber, key.width - mTopSmallNumberMarginWidth, mTopSmallNumberMarginHeight, smallLetterPaint)
+                    val bounds = Rect().also {
+                        smallLetterPaint.getTextBounds(key.topSmallNumber, 0, key.topSmallNumber.length, it)
+                    }
+
+                    canvas.drawText(
+                        key.topSmallNumber,
+                        key.width - bounds.width() / 2f - mTopSmallNumberMarginWidth,
+                        key.y + mTopSmallNumberSize + mTopSmallNumberMarginHeight,
+                        smallLetterPaint
+                    )
                 }
 
                 // Turn off drop shadow
