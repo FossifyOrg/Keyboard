@@ -300,7 +300,7 @@ class MyKeyboard {
         row.defaultHorizontalGap = mDefaultHorizontalGap
         mKeyboardHeightMultiplier = getKeyboardHeightMultiplier(context.config.keyboardHeightPercentage)
 
-        characters.forEachIndexed { index, character ->
+        characters.forEach { character ->
             val key = Key(row)
             if (column >= MAX_KEYS_PER_MINI_ROW) {
                 column = 0
