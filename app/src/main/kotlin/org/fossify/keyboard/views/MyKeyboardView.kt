@@ -738,19 +738,16 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun getSpaceKeyBackground(): Drawable? {
-        val drawableId = if (mUsingSystemTheme) {
-            if (mShowKeyBorders) {
-                R.drawable.keyboard_space_background_material_outlined
-            } else {
-                R.drawable.keyboard_space_background_material
-            }
-        } else {
-            if (mShowKeyBorders) {
-                R.drawable.keyboard_key_selector_outlined
-            } else {
-                R.drawable.keyboard_space_background
-            }
+        if (mShowKeyBorders) {
+            return mKeyBackground
         }
+
+        val drawableId = if (mUsingSystemTheme) {
+            R.drawable.keyboard_space_background_material
+        } else {
+            R.drawable.keyboard_space_background
+        }
+
         return resources.getDrawable(drawableId, context.theme)
     }
 
