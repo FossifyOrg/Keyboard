@@ -57,6 +57,26 @@ fun Context.getCurrentClip(): String? {
     return clipboardManager.primaryClip?.getItemAt(0)?.text?.toString()
 }
 
+fun Context.getKeyboardBackgroundColor(): Int {
+    val color = if (config.isUsingSystemTheme) {
+        resources.getColor(R.color.you_keyboard_background_color, theme)
+    } else {
+        getProperBackgroundColor().darkenColor(2)
+    }
+
+    // use darker background color when key borders are enabled
+    if (config.showKeyBorders) {
+        val darkerColor = color.darkenColor(2)
+        return if (darkerColor == Color.WHITE) {
+            resources.getColor(R.color.md_grey_200, theme)
+        } else {
+            darkerColor
+        }
+    }
+
+    return color
+}
+
 fun Context.getStrokeColor(): Int {
     return if (config.isUsingSystemTheme) {
         if (isUsingSystemDarkTheme()) {

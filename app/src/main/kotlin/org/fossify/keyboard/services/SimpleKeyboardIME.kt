@@ -29,15 +29,16 @@ import androidx.autofill.inline.common.TextViewStyle
 import androidx.autofill.inline.common.ViewStyle
 import androidx.autofill.inline.v1.InlineSuggestionUi
 import androidx.core.graphics.drawable.toBitmap
-import org.fossify.commons.extensions.applyColorFilter
-import org.fossify.commons.extensions.getProperBackgroundColor
-import org.fossify.commons.extensions.getProperTextColor
-import org.fossify.commons.extensions.getSharedPrefs
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.isNougatPlus
 import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.getKeyboardBackgroundColor
 import org.fossify.keyboard.extensions.getStrokeColor
 import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.*
@@ -80,6 +81,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onCreateInputView(): View {
+        val window = window.window!!
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.decorView.setOnApplyWindowInsetsListener { _, insets ->
+            val bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            binding.keyboardHolder.updatePadding(bottom = bottom)
+            insets
+        }
+
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
         keyboardView = binding.keyboardView.apply {
             setKeyboardHolder(binding)
@@ -87,7 +96,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             setEditorInfo(currentInputEditorInfo)
             mOnKeyboardActionListener = this@SimpleKeyboardIME
         }
+
         return binding.root
+    }
+
+    override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
+        super.onStartInputView(editorInfo, restarting)
+        window.window?.updateNavigationBarBackgroundColor(getKeyboardBackgroundColor())
     }
 
     override fun onPress(primaryCode: Int) {
