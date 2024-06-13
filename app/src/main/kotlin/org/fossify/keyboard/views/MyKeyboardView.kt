@@ -638,19 +638,19 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
                 if (code == KEYCODE_ENTER) {
                     key.icon!!.applyColorFilter(mPrimaryColor.getContrastColor())
-                    key.secondaryIcon?.applyColorFilter(mPrimaryColor.getContrastColor())
+                    key.secondaryIcon?.applyColorFilter(mPrimaryColor.getContrastColor().adjustAlpha(0.6f))
                 } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI) {
                     key.icon!!.applyColorFilter(mTextColor)
-                    key.secondaryIcon?.applyColorFilter(mTextColor)
+                    key.secondaryIcon?.applyColorFilter(mTextColor.adjustAlpha(0.6f))
                 }
+
                 val keyIcon = key.icon!!
                 val secondaryIcon = key.secondaryIcon
-
                 if (secondaryIcon != null) {
                     val keyIconWidth = (keyIcon.intrinsicWidth * 0.9f).toInt()
                     val keyIconHeight = (keyIcon.intrinsicHeight * 0.9f).toInt()
-                    val secondaryIconWidth = (secondaryIcon.intrinsicWidth * .6f).toInt()
-                    val secondaryIconHeight = (secondaryIcon.intrinsicHeight * .6f).toInt()
+                    val secondaryIconWidth = (secondaryIcon.intrinsicWidth * 0.5f).toInt()
+                    val secondaryIconHeight = (secondaryIcon.intrinsicHeight * 0.5f).toInt()
 
                     val centerX = key.width / 2
                     val centerY = key.height / 2
