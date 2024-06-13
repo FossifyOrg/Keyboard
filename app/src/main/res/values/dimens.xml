@@ -17,6 +17,6 @@
     <dimen name="keyboard_text_size">22sp</dimen>
     <dimen name="preview_text_size">26sp</dimen>
     <dimen name="label_text_size">16sp</dimen>      <!-- text size used at keys with longer labels, like "123" -->
-    <dimen name="emoji_text_size">28sp</dimen>
+    <dimen name="emoji_text_size">32sp</dimen>
     <dimen name="emoji_category_text_size">14sp</dimen>
 </resources>
