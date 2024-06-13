@@ -1514,6 +1514,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
     fun openEmojiPalette() {
         keyboardViewBinding!!.emojiPaletteHolder.beVisible()
+        keyboardViewBinding!!.suggestionsHolder.hideAllInlineContentViews()
         setupEmojis()
     }
 
@@ -1521,6 +1522,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         keyboardViewBinding?.apply {
             emojiPaletteHolder.beGone()
             emojisList.scrollToPosition(0)
+            suggestionsHolder.showAllInlineContentViews()
         }
     }
 
