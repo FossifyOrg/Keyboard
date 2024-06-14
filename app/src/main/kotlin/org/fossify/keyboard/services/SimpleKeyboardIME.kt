@@ -84,7 +84,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         val window = window.window!!
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.decorView.setOnApplyWindowInsetsListener { _, insets ->
-            val bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
+            val bottom = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
             binding.keyboardHolder.updatePadding(bottom = bottom)
             insets
         }
