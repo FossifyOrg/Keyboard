@@ -3,6 +3,7 @@ package org.fossify.keyboard.services
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
@@ -81,29 +82,37 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onCreateInputView(): View {
-        val window = window.window!!
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        window.decorView.setOnApplyWindowInsetsListener { _, insets ->
-            val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
-            val bottom = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-            binding.keyboardHolder.updatePadding(bottom = bottom)
-            insets
-        }
-
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
+        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView = binding.keyboardView.apply {
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
             setEditorInfo(currentInputEditorInfo)
+            setupNavigationBarPadding()
             mOnKeyboardActionListener = this@SimpleKeyboardIME
         }
 
         return binding.root
     }
 
+    private fun setupNavigationBarPadding() {
+        window.window?.apply {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+            decorView.setOnApplyWindowInsetsListener { _, insets ->
+                val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
+                val bottomPadding = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                insets
+            }
+        }
+    }
+
     override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(editorInfo, restarting)
-        window.window?.updateNavigationBarBackgroundColor(getKeyboardBackgroundColor())
+        window.window?.apply {
+            navigationBarColor = Color.TRANSPARENT
+            updateNavigationBarForegroundColor(safeStorageContext.getKeyboardBackgroundColor())
+        }
     }
 
     override fun onPress(primaryCode: Int) {
