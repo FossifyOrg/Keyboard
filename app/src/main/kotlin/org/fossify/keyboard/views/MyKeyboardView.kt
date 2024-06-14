@@ -144,6 +144,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     private var mKeyBackground: Drawable? = null
     private var mShowKeyBorders: Boolean = false
     private var mUsingSystemTheme: Boolean = true
+    private var mVoiceInputMethod: String = ""
 
     private var mToolbarHolder: View? = null
     private var mClipboardManagerHolder: View? = null
@@ -385,6 +386,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
             mShowKeyBorders = config.showKeyBorders
             mUsingSystemTheme = config.isUsingSystemTheme
+            mVoiceInputMethod = config.voiceInputMethod
         }
 
         val isMainKeyboard = changedView == null || changedView != keyboardPopupBinding?.miniKeyboardView
@@ -429,7 +431,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             pinnedClipboardItems.applyColorFilter(mTextColor)
             clipboardClear.applyColorFilter(mTextColor)
             voiceInputButton.applyColorFilter(mTextColor)
-            voiceInputButton.beGoneIf(context.config.voiceInputMethod.isEmpty())
+            voiceInputButton.beGoneIf(mVoiceInputMethod.isEmpty())
 
             mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 
