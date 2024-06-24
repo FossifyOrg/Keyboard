@@ -440,7 +440,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
             topClipboardDivider.beGoneIf(wasDarkened)
             topClipboardDivider.background = ColorDrawable(mStrokeColor)
-            clipboardManagerHolder.background = ColorDrawable(mKeyboardBackgroundColor)
+            clipboardManagerTopBar.background = ColorDrawable(mKeyboardBackgroundColor)
+            clipboardManagerHolder.background = ColorDrawable(mBackgroundColor)
 
             clipboardManagerClose.applyColorFilter(mTextColor)
             clipboardManagerManage.applyColorFilter(mTextColor)
