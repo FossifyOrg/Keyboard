@@ -52,7 +52,12 @@ class SettingsActivity : SimpleActivity() {
         binding.apply {
             updateTextColors(settingsNestedScrollview)
 
-            arrayOf(settingsColorCustomizationSectionLabel, settingsGeneralSettingsLabel).forEach {
+            arrayOf(
+                settingsColorCustomizationSectionLabel,
+                settingsGeneralSettingsLabel,
+                settingsKeyboardSettingsLabel,
+                settingsClipboardSettingsLabel
+            ).forEach {
                 it.setTextColor(getProperPrimaryColor())
             }
         }

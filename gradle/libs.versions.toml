@@ -1,15 +1,15 @@
 [versions]
 #jetbrains
-kotlin = "1.9.0"
+kotlin = "1.9.23"
 #AndroidX
 androidx-autofill = "1.1.0"
-androidx-emoji2 = "1.2.0"
+androidx-emoji2 = "1.4.0"
 #KSP
-ksp = "1.9.0-1.0.12"
+ksp = "1.9.23-1.0.19"
 #Room
-room = "2.6.0-beta01"
+room = "2.6.1"
 #Fossify
-commons = "f056aa71e7"
+commons = "6ee990894c"
 #Gradle
 gradlePlugins-agp = "8.2.0"
 #build

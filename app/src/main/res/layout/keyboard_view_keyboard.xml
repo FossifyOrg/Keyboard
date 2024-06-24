@@ -9,7 +9,6 @@
         android:id="@+id/toolbar_holder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:layout_above="@+id/keyboard_view"
         app:layout_constraintBottom_toTopOf="@+id/keyboard_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -69,7 +68,6 @@
                     android:orientation="horizontal" />
 
             </LinearLayout>
-
 
         </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
 

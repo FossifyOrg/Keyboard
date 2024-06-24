@@ -24,7 +24,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(enableCapitalization) = prefs.edit().putBoolean(SENTENCES_CAPITALIZATION, enableCapitalization).apply()
 
     var showKeyBorders: Boolean
-        get() = prefs.getBoolean(SHOW_KEY_BORDERS, false)
+        get() = prefs.getBoolean(SHOW_KEY_BORDERS, true)
         set(showKeyBorders) = prefs.edit().putBoolean(SHOW_KEY_BORDERS, showKeyBorders).apply()
 
     var lastExportedClipsFolder: String

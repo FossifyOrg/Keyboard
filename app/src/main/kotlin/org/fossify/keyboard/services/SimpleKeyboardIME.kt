@@ -3,6 +3,7 @@ package org.fossify.keyboard.services
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
@@ -29,15 +30,16 @@ import androidx.autofill.inline.common.TextViewStyle
 import androidx.autofill.inline.common.ViewStyle
 import androidx.autofill.inline.v1.InlineSuggestionUi
 import androidx.core.graphics.drawable.toBitmap
-import org.fossify.commons.extensions.applyColorFilter
-import org.fossify.commons.extensions.getProperBackgroundColor
-import org.fossify.commons.extensions.getProperTextColor
-import org.fossify.commons.extensions.getSharedPrefs
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.isNougatPlus
 import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.getKeyboardBackgroundColor
 import org.fossify.keyboard.extensions.getStrokeColor
 import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.*
@@ -81,13 +83,36 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
     override fun onCreateInputView(): View {
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
+        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView = binding.keyboardView.apply {
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
             setEditorInfo(currentInputEditorInfo)
+            setupNavigationBarPadding()
             mOnKeyboardActionListener = this@SimpleKeyboardIME
         }
+
         return binding.root
+    }
+
+    private fun setupNavigationBarPadding() {
+        window.window?.apply {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+            decorView.setOnApplyWindowInsetsListener { _, insets ->
+                val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
+                val bottomPadding = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                insets
+            }
+        }
+    }
+
+    override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
+        super.onStartInputView(editorInfo, restarting)
+        window.window?.apply {
+            navigationBarColor = Color.TRANSPARENT
+            updateNavigationBarForegroundColor(safeStorageContext.getKeyboardBackgroundColor())
+        }
     }
 
     override fun onPress(primaryCode: Int) {
