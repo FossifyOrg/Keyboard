@@ -33,4 +33,7 @@
     <string name="pin_text">Fixa el text</string>
     <string name="emojis">Emojis</string>
     <string name="redirection_note">Activeu el Fossify Keyboard a la pantalla següent, per a fer-lo disponible. Premeu «Enrere» una vegada activat.</string>
+    <string name="switch_to_voice_typing">Canvia a escriptura per veu</string>
+    <string name="manage_keyboard_languages">Gestió dels idiomes del teclat</string>
+    <string name="voice_typing_method">Mètode d\'escriptura per veu</string>
 </resources>
