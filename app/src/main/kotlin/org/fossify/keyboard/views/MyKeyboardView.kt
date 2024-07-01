@@ -413,11 +413,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             background.applyColorFilter(mKeyboardBackgroundColor)
         }
 
-        val rippleBg = resources.getDrawable(R.drawable.clipboard_background, context.theme) as RippleDrawable
-        val layerDrawable = rippleBg.findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
-        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(mStrokeColor)
-        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(mBackgroundColor)
-
         val wasDarkened = mBackgroundColor != mBackgroundColor.darkenColor()
         keyboardViewBinding?.apply {
             topKeyboardDivider.beGoneIf(wasDarkened)
@@ -425,7 +420,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mToolbarHolder?.background = ColorDrawable(mKeyboardBackgroundColor)
 
             clipboardValue.apply {
-                background = rippleBg
+                background = resources.getDrawable(R.drawable.clipboard_background, context.theme).apply {
+                    val layerDrawable = (this as RippleDrawable).findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
+                    layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(mStrokeColor)
+                    layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(mBackgroundColor)
+                }
+
                 setTextColor(mTextColor)
                 setLinkTextColor(mTextColor)
             }
