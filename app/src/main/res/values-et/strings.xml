@@ -33,4 +33,7 @@
     <string name="emojis">Emojid</string>
     <string name="redirection_note">Palun võta järgmises ekraanivaates Fossify klaviatuur kasutusele. Kui see on tehtud, siis vajuta „Tagasi“ nuppu.</string>
     <string name="keycode_shift">Shift</string>
+    <string name="voice_typing_method">Hääljuhtimisega trükkimise meetod</string>
+    <string name="switch_to_voice_typing">Kasuta hääljuhtimisega trükkimist</string>
+    <string name="manage_keyboard_languages">Halda klaviatuuri keeli</string>
 </resources>

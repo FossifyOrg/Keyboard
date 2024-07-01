@@ -4,9 +4,13 @@ import android.app.KeyguardManager
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Color
+import android.inputmethodservice.InputMethodService
 import android.os.IBinder
 import android.os.UserManager
 import android.view.*
+import android.view.inputmethod.InputMethodInfo
+import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodSubtype
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
@@ -42,12 +46,35 @@ val Context.isDeviceLocked: Boolean
         return keyguardManager.isDeviceLocked || keyguardManager.isKeyguardLocked || isDeviceInDirectBootMode
     }
 
+val Context.inputMethodManager: InputMethodManager
+    get() = getSystemService(InputMethodService.INPUT_METHOD_SERVICE) as InputMethodManager
+
 val Context.clipsDB: ClipsDao
     get() = ClipsDatabase.getInstance(applicationContext.safeStorageContext).ClipsDao()
 
 fun Context.getCurrentClip(): String? {
     val clipboardManager = (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
     return clipboardManager.primaryClip?.getItemAt(0)?.text?.toString()
+}
+
+fun Context.getKeyboardBackgroundColor(): Int {
+    val color = if (config.isUsingSystemTheme) {
+        resources.getColor(R.color.you_keyboard_background_color, theme)
+    } else {
+        getProperBackgroundColor().darkenColor(2)
+    }
+
+    // use darker background color when key borders are enabled
+    if (config.showKeyBorders) {
+        val darkerColor = color.darkenColor(2)
+        return if (darkerColor == Color.WHITE) {
+            resources.getColor(R.color.md_grey_200, theme)
+        } else {
+            darkerColor
+        }
+    }
+
+    return color
 }
 
 fun Context.getStrokeColor(): Int {
@@ -167,43 +194,31 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getKeyboardLanguages(): ArrayList<RadioItem> {
-    return arrayListOf(
-        RadioItem(LANGUAGE_BENGALI, getKeyboardLanguageText(LANGUAGE_BENGALI)),
-        RadioItem(LANGUAGE_BULGARIAN, getKeyboardLanguageText(LANGUAGE_BULGARIAN)),
-        RadioItem(LANGUAGE_DANISH, getKeyboardLanguageText(LANGUAGE_DANISH)),
-        RadioItem(LANGUAGE_ENGLISH_QWERTY, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTY)),
-        RadioItem(LANGUAGE_ENGLISH_QWERTZ, getKeyboardLanguageText(LANGUAGE_ENGLISH_QWERTZ)),
-        RadioItem(LANGUAGE_ENGLISH_DVORAK, getKeyboardLanguageText(LANGUAGE_ENGLISH_DVORAK)),
-        RadioItem(LANGUAGE_FRENCH_AZERTY, getKeyboardLanguageText(LANGUAGE_FRENCH_AZERTY)),
-        RadioItem(LANGUAGE_FRENCH_BEPO, getKeyboardLanguageText(LANGUAGE_FRENCH_BEPO)),
-        RadioItem(LANGUAGE_GERMAN, getKeyboardLanguageText(LANGUAGE_GERMAN)),
-        RadioItem(LANGUAGE_GREEK, getKeyboardLanguageText(LANGUAGE_GREEK)),
-        RadioItem(LANGUAGE_LITHUANIAN, getKeyboardLanguageText(LANGUAGE_LITHUANIAN)),
-        RadioItem(LANGUAGE_NORWEGIAN, getKeyboardLanguageText(LANGUAGE_NORWEGIAN)),
-        RadioItem(LANGUAGE_POLISH, getKeyboardLanguageText(LANGUAGE_POLISH)),
-        RadioItem(LANGUAGE_ROMANIAN, getKeyboardLanguageText(LANGUAGE_ROMANIAN)),
-        RadioItem(LANGUAGE_RUSSIAN, getKeyboardLanguageText(LANGUAGE_RUSSIAN)),
-        RadioItem(LANGUAGE_SLOVENIAN, getKeyboardLanguageText(LANGUAGE_SLOVENIAN)),
-        RadioItem(LANGUAGE_SPANISH, getKeyboardLanguageText(LANGUAGE_SPANISH)),
-        RadioItem(LANGUAGE_SWEDISH, getKeyboardLanguageText(LANGUAGE_SWEDISH)),
-        RadioItem(LANGUAGE_TURKISH_Q, getKeyboardLanguageText(LANGUAGE_TURKISH_Q)),
-        RadioItem(LANGUAGE_UKRAINIAN, getKeyboardLanguageText(LANGUAGE_UKRAINIAN)),
-        RadioItem(LANGUAGE_VIETNAMESE_TELEX, getKeyboardLanguageText(LANGUAGE_VIETNAMESE_TELEX)),
-    )
+fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
+    val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
+
+    for (lang in config.selectedLanguages) {
+        selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
+    }
+
+    return selectedLanguagesRadioItems
 }
 
 fun Context.getKeyboardLanguageText(language: Int): String {
     return when (language) {
+        LANGUAGE_ARABIC -> getString(R.string.translation_arabic)
         LANGUAGE_BENGALI -> getString(R.string.translation_bengali)
         LANGUAGE_BULGARIAN -> getString(R.string.translation_bulgarian)
+        LANGUAGE_CHUVASH -> getString(R.string.translation_chuvash)
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
+        LANGUAGE_ESPERANTO -> getString(R.string.translation_esperanto)
         LANGUAGE_FRENCH_AZERTY -> "${getString(R.string.translation_french)} (AZERTY)"
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
         LANGUAGE_GERMAN -> getString(R.string.translation_german)
         LANGUAGE_GREEK -> getString(R.string.translation_greek)
+        LANGUAGE_HEBREW -> getString(R.string.translation_hebrew)
         LANGUAGE_LITHUANIAN -> getString(R.string.translation_lithuanian)
         LANGUAGE_NORWEGIAN -> getString(R.string.translation_norwegian)
         LANGUAGE_POLISH -> getString(R.string.translation_polish)
@@ -219,4 +234,25 @@ fun Context.getKeyboardLanguageText(language: Int): String {
     }
 }
 
+fun Context.getVoiceInputMethods(imm: InputMethodManager = inputMethodManager): List<Pair<InputMethodInfo, InputMethodSubtype>> {
+    return imm.enabledInputMethodList.flatMap { im ->
+        imm.getEnabledInputMethodSubtypeList(im, true)
+            .filter { it.mode == INPUT_METHOD_SUBTYPE_VOICE }
+            .map { im to it }
+    }
+}
 
+fun Context.getCurrentVoiceInputMethod(
+    inputMethods: List<Pair<InputMethodInfo, InputMethodSubtype>> = getVoiceInputMethods()
+) = inputMethods.find { it.first.id == config.voiceInputMethod }
+
+fun Context.getVoiceInputRadioItems(
+    inputMethods: List<Pair<InputMethodInfo, InputMethodSubtype>> = getVoiceInputMethods()
+): ArrayList<RadioItem> {
+    val radioItems = arrayListOf(RadioItem(id = -1, title = getString(R.string.none)))
+    for ((index, pair) in inputMethods.withIndex()) {
+        radioItems += RadioItem(id = index, title = pair.first.loadLabel(packageManager).toString())
+    }
+
+    return radioItems
+}

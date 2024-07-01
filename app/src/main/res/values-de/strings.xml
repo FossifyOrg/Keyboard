@@ -33,4 +33,7 @@
     <string name="show_numbers_row">Zahlen in einer separaten Zeile anzeigen</string>
     <string name="start_sentences_capitalized">Sätze mit einem Großbuchstaben beginnen</string>
     <string name="emojis">Emojis</string>
+    <string name="manage_keyboard_languages">Tastatursprachen verwalten</string>
+    <string name="switch_to_voice_typing">Zur Spracheingabe wechseln</string>
+    <string name="voice_typing_method">Spracheingabe-Methode</string>
 </resources>

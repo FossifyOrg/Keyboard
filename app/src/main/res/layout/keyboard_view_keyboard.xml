@@ -9,7 +9,6 @@
         android:id="@+id/toolbar_holder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:layout_above="@+id/keyboard_view"
         app:layout_constraintBottom_toTopOf="@+id/keyboard_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -35,7 +34,7 @@
             android:layout_marginEnd="@dimen/normal_margin"
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
+            app:layout_constraintEnd_toStartOf="@+id/voice_input_button"
             app:layout_constraintStart_toEndOf="@+id/clipboard_clear"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -70,8 +69,20 @@
 
             </LinearLayout>
 
-
         </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/voice_input_button"
+            android:layout_width="@dimen/toolbar_icon_height"
+            android:layout_height="@dimen/toolbar_icon_height"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/switch_to_voice_typing"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/ic_microphone_vector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/pinned_clipboard_items"

@@ -7,10 +7,10 @@ import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
+import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.ActivitySettingsBinding
-import org.fossify.keyboard.extensions.config
-import org.fossify.keyboard.extensions.getKeyboardLanguageText
-import org.fossify.keyboard.extensions.getKeyboardLanguages
+import org.fossify.keyboard.dialogs.ManageKeyboardLanguagesDialog
+import org.fossify.keyboard.extensions.*
 import org.fossify.keyboard.helpers.*
 import java.util.Locale
 import kotlin.system.exitProcess
@@ -41,16 +41,23 @@ class SettingsActivity : SimpleActivity() {
         setupVibrateOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
+        setupManageKeyboardLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
+        setupVoiceInputMethod()
 
         binding.apply {
             updateTextColors(settingsNestedScrollview)
 
-            arrayOf(settingsColorCustomizationSectionLabel, settingsGeneralSettingsLabel).forEach {
+            arrayOf(
+                settingsColorCustomizationSectionLabel,
+                settingsGeneralSettingsLabel,
+                settingsKeyboardSettingsLabel,
+                settingsClipboardSettingsLabel
+            ).forEach {
                 it.setTextColor(getProperPrimaryColor())
             }
         }
@@ -134,11 +141,25 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupManageKeyboardLanguages() {
+        binding.apply {
+            settingsManageKeyboardLanguagesHolder.setOnClickListener {
+                ManageKeyboardLanguagesDialog(this@SettingsActivity) { selectedLanguages ->
+                    config.selectedLanguages = selectedLanguages
+                    if (config.keyboardLanguage !in selectedLanguages) {
+                        config.keyboardLanguage = selectedLanguages.first()
+                    }
+                    settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
+                }
+            }
+        }
+    }
+
     private fun setupKeyboardLanguage() {
         binding.apply {
             settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
             settingsKeyboardLanguageHolder.setOnClickListener {
-                val items = getKeyboardLanguages()
+                val items = getKeyboardLanguagesRadioItems()
                 RadioGroupDialog(this@SettingsActivity, items, config.keyboardLanguage) {
                     config.keyboardLanguage = it as Int
                     settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
@@ -197,6 +218,28 @@ class SettingsActivity : SimpleActivity() {
             settingsShowNumbersRowHolder.setOnClickListener {
                 settingsShowNumbersRow.toggle()
                 config.showNumbersRow = settingsShowNumbersRow.isChecked
+            }
+        }
+    }
+
+    private fun setupVoiceInputMethod() {
+        binding.apply {
+            settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod()?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+            settingsVoiceInputMethodHolder.setOnClickListener {
+                val inputMethods = getVoiceInputMethods()
+                if (inputMethods.isEmpty()) {
+                    toast(R.string.no_app_found)
+                    return@setOnClickListener
+                }
+
+                RadioGroupDialog(
+                    activity = this@SettingsActivity,
+                    items = getVoiceInputRadioItems(),
+                    checkedItemId = inputMethods.indexOf(getCurrentVoiceInputMethod(inputMethods))
+                ) {
+                    config.voiceInputMethod = inputMethods.getOrNull(it as Int)?.first?.id.orEmpty()
+                    settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+                }
             }
         }
     }

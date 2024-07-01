@@ -117,19 +117,53 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_manage_clipboard_items_holder"
+                android:id="@+id/settings_keyboard_language_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_keyboard_language_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keyboard_language" />
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_keyboard_language"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_keyboard_language_label"
+                    tools:text="@string/translation_english" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_manage_keyboard_languages_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_manage_clipboard_items_label"
+                    android:id="@+id/settings_manage_keyboard_languages"
                     style="@style/SettingsTextLabelStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/manage_clipboard_items" />
+                    android:text="@string/manage_keyboard_languages" />
 
             </RelativeLayout>
+
+            <include
+                android:id="@+id/settings_general_divider"
+                layout="@layout/divider" />
+
+            <TextView
+                android:id="@+id/settings_keyboard_settings_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/keyboard_short" />
 
             <RelativeLayout
                 android:id="@+id/settings_vibrate_on_keypress_holder"
@@ -177,21 +211,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_show_clipboard_content_holder"
-                style="@style/SettingsHolderCheckboxStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyAppCompatCheckbox
-                    android:id="@+id/settings_show_clipboard_content"
-                    style="@style/SettingsCheckboxStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/show_clipboard_content" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/settings_show_numbers_row_holder"
                 style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
@@ -222,29 +241,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_keyboard_language_holder"
-                style="@style/SettingsHolderTextViewStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_keyboard_language_label"
-                    style="@style/SettingsTextLabelStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/keyboard_language" />
-
-                <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_keyboard_language"
-                    style="@style/SettingsTextValueStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_keyboard_language_label"
-                    tools:text="@string/translation_english" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/settings_keyboard_height_multiplier_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
@@ -266,6 +262,72 @@
                     tools:text="@string/small" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_voice_input_method_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_voice_input_method"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/voice_typing_method" />
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_voice_input_method_value"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_voice_input_method"
+                    tools:text="@string/none" />
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/settings_keyboard_divider"
+                layout="@layout/divider" />
+
+            <!-- CLIPBOARD SETTINGS -->
+            <TextView
+                android:id="@+id/settings_clipboard_settings_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clipboard" />
+
+            <RelativeLayout
+                android:id="@+id/settings_manage_clipboard_items_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_manage_clipboard_items_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_clipboard_items" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_show_clipboard_content_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_clipboard_content"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_clipboard_content" />
+
+            </RelativeLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

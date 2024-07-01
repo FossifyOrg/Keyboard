@@ -32,4 +32,5 @@
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
     <string name="emojis">Emojis</string>
+    <string name="redirection_note">Ative o teclado Fossify no próximo ecrã e defina-o para ser utilizado por omissão. Prima \'Recuar\' assim que o ativar.</string>
 </resources>

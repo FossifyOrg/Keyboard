@@ -34,125 +34,110 @@
             app:keyLabel="0"
             app:topSmallNumber="0" />
     </Row>
-    <Row app:keyWidth="8.33%p">
+    <Row>
         <Key
             app:keyEdgeFlags="left"
-            app:keyLabel="q"
-            app:popupCharacters="1"
+            app:keyLabel="'"
+            app:popupCharacters="1&quot;׳״"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="1" />
         <Key
-            app:keyLabel="w"
-            app:popupCharacters="2"
+            app:keyLabel="-"
+            app:popupCharacters="2־"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="2" />
         <Key
-            app:keyLabel="e"
-            app:popupCharacters="éè3êëēę"
+            app:keyLabel="ק"
+            app:popupCharacters="ֳ3ָֻ"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="3" />
         <Key
-            app:keyLabel="r"
-            app:popupCharacters="ř4ŕ"
+            app:keyLabel="ר"
+            app:popupCharacters="4ֿ"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="4" />
         <Key
-            app:keyLabel="t"
-            app:popupCharacters="5ť"
+            app:keyLabel="א"
+            app:popupCharacters="5"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="5" />
         <Key
-            app:keyLabel="y"
-            app:popupCharacters="ý6ÿ¥"
+            app:keyLabel="ט"
+            app:popupCharacters="6"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="6" />
         <Key
-            app:keyLabel="u"
-            app:popupCharacters="űúù7ûüū"
+            app:keyLabel="ו"
+            app:popupCharacters="ֹ7וּוֹ"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="7" />
         <Key
-            app:keyLabel="ı"
-            app:popupCharacters="íì8îïī"
+            app:keyLabel="ן"
+            app:popupCharacters="8"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="8" />
         <Key
-            app:keyLabel="o"
-            app:popupCharacters="őöóô9òõō"
+            app:keyLabel="ם"
+            app:popupCharacters="9"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
-            app:keyLabel="p"
-            app:popupCharacters="0"
+            app:keyEdgeFlags="right"
+            app:keyLabel="פ"
+            app:popupCharacters="ֲַ0"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="0" />
-        <Key app:keyLabel="ğ" />
+    </Row>
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ש"
+            app:popupCharacters="₪ְשׂשׁ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="ד"
+            app:popupCharacters="ּ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ג" />
+        <Key app:keyLabel="כ" />
+        <Key
+            app:keyLabel="ע"
+            app:popupCharacters="֫"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="י"
+            app:popupCharacters="ײַ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="ח"
+            app:popupCharacters="ִֹ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ל" />
+        <Key app:keyLabel="ך" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel="ü" />
+            app:keyLabel="ף" />
     </Row>
-    <Row app:keyWidth="8.18%p">
+    <Row>
         <Key
-            app:horizontalGap="5%"
             app:keyEdgeFlags="left"
-            app:keyLabel="a"
-            app:popupCharacters="áàâãäåāæą"
+            app:keyLabel="ז" />
+        <Key
+            app:keyLabel="ס"
+            app:popupCharacters="ֱֶ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key
-            app:keyLabel="s"
-            app:popupCharacters="śßš"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key
-            app:keyLabel="d"
-            app:popupCharacters="ďđ"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key
-            app:keyLabel="f"
-            app:popupCharacters="₣"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="g" />
-        <Key app:keyLabel="h" />
-        <Key app:keyLabel="j" />
-        <Key app:keyLabel="k" />
-        <Key
-            app:keyLabel="l"
-            app:popupCharacters="ĺľł"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="ş" />
-        <Key
-            app:keyEdgeFlags="right"
-            app:keyLabel="i" />
-    </Row>
-    <Row app:keyWidth="7.77%p">
-        <Key
-            app:code="-1"
-            app:keyEdgeFlags="left"
-            app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
-        <Key
-            app:keyLabel="z"
-            app:popupCharacters="źžż"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="x" />
-        <Key
-            app:keyLabel="c"
-            app:popupCharacters="çčć¢"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="v" />
-        <Key app:keyLabel="b" />
-        <Key
-            app:keyLabel="n"
-            app:popupCharacters="ňńñ"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="m" />
-        <Key app:keyLabel="ö" />
-        <Key app:keyLabel="ç" />
+        <Key app:keyLabel="ב" />
+        <Key app:keyLabel="ה" />
+        <Key app:keyLabel="נ" />
+        <Key app:keyLabel="מ" />
+        <Key app:keyLabel="צ" />
+        <Key app:keyLabel="ת" />
+        <Key app:keyLabel="ץ" />
         <Key
             app:code="-5"
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
-            app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="15%p" />
+            app:keyIcon="@drawable/ic_clear_vector" />
     </Row>
     <Row>
         <Key

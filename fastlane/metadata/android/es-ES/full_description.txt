@@ -1,14 +1,14 @@
-Una aplicación de teclado ligera que te ayuda a chatear con tus amigos o a insertar cualquier otro texto, número o símbolo. Puedes elegir entre varios idiomas y diseños.
+Una aplicación de teclado liviana que te ayuda a chatear con tus amigos o insertar cualquier otro texto, número o símbolo. Puede elegir entre varios idiomas y diseños diferentes.
 
-Puedes crear prácticos clips y anclar los que utilices con frecuencia para acceder a ellos fácilmente. Puedes activar vibraciones, ventanas emergentes al pulsar teclas o seleccionar tu idioma de la lista de idiomas compatibles.
+Puede crear clips útiles y fijar los que utiliza con frecuencia para facilitar el acceso. Puede alternar vibraciones, ventanas emergentes al presionar teclas o seleccionar su idioma de la lista de idiomas compatibles.
 
 También puedes elegir entre una gran variedad de emojis disponibles.
 
-Viene con material design y tema oscuro por defecto, proporciona una gran experiencia de usuario para un uso fácil. La falta de acceso a Internet le da más privacidad, seguridad y estabilidad que otras aplicaciones.
+Viene con diseño de materiales y tema oscuro de forma predeterminada, brinda una excelente experiencia de usuario para un uso fácil. La falta de acceso a Internet te brinda más privacidad, seguridad y estabilidad que otras aplicaciones.
 
-No contiene anuncios ni permisos innecesarios. Es completamente de código abierto, proporciona colores personalizables.
+No contiene anuncios ni permisos innecesarios. Es totalmente de código abierto y proporciona colores personalizables.
 
-Echa un vistazo a la suite completa de Simple Tools aquí:
+Consulte el conjunto completo de herramientas simples aquí:
 https://www.fossify.org
 
 Reddit:

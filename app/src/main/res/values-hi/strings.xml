@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="manage_clipboard_items">क्लिपबोर्ड आइटम प्रबंधित करें</string>
+    <string name="manage_clipboard_label">एक बार जब आप कुछ पाठ कॉपी कर लेंगे, तो वह यहां दिखाई देगा। आप क्लिप को पिन भी कर सकते हैं ताकि वे बाद में गायब न हों।</string>
+    <string name="keycode_mode_change">कीबोर्ड प्रकार बदलें</string>
+    <string name="keyboard_height">कीबोर्ड की ऊंचाई</string>
+    <string name="start_sentences_capitalized">वाक्यों की शुरुआत बड़े अक्षर से करें</string>
+    <string name="app_launcher_name">कीबोर्ड</string>
+    <string name="manage_clipboard_empty">आपका क्लिपबोर्ड खाली है।</string>
+    <string name="redirection_note">कृपया इसे उपलब्ध कीबोर्ड बनाने के लिए अगली स्क्रीन पर फोसिफाई कीबोर्ड सक्षम करें। सक्षम होने पर \'पीछे\' दबाएं।</string>
+    <string name="clear_clipboard_data">क्लिपबोर्ड डेटा साफ करें</string>
+    <string name="clear_clipboard_data_confirmation">क्या आप वाकई क्लिपबोर्ड डेटा साफ करना चाहते हैं?</string>
+    <string name="clipboard">क्लिपबोर्ड</string>
+    <string name="clipboard_recent">हालिया</string>
+    <string name="clipboard_current">मौजूदा</string>
+    <string name="manage_clips">आप त्वरित पहुंच के लिए यहां क्लिप प्रबंधित या जोड़ सकते हैं।</string>
+    <string name="clipboard_pinned">पिन किया गया</string>
+    <string name="add_new_item">नया आइटम जोड़ें</string>
+    <string name="clip_text">क्लिप पाठ</string>
+    <string name="pin_text">पाठ पिन करें</string>
+    <string name="text_pinned">पाठ पिन कर दिया गया है</string>
+    <string name="export_clipboard_items">क्लिपबोर्ड आइटम निर्यात करें</string>
+    <string name="import_clipboard_items">क्लिपबोर्ड आइटम आयात करें</string>
+    <string name="keycode_delete">मिटाएं</string>
+    <string name="keycode_shift">शिफ्ट</string>
+    <string name="keycode_enter">एंटर</string>
+    <string name="keycode_space">स्पेसबार</string>
+    <string name="show_clipboard_content">यदि उपलब्ध हो तो क्लिपबोर्ड सामग्री दिखाएं</string>
+    <string name="show_popup">कीप्रेस पर पॉपअप दिखाएं</string>
+    <string name="vibrate_on_keypress">कीप्रेस पर कंपन करें</string>
+    <string name="keyboard_language">कीबोर्ड भाषा</string>
+    <string name="show_key_borders">कुंजी सीमाएं दिखाएं</string>
+    <string name="show_numbers_row">एक अलग पंक्ति में संख्याएं दिखाएं</string>
+    <string name="emojis">इमोजी</string>
+    <string name="change_keyboard">कीबोर्ड बदलें</string>
+    <string name="manage_keyboard_languages">कीबोर्ड भाषाएं प्रबंधित करें</string>
+    <string name="voice_typing_method">वॉयस टाइपिंग विधि</string>
+    <string name="switch_to_voice_typing">वॉइस टाइपिंग पर जाएं</string>
+</resources>

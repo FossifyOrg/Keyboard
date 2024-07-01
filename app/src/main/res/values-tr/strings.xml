@@ -11,7 +11,7 @@
     <string name="clipboard">Pano</string>
     <string name="clipboard_recent">Son kopyalananlar</string>
     <string name="clipboard_current">Geçerli</string>
-    <string name="clipboard_pinned">Sabitlendi</string>
+    <string name="clipboard_pinned">Sabitlenen</string>
     <string name="add_new_item">Yeni öge ekle</string>
     <string name="manage_clips">Hızlı erişim için burada panoları yönetebilir veya ekleyebilirsiniz.</string>
     <string name="clip_text">Metni panoya kopyala</string>
@@ -33,4 +33,7 @@
     <string name="emojis">Emojiler</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
+    <string name="manage_keyboard_languages">Klavye dillerini yönet</string>
+    <string name="voice_typing_method">Sesli yazma yöntemi</string>
+    <string name="switch_to_voice_typing">Sesli yazmaya geç</string>
 </resources>
