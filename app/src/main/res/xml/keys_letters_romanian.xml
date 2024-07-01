@@ -34,7 +34,7 @@
             app:keyLabel="0"
             app:topSmallNumber="0" />
     </Row>
-    <Row>
+    <Row app:keyWidth="9.09%p">
         <Key
             app:keyEdgeFlags="left"
             app:keyLabel="q"
@@ -82,15 +82,16 @@
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
-            app:keyEdgeFlags="right"
             app:keyLabel="p"
             app:popupCharacters="0"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="0" />
-    </Row>
-    <Row>
         <Key
-            app:horizontalGap="5%"
+            app:keyEdgeFlags="right"
+            app:keyLabel="ă" />
+    </Row>
+    <Row app:keyWidth="9.09%p">
+        <Key
             app:keyEdgeFlags="left"
             app:keyLabel="a"
             app:popupCharacters="ăâ"
@@ -106,17 +107,19 @@
         <Key app:keyLabel="j" />
         <Key app:keyLabel="k" />
         <Key
-            app:keyEdgeFlags="right"
             app:keyLabel="l"
             app:popupCharacters="ĺľ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ș" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="ț" />
     </Row>
-    <Row>
+    <Row app:keyWidth="9.09%p">
         <Key
             app:code="-1"
             app:keyEdgeFlags="left"
-            app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
+            app:keyIcon="@drawable/ic_caps_outline_vector" />
         <Key app:keyLabel="z" />
         <Key app:keyLabel="x" />
         <Key app:keyLabel="c" />
@@ -124,12 +127,13 @@
         <Key app:keyLabel="b" />
         <Key app:keyLabel="n" />
         <Key app:keyLabel="m" />
+        <Key app:keyLabel="î" />
+        <Key app:keyLabel="â" />
         <Key
             app:code="-5"
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
-            app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="15%p" />
+            app:keyIcon="@drawable/ic_clear_vector" />
     </Row>
     <Row>
         <Key
