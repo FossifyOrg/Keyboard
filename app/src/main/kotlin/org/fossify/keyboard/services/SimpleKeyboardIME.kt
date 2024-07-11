@@ -98,10 +98,11 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private fun setupNavigationBarPadding() {
         window.window?.apply {
             WindowCompat.setDecorFitsSystemWindows(this, false)
-            decorView.setOnApplyWindowInsetsListener { _, insets ->
+            decorView.setOnApplyWindowInsetsListener { view, insets ->
                 val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
                 val bottomPadding = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
                 binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                view.onApplyWindowInsets(insets)
                 insets
             }
         }
