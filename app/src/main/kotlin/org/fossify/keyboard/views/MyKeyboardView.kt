@@ -694,7 +694,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         // Overlay a dark rectangle to dim the keyboard
         if (mMiniKeyboardOnScreen) {
-            paint.color = Color.BLACK.adjustAlpha(0.3f)
+            paint.color = mKeyboardBackgroundColor.adjustAlpha(0.4f)
             canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
         }
 
