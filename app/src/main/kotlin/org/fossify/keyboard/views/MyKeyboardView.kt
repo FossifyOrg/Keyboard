@@ -395,7 +395,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mVoiceInputMethod = config.voiceInputMethod
         }
 
-        val isMainKeyboard = changedView == null || changedView != keyboardPopupBinding?.miniKeyboardView
+        val isMainKeyboard = changedView == null || changedView.id != R.id.mini_keyboard_view
         mKeyColor = getKeyColor()
         mKeyColorPressed = mKeyColor.adjustAlpha(0.2f)
         mKeyBackground = if (mShowKeyBorders && isMainKeyboard) {
