@@ -108,12 +108,16 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         }
     }
 
-    override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
-        super.onStartInputView(editorInfo, restarting)
+    private fun setupNavigationBarColor() {
         window.window?.apply {
             navigationBarColor = Color.TRANSPARENT
             updateNavigationBarForegroundColor(safeStorageContext.getKeyboardBackgroundColor())
         }
+    }
+
+    override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
+        super.onStartInputView(editorInfo, restarting)
+        setupNavigationBarColor()
     }
 
     override fun onPress(primaryCode: Int) {
@@ -536,7 +540,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView?.setupKeyboard()
+        setupNavigationBarColor()
     }
 
     private fun Bitmap.toIcon(): Icon {
