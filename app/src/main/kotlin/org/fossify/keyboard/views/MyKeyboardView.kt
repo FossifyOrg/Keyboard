@@ -1222,7 +1222,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 showPreview(NOT_A_KEY)
-                invalidateKey(mCurrentKey)
+                setCurrentKeyPressed(false)
                 return true
             }
 
@@ -1272,6 +1272,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
                 if (mPopupParent.id != R.id.mini_keyboard_view) {
                     showPreview(keyIndex)
+                    setCurrentKeyPressed(true)
                 }
             }
 
@@ -1286,12 +1287,14 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                             mCurrentKeyTime += eventTime - mLastMoveTime
                             continueLongPress = true
                         } else if (mRepeatKeyIndex == NOT_A_KEY) {
+                            setCurrentKeyPressed(false)
                             mLastKey = mCurrentKey
                             mLastCodeX = mLastX
                             mLastCodeY = mLastY
                             mLastKeyTime = mCurrentKeyTime + eventTime - mLastMoveTime
                             mCurrentKey = keyIndex
                             mCurrentKeyTime = 0
+                            setCurrentKeyPressed(true)
                         }
                     }
                 }
@@ -1358,10 +1361,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
-                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_SYMBOLS_MODE_CHANGE) {
-                    invalidateKey(keyIndex)
-                }
-
+                setCurrentKeyPressed(false)
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
                 mIsLongPressingSpace = false
@@ -1374,7 +1374,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 dismissPopupKeyboard()
                 mAbortKey = true
                 showPreview(NOT_A_KEY)
-                invalidateKey(mCurrentKey)
             }
         }
 
@@ -1395,6 +1394,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             detectAndSendKey(mCurrentKey, key.x, key.y, mLastTapTime)
         }
         return true
+    }
+
+    private fun setCurrentKeyPressed(pressed: Boolean) {
+        mKeys.getOrNull(mCurrentKey)?.pressed = pressed
+        invalidateKey(mCurrentKey)
     }
 
     fun closeClipboardManager() {
@@ -1653,6 +1657,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         if (mPopupKeyboard.isShowing) {
             mPopupKeyboard.dismiss()
             mMiniKeyboardOnScreen = false
+            setCurrentKeyPressed(false)
             invalidateAllKeys()
         }
     }
