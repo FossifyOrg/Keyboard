@@ -1020,6 +1020,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_EMOJI) {
+            setCurrentKeyPressed(false)
             ChangeLanguagePopup(this, onSelect = {
                 mOnKeyboardActionListener?.reloadKeyboard()
             })
