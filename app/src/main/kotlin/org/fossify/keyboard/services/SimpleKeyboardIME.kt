@@ -3,7 +3,6 @@ package org.fossify.keyboard.services
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
@@ -30,6 +29,7 @@ import androidx.autofill.inline.common.TextViewStyle
 import androidx.autofill.inline.common.ViewStyle
 import androidx.autofill.inline.v1.InlineSuggestionUi
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -83,7 +83,6 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
     override fun onCreateInputView(): View {
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
-        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView = binding.keyboardView.apply {
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
@@ -95,29 +94,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         return binding.root
     }
 
-    private fun setupNavigationBarPadding() {
-        window.window?.apply {
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-            decorView.setOnApplyWindowInsetsListener { view, insets ->
-                val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
-                val bottomPadding = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
-                view.onApplyWindowInsets(insets)
-                insets
-            }
-        }
-    }
-
-    private fun setupNavigationBarColor() {
-        window.window?.apply {
-            navigationBarColor = Color.TRANSPARENT
-            updateNavigationBarForegroundColor(safeStorageContext.getKeyboardBackgroundColor())
-        }
-    }
-
     override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(editorInfo, restarting)
-        setupNavigationBarColor()
+        updateBackgroundColors()
     }
 
     override fun onPress(primaryCode: Int) {
@@ -540,9 +519,25 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView?.setupKeyboard()
-        setupNavigationBarColor()
+        updateBackgroundColors()
+    }
+
+    private fun setupNavigationBarPadding() {
+        window.window?.apply {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+            ViewCompat.setOnApplyWindowInsetsListener(binding.keyboardHolder) { view, insets ->
+                val bottomPadding = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                ViewCompat.onApplyWindowInsets(view, insets)
+            }
+        }
+    }
+
+    private fun updateBackgroundColors() {
+        val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
+        binding.keyboardHolder.setBackgroundColor(backgroundColor)
+        window.window?.updateNavigationBarColors(backgroundColor)
     }
 
     private fun Bitmap.toIcon(): Icon {
