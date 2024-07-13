@@ -46,7 +46,7 @@ import org.fossify.keyboard.databinding.ItemEmojiCategoryBinding
 import org.fossify.keyboard.databinding.KeyboardKeyPreviewBinding
 import org.fossify.keyboard.databinding.KeyboardPopupKeyboardBinding
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
-import org.fossify.keyboard.dialogs.ChangeLanguagePopup
+import org.fossify.keyboard.dialogs.SwitchLanguageDialog
 import org.fossify.keyboard.extensions.*
 import org.fossify.keyboard.helpers.*
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
@@ -1021,9 +1021,9 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_EMOJI) {
             setCurrentKeyPressed(false)
-            ChangeLanguagePopup(this, onSelect = {
+            SwitchLanguageDialog(this) {
                 mOnKeyboardActionListener?.reloadKeyboard()
-            })
+            }
             return true
         } else {
             val popupKeyboardId = popupKey.popupResId

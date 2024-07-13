@@ -1,5 +1,7 @@
 package org.fossify.keyboard.dialogs
 
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -9,29 +11,26 @@ import androidx.appcompat.app.AlertDialog
 import org.fossify.commons.databinding.DialogRadioGroupBinding
 import org.fossify.commons.databinding.RadioButtonBinding
 import org.fossify.commons.extensions.onGlobalLayout
-import org.fossify.commons.models.RadioItem
 import org.fossify.keyboard.R
-import org.fossify.keyboard.extensions.getKeyboardDialogBuilder
-import org.fossify.keyboard.extensions.safeStorageContext
-import org.fossify.keyboard.extensions.setupKeyboardDialogStuff
+import org.fossify.keyboard.activities.SettingsActivity
+import org.fossify.keyboard.extensions.*
 
-class KeyboardRadioGroupDialog(
+class SwitchLanguageDialog(
     private val inputView: View,
-    private val items: ArrayList<RadioItem>,
-    private val checkedItemId: Int = -1,
-    private val titleId: Int = 0,
-    showOKButton: Boolean = false,
-    private val cancelCallback: (() -> Unit)? = null,
-    private val callback: (newValue: Any) -> Unit
+    private val callback: () -> Unit,
 ) {
     private val context = ContextThemeWrapper(inputView.context.safeStorageContext, R.style.MyKeyboard_Alert)
+    private val config = context.config
+    private val items = context.getKeyboardLanguagesRadioItems()
+    private val layoutInflater = LayoutInflater.from(context)
+
     private var dialog: AlertDialog? = null
     private var wasInit = false
     private var selectedItemId = -1
-    private val layoutInflater = LayoutInflater.from(context)
 
     init {
         val binding = DialogRadioGroupBinding.inflate(layoutInflater)
+        val checkedItemId = config.keyboardLanguage
         binding.dialogRadioGroup.apply {
             for (i in 0 until items.size) {
                 val radioButton = RadioButtonBinding.inflate(layoutInflater).dialogRadioButton.apply {
@@ -49,15 +48,15 @@ class KeyboardRadioGroupDialog(
             }
         }
 
-        val builder = context.getKeyboardDialogBuilder()
-            .setOnCancelListener { cancelCallback?.invoke() }
+        context.getKeyboardDialogBuilder().apply {
+            setPositiveButton(R.string.manage_keyboard_languages) { _, _ ->
+                Intent(context, SettingsActivity::class.java).apply {
+                    flags = FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(this)
+                }
+            }
 
-        if (selectedItemId != -1 && showOKButton) {
-            builder.setPositiveButton(R.string.ok) { _, _ -> itemSelected(selectedItemId) }
-        }
-
-        builder.apply {
-            context.setupKeyboardDialogStuff(inputView.windowToken, binding.root, this, titleId) { alertDialog ->
+            context.setupKeyboardDialogStuff(inputView.windowToken, binding.root, this) { alertDialog ->
                 dialog = alertDialog
             }
         }
@@ -75,7 +74,8 @@ class KeyboardRadioGroupDialog(
 
     private fun itemSelected(checkedId: Int) {
         if (wasInit) {
-            callback(items[checkedId].value)
+            config.keyboardLanguage = items[checkedId].value as Int
+            callback()
             dialog?.dismiss()
         }
     }
