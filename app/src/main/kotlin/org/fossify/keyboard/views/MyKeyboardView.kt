@@ -406,7 +406,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         if (!isMainKeyboard) {
             val previewBackground = background as LayerDrawable
-            previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mKeyboardBackgroundColor)
+            previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
             previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
             background = previewBackground
         } else {
@@ -591,6 +591,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             val code = key.code
 
             setupKeyBackground(key, code, canvas)
+            val textColor = if (key.pressed) {
+                mTextColor.adjustAlpha(0.5f)
+            } else {
+                mTextColor
+            }
 
             // Switch the character to uppercase if shift is pressed
             val label = adjustCase(key.label)?.toString()
@@ -604,11 +609,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     paint.typeface = Typeface.DEFAULT
                 }
 
-                paint.color = if (key.focused) {
-                    mPrimaryColor.getContrastColor()
-                } else {
-                    mTextColor
-                }
+                paint.color = textColor
 
                 val rows = label.split("\n")
                 val textSize = paint.textSize
@@ -620,6 +621,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))) {
                     val bounds = Rect().also {
                         smallLetterPaint.getTextBounds(key.topSmallNumber, 0, key.topSmallNumber.length, it)
+                    }
+
+                    smallLetterPaint.color = if (key.pressed) {
+                        textColor
+                    } else {
+                        smallLetterPaint.color
                     }
 
                     canvas.drawText(
@@ -643,11 +650,18 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 if (code == KEYCODE_ENTER) {
-                    key.icon!!.applyColorFilter(mPrimaryColor.getContrastColor())
-                    key.secondaryIcon?.applyColorFilter(mPrimaryColor.getContrastColor().adjustAlpha(0.6f))
+                    val contrastColor = mPrimaryColor.getContrastColor()
+                    key.icon!!.applyColorFilter(contrastColor)
+                    key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
                 } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI) {
-                    key.icon!!.applyColorFilter(mTextColor)
-                    key.secondaryIcon?.applyColorFilter(mTextColor.adjustAlpha(0.6f))
+                    key.icon!!.applyColorFilter(textColor)
+                    key.secondaryIcon?.applyColorFilter(
+                        if (key.pressed) {
+                            textColor
+                        } else {
+                            mTextColor.adjustAlpha(0.6f)
+                        }
+                    )
                 }
 
                 val keyIcon = key.icon!!
@@ -729,14 +743,13 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
             keyBackground.applyColorFilter(keyColor)
         } else if (mShowKeyBorders) {
-            if (keyCode != KEYCODE_SPACE || !mUsingSystemTheme) {
-                val keyColor = if (key.pressed) {
-                    mKeyColorPressed
-                } else {
-                    mKeyColor
-                }
-                keyBackground.applyColorFilter(keyColor)
+            val keyColor = if (key.pressed) {
+                mKeyColorPressed
+            } else {
+                mKeyColor
             }
+
+            keyBackground.applyColorFilter(keyColor)
         }
 
         canvas.translate(key.x.toFloat(), key.y.toFloat())
@@ -906,7 +919,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
 
         val previewBackground = mPreviewText!!.background as LayerDrawable
-        previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mKeyboardBackgroundColor)
+        previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
         previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
         mPreviewText!!.background = previewBackground
 
