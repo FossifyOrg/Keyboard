@@ -9,7 +9,7 @@ It comes with material design and dark theme by default, provides great user exp
 Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
 
 Explore more apps by Fossify:
-https://www.fossify.org:
+https://www.fossify.org
 
 Reddit:
 https://www.reddit.com/r/Fossify
