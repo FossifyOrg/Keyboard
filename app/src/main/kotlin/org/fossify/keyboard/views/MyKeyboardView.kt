@@ -1609,7 +1609,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
         keyboardViewBinding?.emojisList?.apply {
             val emojiItemWidth = context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)
-            val emojiTopBarElevation = context.resources.getDimensionPixelSize(R.dimen.emoji_top_bar_elevation).toFloat()
+            val emojiTopBarElevation = context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat()
 
             layoutManager = AutoGridLayoutManager(context, emojiItemWidth).apply {
                 spanSizeLookup = object : SpanSizeLookup() {
