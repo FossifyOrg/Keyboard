@@ -34,8 +34,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.isNougatPlus
-import org.fossify.commons.helpers.isPiePlus
+import org.fossify.commons.helpers.*
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
@@ -519,8 +518,15 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        keyboardView?.setupKeyboard()
-        updateBackgroundColors()
+        if (key != null && key in arrayOf(
+                SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
+                TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
+                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_USING_SHARED_THEME, IS_USING_SYSTEM_THEME
+            )
+        ) {
+            keyboardView?.setupKeyboard()
+            updateBackgroundColors()
+        }
     }
 
     private fun setupNavigationBarPadding() {
