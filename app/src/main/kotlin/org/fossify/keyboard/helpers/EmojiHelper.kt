@@ -94,17 +94,31 @@ data class EmojiData(
     val category: String,
     val emoji: String,
     val variants: List<String>
-) {
-    fun getCategoryIcon(): Int =
-        when (category) {
-            "people_body" -> R.drawable.ic_emoji_category_people
-            "animals_nature" -> R.drawable.ic_emoji_category_animals
-            "food_drink" -> R.drawable.ic_emoji_category_food
-            "travel_places" -> R.drawable.ic_emoji_category_travel
-            "activities" -> R.drawable.ic_emoji_category_activities
-            "objects" -> R.drawable.ic_emoji_category_objects
-            "symbols" -> R.drawable.ic_emoji_category_symbols
-            "flags" -> R.drawable.ic_emoji_category_flags
-            else -> R.drawable.ic_emoji_category_smileys
-        }
-}
+)
+
+fun getCategoryIconRes(category: String): Int =
+    when (category) {
+        "people_body" -> R.drawable.ic_emoji_category_people
+        "animals_nature" -> R.drawable.ic_emoji_category_animals
+        "food_drink" -> R.drawable.ic_emoji_category_food
+        "travel_places" -> R.drawable.ic_emoji_category_travel
+        "activities" -> R.drawable.ic_emoji_category_activities
+        "objects" -> R.drawable.ic_emoji_category_objects
+        "symbols" -> R.drawable.ic_emoji_category_symbols
+        "flags" -> R.drawable.ic_emoji_category_flags
+        else -> R.drawable.ic_emoji_category_smileys
+    }
+
+
+fun getCategoryTitleRes(category: String) =
+    when (category) {
+        "people_body" -> R.string.people_and_body
+        "animals_nature" -> R.string.animals_and_nature
+        "food_drink" -> R.string.food_and_drink
+        "travel_places" -> R.string.travel_and_places
+        "activities" -> R.string.activities
+        "objects" -> R.string.objects
+        "symbols" -> R.string.symbols
+        "flags" -> R.string.flags
+        else -> R.string.smileys_and_emotions
+    }

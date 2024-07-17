@@ -1576,16 +1576,17 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             allItems.add(EmojisAdapter.Item.Category(category))
             allItems.addAll(emojis.map(EmojisAdapter.Item::Emoji))
         }
+
         val checkIds = mutableMapOf<Int, String>()
         keyboardViewBinding?.emojiCategoriesStrip?.apply {
             weightSum = categories.count().toFloat()
             val strip = this
             removeAllViews()
-            categories.entries.forEach { (category, emojis) ->
+            categories.entries.forEach { (category, _) ->
                 ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).apply {
                     root.id = generateViewId()
                     checkIds[root.id] = category
-                    root.setImageResource(emojis.first().getCategoryIcon())
+                    root.setImageResource(getCategoryIconRes(category))
                     root.layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT,

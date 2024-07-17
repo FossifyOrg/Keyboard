@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fossify.commons.views.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/emoji_category_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/small_margin"
+    android:paddingTop="@dimen/smaller_margin"
+    android:textAllCaps="true"
+    android:textSize="@dimen/emoji_category_title_text_size"
+    tools:text="@string/smileys_and_emotions" />
