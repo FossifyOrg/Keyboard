@@ -7,7 +7,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.Paint.Align
 import android.graphics.drawable.*
@@ -31,9 +30,7 @@ import androidx.core.animation.doOnStart
 import androidx.core.view.*
 import androidx.emoji2.text.EmojiCompat
 import androidx.emoji2.text.EmojiCompat.EMOJI_SUPPORTED
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-import androidx.recyclerview.widget.LinearLayoutManager
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isPiePlus
@@ -1569,78 +1566,100 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
     }
 
-    private fun setupEmojiAdapter(emojis: List<EmojiData>) {
-        val categories = emojis.groupBy { it.category }
-        val allItems = mutableListOf<EmojisAdapter.Item>()
+    private fun prepareEmojiCategories(emojis: List<EmojiData>): Map<String, List<EmojiData>> {
+        val recentEmojis = context.config.recentlyUsedEmojis
+            .mapNotNull { emoji ->
+                val emojiData = emojis.firstOrNull { it.emoji == emoji }
+                emojiData?.copy(category = RECENTLY_USED_EMOJIS)
+            }
+
+        return (recentEmojis + emojis).groupBy { it.category }
+    }
+
+    private fun prepareEmojiItems(categories: Map<String, List<EmojiData>>): List<EmojisAdapter.Item> {
+        val emojiItems = mutableListOf<EmojisAdapter.Item>()
         categories.entries.forEach { (category, emojis) ->
-            allItems.add(EmojisAdapter.Item.Category(category))
-            allItems.addAll(emojis.map(EmojisAdapter.Item::Emoji))
+            emojiItems.add(EmojisAdapter.Item.Category(category))
+            emojiItems.addAll(emojis.map(EmojisAdapter.Item::Emoji))
         }
 
-        val checkIds = mutableMapOf<Int, String>()
+        return emojiItems
+    }
+
+    private fun setupEmojiAdapter(emojis: List<EmojiData>) {
+        val emojiCategories = prepareEmojiCategories(emojis)
+        var emojiItems = prepareEmojiItems(emojiCategories)
+
+        val emojiLayoutManager = AutoGridLayoutManager(context, context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)).apply {
+            spanSizeLookup = object : SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return if (emojiItems[position] is EmojisAdapter.Item.Category) {
+                        spanCount
+                    } else {
+                        1
+                    }
+                }
+            }
+        }
+
+        val emojiCategoryIds = mutableMapOf<Int, String>()
+        val emojiCategoryColor = mTextColor.adjustAlpha(0.8f)
         keyboardViewBinding?.emojiCategoriesStrip?.apply {
-            weightSum = categories.count().toFloat()
+            weightSum = emojiCategories.count().toFloat()
             val strip = this
             removeAllViews()
-            categories.entries.forEach { (category, _) ->
-                ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).apply {
-                    root.id = generateViewId()
-                    checkIds[root.id] = category
-                    root.setImageResource(getCategoryIconRes(category))
-                    root.layoutParams = LinearLayout.LayoutParams(
+            emojiCategories.entries.forEach { (category, _) ->
+                ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).root.apply {
+                    id = generateViewId()
+                    emojiCategoryIds[id] = category
+                    setImageResource(getCategoryIconRes(category))
+                    layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         1f
                     )
-                    root.setOnClickListener {
+                    setOnClickListener {
                         strip.children.filterIsInstance<ImageButton>().forEach {
-                            it.imageTintList = ColorStateList.valueOf(mTextColor)
+                            it.applyColorFilter(emojiCategoryColor)
                         }
-                        root.imageTintList = ColorStateList.valueOf(context.getProperPrimaryColor())
+                        applyColorFilter(mPrimaryColor)
                         keyboardViewBinding?.emojisList?.stopScroll()
-                        (keyboardViewBinding?.emojisList?.layoutManager as? GridLayoutManager)?.scrollToPositionWithOffset(
-                            allItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category },
-                            0
+                        emojiLayoutManager.scrollToPositionWithOffset(
+                            emojiItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category }, 0
                         )
                     }
-                    root.imageTintList = ColorStateList.valueOf(mTextColor)
+                    applyColorFilter(emojiCategoryColor)
                 }
             }
         }
-        keyboardViewBinding?.emojisList?.apply {
-            val emojiItemWidth = context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)
-            val emojiTopBarElevation = context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat()
 
-            layoutManager = AutoGridLayoutManager(context, emojiItemWidth).apply {
-                spanSizeLookup = object : SpanSizeLookup() {
-                    override fun getSpanSize(position: Int): Int =
-                        if (allItems[position] is EmojisAdapter.Item.Category) {
-                            spanCount
-                        } else {
-                            1
-                        }
-                }
-            }
-            adapter = EmojisAdapter(context = context, items = allItems) { emoji ->
+        keyboardViewBinding?.emojisList?.apply {
+            layoutManager = emojiLayoutManager
+            adapter = EmojisAdapter(context = context, items = emojiItems) { emoji ->
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
+
+                context.config.addRecentEmoji(emoji.emoji)
+                (adapter as? EmojisAdapter)?.apply {
+                    emojiItems = prepareEmojiItems(prepareEmojiCategories(emojis))
+                    updateItems(emojiItems)
+                }
             }
 
             clearOnScrollListeners()
-            onScroll {
-                keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (it > 4) emojiTopBarElevation else 0f
-                (keyboardViewBinding?.emojisList?.layoutManager as? LinearLayoutManager)?.findFirstCompletelyVisibleItemPosition()?.also { firstVisibleIndex ->
-                    allItems
+            onScroll { offset ->
+                keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (offset > 4) context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat() else 0f
+                emojiLayoutManager.findFirstCompletelyVisibleItemPosition().also { firstVisibleIndex ->
+                    emojiItems
                         .withIndex()
                         .lastOrNull { it.value is EmojisAdapter.Item.Category && it.index <= firstVisibleIndex }
                         ?.also { activeCategory ->
-                            val id = checkIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key
-                            keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance<ImageButton>()?.forEach {
-                                if (it.id == id) {
-                                    it.imageTintList = ColorStateList.valueOf(context.getProperPrimaryColor())
-                                } else {
-                                    it.imageTintList = ColorStateList.valueOf(mTextColor)
-                                }
+                            val id = emojiCategoryIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key
+                            keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance<ImageButton>()?.forEach { button ->
+                                val selected = button.id == id
+                                button.applyColorFilter(
+                                    if (selected) mPrimaryColor else emojiCategoryColor
+                                )
                             }
                         }
                 }

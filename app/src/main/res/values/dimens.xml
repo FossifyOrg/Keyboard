@@ -17,6 +17,5 @@
     <dimen name="preview_text_size">26sp</dimen>
     <dimen name="label_text_size">16sp</dimen>      <!-- text size used at keys with longer labels, like "123" -->
     <dimen name="emoji_text_size">30sp</dimen>
-    <dimen name="emoji_category_text_size">14sp</dimen>
-    <dimen name="emoji_category_title_text_size">13sp</dimen>
+    <dimen name="emoji_category_text_size">13sp</dimen>
 </resources>

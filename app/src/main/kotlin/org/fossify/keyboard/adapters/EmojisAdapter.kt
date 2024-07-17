@@ -1,8 +1,8 @@
 package org.fossify.keyboard.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.emoji2.text.EmojiCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +15,7 @@ import org.fossify.keyboard.helpers.getCategoryTitleRes
 
 class EmojisAdapter(
     val context: Context,
-    val items: List<Item>,
+    var items: List<Item>,
     val itemClick: (emoji: EmojiData) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -25,11 +25,11 @@ class EmojisAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             ITEM_TYPE_EMOJI -> EmojiViewHolder(
-                ItemEmojiBinding.inflate(layoutInflater, parent, false).root
+                ItemEmojiBinding.inflate(layoutInflater, parent, false)
             )
 
             ITEM_TYPE_CATEGORY -> EmojiCategoryViewHolder(
-                ItemEmojiCategoryTitleBinding.inflate(layoutInflater, parent, false).root
+                ItemEmojiCategoryTitleBinding.inflate(layoutInflater, parent, false)
             )
 
             else -> throw IllegalArgumentException("Unsupported view type: $viewType")
@@ -45,20 +45,25 @@ class EmojisAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (items[position] is Item.Emoji) {
-            ITEM_TYPE_EMOJI
-        } else {
-            ITEM_TYPE_CATEGORY
+        return when (items[position]) {
+            is Item.Emoji -> ITEM_TYPE_EMOJI
+            is Item.Category -> ITEM_TYPE_CATEGORY
         }
     }
 
     override fun getItemCount() = items.size
 
-    inner class EmojiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateItems(emojiItems: List<Item>) {
+        items = emojiItems
+        notifyDataSetChanged()
+    }
+
+    inner class EmojiViewHolder(val binding: ItemEmojiBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindView(emoji: Item.Emoji) {
             val processed = EmojiCompat.get().process(emoji.emojiData.emoji)
             itemView.apply {
-                ItemEmojiBinding.bind(this).emojiValue.text = processed
+                binding.emojiValue.text = processed
                 setOnClickListener {
                     itemClick.invoke(emoji.emojiData)
                 }
@@ -66,9 +71,9 @@ class EmojisAdapter(
         }
     }
 
-    inner class EmojiCategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class EmojiCategoryViewHolder(val binding: ItemEmojiCategoryTitleBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindView(category: Item.Category) {
-            ItemEmojiCategoryTitleBinding.bind(itemView).emojiCategoryTitle.apply {
+            binding.emojiCategoryTitle.apply {
                 text = context.getString(getCategoryTitleRes(category.value))
                 setTextColor(textColor.adjustAlpha(0.6f))
             }

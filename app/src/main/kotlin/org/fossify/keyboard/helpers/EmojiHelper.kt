@@ -98,6 +98,7 @@ data class EmojiData(
 
 fun getCategoryIconRes(category: String): Int =
     when (category) {
+        "smileys_emotion" -> R.drawable.ic_emoji_category_smileys
         "people_body" -> R.drawable.ic_emoji_category_people
         "animals_nature" -> R.drawable.ic_emoji_category_animals
         "food_drink" -> R.drawable.ic_emoji_category_food
@@ -106,12 +107,13 @@ fun getCategoryIconRes(category: String): Int =
         "objects" -> R.drawable.ic_emoji_category_objects
         "symbols" -> R.drawable.ic_emoji_category_symbols
         "flags" -> R.drawable.ic_emoji_category_flags
-        else -> R.drawable.ic_emoji_category_smileys
+        else -> R.drawable.ic_clock_filled_vector
     }
 
 
 fun getCategoryTitleRes(category: String) =
     when (category) {
+        "smileys_emotion" -> R.string.smileys_and_emotions
         "people_body" -> R.string.people_and_body
         "animals_nature" -> R.string.animals_and_nature
         "food_drink" -> R.string.food_and_drink
@@ -120,5 +122,5 @@ fun getCategoryTitleRes(category: String) =
         "objects" -> R.string.objects
         "symbols" -> R.string.symbols
         "flags" -> R.string.flags
-        else -> R.string.smileys_and_emotions
+        else -> R.string.recently_used
     }
