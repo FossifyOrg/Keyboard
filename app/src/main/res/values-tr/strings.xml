@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Klavye dillerini yönet</string>
     <string name="voice_typing_method">Sesli yazma yöntemi</string>
     <string name="switch_to_voice_typing">Sesli yazmaya geç</string>
+    <string name="smileys_and_emotions">Suratlar ve duygular</string>
+    <string name="people_and_body">İnsanlar ve vücut</string>
+    <string name="travel_and_places">Seyahat ve mekanlar</string>
+    <string name="activities">Etkinlikler</string>
+    <string name="objects">Nesneler</string>
+    <string name="symbols">Simgeler</string>
+    <string name="flags">Bayraklar</string>
+    <string name="recently_used">Son kullanılan</string>
+    <string name="animals_and_nature">Hayvanlar ve doğa</string>
+    <string name="food_and_drink">Yiyecek ve içecek</string>
 </resources>
