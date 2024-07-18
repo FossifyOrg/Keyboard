@@ -1,0 +1,22 @@
+Przedstawiamy Fossify Keyboard – Twoje rozwiązanie do łatwego i wydajnego pisania. Ciesz się doświadczeniem płynnego pisania zaprojektowanego tak, aby spełnić wszystkie Twoje potrzeby, czy to podczas czatowania ze znajomymi, czy wstawiania tekstów, cyfr lub symboli.<br><br>
+<b>📶 FUNKCJE OFFLINE:</b><br>
+Fossify Keyboard działa całkowicie offline, nie wymagając dostępu do Internetu, dzięki czemu możesz z niej korzystać w dowolnym miejscu i czasie, bez konieczności połączenia z Internetem. Zapewnia to również większą prywatność, bezpieczeństwo i stabilność w porównaniu do innych klawiatur łączących się z Internetem.<br><br>
+<b>🌐 WIELE JĘZYKÓW I UKŁADÓW:</b><br>
+Wybieraj spośród szerokiej gamy języków i układów klawiatury. Fossify Keyboard obsługuje wiele języków, dzięki czemu możesz łatwo przełączać się i pisać w preferowanym języku.<br><br>
+<b>📋 PORĘCZNY SCHOWEK:</b><br>
+Twórz wpisy i przypinaj często używane, aby mieć do nich łatwy dostęp. Ta funkcja umożliwia Ci szybkie wstawianie najczęściej używanych tekstów, oszczędzając Twój czas i wysiłek.<br><br>
+<b>📳 KONFIGUROWALNE USTAWIENIA:</b><br>
+Dostosuj swój sposób pisania, przełączając wibracje, wyskakujące okienka przy naciśnięciach klawiszy i wybierając swój preferowany język z listy obsługiwanych. Spersonalizuj ustawienia klawiatury zgodnie ze swoimi preferencjami.<br><br>
+<b>🌙 MATERIAL DESIGN I CIEMNY MOTYW:</b><br>
+Ciesz się eleganckim, nowoczesnym wyglądem z domyślnym ciemnym motywem. Fossify Keyboard oferuje atrakcyjne wizualnie i wygodne doświadczenie użytkownika, dzięki czemu pisanie jest przyjemnością.<br><br>
+<b>🔒 PRYWATNOŚĆ I BEZPIECZEŃSTWO:</b><br>
+Twoja prywatność jest naszym najwyższym priorytetem. Fossify Keyboard nie gromadzi ani nie udostępnia żadnych informacji o użytkowniku stronom trzecim. Ciesz się spokojem ducha, wiedząc, że Twoja historia pisania pozostaje prywatna i bezpieczna.<br><br>
+<b>🎨 KONFIGUROWALNE KOLORY:</b><br>
+Spersonalizuj swoją klawiaturę dzięki konfigurowalnym kolorom. Fossify Keyboard umożliwia Ci wybór i dostosowanie kolorów do Twojego stylu i preferencji.<br><br>
+<b>🌐 OTWARTOŹRÓDŁOWA TRANSPARENTNOŚĆ:</b><br>
+Fossify Keyboard jest w pełni otwartoźródłowa, zapewniając Ci przejrzystość i bezpieczeństwo. Masz możliwość przeglądu kodu źródłowego, co zapewnia zaufane i wiarygodne narzędzie do pisania.<br><br>
+Doświadcz pisania jak nigdy dotąd – wydajnie, spersonalizowanie i bezpiecznie. Pobierz Fossify Keyboard teraz i przenieś swoje doświadczenie z pisania na wyższy poziom.<br><br>
+Odkryj więcej aplikacji od Fossify: https://www.fossify.org<br>
+Kod źródłowy: https://www.github.com/FossifyOrg<br>
+Dołącz do społeczności na Reddicie: https://www.reddit.com/r/Fossify<br>
+Połącz się na Telegramie: https://t.me/Fossify<br>
