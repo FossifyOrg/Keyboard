@@ -16,7 +16,7 @@ Personalize your keyboard with customizable colors. Fossify Keyboard allows you 
 <b>🌐 OPEN-SOURCE TRANSPARENCY:</b><br>
 Fossify Keyboard is fully open-source, providing you with transparency and security. You have access to the source code for audits, ensuring a trustworthy and reliable typing tool.<br><br>
 Experience typing like never before – efficient, personalized, and secure. Download Fossify Keyboard now and elevate your typing experience.<br><br>
-Explore more about Fossify Keyboard: https://www.fossify.org<br>
+Explore more Fossify apps: https://www.fossify.org<br>
 Open-Source Code: https://www.github.com/FossifyOrg<br>
 Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
 Connect on Telegram: https://t.me/Fossify<br>
