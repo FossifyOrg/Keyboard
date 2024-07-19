@@ -36,4 +36,11 @@
     <string name="manage_keyboard_languages">Toetsenbordtalen beheren</string>
     <string name="switch_to_voice_typing">Spraakgestuurd typen</string>
     <string name="voice_typing_method">Methode voor spraakgestuurd typen</string>
+    <string name="flags">Vlaggen</string>
+    <string name="objects">Voorwerpen</string>
+    <string name="travel_and_places">Reizen en locaties</string>
+    <string name="animals_and_nature">Dieren en natuur</string>
+    <string name="food_and_drink">Eten en drinken</string>
+    <string name="activities">Activiteiten</string>
+    <string name="symbols">Symbolen</string>
 </resources>
