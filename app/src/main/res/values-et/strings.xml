@@ -36,4 +36,14 @@
     <string name="voice_typing_method">Hääljuhtimisega trükkimise meetod</string>
     <string name="switch_to_voice_typing">Kasuta hääljuhtimisega trükkimist</string>
     <string name="manage_keyboard_languages">Halda klaviatuuri keeli</string>
+    <string name="activities">Tegevused</string>
+    <string name="flags">Lipud</string>
+    <string name="symbols">Sümbolid</string>
+    <string name="recently_used">Hiljuti kasutatud</string>
+    <string name="smileys_and_emotions">Smailid ja emojid</string>
+    <string name="people_and_body">Inimesed ja kehaosad</string>
+    <string name="animals_and_nature">Loomad ja loodus</string>
+    <string name="food_and_drink">Toit ja jook</string>
+    <string name="travel_and_places">Reisimine ja kohad</string>
+    <string name="objects">Esemed</string>
 </resources>
