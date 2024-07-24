@@ -28,4 +28,22 @@
     <string name="show_key_borders">Näytä näppäinten ääriviivat</string>
     <string name="show_numbers_row">Näytä erillinen numerorivi</string>
     <string name="emojis">Emojit</string>
+    <string name="manage_keyboard_languages">Hallitse näppäimistön kieliä</string>
+    <string name="smileys_and_emotions">Hymiöt ja tunteet</string>
+    <string name="travel_and_places">Matkailu ja paikat</string>
+    <string name="redirection_note">Ota Fossify Keyboard -näppäimistö käyttöön seuraavassa, avautuvassa näytössä, tehdäksesi siitä käytettävissä olevan näppäimistön. Paina \'Takaisin\' kun se on otettu käyttöön.</string>
+    <string name="start_sentences_capitalized">Aloita lauseet isolla alkukirjaimella</string>
+    <string name="animals_and_nature">Eläimet ja luonto</string>
+    <string name="objects">Esineet</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_space">Välilyönti</string>
+    <string name="recently_used">Viimeksi käytetty</string>
+    <string name="people_and_body">Ihmiset ja keho</string>
+    <string name="food_and_drink">Ruoka ja juoma</string>
+    <string name="activities">Toiminta</string>
+    <string name="symbols">Symbolit</string>
+    <string name="flags">Liput</string>
+    <string name="voice_typing_method">Puheella kirjoittaminen</string>
+    <string name="switch_to_voice_typing">Vaihda puhekirjoitukseen</string>
 </resources>
