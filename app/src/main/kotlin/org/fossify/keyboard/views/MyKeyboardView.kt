@@ -206,7 +206,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         mPreviewHeight = resources.getDimension(R.dimen.key_height).toInt()
         mSpaceMoveThreshold = resources.getDimension(R.dimen.medium_margin).toInt()
 
-        with(context.safeStorageContext) {
+        with(safeContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -380,7 +380,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     fun setupKeyboard(changedView: View? = null) {
-        with(context.safeStorageContext) {
+        with(safeContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -1471,7 +1471,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
         }
 
-        val adapter = ClipsKeyboardAdapter(context.safeStorageContext, clips, refreshClipsListener) { clip ->
+        val adapter = ClipsKeyboardAdapter(safeContext, clips, refreshClipsListener) { clip ->
             mOnKeyboardActionListener!!.onText(clip.value)
             vibrateIfNeeded()
         }
@@ -1635,7 +1635,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         keyboardViewBinding?.emojisList?.apply {
             layoutManager = emojiLayoutManager
-            adapter = EmojisAdapter(context = context, items = emojiItems) { emoji ->
+            adapter = EmojisAdapter(context = safeContext, items = emojiItems) { emoji ->
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
 
@@ -1700,7 +1700,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun getKeyColor(): Int {
-        val backgroundColor = context.getKeyboardBackgroundColor()
+        val backgroundColor = safeContext.getKeyboardBackgroundColor()
         val lighterColor = backgroundColor.lightenColor()
         val keyColor = if (context.config.isUsingSystemTheme) {
             lighterColor
