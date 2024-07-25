@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-val View.safeContext: Context
+val View.safeStorageContext: Context
     get() = context.safeStorageContext
 
 fun RecyclerView.onScroll(scroll: (Int) -> Unit) {
