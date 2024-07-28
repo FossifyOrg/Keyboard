@@ -8,9 +8,9 @@
     <string name="clear_clipboard_data">Rensa urklippsdata</string>
     <string name="clear_clipboard_data_confirmation">Är du säker på att du vill rensa datan från urklippet\?</string>
     <string name="clipboard">Urklipp</string>
-    <string name="clipboard_recent">Nyligen</string>
+    <string name="clipboard_recent">Senaste</string>
     <string name="clipboard_current">Nuvarande</string>
-    <string name="clipboard_pinned">Nålad</string>
+    <string name="clipboard_pinned">Fästa</string>
     <string name="add_new_item">Lägg till ett nytt objekt</string>
     <string name="manage_clips">Du kan hantera eller lägga till klipp här för snabb åtkomst.</string>
     <string name="clip_text">Klipp text</string>
@@ -24,7 +24,7 @@
     <string name="keycode_space">Blanksteg</string>
     <string name="show_clipboard_content">Visa urklippets innehåll om tillgängligt</string>
     <string name="show_popup">Visa en popupp vid knapptryck</string>
-    <string name="vibrate_on_keypress">Vibrera på knapptryck</string>
+    <string name="vibrate_on_keypress">Vibrera vid knapptryck</string>
     <string name="keyboard_language">Tangentbordsspråk</string>
     <string name="keyboard_height">Tangentbordshöjd</string>
     <string name="show_key_borders">Visa ramar runt tangenterna</string>
@@ -35,4 +35,14 @@
     <string name="manage_keyboard_languages">Hantera tangentbordsspråk</string>
     <string name="voice_typing_method">Röstinmatningsmetod</string>
     <string name="switch_to_voice_typing">Växla till röstinmatning</string>
+    <string name="symbols">Symboler</string>
+    <string name="people_and_body">Personer och kroppar</string>
+    <string name="recently_used">Nyligen använda</string>
+    <string name="smileys_and_emotions">Smileys och känslor</string>
+    <string name="animals_and_nature">Djur och natur</string>
+    <string name="food_and_drink">Mat och dryck</string>
+    <string name="travel_and_places">Resor och platser</string>
+    <string name="activities">Aktiviteter</string>
+    <string name="objects">Föremål</string>
+    <string name="flags">Flaggor</string>
 </resources>
