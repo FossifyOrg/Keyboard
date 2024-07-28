@@ -43,4 +43,7 @@
     <string name="food_and_drink">Eten en drinken</string>
     <string name="activities">Activiteiten</string>
     <string name="symbols">Symbolen</string>
+    <string name="recently_used">Recent gebruikt</string>
+    <string name="smileys_and_emotions">Smileys en emoticons</string>
+    <string name="people_and_body">Mensen en lichaam</string>
 </resources>
