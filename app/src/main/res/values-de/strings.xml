@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Tastatursprachen verwalten</string>
     <string name="switch_to_voice_typing">Zur Spracheingabe wechseln</string>
     <string name="voice_typing_method">Spracheingabe-Methode</string>
+    <string name="activities">Aktivitäten</string>
+    <string name="objects">Gegenstände</string>
+    <string name="symbols">Symbole</string>
+    <string name="recently_used">Zuletzt verwendet</string>
+    <string name="smileys_and_emotions">Smileys und Emotionen</string>
+    <string name="people_and_body">Personen und Körper</string>
+    <string name="animals_and_nature">Tiere und Natur</string>
+    <string name="food_and_drink">Essen und Trinken</string>
+    <string name="travel_and_places">Reisen und Orte</string>
+    <string name="flags">Flaggen</string>
 </resources>

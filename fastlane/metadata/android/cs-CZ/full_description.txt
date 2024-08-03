@@ -1,0 +1,22 @@
+Představujeme Klávesnici Fossify - řešení pro snadné a efektivní psaní. Zažijte bezproblémové psaní navržené tak, aby vyhovovalo všem vašim potřebám, ať už jde o chatování s přáteli nebo vkládání textů, čísel či symbolů.<br><br>
+<b>📶 FUNGUJE OFFLINE:</b><br>
+Klávesnice Fossify funguje zcela offline bez povolení internetu, takže ji můžete používat kdykoli a kdekoli, aniž byste potřebovali připojení k internetu. To vám také poskytuje větší soukromí, bezpečnost a stabilitu ve srovnání s jinými klávesnicemi, které se připojují k internetu.<br><br>
+<b>🌐 SPOUSTA JAZYKŮ A ROZLOŽENÍ:</b><br>
+Vyberte si z široké škály jazyků a rozložení klávesnice. Klávesnice Fossify podporuje více jazyků, takže můžete snadno přepínat a psát v preferovaném jazyce.<br><br>
+<b>📋 PRAKTICKÁ SCHRÁNKA:</b><br>
+Vytvářejte kopie a připínejte si ty často používané pro snadný přístup. Tato funkce vám umožní rychle vkládat nejpoužívanější texty, což vám ušetří čas a námahu.<br><br>
+<b>📳 PŘIZPŮSOBITELNÁ NASTAVENÍ:</b><br>
+Přizpůsobte si psaní na míru přepínáním vibrací, vyskakovacích oken při stisknutí kláves a výběrem preferovaného jazyka ze seznamu podporovaných. Přizpůsobte si nastavení klávesnice podle svých preferencí.<br><br>
+<b>🌙 MATERIAL DESIGN A TMAVÝ MOTIV:</b><br>
+Vychutnejte si elegantní a moderní design s výchozím tmavým motivem. Klávesnice Fossify nabízí vizuálně přitažlivé a pohodlné uživatelské prostředí, díky kterému je psaní na klávesnici potěšením.<br><br>
+<b>🔒 SOUKROMÍ A BEZPEČNOST:</b><br>
+Vaše soukromí je naší nejvyšší prioritou. Klávesnice Fossify neshromažďuje ani nesdílí žádné informace o uživatelích s třetími stranami. Zažijte klid s vědomím, že vaše činnost při psaní zůstává soukromá a bezpečná.<br><br>
+<b>🎨 PŘIZPŮSOBITELNÉ BARVY:</b><br>
+Přizpůsobte si klávesnici pomocí přizpůsobitelných barev. Klávesnice Fossify vám umožňuje vybrat si a upravit barvy tak, aby odpovídaly vašemu stylu a preferencím.<br><br>
+<b>🌐 PRŮHLEDNOST S OTEVŘENÝM ZDROJOVÝM KÓDEM:</b><br>
+Klávesnice Fossify je plně open-source, což vám poskytuje transparentnost a bezpečnost. Máte přístup ke zdrojovému kódu pro audity, což zajišťuje důvěryhodný a spolehlivý nástroj pro psaní.<br><br>
+Zažijte psaní na klávesnici jako nikdy předtím – efektivní, personalizované a bezpečné. Stáhněte si Klávesnici Fossify nyní a vylepšete svůj zážitek z psaní.<br><br>
+Prozkoumejte další aplikace Fossify: https://www.fossify.org
+Otevřený zdrojový kód: https://www.github.com/FossifyOrg
+Připojte se ke komunitě na Redditu: https://www.reddit.com/r/Fossify
+Připojte se k Telegramu: https://t.me/Fossify

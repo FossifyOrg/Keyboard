@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">管理键盘语言</string>
     <string name="voice_typing_method">语音输入方式</string>
     <string name="switch_to_voice_typing">切换到语音输入</string>
+    <string name="smileys_and_emotions">微笑图示和表情符号</string>
+    <string name="animals_and_nature">动物和自然</string>
+    <string name="food_and_drink">食物和饮料</string>
+    <string name="recently_used">最近使用</string>
+    <string name="people_and_body">人和身体</string>
+    <string name="travel_and_places">旅行和地点</string>
+    <string name="activities">活动</string>
+    <string name="objects">物体</string>
+    <string name="symbols">符号</string>
+    <string name="flags">旗帜</string>
 </resources>

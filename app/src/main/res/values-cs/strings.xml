@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Správa jazyků klávesnice</string>
     <string name="voice_typing_method">Způsob psaní hlasem</string>
     <string name="switch_to_voice_typing">Přepnout na psaní hlasem</string>
+    <string name="people_and_body">Lidé a tělo</string>
+    <string name="recently_used">Nedávno použito</string>
+    <string name="flags">Vlajky</string>
+    <string name="symbols">Znaky</string>
+    <string name="travel_and_places">Cestování a místa</string>
+    <string name="activities">Aktivity</string>
+    <string name="smileys_and_emotions">Smajlíky a emoce</string>
+    <string name="animals_and_nature">Zvířata a příroda</string>
+    <string name="food_and_drink">Jídlo a pití</string>
+    <string name="objects">Věci</string>
 </resources>
