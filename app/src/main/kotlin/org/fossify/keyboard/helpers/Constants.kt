@@ -53,7 +53,7 @@ const val LANGUAGE_CHUVASH = 22
 const val LANGUAGE_ESPERANTO = 23
 const val LANGUAGE_HEBREW = 24
 const val LANGUAGE_ARABIC = 25
-const val LANGUAGE_BELARUSIAN_CYRL = 26
+const val LANGUAGE_BELARUSIAN_CYRL = 27
 
 // Keep this sorted
 val SUPPORTED_LANGUAGES = listOf(
