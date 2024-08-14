@@ -116,7 +116,7 @@
             app:code="-1"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="10%p" />
+            app:keyWidth="14%p" />
         <Key
             app:keyLabel="я"
             app:keyWidth="8%p" />
@@ -151,7 +151,7 @@
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
             app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="10%p" />
+            app:keyWidth="14%p" />
     </Row>
     <Row>
         <Key
