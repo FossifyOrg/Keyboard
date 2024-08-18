@@ -443,8 +443,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_BULGARIAN -> R.xml.keys_letters_bulgarian
             LANGUAGE_CHUVASH -> R.xml.keys_letters_chuvash
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
+            LANGUAGE_ENGLISH_ASSET -> R.xml.keys_letters_english_asset
+            LANGUAGE_ENGLISH_COLEMAK -> R.xml.keys_letters_english_colemak
+            LANGUAGE_ENGLISH_COLEMAKDH -> R.xml.keys_letters_english_colemakdh
             LANGUAGE_ENGLISH_DVORAK -> R.xml.keys_letters_english_dvorak
+            LANGUAGE_ENGLISH_NIRO -> R.xml.keys_letters_english_niro
             LANGUAGE_ENGLISH_QWERTZ -> R.xml.keys_letters_english_qwertz
+            LANGUAGE_ENGLISH_SOUL -> R.xml.keys_letters_english_soul
+            LANGUAGE_ENGLISH_WORKMAN -> R.xml.keys_letters_english_workman
             LANGUAGE_ESPERANTO -> R.xml.keys_letters_esperanto
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
