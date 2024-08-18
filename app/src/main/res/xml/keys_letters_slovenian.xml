@@ -118,7 +118,7 @@
             app:code="-1"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="18%p" />
+            app:keyWidth="18.18%p" />
         <Key app:keyLabel="y" />
         <Key app:keyLabel="x" />
         <Key
@@ -134,7 +134,7 @@
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
             app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="18%p" />
+            app:keyWidth="18.18%p" />
     </Row>
     <Row>
         <Key
