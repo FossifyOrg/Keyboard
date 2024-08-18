@@ -218,7 +218,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_ENGLISH_NIRO -> "${getString(R.string.translation_english)} (Niro)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
         LANGUAGE_ENGLISH_SOUL -> "${getString(R.string.translation_english)} (Soul)"
-        LANGUAGE_ENGLISH_Workman -> "${getString(R.string.translation_english)} (Workman)"
+        LANGUAGE_ENGLISH_WORKMAN-> "${getString(R.string.translation_english)} (Workman)"
         LANGUAGE_ESPERANTO -> getString(R.string.translation_esperanto)
         LANGUAGE_FRENCH_AZERTY -> "${getString(R.string.translation_french)} (AZERTY)"
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
