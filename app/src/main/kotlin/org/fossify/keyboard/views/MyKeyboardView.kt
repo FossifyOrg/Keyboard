@@ -7,7 +7,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.*
 import android.graphics.Paint.Align
 import android.graphics.drawable.*
@@ -31,9 +30,7 @@ import androidx.core.animation.doOnStart
 import androidx.core.view.*
 import androidx.emoji2.text.EmojiCompat
 import androidx.emoji2.text.EmojiCompat.EMOJI_SUPPORTED
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-import androidx.recyclerview.widget.LinearLayoutManager
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isPiePlus
@@ -46,7 +43,7 @@ import org.fossify.keyboard.databinding.ItemEmojiCategoryBinding
 import org.fossify.keyboard.databinding.KeyboardKeyPreviewBinding
 import org.fossify.keyboard.databinding.KeyboardPopupKeyboardBinding
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
-import org.fossify.keyboard.dialogs.ChangeLanguagePopup
+import org.fossify.keyboard.dialogs.SwitchLanguageDialog
 import org.fossify.keyboard.extensions.*
 import org.fossify.keyboard.helpers.*
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
@@ -209,7 +206,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         mPreviewHeight = resources.getDimension(R.dimen.key_height).toInt()
         mSpaceMoveThreshold = resources.getDimension(R.dimen.medium_margin).toInt()
 
-        with(context.safeStorageContext) {
+        with(safeStorageContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -383,7 +380,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     fun setupKeyboard(changedView: View? = null) {
-        with(context.safeStorageContext) {
+        with(safeStorageContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -395,7 +392,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mVoiceInputMethod = config.voiceInputMethod
         }
 
-        val isMainKeyboard = changedView == null || changedView != keyboardPopupBinding?.miniKeyboardView
+        val isMainKeyboard = changedView == null || changedView.id != R.id.mini_keyboard_view
         mKeyColor = getKeyColor()
         mKeyColorPressed = mKeyColor.adjustAlpha(0.2f)
         mKeyBackground = if (mShowKeyBorders && isMainKeyboard) {
@@ -406,7 +403,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         if (!isMainKeyboard) {
             val previewBackground = background as LayerDrawable
-            previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mKeyboardBackgroundColor)
+            previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
             previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
             background = previewBackground
         } else {
@@ -591,6 +588,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             val code = key.code
 
             setupKeyBackground(key, code, canvas)
+            val textColor = if (key.pressed) {
+                mTextColor.adjustAlpha(0.5f)
+            } else {
+                mTextColor
+            }
 
             // Switch the character to uppercase if shift is pressed
             val label = adjustCase(key.label)?.toString()
@@ -604,11 +606,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     paint.typeface = Typeface.DEFAULT
                 }
 
-                paint.color = if (key.focused) {
-                    mPrimaryColor.getContrastColor()
-                } else {
-                    mTextColor
-                }
+                paint.color = textColor
 
                 val rows = label.split("\n")
                 val textSize = paint.textSize
@@ -620,6 +618,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))) {
                     val bounds = Rect().also {
                         smallLetterPaint.getTextBounds(key.topSmallNumber, 0, key.topSmallNumber.length, it)
+                    }
+
+                    smallLetterPaint.color = if (key.pressed) {
+                        textColor
+                    } else {
+                        smallLetterPaint.color
                     }
 
                     canvas.drawText(
@@ -643,11 +647,18 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 if (code == KEYCODE_ENTER) {
-                    key.icon!!.applyColorFilter(mPrimaryColor.getContrastColor())
-                    key.secondaryIcon?.applyColorFilter(mPrimaryColor.getContrastColor().adjustAlpha(0.6f))
+                    val contrastColor = mPrimaryColor.getContrastColor()
+                    key.icon!!.applyColorFilter(contrastColor)
+                    key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
                 } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI) {
-                    key.icon!!.applyColorFilter(mTextColor)
-                    key.secondaryIcon?.applyColorFilter(mTextColor.adjustAlpha(0.6f))
+                    key.icon!!.applyColorFilter(textColor)
+                    key.secondaryIcon?.applyColorFilter(
+                        if (key.pressed) {
+                            textColor
+                        } else {
+                            mTextColor.adjustAlpha(0.6f)
+                        }
+                    )
                 }
 
                 val keyIcon = key.icon!!
@@ -694,7 +705,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         // Overlay a dark rectangle to dim the keyboard
         if (mMiniKeyboardOnScreen) {
-            paint.color = Color.BLACK.adjustAlpha(0.3f)
+            paint.color = mKeyboardBackgroundColor.adjustAlpha(0.6f)
             canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
         }
 
@@ -729,14 +740,13 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
             keyBackground.applyColorFilter(keyColor)
         } else if (mShowKeyBorders) {
-            if (keyCode != KEYCODE_SPACE || !mUsingSystemTheme) {
-                val keyColor = if (key.pressed) {
-                    mKeyColorPressed
-                } else {
-                    mKeyColor
-                }
-                keyBackground.applyColorFilter(keyColor)
+            val keyColor = if (key.pressed) {
+                mKeyColorPressed
+            } else {
+                mKeyColor
             }
+
+            keyBackground.applyColorFilter(keyColor)
         }
 
         canvas.translate(key.x.toFloat(), key.y.toFloat())
@@ -906,7 +916,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
 
         val previewBackground = mPreviewText!!.background as LayerDrawable
-        previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mKeyboardBackgroundColor)
+        previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
         previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
         mPreviewText!!.background = previewBackground
 
@@ -1020,9 +1030,10 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_EMOJI) {
-            ChangeLanguagePopup(this, onSelect = {
+            setCurrentKeyPressed(false)
+            SwitchLanguageDialog(this) {
                 mOnKeyboardActionListener?.reloadKeyboard()
-            })
+            }
             return true
         } else {
             val popupKeyboardId = popupKey.popupResId
@@ -1222,7 +1233,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 showPreview(NOT_A_KEY)
-                invalidateKey(mCurrentKey)
+                setCurrentKeyPressed(false)
                 return true
             }
 
@@ -1272,6 +1283,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
                 if (mPopupParent.id != R.id.mini_keyboard_view) {
                     showPreview(keyIndex)
+                    setCurrentKeyPressed(true)
                 }
             }
 
@@ -1286,12 +1298,14 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                             mCurrentKeyTime += eventTime - mLastMoveTime
                             continueLongPress = true
                         } else if (mRepeatKeyIndex == NOT_A_KEY) {
+                            setCurrentKeyPressed(false)
                             mLastKey = mCurrentKey
                             mLastCodeX = mLastX
                             mLastCodeY = mLastY
                             mLastKeyTime = mCurrentKeyTime + eventTime - mLastMoveTime
                             mCurrentKey = keyIndex
                             mCurrentKeyTime = 0
+                            setCurrentKeyPressed(true)
                         }
                     }
                 }
@@ -1359,7 +1373,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_SYMBOLS_MODE_CHANGE) {
-                    invalidateKey(keyIndex)
+                    setCurrentKeyPressed(false)
                 }
 
                 mRepeatKeyIndex = NOT_A_KEY
@@ -1374,7 +1388,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 dismissPopupKeyboard()
                 mAbortKey = true
                 showPreview(NOT_A_KEY)
-                invalidateKey(mCurrentKey)
             }
         }
 
@@ -1395,6 +1408,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             detectAndSendKey(mCurrentKey, key.x, key.y, mLastTapTime)
         }
         return true
+    }
+
+    private fun setCurrentKeyPressed(pressed: Boolean) {
+        mKeys.getOrNull(mCurrentKey)?.pressed = pressed
+        invalidateKey(mCurrentKey)
     }
 
     fun closeClipboardManager() {
@@ -1453,7 +1471,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
         }
 
-        val adapter = ClipsKeyboardAdapter(context.safeStorageContext, clips, refreshClipsListener) { clip ->
+        val adapter = ClipsKeyboardAdapter(safeStorageContext, clips, refreshClipsListener) { clip ->
             mOnKeyboardActionListener!!.onText(clip.value)
             vibrateIfNeeded()
         }
@@ -1548,77 +1566,100 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
     }
 
-    private fun setupEmojiAdapter(emojis: List<EmojiData>) {
-        val categories = emojis.groupBy { it.category }
-        val allItems = mutableListOf<EmojisAdapter.Item>()
+    private fun prepareEmojiCategories(emojis: List<EmojiData>): Map<String, List<EmojiData>> {
+        val recentEmojis = context.config.recentlyUsedEmojis
+            .mapNotNull { emoji ->
+                val emojiData = emojis.firstOrNull { it.emoji == emoji }
+                emojiData?.copy(category = RECENTLY_USED_EMOJIS)
+            }
+
+        return (recentEmojis + emojis).groupBy { it.category }
+    }
+
+    private fun prepareEmojiItems(categories: Map<String, List<EmojiData>>): List<EmojisAdapter.Item> {
+        val emojiItems = mutableListOf<EmojisAdapter.Item>()
         categories.entries.forEach { (category, emojis) ->
-            allItems.add(EmojisAdapter.Item.Category(category))
-            allItems.addAll(emojis.map(EmojisAdapter.Item::Emoji))
+            emojiItems.add(EmojisAdapter.Item.Category(category))
+            emojiItems.addAll(emojis.map(EmojisAdapter.Item::Emoji))
         }
-        val checkIds = mutableMapOf<Int, String>()
+
+        return emojiItems
+    }
+
+    private fun setupEmojiAdapter(emojis: List<EmojiData>) {
+        val emojiCategories = prepareEmojiCategories(emojis)
+        var emojiItems = prepareEmojiItems(emojiCategories)
+
+        val emojiLayoutManager = AutoGridLayoutManager(context, context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)).apply {
+            spanSizeLookup = object : SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return if (emojiItems[position] is EmojisAdapter.Item.Category) {
+                        spanCount
+                    } else {
+                        1
+                    }
+                }
+            }
+        }
+
+        val emojiCategoryIds = mutableMapOf<Int, String>()
+        val emojiCategoryColor = mTextColor.adjustAlpha(0.8f)
         keyboardViewBinding?.emojiCategoriesStrip?.apply {
-            weightSum = categories.count().toFloat()
+            weightSum = emojiCategories.count().toFloat()
             val strip = this
             removeAllViews()
-            categories.entries.forEach { (category, emojis) ->
-                ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).apply {
-                    root.id = generateViewId()
-                    checkIds[root.id] = category
-                    root.setImageResource(emojis.first().getCategoryIcon())
-                    root.layoutParams = LinearLayout.LayoutParams(
+            emojiCategories.entries.forEach { (category, _) ->
+                ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).root.apply {
+                    id = generateViewId()
+                    emojiCategoryIds[id] = category
+                    setImageResource(getCategoryIconRes(category))
+                    layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         1f
                     )
-                    root.setOnClickListener {
+                    setOnClickListener {
                         strip.children.filterIsInstance<ImageButton>().forEach {
-                            it.imageTintList = ColorStateList.valueOf(mTextColor)
+                            it.applyColorFilter(emojiCategoryColor)
                         }
-                        root.imageTintList = ColorStateList.valueOf(context.getProperPrimaryColor())
+                        applyColorFilter(mPrimaryColor)
                         keyboardViewBinding?.emojisList?.stopScroll()
-                        (keyboardViewBinding?.emojisList?.layoutManager as? GridLayoutManager)?.scrollToPositionWithOffset(
-                            allItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category },
-                            0
+                        emojiLayoutManager.scrollToPositionWithOffset(
+                            emojiItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category }, 0
                         )
                     }
-                    root.imageTintList = ColorStateList.valueOf(mTextColor)
+                    applyColorFilter(emojiCategoryColor)
                 }
             }
         }
-        keyboardViewBinding?.emojisList?.apply {
-            val emojiItemWidth = context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)
-            val emojiTopBarElevation = context.resources.getDimensionPixelSize(R.dimen.emoji_top_bar_elevation).toFloat()
 
-            layoutManager = AutoGridLayoutManager(context, emojiItemWidth).apply {
-                spanSizeLookup = object : SpanSizeLookup() {
-                    override fun getSpanSize(position: Int): Int =
-                        if (allItems[position] is EmojisAdapter.Item.Category) {
-                            spanCount
-                        } else {
-                            1
-                        }
-                }
-            }
-            adapter = EmojisAdapter(context = context, items = allItems) { emoji ->
+        keyboardViewBinding?.emojisList?.apply {
+            layoutManager = emojiLayoutManager
+            adapter = EmojisAdapter(context = safeStorageContext, items = emojiItems) { emoji ->
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
+
+                context.config.addRecentEmoji(emoji.emoji)
+                (adapter as? EmojisAdapter)?.apply {
+                    emojiItems = prepareEmojiItems(prepareEmojiCategories(emojis))
+                    updateItems(emojiItems)
+                }
             }
 
             clearOnScrollListeners()
-            onScroll {
-                keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (it > 4) emojiTopBarElevation else 0f
-                (keyboardViewBinding?.emojisList?.layoutManager as? LinearLayoutManager)?.findFirstCompletelyVisibleItemPosition()?.also { firstVisibleIndex ->
-                    allItems
+            onScroll { offset ->
+                keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (offset > 4) context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat() else 0f
+                emojiLayoutManager.findFirstCompletelyVisibleItemPosition().also { firstVisibleIndex ->
+                    emojiItems
                         .withIndex()
                         .lastOrNull { it.value is EmojisAdapter.Item.Category && it.index <= firstVisibleIndex }
                         ?.also { activeCategory ->
-                            val id = checkIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key
-                            keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance<ImageButton>()?.forEach {
-                                if (it.id == id) {
-                                    it.imageTintList = ColorStateList.valueOf(context.getProperPrimaryColor())
-                                } else {
-                                    it.imageTintList = ColorStateList.valueOf(mTextColor)
-                                }
+                            val id = emojiCategoryIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key
+                            keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance<ImageButton>()?.forEach { button ->
+                                val selected = button.id == id
+                                button.applyColorFilter(
+                                    if (selected) mPrimaryColor else emojiCategoryColor
+                                )
                             }
                         }
                 }
@@ -1653,12 +1694,13 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         if (mPopupKeyboard.isShowing) {
             mPopupKeyboard.dismiss()
             mMiniKeyboardOnScreen = false
+            setCurrentKeyPressed(false)
             invalidateAllKeys()
         }
     }
 
     private fun getKeyColor(): Int {
-        val backgroundColor = context.getKeyboardBackgroundColor()
+        val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
         val lighterColor = backgroundColor.lightenColor()
         val keyColor = if (context.config.isUsingSystemTheme) {
             lighterColor

@@ -9,7 +9,7 @@ ksp = "1.9.23-1.0.19"
 #Room
 room = "2.6.1"
 #Fossify
-commons = "6ee990894c"
+commons = "4803866c8b"
 #Gradle
 gradlePlugins-agp = "8.2.0"
 #build

@@ -1,18 +1,22 @@
-A lightweight keyboard app that helps chatting with your friends, or inserting any other texts, numbers or symbols. You can choose from multiple different languages and layouts.
-
-You can create handy clips and pin frequently used ones for easy access. You can toggle vibrations, popups on keypresses or select your language from the list of supported ones.
-
-You can choose from a huge variety of available emojis too.
-
-It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-Check out the full suite of Simple Tools here:
-https://www.fossify.org
-
-Reddit:
-https://www.reddit.com/r/Fossify
-
-Telegram:
-https://t.me/Fossify
+Introducing Fossify Keyboard – your go-to solution for effortless and efficient typing. Experience a seamless typing experience designed to cater to all your needs, whether chatting with friends or inserting texts, numbers, or symbols.<br><br>
+<b>📶 OFFLINE FUNCTIONALITY:</b><br>
+Fossify Keyboard operates entirely offline without internet permission, allowing you to use it anytime, anywhere, without needing an internet connection. This also provides you with more privacy, security, and stability compared to other keyboards that connect to the internet.<br><br>
+<b>🌐 MULTIPLE LANGUAGES AND LAYOUTS:</b><br>
+Choose from a wide variety of languages and keyboard layouts. Fossify Keyboard supports multiple languages, making it easy for you to switch and type in your preferred language effortlessly.<br><br>
+<b>📋 HANDY CLIPBOARD:</b><br>
+Create clips and pin frequently used ones for easy access. This feature allows you to insert your most-used texts quickly, saving you time and effort.<br><br>
+<b>📳 CUSTOMIZABLE SETTINGS:</b><br>
+Tailor your typing experience by toggling vibrations, popups on key presses, and selecting your preferred language from the list of supported ones. Personalize your keyboard settings to suit your preferences.<br><br>
+<b>🌙 MATERIAL DESIGN AND DARK THEME:</b><br>
+Enjoy a sleek, modern design with a default dark theme. Fossify Keyboard offers a visually appealing and comfortable user experience, making typing a pleasure.<br><br>
+<b>🔒 PRIVACY AND SECURITY:</b><br>
+Your privacy is our top priority. Fossify Keyboard does not collect or share any user information with third parties. Experience peace of mind knowing your typing activity remains private and secure.<br><br>
+<b>🎨 CUSTOMIZABLE COLORS:</b><br>
+Personalize your keyboard with customizable colors. Fossify Keyboard allows you to choose and adjust colors to match your style and preferences.<br><br>
+<b>🌐 OPEN-SOURCE TRANSPARENCY:</b><br>
+Fossify Keyboard is fully open-source, providing you with transparency and security. You have access to the source code for audits, ensuring a trustworthy and reliable typing tool.<br><br>
+Experience typing like never before – efficient, personalized, and secure. Download Fossify Keyboard now and elevate your typing experience.<br><br>
+Explore more Fossify apps: https://www.fossify.org<br>
+Open-Source Code: https://www.github.com/FossifyOrg<br>
+Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
+Connect on Telegram: https://t.me/Fossify<br>

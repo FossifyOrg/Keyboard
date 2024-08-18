@@ -3,7 +3,6 @@ package org.fossify.keyboard.services
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
@@ -30,12 +29,12 @@ import androidx.autofill.inline.common.TextViewStyle
 import androidx.autofill.inline.common.ViewStyle
 import androidx.autofill.inline.v1.InlineSuggestionUi
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.isNougatPlus
-import org.fossify.commons.helpers.isPiePlus
+import org.fossify.commons.helpers.*
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
@@ -83,7 +82,6 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
     override fun onCreateInputView(): View {
         binding = KeyboardViewKeyboardBinding.inflate(layoutInflater)
-        binding.keyboardHolder.setBackgroundColor(safeStorageContext.getKeyboardBackgroundColor())
         keyboardView = binding.keyboardView.apply {
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
@@ -95,24 +93,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         return binding.root
     }
 
-    private fun setupNavigationBarPadding() {
-        window.window?.apply {
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-            decorView.setOnApplyWindowInsetsListener { _, insets ->
-                val windowInsets = WindowInsetsCompat.toWindowInsetsCompat(insets)
-                val bottomPadding = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
-                insets
-            }
-        }
-    }
-
     override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(editorInfo, restarting)
-        window.window?.apply {
-            navigationBarColor = Color.TRANSPARENT
-            updateNavigationBarForegroundColor(safeStorageContext.getKeyboardBackgroundColor())
-        }
+        updateBackgroundColors()
     }
 
     override fun onPress(primaryCode: Int) {
@@ -535,7 +518,32 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        keyboardView?.setupKeyboard()
+        if (key != null && key in arrayOf(
+                SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
+                TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
+                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_USING_SHARED_THEME, IS_USING_SYSTEM_THEME
+            )
+        ) {
+            keyboardView?.setupKeyboard()
+            updateBackgroundColors()
+        }
+    }
+
+    private fun setupNavigationBarPadding() {
+        window.window?.apply {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+            ViewCompat.setOnApplyWindowInsetsListener(binding.keyboardHolder) { view, insets ->
+                val bottomPadding = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                ViewCompat.onApplyWindowInsets(view, insets)
+            }
+        }
+    }
+
+    private fun updateBackgroundColors() {
+        val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
+        binding.keyboardHolder.setBackgroundColor(backgroundColor)
+        window.window?.updateNavigationBarColors(backgroundColor)
     }
 
     private fun Bitmap.toIcon(): Icon {

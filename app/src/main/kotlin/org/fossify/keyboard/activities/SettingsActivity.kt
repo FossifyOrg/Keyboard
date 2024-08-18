@@ -144,11 +144,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageKeyboardLanguages() {
         binding.apply {
             settingsManageKeyboardLanguagesHolder.setOnClickListener {
-                ManageKeyboardLanguagesDialog(this@SettingsActivity) { selectedLanguages ->
-                    config.selectedLanguages = selectedLanguages
-                    if (config.keyboardLanguage !in selectedLanguages) {
-                        config.keyboardLanguage = selectedLanguages.first()
-                    }
+                ManageKeyboardLanguagesDialog(this@SettingsActivity) {
                     settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
                 }
             }

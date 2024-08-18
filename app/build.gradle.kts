@@ -1,16 +1,11 @@
-import java.io.FileInputStream
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
 
 plugins {
     alias(libs.plugins.android)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
-    base
-}
-
-base {
-    archivesName.set("keyboard")
 }
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
@@ -30,6 +25,7 @@ android {
         versionCode = project.libs.versions.app.version.versionCode.get().toInt()
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
+        setProperty("archivesBaseName", "keyboard-$versionCode")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
@@ -70,7 +66,7 @@ android {
     flavorDimensions.add("variants")
     productFlavors {
         register("core")
-        register("fdroid")
+        register("foss")
         register("prepaid")
     }
 
@@ -79,9 +75,13 @@ android {
     }
 
     compileOptions {
-        val currentJavaVersionFromLibs = JavaVersion.valueOf(libs.versions.app.build.javaVersion.get().toString())
+        val currentJavaVersionFromLibs = JavaVersion.valueOf(libs.versions.app.build.javaVersion.get())
         sourceCompatibility = currentJavaVersionFromLibs
         targetCompatibility = currentJavaVersionFromLibs
+    }
+
+    dependenciesInfo {
+        includeInApk = false
     }
 
     tasks.withType<KotlinCompile> {
