@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">キーボード</string>
-    <string name="change_keyboard">キーボードを変更</string>
+    <string name="change_keyboard">キーボードを変更する</string>
     <string name="manage_clipboard_items">クリップボードアイテムの管理</string>
     <string name="manage_clipboard_empty">クリップボードが空です。</string>
     <string name="manage_clipboard_label">テキストをコピーすると、ここに表示されます。また、後で消えないように、クリップをピン留めしておけます。</string>
@@ -30,4 +30,20 @@
     <string name="show_key_borders">キー枠を表示する</string>
     <string name="show_numbers_row">数字を別の行に表示する</string>
     <string name="emojis">絵文字</string>
+    <string name="redirection_note">使用可能なキーボードにするには、次の画面で Fossify キーボードを有効にしてください。有効にしたら、「戻る」を押してください。</string>
+    <string name="start_sentences_capitalized">文頭を大文字で始める</string>
+    <string name="activities">活動</string>
+    <string name="keycode_space">スペースバー</string>
+    <string name="manage_keyboard_languages">キーボードの言語を管理する</string>
+    <string name="recently_used">最近使用</string>
+    <string name="switch_to_voice_typing">音声入力に切り替える</string>
+    <string name="voice_typing_method">音声入力方式</string>
+    <string name="people_and_body">人と体</string>
+    <string name="animals_and_nature">動物と自然</string>
+    <string name="food_and_drink">食べ物と飲み物</string>
+    <string name="travel_and_places">旅行と場所</string>
+    <string name="smileys_and_emotions">スマイリーと感情</string>
+    <string name="objects">オブジェクト</string>
+    <string name="symbols">シンボル</string>
+    <string name="flags">旗</string>
 </resources>
