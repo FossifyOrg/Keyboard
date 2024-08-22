@@ -1,2 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">poki sitelen</string>
+    <string name="redirection_note">o ken e poki sitelen Fossify lon poki poka la poki sitelen li pali. ijo li pali la o luka e \'o monsi\'.</string>
+    <string name="change_keyboard">o ante e poki sitelen</string>
+    <string name="manage_clipboard_items">o lawa e ijo pi poki sitelen tenpo</string>
+    <string name="manage_clipboard_empty">poki sitelen tenpo sina li ale ala.</string>
+    <string name="manage_clipboard_label">sina sama e sitelen seme la ona li lukin lon ni. kin sina ken taki e sitelen tenpo la ona li weka ala.</string>
+    <string name="clear_clipboard_data">o weka e sona pi poki sitelen tenpo</string>
+    <string name="clear_clipboard_data_confirmation">sina wile weka ala weka e sona pi poki sitelen tenpo?</string>
+    <string name="food_and_drink">moku en telo</string>
+    <string name="travel_and_places">tawa en ma</string>
+    <string name="activities">pali</string>
+    <string name="objects">ijo</string>
+    <string name="symbols">sitelen</string>
+    <string name="flags">sitelen ma</string>
+    <string name="voice_typing_method">nasin pana kalama</string>
+    <string name="switch_to_voice_typing">o ante tawa pana kalama</string>
+    <string name="clipboard">poki sitelen tenpo</string>
+    <string name="clipboard_recent">tenpo sin</string>
+    <string name="clipboard_current">tenpo ni</string>
+    <string name="clipboard_pinned">taki</string>
+    <string name="manage_keyboard_languages">o lawi e toki pi poki sitelen</string>
+    <string name="manage_clips">sina ken lawi anu namako e sitelen tenpo lon ni tawa luka wawa.</string>
+    <string name="clip_text">o jo e sitelen</string>
+    <string name="pin_text">o taki e sitelen</string>
+    <string name="text_pinned">sitelen li taki</string>
+    <string name="export_clipboard_items">o jo selo e ijo pi poki sitelen tenpo</string>
+    <string name="import_clipboard_items">o jo insa e ijo pi poki sitelen tenpo</string>
+    <string name="keycode_delete">o weka</string>
+    <string name="keycode_mode_change">o ante e sijelo pi poki sitelen</string>
+    <string name="keycode_shift">o suli</string>
+    <string name="keycode_enter">o pana</string>
+    <string name="keycode_space">linja kon</string>
+    <string name="show_clipboard_content">ken la o lukin e ijo pi poki sitelen tenpo</string>
+    <string name="show_popup">o lukin e sitelen sinpin lon pana poki</string>
+    <string name="keyboard_language">toki pi poki sitelen</string>
+    <string name="keyboard_height">suli pi poki sitelen</string>
+    <string name="show_key_borders">o lukin e selo sitelen</string>
+    <string name="show_numbers_row">o lukin e nanpa lon linja ante</string>
+    <string name="start_sentences_capitalized">o suli e sitelen wan</string>
+    <string name="emojis">sitelen Emosi</string>
+    <string name="recently_used">kepeken lon tenpo ni</string>
+    <string name="smileys_and_emotions">sinpin en pilin</string>
+    <string name="people_and_body">jan en sijelo</string>
+    <string name="add_new_item">o namako e ijo sin</string>
+    <string name="vibrate_on_keypress">o tawa lon pana sitelen</string>
+    <string name="animals_and_nature">soweli en ma</string>
+</resources>
