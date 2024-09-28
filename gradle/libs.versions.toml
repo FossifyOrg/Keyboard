@@ -6,6 +6,8 @@ androidx-autofill = "1.1.0"
 androidx-emoji2 = "1.4.0"
 #KSP
 ksp = "1.9.23-1.0.19"
+#Detekt
+detekt = "1.23.3"
 #Room
 room = "2.6.1"
 #Fossify
@@ -41,3 +43,4 @@ room = [
 android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

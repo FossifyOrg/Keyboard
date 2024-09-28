@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexCondition:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$requestCode == PICK_EXPORT_CLIPS_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
+    <ID>ComplexCondition:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$requestCode == PICK_IMPORT_CLIPS_SOURCE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
+    <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$!newLabel.isNullOrEmpty() &amp;&amp; mKeyboard!!.mShiftState != ShiftState.OFF &amp;&amp; newLabel.length &lt; 3 &amp;&amp; Character.isLowerCase(newLabel[0])</ID>
+    <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$(show &amp;&amp; keyboardViewBinding?.clipboardValue!!.alpha == 0f) || (!show &amp;&amp; keyboardViewBinding?.clipboardValue!!.alpha == 1f)</ID>
+    <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$key.label.isNotEmpty() &amp;&amp; key.code != KEYCODE_MODE_CHANGE &amp;&amp; key.code != KEYCODE_SYMBOLS_MODE_CHANGE &amp;&amp; key.code != KEYCODE_SHIFT</ID>
+    <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$mBuffer == null || mKeyboardChanged &amp;&amp; (mBuffer!!.width != width || mBuffer!!.height != height)</ID>
+    <ID>CyclomaticComplexMethod:Context.kt$fun Context.getKeyboardLanguageText(language: Int): String</ID>
+    <ID>CyclomaticComplexMethod:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$private fun setupEmojiAdapter(emojis: List&lt;EmojiData&gt;)</ID>
+    <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$private fun setupKeyBackground(key: MyKeyboard.Key, keyCode: Int, canvas: Canvas)</ID>
+    <ID>CyclomaticComplexMethod:SimpleKeyboardIME.kt$SimpleKeyboardIME$override fun onKey(code: Int)</ID>
+    <ID>CyclomaticComplexMethod:SimpleKeyboardIME.kt$SimpleKeyboardIME$private fun getKeyboardLayoutXML(): Int</ID>
+    <ID>EmptyCatchBlock:MyKeyboard.kt$MyKeyboard${ }</ID>
+    <ID>EmptyFunctionBlock:ClipsActivityAdapter.kt$ClipsActivityAdapter${}</ID>
+    <ID>ForbiddenComment:SimpleKeyboardIME.kt$SimpleKeyboardIME$// TODO: Change keyboardMode to enum class</ID>
+    <ID>LargeClass:MyKeyboardView.kt$MyKeyboardView : View</ID>
+    <ID>LongMethod:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>LongMethod:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$fun setKeyboardHolder(binding: KeyboardViewKeyboardBinding)</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$fun setupKeyboard(changedView: View? = null)</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun setupEmojiAdapter(emojis: List&lt;EmojiData&gt;)</ID>
+    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun showKey(keyIndex: Int)</ID>
+    <ID>LongMethod:SimpleKeyboardIME.kt$SimpleKeyboardIME$override fun onKey(code: Int)</ID>
+    <ID>LongParameterList:Context.kt$( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>LoopWithTooManyJumpStatements:MyKeyboard.kt$MyKeyboard$while</ID>
+    <ID>MagicNumber:Config.kt$Config$100</ID>
+    <ID>MagicNumber:EmojiHelper.kt$3</ID>
+    <ID>MagicNumber:EmojisAdapter.kt$EmojisAdapter.EmojiCategoryViewHolder$0.6f</ID>
+    <ID>MagicNumber:MyKeyboard.kt$MyKeyboard$10</ID>
+    <ID>MagicNumber:MyKeyboard.kt$MyKeyboard$100.0F</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.1f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.2f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.5f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.6f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.8f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$0.9f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$1.4f</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$10</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$12</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$14</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$150</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$18</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$2.5</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$255</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$3</ID>
+    <ID>MagicNumber:MyKeyboardView.kt$MyKeyboardView$4</ID>
+    <ID>MagicNumber:SimpleKeyboardIME.kt$SimpleKeyboardIME$100</ID>
+    <ID>MagicNumber:SimpleKeyboardIME.kt$SimpleKeyboardIME$8</ID>
+    <ID>MatchingDeclarationName:Constants.kt$ShiftState</ID>
+    <ID>MaxLineLength:ClipsActivityAdapter.kt$ClipsActivityAdapter$activity: BaseSimpleActivity</ID>
+    <ID>MaxLineLength:ClipsActivityAdapter.kt$ClipsActivityAdapter$override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)</ID>
+    <ID>MaxLineLength:ClipsKeyboardAdapter.kt$ClipsKeyboardAdapter$layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(context.getStrokeColor())</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastExportedClipsFolder) = prefs.edit().putString(LAST_EXPORTED_CLIPS_FOLDER, lastExportedClipsFolder).apply()</ID>
+    <ID>MaxLineLength:Context.kt$baseConfig.isUsingSystemTheme -&gt; ResourcesCompat.getDrawable(resources, R.drawable.dialog_you_background, theme)</ID>
+    <ID>MaxLineLength:Context.kt$fun</ID>
+    <ID>MaxLineLength:Context.kt$isBlackAndWhiteTheme() -&gt; ResourcesCompat.getDrawable(resources, R.drawable.black_dialog_background, theme)</ID>
+    <ID>MaxLineLength:EmojisAdapter.kt$EmojisAdapter.EmojiCategoryViewHolder$inner</ID>
+    <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$exportClipsFilename.setText("${activity.getString(R.string.app_launcher_name)}_${activity.getCurrentFormattedDateTime()}")</ID>
+    <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$val activity: BaseSimpleActivity</ID>
+    <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newPath.getFilenameFromPath())</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$(applyBackground as LayerDrawable).findDrawableByLayerId(R.id.button_background_holder).applyColorFilter(getProperPrimaryColor())</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$ConfirmationAdvancedDialog</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$updateMaterialActivityViews(mainCoordinator, mainHolder, useTransparentNavigation = false, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$clipboardItemsPlaceholder.text = "${getText(R.string.manage_clipboard_empty)}\n\n${getText(R.string.manage_clips)}"</ID>
+    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$if</ID>
+    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$updateMaterialActivityViews(clipboardCoordinator, clipboardItemsList, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$val msg = if (clipsImported &gt; 0) R.string.importing_successful else R.string.no_new_entries_for_importing</ID>
+    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$}</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard$*</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard$EditorInfo.IME_ACTION_NEXT, EditorInfo.IME_ACTION_GO -&gt; R.drawable.ic_arrow_right_vector</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard$constructor</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Key$*</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Key$gap = getDimensionOrFraction(a, R.styleable.MyKeyboard_horizontalGap, keyboard.mDisplayWidth, parent.defaultHorizontalGap)</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Key$return ((x &gt;= this.x || leftEdge &amp;&amp; x &lt;= this.x + width) &amp;&amp; (x &lt; this.x + width || rightEdge &amp;&amp; x &gt;= this.x) &amp;&amp; (y &gt;= this.y &amp;&amp; y &lt;= this.y + height) &amp;&amp; (y &lt; this.y + height &amp;&amp; y &gt;= this.y))</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Key$width = getDimensionOrFraction(a, R.styleable.MyKeyboard_keyWidth, keyboard.mDisplayWidth, parent.defaultWidth)</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Row$*</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Row$defaultHorizontalGap = getDimensionOrFraction(a, R.styleable.MyKeyboard_horizontalGap, parent.mDisplayWidth, parent.mDefaultHorizontalGap)</ID>
+    <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard.Row$defaultWidth = getDimensionOrFraction(a, R.styleable.MyKeyboard_keyWidth, parent.mDisplayWidth, parent.mDefaultWidth)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$*</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$// And therefore the width of the key might be smaller than width declared in MyKeyboard.Key.width for the main keyboard.</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$// For 'number' and 'phone' keyboards the count of popup keys might be bigger than count of keys in the main keyboard.</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$// if the user presses a key while still holding down the previous, type in both chars and ignore the later gestures</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$// make sure we highlight the proper key right after long pressing it, before any ACTION_MOVE event occurs</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$class</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$if</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (offset &gt; 4) context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat() else 0f</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance&lt;ImageButton&gt;()</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(mBackgroundColor)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$mMiniKeyboard = mMiniKeyboardCache[popupKey]?.let(KeyboardPopupKeyboardBinding::bind)?.miniKeyboardView</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$mPreviewText!!.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$me.x - (coords[0] + mMiniKeyboard!!.measuredWidth) &gt; mPopupMaxMoveDistance</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$setupEmojiPalette(toolbarColor = mKeyboardBackgroundColor, backgroundColor = mBackgroundColor, textColor = mTextColor)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$systemFontPaint.hasGlyph(emoji.emoji)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val clipboardClearAnimation = ObjectAnimator.ofFloat(keyboardViewBinding!!.clipboardClear, "alpha", newAlpha)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val clipboardValueAnimation = ObjectAnimator.ofFloat(keyboardViewBinding!!.clipboardValue, "alpha", newAlpha)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val id = emojiCategoryIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val isCurrentClipPinnedToo = pinnedClips.any { clipboardContent?.isNotEmpty() == true &amp;&amp; it.value.trim() == clipboardContent }</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val layerDrawable = (this as RippleDrawable).findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val popupKeyWidth = popupKey.calcKeyWidth(containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width)</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val startY = (key.height / 2f) + ((textSize - paint.descent()) / 2f) - ((textSize / 2f) * (rows.size - 1))</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView$val widthToUse = mMiniKeyboardContainer!!.measuredWidth - (popupKey.popupCharacters!!.length / 2) * popupKeyWidth</ID>
+    <ID>MaxLineLength:MyKeyboardView.kt$MyKeyboardView.&lt;no name provided&gt;$override</ID>
+    <ID>MaxLineLength:OnKeyboardActionListener.kt$OnKeyboardActionListener$*</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$RadioItem(KEYBOARD_HEIGHT_100_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_100_PERCENT))</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$RadioItem(KEYBOARD_HEIGHT_120_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_120_PERCENT))</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$RadioItem(KEYBOARD_HEIGHT_140_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_140_PERCENT))</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$RadioItem(KEYBOARD_HEIGHT_160_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_160_PERCENT))</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsKeyboardHeightMultiplier.text = getKeyboardHeightPercentageText(config.keyboardHeightPercentage)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsUseEnglishHolder.beVisibleIf((config.wasUseEnglishToggled || Locale.getDefault().language != "en") &amp;&amp; !isTiramisuPlus())</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod()?.first?.loadLabel(packageManager) ?: getString(R.string.none)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager) ?: getString(R.string.none)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$updateMaterialActivityViews(settingsCoordinator, settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$// If the keyboard is set to symbols and the user presses space, we usually should switch back to the letters keyboard.</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$System.currentTimeMillis() - lastShiftPressTS &lt; SHIFT_PERM_TOGGLE_SPEED -&gt; keyboard!!.mShiftState = ShiftState.ON_PERMANENT</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$class</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$if</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$inputConnection.setComposingRegion(fullText.length - shouldChangeText.length, fullText.length)</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$inputConnection.setComposingText(cachedVNTelexData[shouldChangeText], fullText.length)</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$it</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(getProperBackgroundColor())</ID>
+    <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$override</ID>
+    <ID>MaxLineLength:SwitchLanguageDialog.kt$SwitchLanguageDialog$addView(radioButton, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))</ID>
+    <ID>NestedBlockDepth:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>NestedBlockDepth:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
+    <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
+    <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$private fun handleClipboard()</ID>
+    <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
+    <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>NestedBlockDepth:SimpleKeyboardIME.kt$SimpleKeyboardIME$override fun onKey(code: Int)</ID>
+    <ID>ReturnCount:EmojiHelper.kt$fun parseRawJsonSpecsFile(context: Context, path: String): HashMap&lt;String, String&gt;</ID>
+    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
+    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
+    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun openPopupIfRequired(me: MotionEvent): Boolean</ID>
+    <ID>ReturnCount:SimpleKeyboardIME.kt$SimpleKeyboardIME$private fun getCountToDelete(inputConnection: InputConnection): Int</ID>
+    <ID>SpreadOperator:MyKeyboardView.kt$MyKeyboardView$(*animations.toTypedArray())</ID>
+    <ID>SwallowedException:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$e: ActivityNotFoundException</ID>
+    <ID>SwallowedException:MyKeyboard.kt$MyKeyboard$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MyKeyboard.kt$MyKeyboard$e: Exception</ID>
+    <ID>TooManyFunctions:ClipsActivityAdapter.kt$ClipsActivityAdapter : MyRecyclerViewAdapterItemTouchHelperContract</ID>
+    <ID>TooManyFunctions:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity : SimpleActivityRefreshRecyclerViewListener</ID>
+    <ID>TooManyFunctions:MyKeyboardView.kt$MyKeyboardView : View</ID>
+    <ID>TooManyFunctions:SettingsActivity.kt$SettingsActivity : SimpleActivity</ID>
+    <ID>TooManyFunctions:SimpleKeyboardIME.kt$SimpleKeyboardIME : InputMethodServiceOnKeyboardActionListenerOnSharedPreferenceChangeListener</ID>
+    <ID>WildcardImport:ClipsKeyboardAdapter.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Context.kt$import android.view.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.keyboard.helpers.*</ID>
+    <ID>WildcardImport:ExportClipsDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:ManageClipboardItemsActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:ManageClipboardItemsActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import android.graphics.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import android.graphics.drawable.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import android.view.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import androidx.core.view.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import org.fossify.keyboard.extensions.*</ID>
+    <ID>WildcardImport:MyKeyboardView.kt$import org.fossify.keyboard.helpers.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.keyboard.extensions.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.keyboard.helpers.*</ID>
+    <ID>WildcardImport:SimpleKeyboardIME.kt$import android.text.InputType.*</ID>
+    <ID>WildcardImport:SimpleKeyboardIME.kt$import android.view.inputmethod.*</ID>
+    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.keyboard.helpers.*</ID>
+    <ID>WildcardImport:SwitchLanguageDialog.kt$import org.fossify.keyboard.extensions.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
