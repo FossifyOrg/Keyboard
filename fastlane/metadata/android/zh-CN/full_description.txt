@@ -16,7 +16,7 @@ Fossify 键盘完全离线操作，无需互联网许可，允许您随时随地
 <b>🌐 开源透明度：</b><br>
 Fossify 键盘是完全开源的，为您提供透明度和安全性。您可以访问源代码进行审核，确保打字工具值得信赖和可靠。<br><br>
 前所未有的打字体验——高效、个性化、安全。立即下载 Fossify 键盘，提升您的打字体验。<br><br>
-探索有关 Fossify 键盘的更多信息：https://www.fossify.org<br>
+探索更多 Fossify 应用：https://www.fossify.org<br>
 开源代码：https://www.github.com/FossifyOrg<br>
 加入 Reddit 社区：https://www.reddit.com/r/Fossify<br>
 在 Telegram 上联系：https://t.me/Fossify<br>
