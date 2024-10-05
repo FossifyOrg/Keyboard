@@ -33,4 +33,17 @@
     <string name="keycode_space">Razmaknica</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
+    <string name="activities">Aktivnosti</string>
+    <string name="smileys_and_emotions">Smiley i emotikoni</string>
+    <string name="people_and_body">Ljudi i tijelo</string>
+    <string name="travel_and_places">Putovanja i mjesta</string>
+    <string name="objects">Objekti</string>
+    <string name="flags">Zastave</string>
+    <string name="voice_typing_method">Unos govorom</string>
+    <string name="switch_to_voice_typing">Prebaci na unos govorom</string>
+    <string name="manage_keyboard_languages">Upravljaj jezicima tipkovnice</string>
+    <string name="recently_used">Nedavno korišteno</string>
+    <string name="animals_and_nature">Životinje i priroda</string>
+    <string name="food_and_drink">Hrana i pića</string>
+    <string name="symbols">Simboli</string>
 </resources>

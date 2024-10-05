@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Управление языками клавиатуры</string>
     <string name="switch_to_voice_typing">Переключиться на голосовой ввод</string>
     <string name="voice_typing_method">Метод голосового ввода</string>
+    <string name="recently_used">Недавние</string>
+    <string name="smileys_and_emotions">Смайлы и эмоции</string>
+    <string name="people_and_body">Люди и тело</string>
+    <string name="animals_and_nature">Животные и природа</string>
+    <string name="travel_and_places">Путешествия и места</string>
+    <string name="food_and_drink">Еда и напитки</string>
+    <string name="objects">Объекты</string>
+    <string name="symbols">Символы</string>
+    <string name="flags">Флаги</string>
+    <string name="activities">Деятельность</string>
 </resources>

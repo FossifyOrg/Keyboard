@@ -29,7 +29,7 @@
     <string name="show_key_borders">키 테두리 표시하기</string>
     <string name="show_numbers_row">숫자키 별도의 열에 표시하기</string>
     <string name="manage_clipboard_items">클립보드 항목 관리</string>
-    <string name="clear_clipboard_data">클립보드 항목 모두 지우기</string>
+    <string name="clear_clipboard_data">클립보드 항목 지우기</string>
     <string name="manage_clips">여기서 클립을 관리하거나 추가하여 빠르게 엑세스할 수 있습니다.</string>
     <string name="switch_to_voice_typing">음성 입력 사용하기</string>
     <string name="manage_keyboard_languages">키보드 언어 관리</string>

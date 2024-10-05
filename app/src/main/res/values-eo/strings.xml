@@ -1,3 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="app_launcher_name">Klavaro</string>
+    <string name="change_keyboard">Ŝanĝi Klavaron</string>
+    <string name="manage_clipboard_items">Administri tondujajn erojn</string>
+    <string name="clear_clipboard_data">Forigi tondujajn datumojn</string>
+    <string name="show_popup">Montri ŝprucfenestron ĉe klavopremo</string>
+    <string name="redirection_note">Bonvolu ebligi Fossify-Klavaron sur la sekva ekrano, por fari ĝin disponebla klavaro. Premu \'Reen\' unufoje ebligita.</string>
+    <string name="manage_clipboard_empty">Via tondujo estas malplena.</string>
+    <string name="clipboard_pinned">Alpinglita</string>
+    <string name="manage_clipboard_label">Post kiam vi kopios iom da teksto, ĝi aperos ĉi tie. Vi ankaŭ povas alpingli klipojn por ke ili ne malaperi poste.</string>
+    <string name="keyboard_height">Klavara alteco</string>
+    <string name="show_key_borders">Montri ŝlosilajn randojn</string>
+    <string name="show_numbers_row">Montri nombrojn sur aparta vico</string>
+    <string name="start_sentences_capitalized">Komenci frazojn per majuskla litero</string>
+    <string name="emojis">Emoĝioj</string>
+    <string name="keycode_space">Spacobreta</string>
+    <string name="flags">Flagoj</string>
+    <string name="export_clipboard_items">Eksporti tondujajn erojn</string>
+    <string name="clear_clipboard_data_confirmation">Ĉu vi certas, ke vi volas forigi la datumojn de la tondujo?</string>
+    <string name="clipboard">Tondujo</string>
+    <string name="clipboard_recent">Lastatempa</string>
+    <string name="clipboard_current">Aktuala</string>
+    <string name="add_new_item">Aldoni novan eron</string>
+    <string name="manage_clips">Vi povas administri aŭ aldoni klipoj ĉi tie por rapida aliro.</string>
+    <string name="clip_text">Klipi tekston</string>
+    <string name="pin_text">Alpingli tekston</string>
+    <string name="text_pinned">Teksto estis alpinglita</string>
+    <string name="import_clipboard_items">Importi tondujajn erojn</string>
+    <string name="keycode_delete">Forigi</string>
+    <string name="keycode_mode_change">Ŝanĝi klavaran tipon</string>
+    <string name="keycode_enter">Eniga</string>
+    <string name="keycode_shift">Majuskla</string>
+    <string name="show_clipboard_content">Montri tondujan enhavon se disponebla</string>
+    <string name="vibrate_on_keypress">Vibri ĉe klavopremo</string>
+    <string name="keyboard_language">Klavara lingvo</string>
+    <string name="manage_keyboard_languages">Administri klavarajn lingvojn</string>
+    <string name="recently_used">Lastatempe uzata</string>
+    <string name="smileys_and_emotions">Ridetoj kaj emocioj</string>
+    <string name="voice_typing_method">Voĉa tajpa metodo</string>
+    <string name="switch_to_voice_typing">Ŝanĝi al voĉa tajpado</string>
+    <string name="people_and_body">Homoj kaj korpo</string>
+    <string name="animals_and_nature">Bestoj kaj naturo</string>
+    <string name="food_and_drink">Manĝaĵo kaj trinkaĵo</string>
+    <string name="activities">Aktivecoj</string>
+    <string name="travel_and_places">Vojaĝo kaj lokoj</string>
+    <string name="objects">Objektoj</string>
+    <string name="symbols">Simboloj</string>
+</resources>
