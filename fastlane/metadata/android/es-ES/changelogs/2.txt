@@ -1,0 +1,5 @@
+* Se solucionó el problema del bloqueo del teclado en la pantalla de bloqueo.
+* Teclas adhesivas fijas
+* Se reemplazaron las casillas de verificación con interruptores.
+* Se eliminó la compatibilidad con Android 7 y versiones anteriores.
+* Se agregaron más traducciones
