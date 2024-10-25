@@ -39,6 +39,8 @@ import org.fossify.keyboard.databases.ClipsDatabase
 import org.fossify.keyboard.helpers.Config
 import org.fossify.keyboard.helpers.INPUT_METHOD_SUBTYPE_VOICE
 import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
+import org.fossify.keyboard.helpers.LANGUAGE_BELARUSIAN_CYRL
+import org.fossify.keyboard.helpers.LANGUAGE_BELARUSIAN_LATN
 import org.fossify.keyboard.helpers.LANGUAGE_BENGALI
 import org.fossify.keyboard.helpers.LANGUAGE_BULGARIAN
 import org.fossify.keyboard.helpers.LANGUAGE_CENTRAL_KURDISH
@@ -268,6 +270,8 @@ fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
 fun Context.getKeyboardLanguageText(language: Int): String {
     return when (language) {
         LANGUAGE_ARABIC -> getString(R.string.translation_arabic)
+        LANGUAGE_BELARUSIAN_CYRL -> "${getString(R.string.translation_belarusian)} (Cyrillic)"
+        LANGUAGE_BELARUSIAN_LATN -> "${getString(R.string.translation_belarusian)} (Latin)"
         LANGUAGE_BENGALI -> getString(R.string.translation_bengali)
         LANGUAGE_BULGARIAN -> getString(R.string.translation_bulgarian)
         LANGUAGE_CENTRAL_KURDISH -> getString(R.string.translation_central_kurdish)
