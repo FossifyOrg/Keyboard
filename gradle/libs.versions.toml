@@ -1,19 +1,19 @@
 [versions]
 #jetbrains
-kotlin = "1.9.23"
+kotlin = "1.9.25"
 #AndroidX
 androidx-autofill = "1.1.0"
-androidx-emoji2 = "1.4.0"
+androidx-emoji2 = "1.5.0"
 #KSP
-ksp = "1.9.23-1.0.19"
+ksp = "1.9.25-1.0.20"
 #Detekt
 detekt = "1.23.3"
 #Room
 room = "2.6.1"
 #Fossify
-commons = "4803866c8b"
+commons = "54b78551a4"
 #Gradle
-gradlePlugins-agp = "8.2.0"
+gradlePlugins-agp = "8.7.1"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"

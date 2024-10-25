@@ -7,7 +7,11 @@ import android.graphics.Color
 import android.inputmethodservice.InputMethodService
 import android.os.IBinder
 import android.os.UserManager
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodSubtype
@@ -16,13 +20,48 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.fossify.commons.databinding.DialogTitleBinding
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.baseConfig
+import org.fossify.commons.extensions.darkenColor
+import org.fossify.commons.extensions.getColoredDrawableWithColor
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.extensions.isBlackAndWhiteTheme
+import org.fossify.commons.extensions.isDynamicTheme
+import org.fossify.commons.extensions.isSystemInDarkMode
+import org.fossify.commons.extensions.lightenColor
+import org.fossify.commons.extensions.updateTextColors
 import org.fossify.commons.helpers.isNougatPlus
 import org.fossify.commons.models.RadioItem
 import org.fossify.commons.views.MyTextView
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databases.ClipsDatabase
-import org.fossify.keyboard.helpers.*
+import org.fossify.keyboard.helpers.Config
+import org.fossify.keyboard.helpers.INPUT_METHOD_SUBTYPE_VOICE
+import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
+import org.fossify.keyboard.helpers.LANGUAGE_BENGALI
+import org.fossify.keyboard.helpers.LANGUAGE_BULGARIAN
+import org.fossify.keyboard.helpers.LANGUAGE_CHUVASH
+import org.fossify.keyboard.helpers.LANGUAGE_DANISH
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
+import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
+import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_AZERTY
+import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_BEPO
+import org.fossify.keyboard.helpers.LANGUAGE_GERMAN
+import org.fossify.keyboard.helpers.LANGUAGE_GREEK
+import org.fossify.keyboard.helpers.LANGUAGE_HEBREW
+import org.fossify.keyboard.helpers.LANGUAGE_LITHUANIAN
+import org.fossify.keyboard.helpers.LANGUAGE_NORWEGIAN
+import org.fossify.keyboard.helpers.LANGUAGE_POLISH
+import org.fossify.keyboard.helpers.LANGUAGE_ROMANIAN
+import org.fossify.keyboard.helpers.LANGUAGE_RUSSIAN
+import org.fossify.keyboard.helpers.LANGUAGE_SLOVENIAN
+import org.fossify.keyboard.helpers.LANGUAGE_SPANISH
+import org.fossify.keyboard.helpers.LANGUAGE_SWEDISH
+import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
+import org.fossify.keyboard.helpers.LANGUAGE_UKRAINIAN
+import org.fossify.keyboard.helpers.LANGUAGE_VIETNAMESE_TELEX
 import org.fossify.keyboard.interfaces.ClipsDao
 
 val Context.config: Config get() = Config.newInstance(applicationContext.safeStorageContext)
@@ -58,7 +97,7 @@ fun Context.getCurrentClip(): String? {
 }
 
 fun Context.getKeyboardBackgroundColor(): Int {
-    val color = if (config.isUsingSystemTheme) {
+    val color = if (isDynamicTheme()) {
         resources.getColor(R.color.you_keyboard_background_color, theme)
     } else {
         getProperBackgroundColor().darkenColor(2)
@@ -78,8 +117,8 @@ fun Context.getKeyboardBackgroundColor(): Int {
 }
 
 fun Context.getStrokeColor(): Int {
-    return if (config.isUsingSystemTheme) {
-        if (isUsingSystemDarkTheme()) {
+    return if (isDynamicTheme()) {
+        if (isSystemInDarkMode()) {
             resources.getColor(R.color.md_grey_800, theme)
         } else {
             resources.getColor(R.color.md_grey_400, theme)
@@ -94,7 +133,7 @@ fun Context.getStrokeColor(): Int {
     }
 }
 
-fun Context.getKeyboardDialogBuilder() = if (safeStorageContext.baseConfig.isUsingSystemTheme) {
+fun Context.getKeyboardDialogBuilder() = if (safeStorageContext.isDynamicTheme()) {
     MaterialAlertDialogBuilder(this, R.style.MyKeyboard_Alert)
 } else {
     AlertDialog.Builder(this, R.style.MyKeyboard_Alert)
@@ -137,9 +176,18 @@ fun Context.setupKeyboardDialogStuff(
             show()
 
             val bgDrawable = when {
-                isBlackAndWhiteTheme() -> ResourcesCompat.getDrawable(resources, R.drawable.black_dialog_background, theme)
-                baseConfig.isUsingSystemTheme -> ResourcesCompat.getDrawable(resources, R.drawable.dialog_you_background, theme)
-                else -> resources.getColoredDrawableWithColor(R.drawable.dialog_bg, baseConfig.backgroundColor)
+                isBlackAndWhiteTheme() -> ResourcesCompat.getDrawable(
+                    resources, R.drawable.black_dialog_background, theme
+                )
+
+                isDynamicTheme() -> ResourcesCompat.getDrawable(
+                    resources, R.drawable.dialog_you_background, theme
+                )
+
+                else -> resources.getColoredDrawableWithColor(
+                    drawableId = R.drawable.dialog_bg,
+                    color = baseConfig.backgroundColor
+                )
             }
 
             window?.setBackgroundDrawable(bgDrawable)
@@ -148,14 +196,17 @@ fun Context.setupKeyboardDialogStuff(
     } else {
         var title: TextView? = null
         if (titleId != 0 || titleText.isNotEmpty()) {
-            title = DialogTitleBinding.inflate(LayoutInflater.from(this)).dialogTitleTextview.apply {
-                if (titleText.isNotEmpty()) {
-                    text = titleText
-                } else {
-                    setText(titleId)
-                }
-                setTextColor(textColor)
-            }
+            title =
+                DialogTitleBinding
+                    .inflate(LayoutInflater.from(this))
+                    .dialogTitleTextview.apply {
+                        if (titleText.isNotEmpty()) {
+                            text = titleText
+                        } else {
+                            setText(titleId)
+                        }
+                        setTextColor(textColor)
+                    }
         }
 
         // if we use the same primary and background color, use the text color for dialog confirmation buttons
@@ -183,9 +234,18 @@ fun Context.setupKeyboardDialogStuff(
             getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(dialogButtonColor)
 
             val bgDrawable = when {
-                isBlackAndWhiteTheme() -> ResourcesCompat.getDrawable(resources, R.drawable.black_dialog_background, theme)
-                baseConfig.isUsingSystemTheme -> ResourcesCompat.getDrawable(resources, R.drawable.dialog_you_background, theme)
-                else -> resources.getColoredDrawableWithColor(R.drawable.dialog_bg, baseConfig.backgroundColor)
+                isBlackAndWhiteTheme() -> ResourcesCompat.getDrawable(
+                    resources, R.drawable.black_dialog_background, theme
+                )
+
+                isDynamicTheme() -> ResourcesCompat.getDrawable(
+                    resources, R.drawable.dialog_you_background, theme
+                )
+
+                else -> resources.getColoredDrawableWithColor(
+                    drawableId = R.drawable.dialog_bg,
+                    color = baseConfig.backgroundColor
+                )
             }
 
             window?.setBackgroundDrawable(bgDrawable)

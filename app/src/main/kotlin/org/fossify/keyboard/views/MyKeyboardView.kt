@@ -388,7 +388,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mStrokeColor = getStrokeColor()
 
             mShowKeyBorders = config.showKeyBorders
-            mUsingSystemTheme = config.isUsingSystemTheme
+            mUsingSystemTheme = isDynamicTheme()
             mVoiceInputMethod = config.voiceInputMethod
         }
 
@@ -1702,7 +1702,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     private fun getKeyColor(): Int {
         val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
         val lighterColor = backgroundColor.lightenColor()
-        val keyColor = if (context.config.isUsingSystemTheme) {
+        val keyColor = if (context.isDynamicTheme()) {
             lighterColor
         } else {
             if (backgroundColor == Color.BLACK) {
