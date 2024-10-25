@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">कीबोर्ड भाषाएं प्रबंधित करें</string>
     <string name="voice_typing_method">वॉयस टाइपिंग विधि</string>
     <string name="switch_to_voice_typing">वॉइस टाइपिंग पर जाएं</string>
+    <string name="smileys_and_emotions">स्माइली और भावनाएं</string>
+    <string name="people_and_body">लोग और शरीर</string>
+    <string name="recently_used">हालिया प्रयुक्त</string>
+    <string name="animals_and_nature">पशु और प्रकृति</string>
+    <string name="food_and_drink">खाद्य और पेय</string>
+    <string name="travel_and_places">यात्रा और स्थान</string>
+    <string name="activities">गतिविधियां</string>
+    <string name="objects">वस्तुएं</string>
+    <string name="symbols">प्रतीक</string>
+    <string name="flags">झंडे</string>
 </resources>

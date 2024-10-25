@@ -1,0 +1,22 @@
+FATAL EXCEPTION: main
+                                                                                                    Process: org.fossify.keyboard, PID: 3947
+                                                                                                    java.lang.IllegalStateException: SharedPreferences in credential encrypted storage are not available until after user (id 0) is unlocked
+                                                                                                    	at android.app.ContextImpl.getSharedPreferences(ContextImpl.java:605)
+                                                                                                    	at android.app.ContextImpl.getSharedPreferences(ContextImpl.java:588)
+                                                                                                    	at android.content.ContextWrapper.getSharedPreferences(ContextWrapper.java:222)
+                                                                                                    	at x9.b.<init>(SourceFile:14)
+                                                                                                    	at o2.f.W(SourceFile:8)
+                                                                                                    	at u8.y.v0(SourceFile:6)
+                                                                                                    	at fa.l.<init>(SourceFile:19)
+                                                                                                    	at org.fossify.keyboard.views.MyKeyboardView.setupEmojiAdapter(SourceFile:391)
+                                                                                                    	at org.fossify.keyboard.views.MyKeyboardView.c(SourceFile:1)
+                                                                                                    	at g.m0.run(SourceFile:49)
+                                                                                                    	at android.os.Handler.handleCallback(Handler.java:959)
+                                                                                                    	at android.os.Handler.dispatchMessage(Handler.java:100)
+                                                                                                    	at android.os.Looper.loopOnce(Looper.java:232)
+                                                                                                    	at android.os.Looper.loop(Looper.java:317)
+                                                                                                    	at android.app.ActivityThread.main(ActivityThread.java:8497)
+                                                                                                    	at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                    	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:557)
+                                                                                                    	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:878)
+2024
