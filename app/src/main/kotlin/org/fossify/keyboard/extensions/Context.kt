@@ -41,6 +41,7 @@ import org.fossify.keyboard.helpers.INPUT_METHOD_SUBTYPE_VOICE
 import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
 import org.fossify.keyboard.helpers.LANGUAGE_BENGALI
 import org.fossify.keyboard.helpers.LANGUAGE_BULGARIAN
+import org.fossify.keyboard.helpers.LANGUAGE_CENTRAL_KURDISH
 import org.fossify.keyboard.helpers.LANGUAGE_CHUVASH
 import org.fossify.keyboard.helpers.LANGUAGE_DANISH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
