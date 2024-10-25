@@ -1344,6 +1344,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
 
             MotionEvent.ACTION_UP -> {
+                setCurrentKeyPressed(false)
+
                 mLastSpaceMoveX = 0
                 removeMessages()
                 if (keyIndex == mCurrentKey) {
@@ -1372,10 +1374,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
-                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_SYMBOLS_MODE_CHANGE) {
-                    setCurrentKeyPressed(false)
-                }
-
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
                 mIsLongPressingSpace = false
@@ -1388,6 +1386,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 dismissPopupKeyboard()
                 mAbortKey = true
                 showPreview(NOT_A_KEY)
+                setCurrentKeyPressed(false)
             }
         }
 
