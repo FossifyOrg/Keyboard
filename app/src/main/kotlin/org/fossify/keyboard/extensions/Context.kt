@@ -39,6 +39,8 @@ import org.fossify.keyboard.databases.ClipsDatabase
 import org.fossify.keyboard.helpers.Config
 import org.fossify.keyboard.helpers.INPUT_METHOD_SUBTYPE_VOICE
 import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
+import org.fossify.keyboard.helpers.LANGUAGE_BELARUSIAN_CYRL
+import org.fossify.keyboard.helpers.LANGUAGE_BELARUSIAN_LATN
 import org.fossify.keyboard.helpers.LANGUAGE_BENGALI
 import org.fossify.keyboard.helpers.LANGUAGE_BULGARIAN
 import org.fossify.keyboard.helpers.LANGUAGE_CENTRAL_KURDISH
