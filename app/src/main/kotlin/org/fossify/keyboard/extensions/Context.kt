@@ -41,6 +41,7 @@ import org.fossify.keyboard.helpers.INPUT_METHOD_SUBTYPE_VOICE
 import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
 import org.fossify.keyboard.helpers.LANGUAGE_BENGALI
 import org.fossify.keyboard.helpers.LANGUAGE_BULGARIAN
+import org.fossify.keyboard.helpers.LANGUAGE_CENTRAL_KURDISH
 import org.fossify.keyboard.helpers.LANGUAGE_CHUVASH
 import org.fossify.keyboard.helpers.LANGUAGE_DANISH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
@@ -271,6 +272,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_BELARUSIAN_LATN -> "${getString(R.string.translation_belarusian)} (Latin)"
         LANGUAGE_BENGALI -> getString(R.string.translation_bengali)
         LANGUAGE_BULGARIAN -> getString(R.string.translation_bulgarian)
+        LANGUAGE_CENTRAL_KURDISH -> getString(R.string.translation_central_kurdish)
         LANGUAGE_CHUVASH -> getString(R.string.translation_chuvash)
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
