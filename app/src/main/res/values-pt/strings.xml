@@ -33,4 +33,17 @@
     <string name="keycode_enter">Enter</string>
     <string name="emojis">Emojis</string>
     <string name="redirection_note">Ative o teclado Fossify no próximo ecrã e defina-o para ser utilizado por omissão. Prima \'Recuar\' assim que o ativar.</string>
+    <string name="manage_keyboard_languages">Gerir idiomas</string>
+    <string name="food_and_drink">Comida e bebida</string>
+    <string name="symbols">Símbolos</string>
+    <string name="flags">Bandeiras</string>
+    <string name="objects">Objetos</string>
+    <string name="recently_used">Utilizado recentemente</string>
+    <string name="smileys_and_emotions">Smileys e emoções</string>
+    <string name="people_and_body">Pessoas e corpos</string>
+    <string name="animals_and_nature">Animais e natureza</string>
+    <string name="travel_and_places">Viagens e locais</string>
+    <string name="activities">Atividades</string>
+    <string name="voice_typing_method">Método de introdução por voz</string>
+    <string name="switch_to_voice_typing">Comutar para escrita por voz</string>
 </resources>

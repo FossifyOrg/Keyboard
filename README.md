@@ -2,6 +2,8 @@
 
 <img alt="Logo" src="graphics/icon.webp" width="120" />
 
+<a href="https://play.google.com/store/apps/details?id=org.fossify.keyboard"><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height=80/></a> <a href="https://f-droid.org/packages/org.fossify.keyboard/"><img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-en.svg" alt="Get it on F-Droid" height=80/></a> <a href="https://apt.izzysoft.de/fdroid/index/apk/org.fossify.keyboard"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height=80/></a>
+
 Introducing Fossify Keyboard – your go-to solution for effortless and efficient typing. Experience a seamless typing experience designed to cater to all your needs, whether chatting with friends or inserting texts, numbers, or symbols.
 
 **📶 OFFLINE FUNCTIONALITY:**    
@@ -30,7 +32,7 @@ Fossify Keyboard is fully open-source, providing you with transparency and secur
 
 Experience typing like never before – efficient, personalized, and secure. Download Fossify Keyboard now and elevate your typing experience.
 
-➡️ Explore more about Fossify Keyboard: https://www.fossify.org    
+➡️ Explore more Fossify apps: https://www.fossify.org    
 ➡️ Open-Source Code: https://www.github.com/FossifyOrg    
 ➡️ Join the community on Reddit: https://www.reddit.com/r/Fossify    
 ➡️ Connect on Telegram: https://t.me/Fossify    

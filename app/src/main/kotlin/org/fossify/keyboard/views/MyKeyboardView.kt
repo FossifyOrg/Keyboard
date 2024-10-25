@@ -61,7 +61,11 @@ import org.fossify.keyboard.models.ListItem
 import java.util.*
 
 @SuppressLint("UseCompatLoadingForDrawables", "ClickableViewAccessibility")
-class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyleRes: Int = 0) : View(context, attrs, defStyleRes) {
+class MyKeyboardView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet?,
+    defStyleRes: Int = 0
+) : View(context, attrs, defStyleRes) {
 
     override fun dispatchHoverEvent(event: MotionEvent): Boolean {
         return if (accessHelper?.dispatchHoverEvent(event) == true) {
@@ -184,7 +188,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     init {
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.MyKeyboardView, 0, defStyleRes)
+        val attributes =
+            context.obtainStyledAttributes(attrs, R.styleable.MyKeyboardView, 0, defStyleRes)
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val keyTextSize = 0
         val indexCnt = attributes.indexCount
@@ -192,7 +197,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         try {
             for (i in 0 until indexCnt) {
                 when (val attr = attributes.getIndex(i)) {
-                    R.styleable.MyKeyboardView_keyTextSize -> mKeyTextSize = attributes.getDimensionPixelSize(attr, 18)
+                    R.styleable.MyKeyboardView_keyTextSize -> mKeyTextSize =
+                        attributes.getDimensionPixelSize(attr, 18)
                 }
             }
         } finally {
@@ -206,7 +212,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         mPreviewHeight = resources.getDimension(R.dimen.key_height).toInt()
         mSpaceMoveThreshold = resources.getDimension(R.dimen.medium_margin).toInt()
 
-        with(context.safeStorageContext) {
+        with(safeStorageContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -338,14 +344,25 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
 
             suggestionsHolder.addOnLayoutChangeListener(object : OnLayoutChangeListener {
-                override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
+                override fun onLayoutChange(
+                    v: View?,
+                    left: Int,
+                    top: Int,
+                    right: Int,
+                    bottom: Int,
+                    oldLeft: Int,
+                    oldTop: Int,
+                    oldRight: Int,
+                    oldBottom: Int
+                ) {
                     updateSuggestionsToolbarLayout()
                     binding.suggestionsHolder.removeOnLayoutChangeListener(this)
                 }
             })
         }
 
-        val clipboardManager = (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
+        val clipboardManager =
+            (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
         clipboardManager.addPrimaryClipChangedListener {
             val clipboardContent = clipboardManager.primaryClip?.getItemAt(0)?.text?.trim()
             if (clipboardContent?.isNotEmpty() == true) {
@@ -376,11 +393,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     fun setEditorInfo(editorInfo: EditorInfo) {
-        emojiCompatMetadataVersion = editorInfo.extras?.getInt(EmojiCompat.EDITOR_INFO_METAVERSION_KEY, 0) ?: 0
+        emojiCompatMetadataVersion =
+            editorInfo.extras?.getInt(EmojiCompat.EDITOR_INFO_METAVERSION_KEY, 0) ?: 0
     }
 
     fun setupKeyboard(changedView: View? = null) {
-        with(context.safeStorageContext) {
+        with(safeStorageContext) {
             mTextColor = getProperTextColor()
             mBackgroundColor = getProperBackgroundColor()
             mKeyboardBackgroundColor = getKeyboardBackgroundColor()
@@ -388,7 +406,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mStrokeColor = getStrokeColor()
 
             mShowKeyBorders = config.showKeyBorders
-            mUsingSystemTheme = config.isUsingSystemTheme
+            mUsingSystemTheme = isDynamicTheme()
             mVoiceInputMethod = config.voiceInputMethod
         }
 
@@ -403,8 +421,10 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         if (!isMainKeyboard) {
             val previewBackground = background as LayerDrawable
-            previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
-            previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
+            previewBackground.findDrawableByLayerId(R.id.button_background_shape)
+                .applyColorFilter(mBackgroundColor)
+            previewBackground.findDrawableByLayerId(R.id.button_background_stroke)
+                .applyColorFilter(mStrokeColor)
             background = previewBackground
         } else {
             background.applyColorFilter(mKeyboardBackgroundColor)
@@ -417,11 +437,15 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             mToolbarHolder?.background = ColorDrawable(mKeyboardBackgroundColor)
 
             clipboardValue.apply {
-                background = resources.getDrawable(R.drawable.clipboard_background, context.theme).apply {
-                    val layerDrawable = (this as RippleDrawable).findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
-                    layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(mStrokeColor)
-                    layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(mBackgroundColor)
-                }
+                background =
+                    resources.getDrawable(R.drawable.clipboard_background, context.theme).apply {
+                        val layerDrawable = (this as RippleDrawable)
+                            .findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
+                        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke)
+                            .applyColorFilter(mStrokeColor)
+                        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape)
+                            .applyColorFilter(mBackgroundColor)
+                    }
 
                 setTextColor(mTextColor)
                 setLinkTextColor(mTextColor)
@@ -448,7 +472,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             clipboardContentPlaceholder2.setTextColor(mTextColor)
         }
 
-        setupEmojiPalette(toolbarColor = mKeyboardBackgroundColor, backgroundColor = mBackgroundColor, textColor = mTextColor)
+        setupEmojiPalette(
+            toolbarColor = mKeyboardBackgroundColor,
+            backgroundColor = mBackgroundColor,
+            textColor = mTextColor
+        )
         if (context.config.keyboardLanguage == LANGUAGE_VIETNAMESE_TELEX) {
             setupLanguageTelex()
         } else {
@@ -492,7 +520,12 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
     private fun adjustCase(label: CharSequence): CharSequence? {
         var newLabel: CharSequence? = label
-        if (!newLabel.isNullOrEmpty() && mKeyboard!!.mShiftState != ShiftState.OFF && newLabel.length < 3 && Character.isLowerCase(newLabel[0])) {
+        if (
+            !newLabel.isNullOrEmpty()
+            && mKeyboard!!.mShiftState != ShiftState.OFF
+            && newLabel.length < 3
+            && Character.isLowerCase(newLabel[0])
+        ) {
             if (context.config.keyboardLanguage == LANGUAGE_TURKISH_Q) {
                 newLabel = newLabel.toString().uppercase(Locale.forLanguageTag("tr"))
             } else {
@@ -610,14 +643,23 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
                 val rows = label.split("\n")
                 val textSize = paint.textSize
-                val startY = (key.height / 2f) + ((textSize - paint.descent()) / 2f) - ((textSize / 2f) * (rows.size - 1))
+                val startY =
+                    (key.height / 2f) + ((textSize - paint.descent()) / 2f) - ((textSize / 2f) * (rows.size - 1))
                 rows.forEachIndexed { index, row ->
                     canvas.drawText(row, key.width / 2f, startY + textSize * index, paint)
                 }
 
-                if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))) {
+                if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(
+                        key.topSmallNumber
+                    ))
+                ) {
                     val bounds = Rect().also {
-                        smallLetterPaint.getTextBounds(key.topSmallNumber, 0, key.topSmallNumber.length, it)
+                        smallLetterPaint.getTextBounds(
+                            key.topSmallNumber,
+                            0,
+                            key.topSmallNumber.length,
+                            it
+                        )
                     }
 
                     smallLetterPaint.color = if (key.pressed) {
@@ -675,11 +717,17 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     val keyIconLeft = centerX - keyIconWidth / 2
                     val keyIconTop = centerY - keyIconHeight / 2
 
-                    keyIcon.setBounds(keyIconLeft, keyIconTop, keyIconLeft + keyIconWidth, keyIconTop + keyIconHeight)
+                    keyIcon.setBounds(
+                        keyIconLeft,
+                        keyIconTop,
+                        keyIconLeft + keyIconWidth,
+                        keyIconTop + keyIconHeight
+                    )
                     keyIcon.draw(canvas)
 
                     val secondaryIconPaddingRight = 10
-                    val secondaryIconLeft = key.width - secondaryIconPaddingRight - secondaryIconWidth
+                    val secondaryIconLeft =
+                        key.width - secondaryIconPaddingRight - secondaryIconWidth
                     val secondaryIconRight = secondaryIconLeft + secondaryIconWidth
 
                     val secondaryIconTop = 14 // This will act as a topPadding
@@ -810,7 +858,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun clearClipboardContent() {
-        val clipboardManager = (context.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager) ?: return
+        val clipboardManager =
+            (context.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager) ?: return
         if (isPiePlus()) {
             clipboardManager.clearPrimaryClip()
         } else {
@@ -820,13 +869,20 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun toggleClipboardVisibility(show: Boolean) {
-        if ((show && keyboardViewBinding?.clipboardValue!!.alpha == 0f) || (!show && keyboardViewBinding?.clipboardValue!!.alpha == 1f)) {
+        if (
+            (show && keyboardViewBinding?.clipboardValue!!.alpha == 0f) ||
+            (!show && keyboardViewBinding?.clipboardValue!!.alpha == 1f)
+        ) {
             val newAlpha = if (show) 1f else 0f
             val animations = ArrayList<ObjectAnimator>()
-            val clipboardValueAnimation = ObjectAnimator.ofFloat(keyboardViewBinding!!.clipboardValue, "alpha", newAlpha)
+            val clipboardValueAnimation = ObjectAnimator.ofFloat(
+                keyboardViewBinding!!.clipboardValue, "alpha", newAlpha
+            )
             animations.add(clipboardValueAnimation)
 
-            val clipboardClearAnimation = ObjectAnimator.ofFloat(keyboardViewBinding!!.clipboardClear, "alpha", newAlpha)
+            val clipboardClearAnimation = ObjectAnimator.ofFloat(
+                keyboardViewBinding!!.clipboardClear, "alpha", newAlpha
+            )
             animations.add(clipboardClearAnimation)
 
             val animSet = AnimatorSet()
@@ -904,7 +960,10 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 mPreviewText!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mKeyTextSize.toFloat())
                 mPreviewText!!.typeface = Typeface.DEFAULT_BOLD
             } else {
-                mPreviewText!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mPreviewTextSizeLarge.toFloat())
+                mPreviewText!!.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    mPreviewTextSizeLarge.toFloat()
+                )
                 mPreviewText!!.typeface = Typeface.DEFAULT
             }
 
@@ -916,12 +975,17 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
 
         val previewBackground = mPreviewText!!.background as LayerDrawable
-        previewBackground.findDrawableByLayerId(R.id.button_background_shape).applyColorFilter(mBackgroundColor)
-        previewBackground.findDrawableByLayerId(R.id.button_background_stroke).applyColorFilter(mStrokeColor)
+        previewBackground.findDrawableByLayerId(R.id.button_background_shape)
+            .applyColorFilter(mBackgroundColor)
+        previewBackground.findDrawableByLayerId(R.id.button_background_stroke)
+            .applyColorFilter(mStrokeColor)
         mPreviewText!!.background = previewBackground
 
         mPreviewText!!.setTextColor(mTextColor)
-        mPreviewText!!.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
+        mPreviewText!!.measure(
+            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+        )
         val popupWidth = Math.max(mPreviewText!!.measuredWidth, key.width)
         val popupHeight = mPreviewHeight
         val lp = mPreviewText!!.layoutParams
@@ -961,10 +1025,20 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         previewPopup.dismiss()
 
-        if (key.label.isNotEmpty() && key.code != KEYCODE_MODE_CHANGE && key.code != KEYCODE_SYMBOLS_MODE_CHANGE && key.code != KEYCODE_SHIFT) {
+        if (
+            key.label.isNotEmpty()
+            && key.code != KEYCODE_MODE_CHANGE
+            && key.code != KEYCODE_SYMBOLS_MODE_CHANGE
+            && key.code != KEYCODE_SHIFT
+        ) {
             previewPopup.width = popupWidth
             previewPopup.height = popupHeight
-            previewPopup.showAtLocation(mPopupParent, Gravity.NO_GRAVITY, mPopupPreviewX, mPopupPreviewY)
+            previewPopup.showAtLocation(
+                mPopupParent,
+                Gravity.NO_GRAVITY,
+                mPopupPreviewX,
+                mPopupPreviewY
+            )
             mPreviewText!!.visibility = VISIBLE
         }
     }
@@ -1042,35 +1116,46 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
                 // For 'number' and 'phone' keyboards the count of popup keys might be bigger than count of keys in the main keyboard.
                 // And therefore the width of the key might be smaller than width declared in MyKeyboard.Key.width for the main keyboard.
-                val popupKeyWidth = popupKey.calcKeyWidth(containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width)
+                val popupKeyWidth = popupKey.calcKeyWidth(
+                    containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width
+                )
 
                 if (mMiniKeyboardContainer == null) {
-                    val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                    val inflater =
+                        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                     keyboardPopupBinding = KeyboardPopupKeyboardBinding.inflate(inflater).apply {
                         mMiniKeyboardContainer = root
                         mMiniKeyboard = miniKeyboardView
                     }
 
                     val keyboard = if (popupKey.popupCharacters != null) {
-                        MyKeyboard(context, popupKeyboardId, popupKey.popupCharacters!!, popupKeyWidth)
+                        MyKeyboard(
+                            context = context,
+                            layoutTemplateResId = popupKeyboardId,
+                            characters = popupKey.popupCharacters!!,
+                            keyWidth = popupKeyWidth
+                        )
                     } else {
                         MyKeyboard(context, popupKeyboardId, 0)
                     }
                     mMiniKeyboard!!.setKeyboard(keyboard)
                     mPopupParent = this
                     mMiniKeyboardContainer!!.measure(
-                        MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST), MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST)
+                        MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
+                        MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST)
                     )
                     mMiniKeyboardCache[popupKey] = mMiniKeyboardContainer
                 } else {
-                    mMiniKeyboard = mMiniKeyboardCache[popupKey]?.let(KeyboardPopupKeyboardBinding::bind)?.miniKeyboardView
+                    mMiniKeyboard =
+                        mMiniKeyboardCache[popupKey]?.let(KeyboardPopupKeyboardBinding::bind)?.miniKeyboardView
                 }
 
                 getLocationInWindow(mCoordinates)
                 mPopupX = popupKey.x
                 mPopupY = popupKey.y
 
-                val widthToUse = mMiniKeyboardContainer!!.measuredWidth - (popupKey.popupCharacters!!.length / 2) * popupKeyWidth
+                val widthToUse =
+                    mMiniKeyboardContainer!!.measuredWidth - (popupKey.popupCharacters!!.length / 2) * popupKeyWidth
                 mPopupX = mPopupX + popupKeyWidth - widthToUse
                 mPopupY -= mMiniKeyboardContainer!!.measuredHeight
                 val x = mPopupX + mCoordinates[0]
@@ -1086,7 +1171,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 }
 
                 val keysCnt = mMiniKeyboard!!.mKeys.size
-                var selectedKeyIndex = Math.floor((me.x - miniKeyboardX) / popupKeyWidth.toDouble()).toInt()
+                var selectedKeyIndex =
+                    Math.floor((me.x - miniKeyboardX) / popupKeyWidth.toDouble()).toInt()
                 if (keysCnt > MAX_KEYS_PER_MINI_ROW) {
                     selectedKeyIndex += MAX_KEYS_PER_MINI_ROW
                 }
@@ -1152,7 +1238,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                             mMiniKeyboard!!.width / lastRowKeyCount
                         }
 
-                        var selectedKeyIndex = Math.floor((me.x - coords[0]) / widthPerKey.toDouble()).toInt()
+                        var selectedKeyIndex =
+                            Math.floor((me.x - coords[0]) / widthPerKey.toDouble()).toInt()
                         if (keysCnt > MAX_KEYS_PER_MINI_ROW) {
                             selectedKeyIndex = Math.max(0, selectedKeyIndex)
                             selectedKeyIndex += MAX_KEYS_PER_MINI_ROW
@@ -1344,6 +1431,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
 
             MotionEvent.ACTION_UP -> {
+                setCurrentKeyPressed(false)
+
                 mLastSpaceMoveX = 0
                 removeMessages()
                 if (keyIndex == mCurrentKey) {
@@ -1372,10 +1461,6 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
-                if (mLastKeyPressedCode != KEYCODE_MODE_CHANGE && mLastKeyPressedCode != KEYCODE_SYMBOLS_MODE_CHANGE) {
-                    setCurrentKeyPressed(false)
-                }
-
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
                 mIsLongPressingSpace = false
@@ -1388,6 +1473,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                 dismissPopupKeyboard()
                 mAbortKey = true
                 showPreview(NOT_A_KEY)
+                setCurrentKeyPressed(false)
             }
         }
 
@@ -1436,7 +1522,9 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             val clipboardContent = context.getCurrentClip()
 
             val pinnedClips = context.clipsDB.getClips()
-            val isCurrentClipPinnedToo = pinnedClips.any { clipboardContent?.isNotEmpty() == true && it.value.trim() == clipboardContent }
+            val isCurrentClipPinnedToo = pinnedClips.any {
+                clipboardContent?.isNotEmpty() == true && it.value.trim() == clipboardContent
+            }
 
             if (!isCurrentClipPinnedToo && clipboardContent?.isNotEmpty() == true) {
                 val section = ClipsSectionLabel(context.getString(R.string.clipboard_current), true)
@@ -1471,7 +1559,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             }
         }
 
-        val adapter = ClipsKeyboardAdapter(context.safeStorageContext, clips, refreshClipsListener) { clip ->
+        val adapter = ClipsKeyboardAdapter(
+            context = safeStorageContext,
+            items = clips,
+            refreshClipsListener = refreshClipsListener
+        ) { clip ->
             mOnKeyboardActionListener!!.onText(clip.value)
             vibrateIfNeeded()
         }
@@ -1590,7 +1682,10 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
         val emojiCategories = prepareEmojiCategories(emojis)
         var emojiItems = prepareEmojiItems(emojiCategories)
 
-        val emojiLayoutManager = AutoGridLayoutManager(context, context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)).apply {
+        val emojiLayoutManager = AutoGridLayoutManager(
+            context = context,
+            itemWidth = context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)
+        ).apply {
             spanSizeLookup = object : SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     return if (emojiItems[position] is EmojisAdapter.Item.Category) {
@@ -1609,7 +1704,11 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             val strip = this
             removeAllViews()
             emojiCategories.entries.forEach { (category, _) ->
-                ItemEmojiCategoryBinding.inflate(LayoutInflater.from(context), this, true).root.apply {
+                ItemEmojiCategoryBinding.inflate(
+                    LayoutInflater.from(context),
+                    this,
+                    true
+                ).root.apply {
                     id = generateViewId()
                     emojiCategoryIds[id] = category
                     setImageResource(getCategoryIconRes(category))
@@ -1625,7 +1724,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
                         applyColorFilter(mPrimaryColor)
                         keyboardViewBinding?.emojisList?.stopScroll()
                         emojiLayoutManager.scrollToPositionWithOffset(
-                            emojiItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category }, 0
+                            emojiItems.indexOfFirst { it is EmojisAdapter.Item.Category && it.value == category },
+                            0
                         )
                     }
                     applyColorFilter(emojiCategoryColor)
@@ -1635,7 +1735,7 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
         keyboardViewBinding?.emojisList?.apply {
             layoutManager = emojiLayoutManager
-            adapter = EmojisAdapter(context = context, items = emojiItems) { emoji ->
+            adapter = EmojisAdapter(context = safeStorageContext, items = emojiItems) { emoji ->
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
 
@@ -1648,21 +1748,33 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
 
             clearOnScrollListeners()
             onScroll { offset ->
-                keyboardViewBinding!!.emojiPaletteTopBar.elevation = if (offset > 4) context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat() else 0f
-                emojiLayoutManager.findFirstCompletelyVisibleItemPosition().also { firstVisibleIndex ->
-                    emojiItems
-                        .withIndex()
-                        .lastOrNull { it.value is EmojisAdapter.Item.Category && it.index <= firstVisibleIndex }
-                        ?.also { activeCategory ->
-                            val id = emojiCategoryIds.entries.first { it.value == (activeCategory.value as EmojisAdapter.Item.Category).value }.key
-                            keyboardViewBinding?.emojiCategoriesStrip?.children?.filterIsInstance<ImageButton>()?.forEach { button ->
-                                val selected = button.id == id
-                                button.applyColorFilter(
-                                    if (selected) mPrimaryColor else emojiCategoryColor
-                                )
-                            }
-                        }
+                keyboardViewBinding!!.emojiPaletteTopBar.elevation = when {
+                    offset > 4 -> context.resources.getDimensionPixelSize(R.dimen.one_dp).toFloat()
+                    else -> 0f
                 }
+
+                emojiLayoutManager.findFirstCompletelyVisibleItemPosition()
+                    .also { firstVisibleIndex ->
+                        emojiItems
+                            .withIndex()
+                            .lastOrNull { it.value is EmojisAdapter.Item.Category && it.index <= firstVisibleIndex }
+                            ?.also { activeCategory ->
+                                val id = emojiCategoryIds.entries.first {
+                                    it.value == (activeCategory.value as EmojisAdapter.Item.Category).value
+                                }.key
+
+                                keyboardViewBinding
+                                    ?.emojiCategoriesStrip
+                                    ?.children
+                                    ?.filterIsInstance<ImageButton>()
+                                    ?.forEach { button ->
+                                        val selected = button.id == id
+                                        button.applyColorFilter(
+                                            if (selected) mPrimaryColor else emojiCategoryColor
+                                        )
+                                    }
+                            }
+                    }
             }
         }
     }
@@ -1700,9 +1812,9 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     private fun getKeyColor(): Int {
-        val backgroundColor = context.getKeyboardBackgroundColor()
+        val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
         val lighterColor = backgroundColor.lightenColor()
-        val keyColor = if (context.config.isUsingSystemTheme) {
+        val keyColor = if (context.isDynamicTheme()) {
             lighterColor
         } else {
             if (backgroundColor == Color.BLACK) {
@@ -1740,7 +1852,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
             if (hasInlineViews()) {
                 // make room on suggestion toolbar for inline views
                 suggestionsItemsHolder.gravity = Gravity.NO_GRAVITY
-                clipboardValue.maxWidth = resources.getDimensionPixelSize(R.dimen.suggestion_max_width)
+                clipboardValue.maxWidth =
+                    resources.getDimensionPixelSize(R.dimen.suggestion_max_width)
             } else {
                 // restore original clipboard toolbar appearance
                 suggestionsItemsHolder.gravity = Gravity.CENTER_HORIZONTAL
@@ -1754,7 +1867,8 @@ class MyKeyboardView @JvmOverloads constructor(context: Context, attrs: Attribut
     /**
      * Returns true if there are [InlineContentView]s in [autofill_suggestions_holder]
      */
-    private fun hasInlineViews() = (keyboardViewBinding?.autofillSuggestionsHolder?.childCount ?: 0) > 0
+    private fun hasInlineViews() =
+        (keyboardViewBinding?.autofillSuggestionsHolder?.childCount ?: 0) > 0
 
     /**
      * Returns: Popup Key width depends on popup keys count
