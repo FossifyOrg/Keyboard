@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.1.1 *(2024-10-28)*
+----------------------------
+
+* Fixed keyboard crash on lock screen
+* Added more translations
+
 Version 1.1.0 *(2024-10-25)*
 ----------------------------
 
