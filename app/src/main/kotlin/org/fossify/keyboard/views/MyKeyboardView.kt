@@ -1814,7 +1814,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private fun getKeyColor(): Int {
         val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
         val lighterColor = backgroundColor.lightenColor()
-        val keyColor = if (context.isDynamicTheme()) {
+        val keyColor = if (safeStorageContext.isDynamicTheme()) {
             lighterColor
         } else {
             if (backgroundColor == Color.BLACK) {
