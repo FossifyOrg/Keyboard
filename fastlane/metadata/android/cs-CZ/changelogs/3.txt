@@ -1,0 +1,2 @@
+* Opraven pád klávesnice na zamykací obrazovce
+* Přidány další překlady
