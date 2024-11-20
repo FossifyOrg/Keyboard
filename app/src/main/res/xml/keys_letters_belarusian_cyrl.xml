@@ -91,7 +91,8 @@
         <Key
             app:keyEdgeFlags="right"
             app:keyLabel="’"
-            app:popupCharacters="'" />
+            app:popupCharacters="'"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
     <Row app:keyWidth="8.33%p">
         <Key
@@ -132,6 +133,7 @@
         <Key
             app:keyLabel="і"
             app:popupCharacters="иї"
+            app:popupKeyboard="@xml/keyboard_popup_template"
             app:keyWidth="8%p" />
         <Key
             app:keyLabel="т"
@@ -139,6 +141,7 @@
         <Key
             app:keyLabel="ь"
             app:popupCharacters="ъ"
+            app:popupKeyboard="@xml/keyboard_popup_template"
             app:keyWidth="8%p" />
         <Key
             app:keyLabel="б"
