@@ -12,4 +12,10 @@
     <string name="objects">Tiɣawsiwin</string>
     <string name="symbols">Izamulen</string>
     <string name="keyboard_language">Tutlayt n unasiw</string>
+    <string name="clipboard_pinned">Yettwasenṭeḍ</string>
+    <string name="add_new_item">Rnu aferdis amaynut</string>
+    <string name="clipboard">Tacfawit</string>
+    <string name="pin_text">Senṭeḍ aḍris</string>
+    <string name="change_keyboard">Beddel anasiw</string>
+    <string name="text_pinned">Aḍris-nni yettwasenṭeḍ</string>
 </resources>
