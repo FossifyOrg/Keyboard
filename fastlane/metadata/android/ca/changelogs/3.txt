@@ -1,0 +1,2 @@
+* Corregida una fallada de teclat en el bloqueig de pantalla
+* S'han afegit més traduccions

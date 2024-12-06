@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clipboard_current">Amiran</string>
+    <string name="keycode_enter">Sekcem</string>
+    <string name="clip_text">Nɣel aḍris</string>
+    <string name="flags">Anayen</string>
+    <string name="clipboard_recent">Melmi kan</string>
+    <string name="keycode_delete">Kkes</string>
+    <string name="app_launcher_name">Anasiw</string>
+    <string name="emojis">Imujiten</string>
+    <string name="activities">Irmad</string>
+    <string name="objects">Tiɣawsiwin</string>
+    <string name="symbols">Izamulen</string>
+    <string name="keyboard_language">Tutlayt n unasiw</string>
+    <string name="clipboard_pinned">Yettwasenṭeḍ</string>
+    <string name="add_new_item">Rnu aferdis amaynut</string>
+    <string name="clipboard">Tacfawit</string>
+    <string name="pin_text">Senṭeḍ aḍris</string>
+    <string name="change_keyboard">Beddel anasiw</string>
+    <string name="text_pinned">Aḍris-nni yettwasenṭeḍ</string>
+</resources>
