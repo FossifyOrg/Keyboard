@@ -14,7 +14,7 @@
     <string name="add_new_item">Добавяне на нов елемент</string>
     <string name="manage_clips">Тук можете да управлявате или добавяте клипове за бърз достъп.</string>
     <string name="clip_text">Изрязване на текст</string>
-    <string name="pin_text">Закачи текст</string>
+    <string name="pin_text">Закачане на текста</string>
     <string name="text_pinned">Текстът е закачен</string>
     <string name="export_clipboard_items">Експортиране на елементи от клипборда</string>
     <string name="import_clipboard_items">Импортиране на елементи от клипборда</string>
