@@ -1,0 +1,2 @@
+* Tastaturabsturz auf dem Sperrbildschirm behoben
+* Weitere Übersetzungen hinzugefügt

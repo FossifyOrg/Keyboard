@@ -1,0 +1,22 @@
+Ecco Tastiera Fossify, la tua soluzione ideale per una digitazione efficiente e senza sforzo. Prova un'esperienza di digitazione fluida, progettata per soddisfare tutte le tue esigenze, che tu stia chattando con gli amici o inserendo testi, numeri o simboli.<br><br>
+<b>📶 FUNZIONALITÀ OFFLINE:</b><br>
+Tastiera Fossify funziona completamente offline senza autorizzazione a internet, consentendoti di utilizzarla sempre e ovunque, senza bisogno di connessioni di rete. Ciò ti offre anche più privacy, sicurezza e stabilità rispetto ad altre tastiere che si connettono a internet.<br><br>
+<b>🌐 LINGUE E LAYOUT MULTIPLI:</b><br>
+Scegli tra un'ampia varietà di lingue e layout di tastiera. Tastiera Fossify supporta più lingue, rendendoti facile cambiare e digitare nella tua lingua preferita senza sforzo.<br><br>
+<b>📋 APPUNTI COMODI:</b><br>
+Crea appunti e aggiungi quelli usati di frequente per un facile accesso. Questa funzionalità ti consente di inserire rapidamente i testi più utilizzati, risparmiando tempo e fatica.<br><br>
+<b>📳 IMPOSTAZIONI PERSONALIZZABILI:</b><br>
+Personalizza la tua esperienza di digitazione attivando o disattivando le vibrazioni, i popup alla pressione dei tasti e selezionando la lingua preferita dall'elenco di quelle supportate. Personalizza le impostazioni della tastiera in base alle tue preferenze.<br><br>
+<b>🌙 MATERIAL DESIGN E TEMA SCURO:</b><br>
+Goditi un design elegante e moderno con un tema scuro predefinito. Tastiera Fossify offre un'esperienza utente visivamente accattivante e confortevole, rendendo la digitazione un piacere.<br><br>
+<b>🔒 PRIVACY E SICUREZZA:</b><br>
+La tua privacy è la nostra massima priorità. Tastiera Fossify non raccoglie né condivide alcuna informazione utente con terze parti. Vivi la tranquillità sapendo che la tua attività di digitazione rimane privata e sicura.<br><br>
+<b>🎨 COLORI PERSONALIZZABILI:</b><br>
+Personalizza la tua tastiera con colori personalizzabili. Tastiera Fossify ti consente di scegliere e regolare i colori in base al tuo stile e alle tue preferenze.<br><br>
+<b>🌐 TRASPARENZA OPEN-SOURCE:</b><br>
+Tastiera Fossify è completamente open-source, offrendoti trasparenza e sicurezza. Hai accesso al codice sorgente per gli audit, assicurandoti uno strumento di digitazione affidabile e sicuro.<br><br>
+Scopri una digitazione come mai prima: efficiente, personalizzata e sicura. Scarica subito Tastiera Fossify e migliora la tua esperienza di digitazione.<br><br>
+Scopri altre app Fossify: https://www.fossify.org<br>
+Codice open source: https://www.github.com/FossifyOrg<br>
+Unisciti alla community su Reddit: https://www.reddit.com/r/Fossify<br>
+Connettiti su Telegram: https://t.me/Fossify<br>
