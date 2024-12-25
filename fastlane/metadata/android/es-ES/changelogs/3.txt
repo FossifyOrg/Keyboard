@@ -1,0 +1,2 @@
+* Corregido el fallo del teclado en la pantalla de bloqueo
+* Añadidas más traducciones

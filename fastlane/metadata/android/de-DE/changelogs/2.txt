@@ -1,5 +1,5 @@
 * Tastaturabsturz auf dem Sperrbildschirm behoben
 * Klebrige Tasten behoben
 * Checkboxen durch Schalter ersetzt
-* Unterstützung für Android 7 und niedrigere Versionen entfernt
+* Unterstützung für Android 7 und ältere Versionen entfernt
 * Weitere Übersetzungen hinzugefügt

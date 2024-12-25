@@ -1,0 +1,2 @@
+* Arranxo do fallo do teclado ao bloquearse a pantalla
+* Engadidas novas traducións
