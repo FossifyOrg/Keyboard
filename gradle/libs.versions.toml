@@ -1,11 +1,11 @@
 [versions]
 #jetbrains
-kotlin = "1.9.25"
+kotlin = "2.1.0"
 #AndroidX
 androidx-autofill = "1.1.0"
 androidx-emoji2 = "1.5.0"
 #KSP
-ksp = "1.9.25-1.0.20"
+ksp = "2.1.0-1.0.29"
 #Detekt
 detekt = "1.23.3"
 #Room
@@ -13,10 +13,10 @@ room = "2.6.1"
 #Fossify
 commons = "54b78551a4"
 #Gradle
-gradlePlugins-agp = "8.7.1"
+gradlePlugins-agp = "8.7.3"
 #build
-app-build-compileSDKVersion = "34"
-app-build-targetSDK = "34"
+app-build-compileSDKVersion = "35"
+app-build-targetSDK = "35"
 app-build-minimumSDK = "26"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"

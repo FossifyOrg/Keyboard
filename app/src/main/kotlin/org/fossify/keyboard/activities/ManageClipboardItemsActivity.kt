@@ -3,8 +3,13 @@ package org.fossify.keyboard.activities
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.fossify.commons.dialogs.FilePickerDialog
@@ -29,6 +34,10 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         private const val PICK_EXPORT_CLIPS_INTENT = 21
         private const val PICK_IMPORT_CLIPS_SOURCE_INTENT = 22
     }
+
+    private lateinit var importClipsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var exportClipsLauncher: ActivityResultLauncher<Intent>
+
 
     private val binding by viewBinding(ActivityManageClipboardItemsBinding::inflate)
 
@@ -124,21 +133,22 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         }
     }
 
+
     private fun exportClips() {
         if (isQPlus()) {
             ExportClipsDialog(this, config.lastExportedClipsFolder, true) { path, filename ->
-                Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
                     type = "text/plain"
                     putExtra(Intent.EXTRA_TITLE, filename)
                     addCategory(Intent.CATEGORY_OPENABLE)
+                }
 
-                    try {
-                        startActivityForResult(this, PICK_EXPORT_CLIPS_INTENT)
-                    } catch (e: ActivityNotFoundException) {
-                        toast(R.string.system_service_disabled, Toast.LENGTH_LONG)
-                    } catch (e: Exception) {
-                        showErrorToast(e)
-                    }
+                try {
+                    exportClipsLauncher.launch(intent)
+                } catch (e: ActivityNotFoundException) {
+                    toast(R.string.system_service_disabled, Toast.LENGTH_LONG)
+                } catch (e: Exception) {
+                    showErrorToast(e)
                 }
             }
         } else {
@@ -180,17 +190,17 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
 
     private fun importClips() {
         if (isQPlus()) {
-            Intent(Intent.ACTION_GET_CONTENT).apply {
+            val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "text/plain"
+            }
 
-                try {
-                    startActivityForResult(this, PICK_IMPORT_CLIPS_SOURCE_INTENT)
-                } catch (e: ActivityNotFoundException) {
-                    toast(R.string.system_service_disabled, Toast.LENGTH_LONG)
-                } catch (e: Exception) {
-                    showErrorToast(e)
-                }
+            try {
+                importClipsLauncher.launch(intent)
+            } catch (e: ActivityNotFoundException) {
+                toast(R.string.system_service_disabled, Toast.LENGTH_LONG)
+            } catch (e: Exception) {
+                showErrorToast(e)
             }
         } else {
             handlePermission(PERMISSION_READ_STORAGE) {
@@ -205,7 +215,7 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         }
     }
 
-    private fun parseFile(inputStream: InputStream?) {
+private fun parseFile(inputStream: InputStream?) {
         if (inputStream == null) {
             toast(R.string.unknown_error_occurred)
             return

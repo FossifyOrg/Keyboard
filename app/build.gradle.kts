@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
 import java.io.FileInputStream
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android)
@@ -86,8 +87,10 @@ android {
         includeInApk = false
     }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = project.libs.versions.app.build.kotlinJVMTarget.get()
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(project.libs.versions.app.build.kotlinJVMTarget.get()))
+        }
     }
 
     namespace = libs.versions.app.version.appId.get()
@@ -118,4 +121,9 @@ dependencies {
 
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
+    implementation("androidx.core:core:1.15.0")
+    implementation("androidx.emoji2:emoji2-bundled:1.5.0")
+    // implementation("androidx.emoji:emoji-appcompat:1.1.0")
+    implementation("androidx.emoji2:emoji2:1.5.0")
+
 }

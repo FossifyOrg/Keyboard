@@ -7,6 +7,7 @@ import android.graphics.drawable.RippleDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import org.fossify.commons.extensions.*
@@ -90,8 +91,8 @@ class ClipsKeyboardAdapter(
                 applyColorFilter(textColor)
 
                 if (sectionLabel.isCurrent) {
-                    setOnLongClickListener { context.toast(R.string.pin_text); true; }
-                    setImageDrawable(resources.getDrawable(R.drawable.ic_pin_vector))
+                    setOnLongClickListener { context.toast(R.string.pin_text); true }
+                    setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_pin_vector))
                     setOnClickListener {
                         ensureBackgroundThread {
                             val currentClip = context.getCurrentClip() ?: return@ensureBackgroundThread
@@ -105,8 +106,8 @@ class ClipsKeyboardAdapter(
                         }
                     }
                 } else {
-                    setImageDrawable(resources.getDrawable(R.drawable.ic_pin_filled_vector))
-                    background = null   // avoid doing any animations on clicking clipboard_manager_holder
+                    setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_pin_filled_vector))
+                    background = null  // avoid doing any animations on clicking clipboard_manager_holder
                 }
             }
         }

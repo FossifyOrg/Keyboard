@@ -685,7 +685,7 @@ class MyKeyboardView @JvmOverloads constructor(
                         ShiftState.ON_ONE_CHAR -> R.drawable.ic_caps_vector
                         else -> R.drawable.ic_caps_underlined_vector
                     }
-                    key.icon = resources.getDrawable(drawableId)
+                    key.icon = resources.getDrawable(drawableId, context.theme)
                 }
 
                 if (code == KEYCODE_ENTER) {
@@ -1069,9 +1069,17 @@ class MyKeyboardView @JvmOverloads constructor(
             key.x + key.width, key.y + key.height
         )
         onBufferDraw()
-        invalidate(
-            key.x, key.y,
-            key.x + key.width, key.y + key.height
+        val invalidationRect = Rect(
+            key.x,
+            key.y,
+            key.x + key.width,
+            key.y + key.height
+        )
+        postInvalidate(
+            invalidationRect.left,
+            invalidationRect.top,
+            invalidationRect.right,
+            invalidationRect.bottom
         )
     }
 

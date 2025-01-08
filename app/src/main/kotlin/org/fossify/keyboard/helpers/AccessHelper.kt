@@ -45,7 +45,7 @@ class AccessHelper(
         val key = keys.getOrNull(virtualViewId)
         node.contentDescription = key?.getContentDescription(keyboardView.context) ?: ""
         val bounds = updateBoundsForInterval(virtualViewId)
-        node.setBoundsInParent(bounds)
+        node.setBoundsInScreen(bounds)
     }
 
     /**

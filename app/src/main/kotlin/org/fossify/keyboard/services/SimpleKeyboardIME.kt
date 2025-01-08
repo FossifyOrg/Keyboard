@@ -1,5 +1,6 @@
 package org.fossify.keyboard.services
 
+import android.R.attr.textSize
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
@@ -14,6 +15,7 @@ import android.os.Bundle
 import android.text.InputType.*
 import android.text.TextUtils
 import android.util.Size
+import android.util.TypedValue
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
@@ -476,7 +478,12 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         val verticalPadding = resources.getDimensionPixelSize(R.dimen.small_margin)
         val horizontalPadding = resources.getDimensionPixelSize(R.dimen.activity_margin)
 
-        val textSize = resources.getDimension(R.dimen.label_text_size) / resources.displayMetrics.scaledDensity
+        // val textSize = resources.getDimension(R.dimen.label_text_size) / resources.displayMetrics.scaledDensity
+        val textSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP,
+            resources.getDimension(R.dimen.label_text_size),
+            resources.displayMetrics
+        )
 
         val rippleBg = resources.getDrawable(R.drawable.clipboard_background, theme) as RippleDrawable
         val layerDrawable = rippleBg.findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
