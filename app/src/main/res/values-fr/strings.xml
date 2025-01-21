@@ -33,4 +33,17 @@
     <string name="start_sentences_capitalized">Commencer les phrases par une majuscule</string>
     <string name="emojis">Émojis</string>
     <string name="redirection_note">Veuillez activer le clavier Fossify sur l\'écran suivant, pour qu\'il soit disponible. Appuyez sur \"Retour\" une fois l\'option activée.</string>
+    <string name="smileys_and_emotions">Smileys et émoticônes</string>
+    <string name="symbols">Symboles</string>
+    <string name="recently_used">Utilisé récemment</string>
+    <string name="people_and_body">Personnes et corps</string>
+    <string name="food_and_drink">Nourriture et boisson</string>
+    <string name="activities">Activités</string>
+    <string name="voice_typing_method">Méthode de saisie vocale</string>
+    <string name="switch_to_voice_typing">Passer à la saisie vocale</string>
+    <string name="objects">Objets</string>
+    <string name="flags">Drapeaux</string>
+    <string name="travel_and_places">Voyages et lieux</string>
+    <string name="animals_and_nature">Animaux et nature</string>
+    <string name="manage_keyboard_languages">Modifier les langues du clavier</string>
 </resources>
