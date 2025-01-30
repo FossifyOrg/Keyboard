@@ -7,7 +7,7 @@
     <string name="manage_clipboard_label">לאחר שתעתיק טקסט כלשהו, הוא יופיע כאן. ניתן גם להצמיד קליפים כדי שלא ייעלמו מאוחר יותר.</string>
     <string name="clear_clipboard_data">נקה את נתוני הלוח</string>
     <string name="clear_clipboard_data_confirmation">האם אתה בטוח שאתה רוצה לנקות את נתוני הלוח\?</string>
-    <string name="clipboard">לוח כתיבה</string>
+    <string name="clipboard">לוח העתקה</string>
     <string name="clipboard_recent">לאחרונה</string>
     <string name="clipboard_current">נוכחי</string>
     <string name="clipboard_pinned">הצמד</string>
@@ -33,4 +33,17 @@
     <string name="keycode_shift">מקש Shift</string>
     <string name="keyboard_height">גובה מקלדת</string>
     <string name="show_numbers_row">הצג מספרים בשורה נפרדת</string>
+    <string name="manage_keyboard_languages">נהל שפות מקלדת</string>
+    <string name="recently_used">שומש לאחרונה</string>
+    <string name="food_and_drink">אוכל ומשקאות</string>
+    <string name="people_and_body">אנשים וגוף</string>
+    <string name="animals_and_nature">בעלי חיים וטבע</string>
+    <string name="smileys_and_emotions">סמיילים ורגשות</string>
+    <string name="objects">חפצים</string>
+    <string name="travel_and_places">טיול ומקומות</string>
+    <string name="activities">פעילויות</string>
+    <string name="symbols">סימנים</string>
+    <string name="flags">דגלים</string>
+    <string name="voice_typing_method">שיטת הקלדה קולית</string>
+    <string name="switch_to_voice_typing">עבור להקלדה קולית</string>
 </resources>
