@@ -1,2 +1,0 @@
-* Memperbaiki kerusakan keyboard saat layar terkunci
-* Menambahkan lebih banyak terjemahan

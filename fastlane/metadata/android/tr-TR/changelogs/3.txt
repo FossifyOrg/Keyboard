@@ -1,2 +1,0 @@
-* Kilit ekranındaki klavye hatası düzeltildi
-* Daha fazla çeviri eklendi

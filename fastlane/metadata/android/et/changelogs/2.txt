@@ -1,5 +1,0 @@
-* Parandasime klahvistiku kokkujooksmise lukustusvaates
-* Parandasime kleepuvad klahvid
-* Asendasime märkeruudud lülititega
-* Eemaldasime Android 7 ja sellest vanemate versioonide toe
-* Lisasime täiendavaid tõlkeid

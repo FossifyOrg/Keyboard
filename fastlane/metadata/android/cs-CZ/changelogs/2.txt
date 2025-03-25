@@ -1,5 +1,0 @@
-* Oprava pádu klávesnice na zamykací obrazovce
-* Opraveny lepivé klávesy
-* Nahrazení zaškrtávacích políček přepínači
-* Odstraněna podpora verzí systému Android 7 a nižších
-* Přidány další překlady

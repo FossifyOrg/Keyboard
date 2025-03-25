@@ -1,2 +1,0 @@
-* Corrigido travamento do teclado na tela de bloqueio
-* Adicionadas mais traduções
