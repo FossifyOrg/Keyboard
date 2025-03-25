@@ -1,0 +1,5 @@
+* Kilit ekranındaki klavye hatası düzeltildi
+* Yapışkan düğmeler düzeltildi
+* Onay kutuları düğmelerle değiştirildi
+* Android 7 ve daha eski sürümler desteklenmiyor
+* Daha fazla çeviri eklendi

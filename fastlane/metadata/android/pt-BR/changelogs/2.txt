@@ -1,0 +1,5 @@
+* Corrigida a falha do teclado na tela de bloqueio
+* Teclas fixas corrigidas
+* Caixas de seleção substituídas por interruptores
+* Removido o suporte para Android 7 e versões anteriores
+* Adicionadas mais traduções
