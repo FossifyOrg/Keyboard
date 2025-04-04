@@ -37,56 +37,94 @@
     <Row>
         <Key
             app:keyEdgeFlags="left"
-            app:keyLabel="q"
+            app:keyLabel="ą"
             app:popupCharacters="1"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="1" />
         <Key
-            app:keyLabel="w"
+            app:keyLabel="č"
             app:popupCharacters="2"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="2" />
         <Key
-            app:keyLabel="e"
-            app:popupCharacters="éè3ęėêëēę"
+            app:keyLabel="ę"
+            app:popupCharacters="3"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="3" />
         <Key
-            app:keyLabel="r"
-            app:popupCharacters="ř4ŕ"
+            app:keyLabel="ė"
+            app:popupCharacters="4"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="4" />
         <Key
-            app:keyLabel="t"
-            app:popupCharacters="5ť"
+            app:keyLabel="į"
+            app:popupCharacters="5"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="5" />
         <Key
-            app:keyLabel="y"
-            app:popupCharacters="ý6ÿ¥"
+            app:keyLabel="š"
+            app:popupCharacters="6ṧ"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="6" />
         <Key
-            app:keyLabel="u"
-            app:popupCharacters="űúùų7ūûü"
+            app:keyLabel="ų"
+            app:popupCharacters="7"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="7" />
         <Key
-            app:keyLabel="i"
-            app:popupCharacters="íìîį8ïī"
+            app:keyLabel="ū"
+            app:popupCharacters="8"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="8" />
+
         <Key
-            app:keyLabel="o"
-            app:popupCharacters="őöóôòõ9ō"
+            app:keyLabel="\?"
+            app:popupCharacters="9!"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel="p"
+            app:keyLabel="ž"
             app:popupCharacters="0"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="0" />
+    </Row>
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="q" />
+        <Key app:keyLabel="w" />
+        <Key
+            app:keyLabel="e"
+            app:popupCharacters="éèęėêëēę"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="r"
+            app:popupCharacters="řŕ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="t"
+            app:popupCharacters="ť"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="y"
+            app:popupCharacters="ýÿ¥"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="u"
+            app:popupCharacters="űúùųūûü"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="i"
+            app:popupCharacters="íìîįïī"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="o"
+            app:popupCharacters="őöóôòõō"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="p" />
     </Row>
     <Row>
         <Key
@@ -154,7 +192,9 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:keyWidth="10%p"
+            app:popupCharacters="‚„“‘"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"
