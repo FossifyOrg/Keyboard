@@ -119,7 +119,7 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel="z"
-            app:popupCharacters="źžż"
+            app:popupCharacters="żźž"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="x" />
         <Key
