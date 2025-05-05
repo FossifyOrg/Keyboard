@@ -1,6 +1,6 @@
 [versions]
 #jetbrains
-kotlin = "1.9.25"
+kotlin = "2.1.20"
 #AndroidX
 androidx-autofill = "1.1.0"
 androidx-emoji2 = "1.5.0"
