@@ -36,4 +36,14 @@
     <string name="start_sentences_capitalized">Start sætninger med stort begyndelsesbogstav</string>
     <string name="voice_typing_method">Metode til stemmetastning</string>
     <string name="switch_to_voice_typing">Skift til stemmestyret tastning</string>
+    <string name="flags">Flag</string>
+    <string name="animals_and_nature">Dyr og natur</string>
+    <string name="people_and_body">Mennesker og krop</string>
+    <string name="recently_used">Senest brugt</string>
+    <string name="smileys_and_emotions">Smileys og følelser</string>
+    <string name="food_and_drink">Mad og drikke</string>
+    <string name="travel_and_places">Rejse og steder</string>
+    <string name="activities">Aktiviteter</string>
+    <string name="objects">Objekter</string>
+    <string name="symbols">Symboler</string>
 </resources>
