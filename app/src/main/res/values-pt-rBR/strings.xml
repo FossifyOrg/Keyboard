@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Teclado</string>
+    <string name="app_launcher_name">Fossify - Teclado</string>
     <string name="change_keyboard">Mudar Teclado</string>
     <string name="manage_clipboard_items">Gerenciar itens da área de transferência</string>
     <string name="manage_clipboard_empty">Área de transferência vazia.</string>
@@ -24,7 +24,7 @@
     <string name="show_popup">Mostrar pop-up ao digitar</string>
     <string name="vibrate_on_keypress">Vibrar ao digitar</string>
     <string name="keyboard_language">Idioma do teclado</string>
-    <string name="redirection_note">Ative o Teclado do Fossify na próxima tela para torná-lo um teclado disponível. Pressione \"Voltar\" depois de ativado.</string>
+    <string name="redirection_note">Ative o Fossify Teclado na próxima tela para torná-lo um teclado disponível. Pressione \"Voltar\" depois de ativado.</string>
     <string name="keycode_space">Barra de espaço</string>
     <string name="keyboard_height">Altura do teclado</string>
     <string name="start_sentences_capitalized">Começar frases com letra maiúscula</string>
