@@ -439,8 +439,11 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private fun getKeyboardLayoutXML(): Int {
         return when (baseContext.config.keyboardLanguage) {
             LANGUAGE_ARABIC -> R.xml.keys_letters_arabic
+            LANGUAGE_BELARUSIAN_CYRL -> R.xml.keys_letters_belarusian_cyrl
+            LANGUAGE_BELARUSIAN_LATN -> R.xml.keys_letters_belarusian_latn
             LANGUAGE_BENGALI -> R.xml.keys_letters_bengali
             LANGUAGE_BULGARIAN -> R.xml.keys_letters_bulgarian
+            LANGUAGE_CENTRAL_KURDISH -> R.xml.keys_letters_central_kurdish
             LANGUAGE_CHUVASH -> R.xml.keys_letters_chuvash
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
             LANGUAGE_ENGLISH_DVORAK -> R.xml.keys_letters_english_dvorak
@@ -521,7 +524,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         if (key != null && key in arrayOf(
                 SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
                 TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
-                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_USING_SHARED_THEME, IS_USING_SYSTEM_THEME
+                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_GLOBAL_THEME_ENABLED, IS_SYSTEM_THEME_ENABLED
             )
         ) {
             keyboardView?.setupKeyboard()

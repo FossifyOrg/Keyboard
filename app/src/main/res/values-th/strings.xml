@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="add_new_item">เพิ่มรายการใหม่</string>
+    <string name="flags">ธง</string>
+    <string name="objects">วัตถุ</string>
+    <string name="people_and_body">ผู้คนและร่างกาย</string>
+    <string name="voice_typing_method">วิธีพิมพ์ด้วยเสียง</string>
+    <string name="travel_and_places">ท่องเที่ยวและสถานที่</string>
+    <string name="manage_keyboard_languages">จัดการภาษาแป้นพิมพ์</string>
+    <string name="switch_to_voice_typing">สลับไปพิมพ์ด้วยเสียง</string>
+    <string name="manage_clipboard_items">จัดการรายการในคลิปบอร์ด</string>
+    <string name="keycode_mode_change">เปลี่ยนชนิดแป้นพิมพ์</string>
+    <string name="clip_text">ตัดเก็บข้อความ</string>
+    <string name="text_pinned">ข้อความถูกปักหมุดแล้ว</string>
+    <string name="pin_text">ปักหมุดข้อความ</string>
+    <string name="export_clipboard_items">ส่งออกรายการในคลิปบอร์ด</string>
+    <string name="import_clipboard_items">นำเข้ารายการคลิปบอร์ด</string>
+    <string name="keycode_delete">ลบ</string>
+    <string name="emojis">อิโมจิ</string>
+    <string name="app_launcher_name">แป้นพิมพ์</string>
+    <string name="change_keyboard">เปลี่ยนแป้นพิมพ์</string>
+    <string name="symbols">สัญลักษณ์</string>
+    <string name="manage_clipboard_empty">คลิปบอร์ดของคุณว่างอยู่</string>
+    <string name="clear_clipboard_data">ล้างข้อมูลคลิปบอร์ด</string>
+    <string name="clipboard">คลิปบอร์ด</string>
+    <string name="clipboard_recent">ไม่นานนี้</string>
+    <string name="clipboard_current">ปัจจุบัน</string>
+    <string name="keycode_shift">ยก</string>
+    <string name="recently_used">ใช้ไม่นานนี้</string>
+    <string name="smileys_and_emotions">หน้ายิ้มและอารมณ์</string>
+    <string name="clipboard_pinned">ปักหมุด</string>
+    <string name="animals_and_nature">สัตว์และธรรมชาติ</string>
+    <string name="food_and_drink">อาหารและเครื่องดื่ม</string>
+    <string name="activities">กิจกรรม</string>
+</resources>

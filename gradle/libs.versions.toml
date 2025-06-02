@@ -1,27 +1,25 @@
 [versions]
 #jetbrains
-kotlin = "1.9.23"
+kotlin = "2.1.21"
 #AndroidX
 androidx-autofill = "1.1.0"
-androidx-emoji2 = "1.4.0"
+androidx-emoji2 = "1.5.0"
 #KSP
-ksp = "1.9.23-1.0.19"
+ksp = "2.1.21-2.0.1"
+#Detekt
+detekt = "1.23.8"
 #Room
-room = "2.6.1"
+room = "2.7.1"
 #Fossify
-commons = "4803866c8b"
+commons = "54b78551a4"
 #Gradle
-gradlePlugins-agp = "8.2.0"
+gradlePlugins-agp = "8.10.1"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"
-app-build-minimumSDK = "23"
+app-build-minimumSDK = "26"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
-#versioning
-app-version-appId = "org.fossify.keyboard"
-app-version-versionCode = "1"
-app-version-versionName = "1.0.0"
 [libraries]
 #AndroidX
 androidx-autofill = { module = "androidx.autofill:autofill", version.ref = "androidx-autofill" }
@@ -41,3 +39,4 @@ room = [
 android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
