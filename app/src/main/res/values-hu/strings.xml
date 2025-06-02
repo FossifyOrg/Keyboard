@@ -33,4 +33,17 @@
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Szóköz</string>
     <string name="start_sentences_capitalized">Mondatok nagybetűvel kezdése</string>
+    <string name="smileys_and_emotions">Hangulatjelek és érzelmek</string>
+    <string name="flags">Jelzők</string>
+    <string name="people_and_body">Emberek és szervezet</string>
+    <string name="animals_and_nature">Állatok és természet</string>
+    <string name="food_and_drink">Ételek és italok</string>
+    <string name="travel_and_places">Utazás és helyszínek</string>
+    <string name="objects">Objektumok</string>
+    <string name="symbols">Szimbólumok</string>
+    <string name="activities">Tevékenységek</string>
+    <string name="voice_typing_method">Hangalapú gépelési módszer</string>
+    <string name="switch_to_voice_typing">Váltson hangalapú gépelésre</string>
+    <string name="recently_used">Legutóbb használt</string>
+    <string name="manage_keyboard_languages">Billentyűzetnyelvek kezelése</string>
 </resources>

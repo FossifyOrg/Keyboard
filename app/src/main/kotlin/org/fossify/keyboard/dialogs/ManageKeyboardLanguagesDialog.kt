@@ -11,7 +11,7 @@ import org.fossify.keyboard.helpers.SUPPORTED_LANGUAGES
 
 class ManageKeyboardLanguagesDialog(
     private val activity: BaseSimpleActivity,
-    private val callback: (MutableSet<Int>) -> Unit
+    private val callback: () -> Unit
 ) {
     init {
         val binding = DialogManageKeyboardLanguagesBinding.inflate(activity.layoutInflater)
@@ -20,7 +20,15 @@ class ManageKeyboardLanguagesDialog(
 
         activity.getAlertDialogBuilder()
             .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
-            .setPositiveButton(R.string.ok) { _, _ -> callback(adapter.getSelectedLanguages()) }
+            .setPositiveButton(R.string.ok) { _, _ ->
+                val selectedLanguages = adapter.getSelectedLanguages()
+                activity.config.selectedLanguages = selectedLanguages
+                if (activity.config.keyboardLanguage !in selectedLanguages) {
+                    activity.config.keyboardLanguage = selectedLanguages.first()
+                }
+
+                callback()
+            }
             .apply {
                 activity.setupDialogStuff(binding.root, this)
             }

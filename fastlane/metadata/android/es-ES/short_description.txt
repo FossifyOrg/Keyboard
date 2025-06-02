@@ -1,1 +1,1 @@
-Teclado sencillo para insertar todo tipo de textos, caracteres especiales y números
+Teclado sin conexión, sencillo y de código abierto, con emojis

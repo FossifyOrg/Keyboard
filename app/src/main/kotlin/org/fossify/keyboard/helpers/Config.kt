@@ -74,4 +74,17 @@ class Config(context: Context) : BaseConfig(context) {
             LANGUAGE_ENGLISH_QWERTY
         }
     }
+
+    var recentlyUsedEmojis: List<String>
+        get() = prefs.getString(RECENTLY_USED_EMOJIS, "\uD83D\uDC30")!!.split("|").filter { it.isNotEmpty() }
+        set(recentlyUsedEmojis) = prefs.edit().putString(
+            RECENTLY_USED_EMOJIS, recentlyUsedEmojis.joinToString("|")
+        ).apply()
+
+    fun addRecentEmoji(emoji: String) {
+        val recentEmojis = recentlyUsedEmojis.toMutableList()
+        recentEmojis.remove(emoji)
+        recentEmojis.add(0, emoji)
+        recentlyUsedEmojis = recentEmojis.take(RECENT_EMOJIS_LIMIT)
+    }
 }
