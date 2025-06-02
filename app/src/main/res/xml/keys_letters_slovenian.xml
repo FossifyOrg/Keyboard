@@ -34,7 +34,7 @@
             app:keyLabel="0"
             app:topSmallNumber="0" />
     </Row>
-    <Row>
+    <Row app:keyWidth="9.091%p">
         <Key
             app:keyEdgeFlags="left"
             app:keyLabel="q"
@@ -82,15 +82,16 @@
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
-            app:keyEdgeFlags="right"
             app:keyLabel="p"
             app:popupCharacters="0"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="0" />
-    </Row>
-    <Row>
         <Key
-            app:horizontalGap="5%"
+            app:keyEdgeFlags="right"
+            app:keyLabel="š" />
+    </Row>
+    <Row app:keyWidth="9.091%p">
+        <Key
             app:keyEdgeFlags="left"
             app:keyLabel="a" />
         <Key
@@ -106,16 +107,18 @@
         <Key app:keyLabel="h" />
         <Key app:keyLabel="j" />
         <Key app:keyLabel="k" />
+        <Key app:keyLabel="l" />
+        <Key app:keyLabel="č" />
         <Key
             app:keyEdgeFlags="right"
-            app:keyLabel="l" />
+            app:keyLabel="ž" />
     </Row>
-    <Row>
+    <Row app:keyWidth="9.091%p">
         <Key
             app:code="-1"
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="18.18%p" />
         <Key app:keyLabel="y" />
         <Key app:keyLabel="x" />
         <Key
@@ -131,7 +134,7 @@
             app:isRepeatable="true"
             app:keyEdgeFlags="right"
             app:keyIcon="@drawable/ic_clear_vector"
-            app:keyWidth="15%p" />
+            app:keyWidth="18.18%p" />
     </Row>
     <Row>
         <Key

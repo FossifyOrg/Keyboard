@@ -1,5 +1,0 @@
-* Memperbaiki kerusakan papan tik pada layar kunci
-* Memperbaiki tombol yang lengket
-* Mengganti kotak centang dengan saklar
-* Menghapus dukungan untuk Android versi 7 dan di bawahnya
-* Menambahkan lebih banyak terjemahan

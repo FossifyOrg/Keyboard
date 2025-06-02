@@ -1,5 +1,0 @@
-* Corregeix una fallada de teclat en el bloqueig de pantalla
-* Corregeix les tecles permanents
-* Substitueix caselles de selecció per commutadors
-* Elimina el suport per l'Android versió 7 o anteriors
-* Afegeix més traduccions
