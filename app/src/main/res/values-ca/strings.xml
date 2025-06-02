@@ -33,4 +33,17 @@
     <string name="pin_text">Fixa el text</string>
     <string name="emojis">Emojis</string>
     <string name="redirection_note">Activeu el Fossify Keyboard a la pantalla següent, per a fer-lo disponible. Premeu «Enrere» una vegada activat.</string>
+    <string name="switch_to_voice_typing">Canvia a escriptura per veu</string>
+    <string name="manage_keyboard_languages">Gestió dels idiomes del teclat</string>
+    <string name="voice_typing_method">Mètode d\'escriptura per veu</string>
+    <string name="objects">Objectes</string>
+    <string name="recently_used">Utilitzat recentment</string>
+    <string name="animals_and_nature">Animals i natura</string>
+    <string name="flags">Banderes</string>
+    <string name="smileys_and_emotions">Somriures i emocions</string>
+    <string name="people_and_body">Persones i cos</string>
+    <string name="food_and_drink">Alimentació i begudes</string>
+    <string name="travel_and_places">Viatges i llocs</string>
+    <string name="activities">Activitats</string>
+    <string name="symbols">Símbols</string>
 </resources>

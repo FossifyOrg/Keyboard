@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Zarządzaj językami klawiatury</string>
     <string name="voice_typing_method">Sposób wpisywania głosowego</string>
     <string name="switch_to_voice_typing">Przełącz na wpisywanie głosowe</string>
+    <string name="recently_used">Ostatnio używane</string>
+    <string name="people_and_body">Ludzie i ciało</string>
+    <string name="travel_and_places">Podróże i miejsca</string>
+    <string name="activities">Aktywności</string>
+    <string name="animals_and_nature">Zwierzęta i przyroda</string>
+    <string name="objects">Obiekty</string>
+    <string name="food_and_drink">Jedzenie i napoje</string>
+    <string name="symbols">Symbole</string>
+    <string name="flags">Flagi</string>
+    <string name="smileys_and_emotions">Buźki i emocje</string>
 </resources>

@@ -29,4 +29,21 @@
     <string name="keycode_space">Bara de spațiu</string>
     <string name="start_sentences_capitalized">Începe propozițiile cu o literă mare</string>
     <string name="show_numbers_row">Arată numerele pe un rând separat</string>
+    <string name="objects">Obiecte</string>
+    <string name="manage_keyboard_languages">Gestionați limbile tastaturii</string>
+    <string name="redirection_note">Vă rugăm să activați Fossify Keyboard pe următorul ecran, pentru a deveni o tastatură disponibilă. Apăsați „Înapoi” odată activat.</string>
+    <string name="show_key_borders">Arată marginile tastelor</string>
+    <string name="symbols">Simboluri</string>
+    <string name="travel_and_places">Locații și călătorii</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="recently_used">Folosit recent</string>
+    <string name="smileys_and_emotions">Smileys și emoticoane</string>
+    <string name="people_and_body">Oameni și corp</string>
+    <string name="animals_and_nature">Natură și animale</string>
+    <string name="voice_typing_method">Metoda de tastare vocală</string>
+    <string name="switch_to_voice_typing">Trece-ți la tastarea vocală</string>
+    <string name="food_and_drink">Băuturi și mâncare</string>
+    <string name="activities">Activități</string>
+    <string name="flags">Steaguri</string>
 </resources>

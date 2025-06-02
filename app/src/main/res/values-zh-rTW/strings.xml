@@ -22,4 +22,28 @@
     <string name="show_popup">按下按鍵時顯示彈出效果</string>
     <string name="vibrate_on_keypress">按下按鍵時震動</string>
     <string name="keyboard_language">鍵盤語言</string>
-    </resources>
+    <string name="manage_clips">您可以在此管理或新增供快速取用的素材。</string>
+    <string name="clip_text">剪輯文字</string>
+    <string name="emojis">表情符號</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="manage_keyboard_languages">管理鍵盤語言</string>
+    <string name="redirection_note">請在下一個畫面中啟用 Fossify 鍵盤，使其變為可以使用的鍵盤。啟用後請按「返回」。</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_space">空格鍵</string>
+    <string name="keyboard_height">鍵盤高度</string>
+    <string name="show_key_borders">顯示鍵盤邊框</string>
+    <string name="show_numbers_row">在獨立的列上顯示數字</string>
+    <string name="start_sentences_capitalized">以大寫字母開始句子</string>
+    <string name="voice_typing_method">語音輸入方法</string>
+    <string name="switch_to_voice_typing">切換至語音輸入</string>
+    <string name="recently_used">最近使用</string>
+    <string name="smileys_and_emotions">笑臉與情緒</string>
+    <string name="people_and_body">人物與身體</string>
+    <string name="animals_and_nature">動物與大自然</string>
+    <string name="food_and_drink">食物與飲料</string>
+    <string name="travel_and_places">旅行與地點</string>
+    <string name="activities">活動</string>
+    <string name="objects">物件</string>
+    <string name="symbols">符號</string>
+    <string name="flags">旗幟</string>
+</resources>

@@ -22,6 +22,7 @@ const val SHOW_CLIPBOARD_CONTENT = "show_clipboard_content"
 const val SHOW_NUMBERS_ROW = "show_numbers_row"
 const val SELECTED_LANGUAGES = "selected_languages"
 const val VOICE_INPUT_METHOD = "voice_input_method"
+const val RECENTLY_USED_EMOJIS = "recently_used_emojis"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0
@@ -52,12 +53,18 @@ const val LANGUAGE_CHUVASH = 22
 const val LANGUAGE_ESPERANTO = 23
 const val LANGUAGE_HEBREW = 24
 const val LANGUAGE_ARABIC = 25
+const val LANGUAGE_CENTRAL_KURDISH = 26
+const val LANGUAGE_BELARUSIAN_CYRL = 27
+const val LANGUAGE_BELARUSIAN_LATN = 28
 
 // Keep this sorted
 val SUPPORTED_LANGUAGES = listOf(
     LANGUAGE_ARABIC,
+    LANGUAGE_BELARUSIAN_CYRL,
+    LANGUAGE_BELARUSIAN_LATN,
     LANGUAGE_BENGALI,
     LANGUAGE_BULGARIAN,
+    LANGUAGE_CENTRAL_KURDISH,
     LANGUAGE_CHUVASH,
     LANGUAGE_DANISH,
     LANGUAGE_ENGLISH_QWERTY,
@@ -93,6 +100,7 @@ const val KEYBOARD_HEIGHT_160_PERCENT = 160
 
 const val EMOJI_SPEC_FILE_PATH = "media/emoji_spec.txt"
 const val LANGUAGE_VN_TELEX = "language/extension.json"
+const val RECENT_EMOJIS_LIMIT = 36
 
 // Android constant
 const val INPUT_METHOD_SUBTYPE_VOICE = "voice"

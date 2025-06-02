@@ -1,1 +1,1 @@
-Easy keyboard for inserting all kinds of texts, special characters and numbers
+Simple and open-source offline keyboard with emojis

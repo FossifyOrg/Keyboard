@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="redirection_note">다음 화면에서 Fossify 키보드를 사용 가능한 키보드로 설정하세요. 설정 후 \'뒤로가기\'를 누르세요.</string>
+    <string name="change_keyboard">키보드 변경</string>
+    <string name="app_launcher_name">키보드</string>
+    <string name="clear_clipboard_data_confirmation">클립보드 항목을 모두 지우시겠습니까?</string>
+    <string name="clipboard">클립보드</string>
+    <string name="clipboard_recent">최근</string>
+    <string name="clipboard_current">현재</string>
+    <string name="clipboard_pinned">고정됨</string>
+    <string name="add_new_item">새 항목 추가</string>
+    <string name="pin_text">텍스트 고정하기</string>
+    <string name="text_pinned">텍스트가 고정되었습니다</string>
+    <string name="export_clipboard_items">클립보드 항목 내보내기</string>
+    <string name="clip_text">텍스트 클립하기</string>
+    <string name="keycode_mode_change">키보드 유형 바꾸기</string>
+    <string name="import_clipboard_items">클립보드 항목 가져오기</string>
+    <string name="keycode_delete">지우기</string>
+    <string name="keycode_shift">시프트</string>
+    <string name="keycode_enter">엔터</string>
+    <string name="keycode_space">스페이스 바</string>
+    <string name="show_popup">누른 키 보여주기</string>
+    <string name="vibrate_on_keypress">키 누를 시 진동</string>
+    <string name="show_clipboard_content">클립보드 콘텐츠 표시하기 (가능한 경우)</string>
+    <string name="start_sentences_capitalized">자동 대문자 전환</string>
+    <string name="emojis">이모지</string>
+    <string name="keyboard_language">키보드 언어</string>
+    <string name="keyboard_height">키보드 높이</string>
+    <string name="show_key_borders">키 테두리 표시하기</string>
+    <string name="show_numbers_row">숫자키 별도의 열에 표시하기</string>
+    <string name="manage_clipboard_items">클립보드 항목 관리</string>
+    <string name="clear_clipboard_data">클립보드 항목 지우기</string>
+    <string name="manage_clips">여기서 클립을 관리하거나 추가하여 빠르게 엑세스할 수 있습니다.</string>
+    <string name="switch_to_voice_typing">음성 입력 사용하기</string>
+    <string name="manage_keyboard_languages">키보드 언어 관리</string>
+    <string name="manage_clipboard_empty">클립보드가 비어있습니다.</string>
+    <string name="manage_clipboard_label">복사한 텍스트가 여기에 표시됩니다. 나중에 사라지지 않도록 클립을 고정할 수 있습니다.</string>
+    <string name="voice_typing_method">음성 입력</string>
+</resources>

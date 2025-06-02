@@ -3,7 +3,7 @@
     <item android:id="@+id/button_background_shape">
         <shape android:shape="rectangle">
             <solid android:color="@color/theme_dark_background_color" />
-            <corners android:radius="@dimen/small_margin" />
+            <corners android:radius="@dimen/medium_margin" />
         </shape>
     </item>
 
@@ -13,7 +13,7 @@
                 android:width="1dp"
                 android:color="@color/divider_grey" />
             <solid android:color="@android:color/transparent" />
-            <corners android:radius="@dimen/small_margin" />
+            <corners android:radius="@dimen/medium_margin" />
         </shape>
     </item>
 </layer-list>
