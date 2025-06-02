@@ -18,4 +18,13 @@
     <string name="pin_text">Senṭeḍ aḍris</string>
     <string name="change_keyboard">Beddel anasiw</string>
     <string name="text_pinned">Aḍris-nni yettwasenṭeḍ</string>
+    <string name="manage_keyboard_languages">Sefrek tutlayin n unasiw</string>
+    <string name="export_clipboard_items">Sifeḍ iferdisen</string>
+    <string name="import_clipboard_items">Kter iferdisen</string>
+    <string name="keycode_mode_change">Snifel anaw n unasiw</string>
+    <string name="keycode_shift">Asekkil ameqqran</string>
+    <string name="keyboard_height">Taskala tbeddi n unasiw</string>
+    <string name="recently_used">Wid yettwaseqdacen tagara</string>
+    <string name="animals_and_nature">Iɣersiwen d ugama</string>
+    <string name="voice_typing_method">Askar n usekcem s taɣect</string>
 </resources>
