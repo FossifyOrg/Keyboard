@@ -1,0 +1,14 @@
+Added:
+
+• Kabyle layout
+
+Changed:
+
+• Improved Lithuanian layout
+• Improved Romanian layout
+• Improved Slovenian layout
+• Updated translations
+
+Fixed:
+
+• Fixed missing popup characters in Belarusian layout
