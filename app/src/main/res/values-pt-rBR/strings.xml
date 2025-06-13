@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Fossify - Teclado</string>
+    <string name="app_launcher_name">Teclado</string>
     <string name="change_keyboard">Mudar Teclado</string>
     <string name="manage_clipboard_items">Gerenciar itens da área de transferência</string>
     <string name="manage_clipboard_empty">Área de transferência vazia.</string>
