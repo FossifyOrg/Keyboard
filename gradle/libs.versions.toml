@@ -2,7 +2,7 @@
 #jetbrains
 kotlin = "2.1.21"
 #AndroidX
-androidx-autofill = "1.1.0"
+androidx-autofill = "1.3.0"
 androidx-emoji2 = "1.5.0"
 #KSP
 ksp = "2.1.21-2.0.2"
