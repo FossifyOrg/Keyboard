@@ -1,5 +1,15 @@
+Added:
+
+• Kabyle layout
+
 Changed:
 
 • Marked app as beta
+• Improved Lithuanian layout
+• Improved Romanian layout
+• Improved Slovenian layout
 • Updated translations
 
+Fixed:
+
+• Fixed missing popup characters in Belarusian layout
