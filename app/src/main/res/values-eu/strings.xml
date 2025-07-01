@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">Teklatua</string>
+    <string name="redirection_note">Gaitu Fossify teklatua hurrengo pantailan, erabilgarri dagoen teklatua izan dadin. Sakatu \'Atzera\' behin gaituta.</string>
+    <string name="change_keyboard">Teklatu aldaketa</string>
+</resources>
