@@ -22,18 +22,9 @@
     <ID>EmptyFunctionBlock:ClipsActivityAdapter.kt$ClipsActivityAdapter${}</ID>
     <ID>ForbiddenComment:SimpleKeyboardIME.kt$SimpleKeyboardIME$// TODO: Change keyboardMode to enum class</ID>
     <ID>LargeClass:MyKeyboardView.kt$MyKeyboardView : View</ID>
-    <ID>LongMethod:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
-    <ID>LongMethod:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
     <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$fun setKeyboardHolder(binding: KeyboardViewKeyboardBinding)</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$fun setupKeyboard(changedView: View? = null)</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
     <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun setupEmojiAdapter(emojis: List&lt;EmojiData&gt;)</ID>
-    <ID>LongMethod:MyKeyboardView.kt$MyKeyboardView$private fun showKey(keyIndex: Int)</ID>
     <ID>LongMethod:SimpleKeyboardIME.kt$SimpleKeyboardIME$override fun onKey(code: Int)</ID>
-    <ID>LongParameterList:Context.kt$( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
     <ID>LoopWithTooManyJumpStatements:MyKeyboard.kt$MyKeyboard$while</ID>
     <ID>MagicNumber:Config.kt$Config$100</ID>
     <ID>MagicNumber:EmojiHelper.kt$3</ID>
