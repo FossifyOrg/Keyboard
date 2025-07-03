@@ -8,6 +8,7 @@ androidx-emoji2 = "1.5.0"
 ksp = "2.1.21-2.0.2"
 #Detekt
 detekt = "1.23.8"
+detektCompose = "0.4.22"
 #Room
 room = "2.7.2"
 #Fossify
@@ -28,6 +29,8 @@ androidx-emoji2-bundled = { module = "androidx.emoji2:emoji2-bundled", version.r
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+#Compose
+compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
 [bundles]
