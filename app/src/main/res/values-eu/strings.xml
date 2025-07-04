@@ -4,5 +4,10 @@
     <string name="redirection_note">Gaitu Fossify teklatua hurrengo pantailan, erabilgarri dagoen teklatua izan dadin. Sakatu \'Atzera\' behin gaituta.</string>
     <string name="change_keyboard">Teklatu aldaketa</string>
     <string name="manage_clipboard_items">Kudeatu arbeleko elementuak</string>
-    <string name="manage_clipboard_empty">Zure arbela hutsik dago</string>
+    <string name="manage_clipboard_empty">Zure arbela hutsik dago.</string>
+    <string name="manage_clipboard_label">Behin testua kopiatuta, bertan agertuko da. Klipak ere jar ditzakezu, gero ez desagertzeko.</string>
+    <string name="clear_clipboard_data">Garbitu arbeleko datuak</string>
+    <string name="clear_clipboard_data_confirmation">Seguru zaude arbeleko datuak garbitu nahi dituzula?</string>
+    <string name="clipboard">Arbela</string>
+    <string name="clipboard_recent">Azkenak</string>
 </resources>
