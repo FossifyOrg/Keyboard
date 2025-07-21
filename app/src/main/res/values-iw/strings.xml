@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">מקלדת</string>
-    <string name="change_keyboard">שנה מקלדת</string>
+    <string name="change_keyboard">החלפת מקלדת</string>
     <string name="manage_clipboard_items">נהל פריטי לוח</string>
     <string name="manage_clipboard_empty">הלוח העתקה שלך ריק.</string>
     <string name="manage_clipboard_label">לאחר שתעתיק טקסט, הוא יופיע כאן. תוכל גם להצמיד קטעים כדי שלא ייעלמו אחר כך.</string>
@@ -24,7 +24,7 @@
     <string name="show_popup">הצג חלון קופץ בלחיצת מקש</string>
     <string name="vibrate_on_keypress">רטט בלחיצה על מקש</string>
     <string name="keyboard_language">שפת מקלדת</string>
-    <string name="redirection_note">נא להפעיל את מקלדת Fossify במסך הבא, כדי להפוך אותה למקלדת זמינה. יש ללחוץ על „הקודם“ לאחר הפעלתה.</string>
+    <string name="redirection_note">נא להפעיל את מקלדת Fossify במסך הבא כדי להפוך אותה למקלדת זמינה. יש ללחוץ על „הקודם” לאחר הפעלתה.</string>
     <string name="show_key_borders">הצג גבולות מקשים</string>
     <string name="start_sentences_capitalized">התחל משפטים באות גדולה</string>
     <string name="emojis">אמוג\'ים</string>
