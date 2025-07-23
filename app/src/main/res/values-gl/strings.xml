@@ -22,4 +22,5 @@
     <string name="show_key_borders">Mostralos bordes das teclas</string>
     <string name="show_numbers_row">Mostralos números nunha fila afastada</string>
     <string name="emojis">Emoticona</string>
+    <string name="redirection_note">Por favor, active Fossify Keyboard na pantalla que segue para facelo dispoñible. Prema «Atrás» tras rematar.</string>
 </resources>
