@@ -1,0 +1,12 @@
+Added:
+
+• Czech layout 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Clipboard now allows creating case-sensitive duplicates 
+
