@@ -62,8 +62,8 @@
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="5" />
         <Key
-            app:keyLabel="z"
-            app:popupCharacters="ž6"
+            app:keyLabel="y"
+            app:popupCharacters="ý6"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="6" />
         <Key
@@ -119,8 +119,8 @@
             app:keyIcon="@drawable/ic_caps_outline_vector"
             app:keyWidth="15%p" />
         <Key
-            app:keyLabel="y"
-            app:popupCharacters="ý"
+            app:keyLabel="z"
+            app:popupCharacters="ž"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="x" />
         <Key
