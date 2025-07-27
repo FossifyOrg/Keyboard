@@ -8,7 +8,7 @@ androidx-emoji2 = "1.5.0"
 ksp = "2.2.0-2.0.2"
 #Detekt
 detekt = "1.23.8"
-detektCompose = "0.4.24"
+detektCompose = "0.4.26"
 #Room
 room = "2.7.2"
 #Fossify
