@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Czech layout ([#157])
 
 ### Fixed
-- Clipboard saving is now case-sensitive ([#202])
+- Clipboard now allows creating case-sensitive duplicates ([#202])
 
 ## [1.2.2] - 2025-07-18
 ### Changed
