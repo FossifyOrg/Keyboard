@@ -32,4 +32,18 @@
     <string name="emojis">Emoji</string>
     <string name="redirection_note">Prosím povoľte Fossify Klávesnicu na ďalšej obrazovke, aby bola dostupná na používanie. Potom stlačte \'Späť\'.</string>
     <string name="manage_keyboard_languages">Spravovať klávesnice</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="recently_used">Nedávno použité</string>
+    <string name="smileys_and_emotions">Smajlíky a emócie</string>
+    <string name="people_and_body">Ľudia a telo</string>
+    <string name="animals_and_nature">Zvieratá a príroda</string>
+    <string name="food_and_drink">Jedlo a pitie</string>
+    <string name="travel_and_places">Cestovanie a miesta</string>
+    <string name="activities">Aktivity</string>
+    <string name="objects">Veci</string>
+    <string name="symbols">Znaky</string>
+    <string name="flags">Vlajky</string>
+    <string name="voice_typing_method">Spôsob písania podľa hlasu</string>
+    <string name="switch_to_voice_typing">Prepnúť na písanie podľa hlasu</string>
 </resources>
