@@ -30,4 +30,17 @@
     <string name="show_numbers_row">Rādīt ciparus atsevišķā rindā</string>
     <string name="start_sentences_capitalized">Sākt teikumus ar lielo burtu</string>
     <string name="emojis">Emocijzīmes</string>
+    <string name="redirection_note">Lūgums nākamajā ekrānā iespējot Fossify tastatūru, lai padarītu to pieejamu. Jāspiež \"Atpakaļ\", tiklīdz iespējota.</string>
+    <string name="manage_keyboard_languages">Pārvaldīt tastatūras valodas</string>
+    <string name="smileys_and_emotions">Smaidiņi un sajūtas</string>
+    <string name="people_and_body">Cilvēki un ķermenis</string>
+    <string name="animals_and_nature">Dzīvnieki un daba</string>
+    <string name="food_and_drink">Ēdieni un dzērieni</string>
+    <string name="travel_and_places">Ceļošana un vietas</string>
+    <string name="activities">Darbības</string>
+    <string name="objects">Priekšmeti</string>
+    <string name="symbols">Zīmes</string>
+    <string name="flags">Karogi</string>
+    <string name="voice_typing_method">Balss ievades veids</string>
+    <string name="switch_to_voice_typing">Pārslēgties uz balss ievadi</string>
 </resources>
