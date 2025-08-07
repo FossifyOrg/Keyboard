@@ -1,0 +1,8 @@
+Added:
+
+• Italian layout 
+
+Changed:
+
+• Updated translations
+
