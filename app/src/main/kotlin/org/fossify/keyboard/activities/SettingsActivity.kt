@@ -31,6 +31,9 @@ import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_160_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_70_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_80_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_90_PERCENT
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_LEFT
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_RIGHT
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_MIDDLE
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -65,6 +68,8 @@ class SettingsActivity : SimpleActivity() {
         setupVibrateOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
+        setupOneHandedMode()
+        setupOneHandedModeSide()
         setupManageKeyboardLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
@@ -290,5 +295,57 @@ class SettingsActivity : SimpleActivity() {
                 }
             }
         }
+    }
+
+    private fun setupOneHandedMode() {
+        binding.apply {
+            settingsOneHandedMode.isChecked = config.oneHandedModeEnabled
+            settingsOneHandedModeHolder.setOnClickListener {
+                settingsOneHandedMode.toggle()
+                config.oneHandedModeEnabled = settingsOneHandedMode.isChecked
+                updateOneHandedModeSideVisibility()
+            }
+            updateOneHandedModeSideVisibility()
+        }
+    }
+
+    private fun setupOneHandedModeSide() {
+        binding.apply {
+            settingsOneHandedModeSide.text = getOneHandedModeSideText(config.oneHandedModeSide)
+            settingsOneHandedModeSideHolder.setOnClickListener {
+                val items = arrayListOf(
+                    RadioItem(
+                        id = ONE_HANDED_MODE_LEFT,
+                        title = getString(R.string.one_handed_mode_left)
+                    ),
+                    RadioItem(
+                        id = ONE_HANDED_MODE_MIDDLE,
+                        title = getString(R.string.one_handed_mode_middle)
+                    ),
+                    RadioItem(
+                        id = ONE_HANDED_MODE_RIGHT,
+                        title = getString(R.string.one_handed_mode_right)
+                    )
+                )
+
+                RadioGroupDialog(this@SettingsActivity, items, config.oneHandedModeSide) {
+                    config.oneHandedModeSide = it as Int
+                    settingsOneHandedModeSide.text = getOneHandedModeSideText(config.oneHandedModeSide)
+                }
+            }
+        }
+    }
+
+    private fun getOneHandedModeSideText(side: Int): String {
+        return when (side) {
+            ONE_HANDED_MODE_LEFT -> getString(R.string.one_handed_mode_left)
+            ONE_HANDED_MODE_MIDDLE -> getString(R.string.one_handed_mode_middle)
+            ONE_HANDED_MODE_RIGHT -> getString(R.string.one_handed_mode_right)
+            else -> getString(R.string.one_handed_mode_middle)
+        }
+    }
+
+    private fun updateOneHandedModeSideVisibility() {
+        binding.settingsOneHandedModeSideHolder.beVisibleIf(config.oneHandedModeEnabled)
     }
 }

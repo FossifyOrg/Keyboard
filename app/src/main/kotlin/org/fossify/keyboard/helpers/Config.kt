@@ -55,6 +55,14 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
         set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
 
+    var oneHandedModeEnabled: Boolean
+        get() = prefs.getBoolean(ONE_HANDED_MODE_ENABLED, false)
+        set(oneHandedModeEnabled) = prefs.edit().putBoolean(ONE_HANDED_MODE_ENABLED, oneHandedModeEnabled).apply()
+
+    var oneHandedModeSide: Int
+        get() = prefs.getInt(ONE_HANDED_MODE_SIDE, ONE_HANDED_MODE_MIDDLE)
+        set(oneHandedModeSide) = prefs.edit().putInt(ONE_HANDED_MODE_SIDE, oneHandedModeSide).apply()
+
     var selectedLanguages: MutableSet<Int>
         get() {
             val defaultLanguage = getDefaultLanguage().toString()

@@ -241,6 +241,44 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_one_handed_mode_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_one_handed_mode"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_handed_mode" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_one_handed_mode_side_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_one_handed_mode_side_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_handed_mode_side" />
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_one_handed_mode_side"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_one_handed_mode_side_label"
+                    tools:text="@string/one_handed_mode_right" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_keyboard_height_multiplier_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"

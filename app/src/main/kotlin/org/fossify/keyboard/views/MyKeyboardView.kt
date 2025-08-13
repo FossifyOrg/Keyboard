@@ -53,6 +53,9 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SYMBOLS_MODE_CHANGE
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_LEFT
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_RIGHT
+import org.fossify.keyboard.helpers.ONE_HANDED_MODE_MIDDLE
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
@@ -148,6 +151,13 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mShowKeyBorders: Boolean = false
     private var mUsingSystemTheme: Boolean = true
     private var mVoiceInputMethod: String = ""
+
+    // One-handed mode
+    private var mOneHandedModeEnabled: Boolean = false
+    private var mOneHandedModeSide: Int = 0
+    private var mOneHandedModeKeyboardWidth: Int = 0
+    private var mExitButtonRect: Rect = Rect()
+    private var mSwitchSideButtonRect: Rect = Rect()
 
     private var mToolbarHolder: View? = null
     private var mClipboardManagerHolder: View? = null
@@ -408,7 +418,11 @@ class MyKeyboardView @JvmOverloads constructor(
             mShowKeyBorders = config.showKeyBorders
             mUsingSystemTheme = isDynamicTheme()
             mVoiceInputMethod = config.voiceInputMethod
+            mOneHandedModeEnabled = config.oneHandedModeEnabled
+            mOneHandedModeSide = config.oneHandedModeSide
         }
+
+        setupOneHandedMode()
 
         val isMainKeyboard = changedView == null || changedView.id != R.id.mini_keyboard_view
         mKeyColor = getKeyColor()
@@ -540,10 +554,32 @@ class MyKeyboardView @JvmOverloads constructor(
             setMeasuredDimension(0, 0)
         } else {
             var width = mKeyboard!!.mMinWidth
-            if (MeasureSpec.getSize(widthMeasureSpec) < width + 10) {
-                width = MeasureSpec.getSize(widthMeasureSpec)
+            val displayWidth = MeasureSpec.getSize(widthMeasureSpec)
+            
+            if (displayWidth < width + 10) {
+                width = displayWidth
             }
-            setMeasuredDimension(width, mKeyboard!!.mHeight)
+            
+            // In one-handed mode, measure the full display width but keyboard will be smaller
+            val measuredWidth = if (mOneHandedModeEnabled) {
+                mOneHandedModeKeyboardWidth = when (mOneHandedModeSide) {
+                    ONE_HANDED_MODE_MIDDLE -> (displayWidth * 0.75f).toInt()
+                    else -> (displayWidth * 0.80f).toInt() // Left and Right modes
+                }
+                displayWidth // Use full display width for touch handling
+            } else {
+                width
+            }
+            
+            setMeasuredDimension(measuredWidth, mKeyboard!!.mHeight)
+        }
+    }
+
+    private fun setupOneHandedMode() {
+        if (mOneHandedModeEnabled && mKeyboard != null) {
+            // Update keyboard layout parameters for one-handed mode
+            requestLayout()
+            invalidateAllKeys()
         }
     }
 
@@ -575,10 +611,160 @@ class MyKeyboardView @JvmOverloads constructor(
 
     public override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        
+        // Draw background for one-handed mode
+        if (mOneHandedModeEnabled) {
+            canvas.drawColor(mKeyboardBackgroundColor)
+        }
+        
         if (mDrawPending || mBuffer == null || mKeyboardChanged) {
             onBufferDraw()
         }
-        canvas.drawBitmap(mBuffer!!, 0f, 0f, null)
+        
+        // Apply one-handed mode offset for keyboard drawing
+        val offsetX = getOneHandedModeOffsetX()
+        if (offsetX != 0) {
+            canvas.save()
+            canvas.translate(offsetX.toFloat(), 0f)
+            // Scale the keyboard bitmap to fit one-handed mode width
+            val scaleX = if (mOneHandedModeEnabled) mOneHandedModeKeyboardWidth.toFloat() / mBuffer!!.width else 1f
+            canvas.scale(scaleX, 1f)
+            canvas.drawBitmap(mBuffer!!, 0f, 0f, null)
+            canvas.restore()
+        } else {
+            if (mOneHandedModeEnabled) {
+                // Scale the keyboard bitmap to fit one-handed mode width
+                canvas.save()
+                val scaleX = mOneHandedModeKeyboardWidth.toFloat() / mBuffer!!.width
+                canvas.scale(scaleX, 1f)
+                canvas.drawBitmap(mBuffer!!, 0f, 0f, null)
+                canvas.restore()
+            } else {
+                canvas.drawBitmap(mBuffer!!, 0f, 0f, null)
+            }
+        }
+        
+        // Draw one-handed mode buttons in empty space
+        if (mOneHandedModeEnabled) {
+            drawOneHandedModeButtons(canvas)
+        }
+    }
+
+    private fun getOneHandedModeOffsetX(): Int {
+        if (!mOneHandedModeEnabled) {
+            return 0
+        }
+        
+        return when (mOneHandedModeSide) {
+            ONE_HANDED_MODE_LEFT -> 0
+            ONE_HANDED_MODE_MIDDLE -> (width - mOneHandedModeKeyboardWidth) / 2
+            ONE_HANDED_MODE_RIGHT -> width - mOneHandedModeKeyboardWidth
+            else -> (width - mOneHandedModeKeyboardWidth) / 2
+        }
+    }
+
+    private fun drawOneHandedModeButtons(canvas: Canvas) {
+        val emptySpaceWidth = width - mOneHandedModeKeyboardWidth
+        if (emptySpaceWidth <= 0) return
+
+        when (mOneHandedModeSide) {
+            ONE_HANDED_MODE_LEFT -> {
+                // Buttons on the right side
+                drawButtonsOnSide(canvas, mOneHandedModeKeyboardWidth, emptySpaceWidth, showSwitchButton = true)
+            }
+            ONE_HANDED_MODE_RIGHT -> {
+                // Buttons on the left side
+                drawButtonsOnSide(canvas, 0, emptySpaceWidth, showSwitchButton = true)
+            }
+            ONE_HANDED_MODE_MIDDLE -> {
+                // Only exit buttons on both sides, no switch button
+                val sideWidth = emptySpaceWidth / 2
+                drawButtonsOnSide(canvas, 0, sideWidth, showSwitchButton = false) // Left side
+                drawButtonsOnSide(canvas, width - sideWidth, sideWidth, showSwitchButton = false) // Right side
+            }
+        }
+    }
+
+    private fun drawButtonsOnSide(canvas: Canvas, startX: Int, availableWidth: Int, showSwitchButton: Boolean = true) {
+        val buttonWidth = (availableWidth * 0.6f).toInt()
+        val buttonHeight = (resources.getDimension(R.dimen.key_height) * 0.8f).toInt()
+        val marginBetween = (availableWidth * 0.1f).toInt()
+        
+        val buttonX = startX + (availableWidth - buttonWidth) / 2
+        
+        if (showSwitchButton) {
+            // Show both Exit and Switch buttons
+            val firstButtonY = height / 4
+            val secondButtonY = firstButtonY + buttonHeight + marginBetween
+
+            // Exit button (top)
+            val exitButtonRect = Rect(buttonX, firstButtonY, buttonX + buttonWidth, firstButtonY + buttonHeight)
+            
+            // Switch side button (bottom)
+            val switchButtonRect = Rect(buttonX, secondButtonY, buttonX + buttonWidth, secondButtonY + buttonHeight)
+
+            // Update global button rects for touch handling (use the first set for touch detection)
+            if (startX == 0 || mOneHandedModeSide != ONE_HANDED_MODE_MIDDLE) {
+                mExitButtonRect.set(exitButtonRect)
+                mSwitchSideButtonRect.set(switchButtonRect)
+            }
+
+            drawButton(canvas, exitButtonRect, true) // true = exit button
+            drawButton(canvas, switchButtonRect, false) // false = switch button
+        } else {
+            // Show only Exit button in the center
+            val buttonY = height / 3
+            val exitButtonRect = Rect(buttonX, buttonY, buttonX + buttonWidth, buttonY + buttonHeight)
+            
+            // Update global button rects for touch handling
+            if (startX == 0 || mOneHandedModeSide != ONE_HANDED_MODE_MIDDLE) {
+                mExitButtonRect.set(exitButtonRect)
+                mSwitchSideButtonRect.set(0, 0, 0, 0) // Clear switch button rect
+            }
+
+            drawButton(canvas, exitButtonRect, true) // true = exit button
+        }
+    }
+
+    private fun drawButton(canvas: Canvas, buttonRect: Rect, isExitButton: Boolean) {
+        // Draw button backgrounds
+        val paint = Paint().apply {
+            color = mKeyColor
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+
+        // Draw button background
+        canvas.drawRoundRect(
+            buttonRect.left.toFloat(),
+            buttonRect.top.toFloat(),
+            buttonRect.right.toFloat(),
+            buttonRect.bottom.toFloat(),
+            8f, 8f, paint
+        )
+        
+        // Draw icon
+        val iconRes = if (isExitButton) {
+            R.drawable.ic_close_vector 
+        } else {
+            // Show arrow indicating which direction it will switch to
+            when (mOneHandedModeSide) {
+                ONE_HANDED_MODE_LEFT -> R.drawable.ic_arrow_forward_vector // Left -> Right
+                ONE_HANDED_MODE_RIGHT -> R.drawable.ic_arrow_back_vector // Right -> Left
+                else -> R.drawable.ic_switch_vector
+            }
+        }
+        val icon = resources.getDrawable(iconRes, context.theme)
+        icon.setTint(mTextColor)
+        
+        val iconSize = (buttonRect.height() * 0.5f).toInt()
+        val iconLeft = buttonRect.centerX() - iconSize / 2
+        val iconTop = buttonRect.centerY() - iconSize / 2
+        val iconRight = iconLeft + iconSize
+        val iconBottom = iconTop + iconSize
+        
+        icon.setBounds(iconLeft, iconTop, iconRight, iconBottom)
+        icon.draw(canvas)
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -1284,6 +1470,31 @@ class MyKeyboardView @JvmOverloads constructor(
             touchY += mVerticalCorrection
         }
 
+        // Handle one-handed mode button clicks before coordinate adjustment
+        if (mOneHandedModeEnabled && me.action == MotionEvent.ACTION_DOWN) {
+            val originalTouchX = me.x.toInt()
+            val originalTouchY = me.y.toInt()
+            
+            if (handleOneHandedModeButtonTouch(originalTouchX, originalTouchY)) {
+                return true
+            }
+        }
+
+        // Adjust touch coordinates for one-handed mode
+        if (mOneHandedModeEnabled) {
+            val offsetX = getOneHandedModeOffsetX()
+            touchX -= offsetX
+            
+            // Scale touch coordinates to match keyboard scaling
+            val scaleX = mBuffer!!.width.toFloat() / mOneHandedModeKeyboardWidth
+            touchX = (touchX * scaleX).toInt()
+            
+            // Ignore touches outside the scaled keyboard area
+            if (touchX < 0 || touchX > mBuffer!!.width) {
+                return true
+            }
+        }
+
         val action = me.actionMasked
         val eventTime = me.eventTime
         val keyIndex = getPressedKeyIndex(touchX, touchY)
@@ -1480,6 +1691,94 @@ class MyKeyboardView @JvmOverloads constructor(
         mLastX = touchX
         mLastY = touchY
         return true
+    }
+
+    private fun handleOneHandedModeButtonTouch(touchX: Int, touchY: Int): Boolean {
+        val emptySpaceWidth = width - mOneHandedModeKeyboardWidth
+        if (emptySpaceWidth <= 0) return false
+
+        when (mOneHandedModeSide) {
+            ONE_HANDED_MODE_LEFT -> {
+                // Check buttons on the right side
+                return checkButtonsOnSide(touchX, touchY, mOneHandedModeKeyboardWidth, emptySpaceWidth)
+            }
+            ONE_HANDED_MODE_RIGHT -> {
+                // Check buttons on the left side
+                return checkButtonsOnSide(touchX, touchY, 0, emptySpaceWidth)
+            }
+            ONE_HANDED_MODE_MIDDLE -> {
+                // Check buttons on both sides
+                val sideWidth = emptySpaceWidth / 2
+                return checkButtonsOnSide(touchX, touchY, 0, sideWidth) || 
+                       checkButtonsOnSide(touchX, touchY, width - sideWidth, sideWidth)
+            }
+        }
+        return false
+    }
+
+    private fun checkButtonsOnSide(touchX: Int, touchY: Int, startX: Int, availableWidth: Int): Boolean {
+        val buttonWidth = (availableWidth * 0.6f).toInt()
+        val buttonHeight = (resources.getDimension(R.dimen.key_height) * 0.8f).toInt()
+        val marginBetween = (availableWidth * 0.1f).toInt()
+        
+        val buttonX = startX + (availableWidth - buttonWidth) / 2
+        
+        if (mOneHandedModeSide == ONE_HANDED_MODE_MIDDLE) {
+            // Only exit button in the center
+            val buttonY = height / 3
+            val exitButtonRect = Rect(buttonX, buttonY, buttonX + buttonWidth, buttonY + buttonHeight)
+
+            if (exitButtonRect.contains(touchX, touchY)) {
+                handleExitOneHandedMode()
+                return true
+            }
+        } else {
+            // Both exit and switch buttons
+            val firstButtonY = height / 4
+            val secondButtonY = firstButtonY + buttonHeight + marginBetween
+
+            val exitButtonRect = Rect(buttonX, firstButtonY, buttonX + buttonWidth, firstButtonY + buttonHeight)
+            val switchButtonRect = Rect(buttonX, secondButtonY, buttonX + buttonWidth, secondButtonY + buttonHeight)
+
+            if (exitButtonRect.contains(touchX, touchY)) {
+                handleExitOneHandedMode()
+                return true
+            }
+            
+            if (switchButtonRect.contains(touchX, touchY)) {
+                handleSwitchOneHandedMode()
+                return true
+            }
+        }
+        
+        return false
+    }
+
+    private fun handleExitOneHandedMode() {
+        vibrateIfNeeded()
+        with(safeStorageContext) {
+            config.oneHandedModeEnabled = false
+        }
+        mOneHandedModeEnabled = false
+        setupKeyboard()
+        requestLayout()
+        invalidate()
+    }
+
+    private fun handleSwitchOneHandedMode() {
+        vibrateIfNeeded()
+        with(safeStorageContext) {
+            // Only switch between LEFT and RIGHT modes
+            config.oneHandedModeSide = if (config.oneHandedModeSide == ONE_HANDED_MODE_LEFT) {
+                ONE_HANDED_MODE_RIGHT
+            } else {
+                ONE_HANDED_MODE_LEFT
+            }
+        }
+        mOneHandedModeSide = safeStorageContext.config.oneHandedModeSide
+        setupKeyboard()
+        requestLayout()
+        invalidate()
     }
 
     private fun repeatKey(initialCall: Boolean): Boolean {

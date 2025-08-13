@@ -46,4 +46,11 @@
     <string name="recently_used">Son kullanılan</string>
     <string name="animals_and_nature">Hayvanlar ve doğa</string>
     <string name="food_and_drink">Yiyecek ve içecek</string>
+    <string name="one_handed_mode">Tek elle kullanım modu</string>
+    <string name="one_handed_mode_side">Tek elle kullanım yönü</string>
+    <string name="one_handed_mode_left">Sol</string>
+    <string name="one_handed_mode_right">Sağ</string>
+    <string name="one_handed_mode_middle">Orta</string>
+    <string name="exit_one_handed_mode">Çıkış</string>
+    <string name="switch_one_handed_side">Değiştir</string>
 </resources>

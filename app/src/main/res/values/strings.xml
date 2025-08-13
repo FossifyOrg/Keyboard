@@ -36,6 +36,13 @@
     <string name="show_key_borders">Show key borders</string>
     <string name="show_numbers_row">Show numbers on a separate row</string>
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
+    <string name="one_handed_mode">One-handed mode</string>
+    <string name="one_handed_mode_side">One-handed mode side</string>
+    <string name="one_handed_mode_left">Left</string>
+    <string name="one_handed_mode_right">Right</string>
+    <string name="one_handed_mode_middle">Middle</string>
+    <string name="exit_one_handed_mode">Exit</string>
+    <string name="switch_one_handed_side">Switch</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
     <string name="recently_used">Recently used</string>
