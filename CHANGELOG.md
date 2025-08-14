@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Italian layout ([#78])
+- Haptic feedback on supported devices when using spacebar to move the cursor ([#222])
 
 ## [1.3.0] - 2025-07-27
 ### Added
@@ -66,6 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
 [#157]: https://github.com/FossifyOrg/Keyboard/issues/157
 [#202]: https://github.com/FossifyOrg/Keyboard/issues/202
+[#222]: https://github.com/FossifyOrg/Keyboard/issues/222
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...HEAD
 [1.3.0]: https://github.com/FossifyOrg/Keyboard/compare/1.2.2...1.3.0
