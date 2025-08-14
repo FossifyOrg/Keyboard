@@ -417,15 +417,20 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     private fun moveCursor(moveRight: Boolean) {
-        val extractedText = currentInputConnection?.getExtractedText(ExtractedTextRequest(), 0) ?: return
-        var newCursorPosition = extractedText.selectionStart
-        newCursorPosition = if (moveRight) {
-            newCursorPosition + 1
+        val inputConnection = currentInputConnection
+        val extractedText = inputConnection.getExtractedText(ExtractedTextRequest(), 0) ?: return
+        val text = extractedText.text ?: return
+        val oldPos = extractedText.selectionStart
+        val newPos = if (moveRight) {
+            oldPos + 1
         } else {
-            newCursorPosition - 1
-        }
+            oldPos - 1
+        }.coerceIn(0, text.length)
 
-        currentInputConnection?.setSelection(newCursorPosition, newCursorPosition)
+        if (newPos != oldPos) {
+            inputConnection?.setSelection(newPos, newPos)
+            keyboardView?.performHapticHandleMove()
+        }
     }
 
     private fun getImeOptionsActionId(): Int {

@@ -14,6 +14,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.os.SystemClock
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.*
@@ -33,6 +34,7 @@ import androidx.emoji2.text.EmojiCompat.EMOJI_SUPPORTED
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.isOreoMr1Plus
 import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.activities.ManageClipboardItemsActivity
@@ -143,6 +145,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mTopSmallNumberMarginHeight = 0f
     private val mSpaceMoveThreshold: Int
     private var ignoreTouches = false
+    private var lastHandleMoveAt = 0L
 
     private var mKeyBackground: Drawable? = null
     private var mShowKeyBorders: Boolean = false
@@ -185,6 +188,7 @@ class MyKeyboardView @JvmOverloads constructor(
         private const val REPEAT_INTERVAL = 50 // ~20 keys per second
         private const val REPEAT_START_DELAY = 400
         private val LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout()
+        private const val HANDLE_MOVE_MIN_MS = 30L
     }
 
     init {
@@ -488,6 +492,20 @@ class MyKeyboardView @JvmOverloads constructor(
     fun vibrateIfNeeded() {
         if (context.config.vibrateOnKeypress) {
             performHapticFeedback()
+        }
+    }
+
+    fun performHapticHandleMove() {
+        if (!context.config.vibrateOnKeypress) return
+        val now = SystemClock.uptimeMillis()
+        if (now - lastHandleMoveAt < HANDLE_MOVE_MIN_MS) return
+        lastHandleMoveAt = now
+        if (isOreoMr1Plus()) {
+            @Suppress("DEPRECATION")
+            performHapticFeedback(
+                HapticFeedbackConstants.TEXT_HANDLE_MOVE,
+                HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
+            )
         }
     }
 
