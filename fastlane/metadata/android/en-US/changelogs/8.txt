@@ -1,0 +1,10 @@
+Added:
+
+• Italian layout 
+• Czech QWERTZ layout 
+• Haptic feedback on supported devices when using spacebar to move the cursor 
+
+Changed:
+
+• Updated translations
+
