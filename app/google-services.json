@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "925879291056",
+    "project_id": "sample-firebase-ai-app-b072d",
+    "storage_bucket": "sample-firebase-ai-app-b072d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925879291056:android:bc79de74ff54ad35fbbf75",
+        "android_client_info": {
+          "package_name": "org.fossify.keyboard.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm0EduTcrSzXW0ZizjLuXCG2IMAQIvo-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

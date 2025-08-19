@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.google.services)
 }
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
@@ -146,4 +147,8 @@ dependencies {
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
     detektPlugins(libs.compose.detekt)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.ai)
+
 }
