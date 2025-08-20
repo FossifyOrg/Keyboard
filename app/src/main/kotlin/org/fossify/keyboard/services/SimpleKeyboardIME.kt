@@ -252,6 +252,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 keyboardView?.openEmojiPalette()
             }
 
+            MyKeyboard.KEYCODE_AI_OPERATIONS -> {
+                keyboardView?.openAiOperationsPalette()
+            }
+
             else -> {
                 var codeChar = code.toChar()
                 val originalText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text

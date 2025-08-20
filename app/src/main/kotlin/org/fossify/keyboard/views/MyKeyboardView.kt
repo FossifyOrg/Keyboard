@@ -152,6 +152,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mToolbarHolder: View? = null
     private var mClipboardManagerHolder: View? = null
     private var mEmojiPaletteHolder: View? = null
+    private var mAiOperationsHolder: View? = null
     private var emojiCompatMetadataVersion = 0
 
     // For multi-tap
@@ -266,6 +267,7 @@ class MyKeyboardView @JvmOverloads constructor(
         super.onVisibilityChanged(changedView, visibility)
         closeClipboardManager()
         closeEmojiPalette()
+        closeAiOperationsPalette()
 
         if (visibility == VISIBLE) {
             setupKeyboard(changedView)
@@ -282,6 +284,7 @@ class MyKeyboardView @JvmOverloads constructor(
         }
 
         closeClipboardManager()
+        closeAiOperationsPalette()
         removeMessages()
         mKeyboard = keyboard
         val keys = mKeyboard!!.mKeys
@@ -308,6 +311,7 @@ class MyKeyboardView @JvmOverloads constructor(
             mToolbarHolder = toolbarHolder
             mClipboardManagerHolder = clipboardManagerHolder
             mEmojiPaletteHolder = emojiPaletteHolder
+            mAiOperationsHolder = aiOperationsHolder
 
             voiceInputButton.setOnLongClickListener { context.toast(R.string.switch_to_voice_typing); true }
             voiceInputButton.setOnClickListener {
@@ -388,6 +392,25 @@ class MyKeyboardView @JvmOverloads constructor(
             emojiPaletteClose.setOnClickListener {
                 vibrateIfNeeded()
                 closeEmojiPalette()
+            }
+
+            aiOperationsClose.setOnClickListener {
+                vibrateIfNeeded()
+                closeAiOperationsPalette()
+            }
+
+            wordTone.setOnClickListener {
+                vibrateIfNeeded()
+                toneOptionsHolder.beVisible()
+                fixGrammarText.beGone()
+            }
+
+            fixGrammar.setOnClickListener {
+                vibrateIfNeeded()
+                toneOptionsHolder.beGone()
+                fixGrammarText.beVisible()
+                val inputConnection = mOnKeyboardActionListener as? BaseInputConnection
+                fixGrammarText.text = inputConnection?.getSelectedText(0) ?: ""
             }
         }
     }
@@ -1629,6 +1652,20 @@ class MyKeyboardView @JvmOverloads constructor(
         keyboardViewBinding?.apply {
             emojiPaletteHolder.beGone()
             emojisList.scrollToPosition(0)
+            suggestionsHolder.beVisible()
+        }
+    }
+
+    fun openAiOperationsPalette() {
+        keyboardViewBinding!!.aiOperationsHolder.beVisible()
+        keyboardViewBinding!!.suggestionsHolder.beGone()
+    }
+
+    private fun closeAiOperationsPalette() {
+        keyboardViewBinding?.apply {
+            aiOperationsHolder.beGone()
+            toneOptionsHolder.beGone()
+            fixGrammarText.beGone()
             suggestionsHolder.beVisible()
         }
     }

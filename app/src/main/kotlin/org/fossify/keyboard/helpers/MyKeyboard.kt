@@ -67,6 +67,7 @@ class MyKeyboard {
         const val KEYCODE_DELETE = -5
         const val KEYCODE_SPACE = 32
         const val KEYCODE_EMOJI = -6
+        const val KEYCODE_AI_OPERATIONS = -7
 
         fun getDimensionOrFraction(a: TypedArray, index: Int, base: Int, defValue: Int): Int {
             val value = a.peekValue(index) ?: return defValue

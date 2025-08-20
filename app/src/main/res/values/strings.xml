@@ -51,6 +51,15 @@
     <!-- Voice Input -->
     <string name="voice_typing_method">Voice typing method</string>
     <string name="switch_to_voice_typing">Switch to voice typing</string>
+
+    <!-- AI Operations -->
+    <string name="ai_operations">AI Operations</string>
+    <string name="word_tone">Word Tone</string>
+    <string name="fix_grammar">Fix Grammar</string>
+    <string name="rewrite">Rewrite</string>
+    <string name="professional">Professional</string>
+    <string name="casual">Casual</string>
+    <string name="romantic">Romantic</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res

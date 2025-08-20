@@ -120,6 +120,136 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    <RelativeLayout
+        android:id="@+id/ai_operations_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_holder">
+
+        <RelativeLayout
+            android:id="@+id/ai_operations_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ai_operations_close"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/emojis"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_arrow_left_vector" />
+
+            <TextView
+                android:id="@+id/ai_operations_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_toEndOf="@+id/ai_operations_close"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/ai_operations"
+                android:textSize="@dimen/big_text_size" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ai_operations_options_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ai_operations_top_bar"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/word_tone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/medium_margin"
+                android:drawableTop="@drawable/ic_emoji_emotions_outline_vector"
+                android:gravity="center"
+                android:text="@string/word_tone" />
+
+            <TextView
+                android:id="@+id/fix_grammar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/medium_margin"
+                android:drawableTop="@drawable/ic_translate_vector"
+                android:gravity="center"
+                android:text="@string/fix_grammar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tone_options_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ai_operations_options_holder"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/rewrite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/clipboard_background"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/rewrite" />
+
+            <TextView
+                android:id="@+id/professional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/clipboard_background"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/professional" />
+
+            <TextView
+                android:id="@+id/casual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/clipboard_background"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/casual" />
+
+            <TextView
+                android:id="@+id/romantic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/clipboard_background"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/romantic" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fix_grammar_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ai_operations_options_holder"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/clipboard_background"
+            android:gravity="center"
+            android:padding="@dimen/medium_margin"
+            android:visibility="gone"
+            tools:text="This is some text with a grammar mistake." />
+
+    </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <org.fossify.keyboard.views.MyKeyboardView
