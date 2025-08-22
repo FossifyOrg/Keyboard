@@ -5,10 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.4.0] - 2025-08-22
 ### Added
 - Italian layout ([#78])
 - Czech QWERTZ layout ([#230])
 - Haptic feedback on supported devices when using spacebar to move the cursor ([#222])
+
+### Changed
+- Updated translations
 
 ## [1.3.0] - 2025-07-27
 ### Added
@@ -71,7 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#222]: https://github.com/FossifyOrg/Keyboard/issues/222
 [#230]: https://github.com/FossifyOrg/Keyboard/issues/230
 
-[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.4.0...HEAD
+[1.4.0]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/FossifyOrg/Keyboard/compare/1.2.2...1.3.0
 [1.2.2]: https://github.com/FossifyOrg/Keyboard/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/FossifyOrg/Keyboard/compare/1.2.0...1.2.1
