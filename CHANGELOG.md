@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Improved French AZERTY layout ([#134])
+- Updated French AZERTY layout ([#134])
+- Updated Spanish layout ([#206])
 
 ### Added
 - German QWERTZ layout without dedicated umlaut keys ([#47])
