@@ -7,17 +7,30 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.Paint.Align
-import android.graphics.drawable.*
+import android.graphics.PorterDuff
+import android.graphics.Rect
+import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import android.os.SystemClock
 import android.util.AttributeSet
 import android.util.TypedValue
-import android.view.*
+import android.view.Gravity
+import android.view.HapticFeedbackConstants
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewConfiguration
 import android.view.animation.AccelerateInterpolator
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
@@ -28,11 +41,29 @@ import android.widget.inline.InlineContentView
 import androidx.annotation.RequiresApi
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
-import androidx.core.view.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.children
+import androidx.core.view.updateMarginsRelative
 import androidx.emoji2.text.EmojiCompat
 import androidx.emoji2.text.EmojiCompat.EMOJI_SUPPORTED
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.adjustAlpha
+import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.beGone
+import org.fossify.commons.extensions.beGoneIf
+import org.fossify.commons.extensions.beInvisibleIf
+import org.fossify.commons.extensions.beVisible
+import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.darkenColor
+import org.fossify.commons.extensions.getContrastColor
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.extensions.isDynamicTheme
+import org.fossify.commons.extensions.lightenColor
+import org.fossify.commons.extensions.performHapticFeedback
+import org.fossify.commons.extensions.removeUnderlines
+import org.fossify.commons.extensions.toast
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isOreoMr1Plus
 import org.fossify.commons.helpers.isPiePlus
@@ -46,8 +77,23 @@ import org.fossify.keyboard.databinding.KeyboardKeyPreviewBinding
 import org.fossify.keyboard.databinding.KeyboardPopupKeyboardBinding
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.dialogs.SwitchLanguageDialog
-import org.fossify.keyboard.extensions.*
-import org.fossify.keyboard.helpers.*
+import org.fossify.keyboard.extensions.clipsDB
+import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.getCurrentClip
+import org.fossify.keyboard.extensions.getCurrentVoiceInputMethod
+import org.fossify.keyboard.extensions.getKeyboardBackgroundColor
+import org.fossify.keyboard.extensions.getStrokeColor
+import org.fossify.keyboard.extensions.isDeviceLocked
+import org.fossify.keyboard.extensions.onScroll
+import org.fossify.keyboard.extensions.safeStorageContext
+import org.fossify.keyboard.helpers.AccessHelper
+import org.fossify.keyboard.helpers.EMOJI_SPEC_FILE_PATH
+import org.fossify.keyboard.helpers.EmojiData
+import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
+import org.fossify.keyboard.helpers.LANGUAGE_VIETNAMESE_TELEX
+import org.fossify.keyboard.helpers.LANGUAGE_VN_TELEX
+import org.fossify.keyboard.helpers.MAX_KEYS_PER_MINI_ROW
+import org.fossify.keyboard.helpers.MyKeyboard
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
@@ -55,12 +101,19 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SYMBOLS_MODE_CHANGE
+import org.fossify.keyboard.helpers.RECENTLY_USED_EMOJIS
+import org.fossify.keyboard.helpers.ShiftState
+import org.fossify.keyboard.helpers.cachedVNTelexData
+import org.fossify.keyboard.helpers.getCategoryIconRes
+import org.fossify.keyboard.helpers.parseRawEmojiSpecsFile
+import org.fossify.keyboard.helpers.parseRawJsonSpecsFile
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
 import org.fossify.keyboard.models.ClipsSectionLabel
 import org.fossify.keyboard.models.ListItem
-import java.util.*
+import java.util.Arrays
+import java.util.Locale
 
 @SuppressLint("UseCompatLoadingForDrawables", "ClickableViewAccessibility")
 class MyKeyboardView @JvmOverloads constructor(
@@ -145,7 +198,6 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mTopSmallNumberMarginHeight = 0f
     private val mSpaceMoveThreshold: Int
     private var ignoreTouches = false
-    private var lastHandleMoveAt = 0L
 
     private var mKeyBackground: Drawable? = null
     private var mShowKeyBorders: Boolean = false
@@ -188,7 +240,6 @@ class MyKeyboardView @JvmOverloads constructor(
         private const val REPEAT_INTERVAL = 50 // ~20 keys per second
         private const val REPEAT_START_DELAY = 400
         private val LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout()
-        private const val HANDLE_MOVE_MIN_MS = 35L
     }
 
     init {
@@ -497,9 +548,6 @@ class MyKeyboardView @JvmOverloads constructor(
 
     fun performHapticHandleMove() {
         if (!context.config.vibrateOnKeypress) return
-        val now = SystemClock.uptimeMillis()
-        if (now - lastHandleMoveAt < HANDLE_MOVE_MIN_MS) return
-        lastHandleMoveAt = now
         if (isOreoMr1Plus()) {
             @Suppress("DEPRECATION")
             performHapticFeedback(
