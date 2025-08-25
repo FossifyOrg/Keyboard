@@ -1,0 +1,10 @@
+Added:
+
+• German QWERTZ layout without dedicated umlaut keys 
+
+Changed:
+
+• Updated French AZERTY layout 
+• Updated Spanish layout 
+• Updated translations
+
