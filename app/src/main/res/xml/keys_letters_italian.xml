@@ -117,7 +117,7 @@
         <Key app:keyLabel="x" />
         <Key
             app:keyLabel="c"
-            app:popupCharacters=""
+            app:popupCharacters="ç"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="v" />
         <Key app:keyLabel="b" />
