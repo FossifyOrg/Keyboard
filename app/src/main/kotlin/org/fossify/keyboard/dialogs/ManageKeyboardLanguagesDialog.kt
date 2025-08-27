@@ -7,6 +7,7 @@ import org.fossify.keyboard.R
 import org.fossify.keyboard.adapters.ManageKeyboardLanguagesAdapter
 import org.fossify.keyboard.databinding.DialogManageKeyboardLanguagesBinding
 import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.helpers.SUPPORTED_LANGUAGES
 
 class ManageKeyboardLanguagesDialog(
@@ -15,7 +16,11 @@ class ManageKeyboardLanguagesDialog(
 ) {
     init {
         val binding = DialogManageKeyboardLanguagesBinding.inflate(activity.layoutInflater)
-        val adapter = ManageKeyboardLanguagesAdapter(activity.config, SUPPORTED_LANGUAGES)
+        val languageItems = SUPPORTED_LANGUAGES.map {
+            it to activity.getKeyboardLanguageText(it)
+        }.sortedBy { it.second }
+
+        val adapter = ManageKeyboardLanguagesAdapter(activity.config, languageItems)
         binding.keyboardLanguageList.adapter = adapter
 
         activity.getAlertDialogBuilder()
