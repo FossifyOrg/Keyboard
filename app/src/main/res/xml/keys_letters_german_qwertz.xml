@@ -68,7 +68,7 @@
             app:topSmallNumber="6" />
         <Key
             app:keyLabel="u"
-            app:popupCharacters="űúùü7ûū"
+            app:popupCharacters="űú7üùûū"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="7" />
         <Key
@@ -78,7 +78,7 @@
             app:topSmallNumber="8" />
         <Key
             app:keyLabel="o"
-            app:popupCharacters="őóôòõōö9"
+            app:popupCharacters="őóôòõ9öō"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
