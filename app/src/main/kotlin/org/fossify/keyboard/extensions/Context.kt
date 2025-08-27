@@ -270,6 +270,8 @@ fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
     }
 
     return selectedLanguagesRadioItems
+        .sortedBy { it.title }
+        .toMutableList() as ArrayList<RadioItem>
 }
 
 fun Context.getKeyboardLanguageText(language: Int): String {
