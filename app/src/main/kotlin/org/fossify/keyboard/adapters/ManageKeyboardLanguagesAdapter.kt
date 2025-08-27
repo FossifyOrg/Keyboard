@@ -28,7 +28,7 @@ internal class ManageKeyboardLanguagesAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = languagesList[position]
         holder.languageCheckboxItem.apply {
-            text = config.context.getKeyboardLanguageText(item)
+            text = context.getKeyboardLanguageText(item)
             isChecked = selectedLanguages.contains(item)
 
             setOnClickListener {
@@ -47,7 +47,7 @@ internal class ManageKeyboardLanguagesAdapter(
 
     fun getSelectedLanguages(): MutableSet<Int> {
         val defaultLang = config.getDefaultLanguage()
-        if (selectedLanguages.size == 0) {
+        if (selectedLanguages.isEmpty()) {
             selectedLanguages.add(defaultLang)
         }
         return selectedLanguages
