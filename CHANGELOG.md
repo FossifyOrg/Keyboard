@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated French AZERTY layout ([#134])
 - Updated Spanish layout ([#206])
+- Updated Italian layout ([#251])
 
 ### Fixed
 - Keyboard language management dialog now respects `Use English language` preference ([#238])
@@ -89,6 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#230]: https://github.com/FossifyOrg/Keyboard/issues/230
 [#238]: https://github.com/FossifyOrg/Keyboard/issues/238
 [#239]: https://github.com/FossifyOrg/Keyboard/issues/239
+[#251]: https://github.com/FossifyOrg/Keyboard/issues/251
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.4.0...HEAD
 [1.4.0]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...1.4.0
