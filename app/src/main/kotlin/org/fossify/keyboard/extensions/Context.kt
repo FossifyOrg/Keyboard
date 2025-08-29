@@ -48,6 +48,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_CHUVASH
 import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTY
 import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_DANISH
+import org.fossify.keyboard.helpers.LANGUAGE_DUTCH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
@@ -287,6 +288,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_CZECH_QWERTY -> "${getString(R.string.translation_czech)} (QWERTY)"
         LANGUAGE_CZECH_QWERTZ -> "${getString(R.string.translation_czech)} (QWERTZ)"
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
+        LANGUAGE_DUTCH -> getString(R.string.translation_dutch)
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
         LANGUAGE_ESPERANTO -> getString(R.string.translation_esperanto)
