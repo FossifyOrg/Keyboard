@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - German QWERTZ layout without dedicated umlaut keys ([#47])
+- Portuguese layout ([#133])
 
 ### Changed
 - Updated French AZERTY layout ([#134])
@@ -83,6 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
+[#133]: https://github.com/FossifyOrg/Keyboard/issues/133
 [#134]: https://github.com/FossifyOrg/Keyboard/issues/134
 [#157]: https://github.com/FossifyOrg/Keyboard/issues/157
 [#202]: https://github.com/FossifyOrg/Keyboard/issues/202
