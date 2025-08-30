@@ -64,6 +64,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_LITHUANIAN
 import org.fossify.keyboard.helpers.LANGUAGE_NORWEGIAN
 import org.fossify.keyboard.helpers.LANGUAGE_POLISH
 import org.fossify.keyboard.helpers.LANGUAGE_PORTUGUESE
+import org.fossify.keyboard.helpers.LANGUAGE_PORTUGUESE_HCESAR
 import org.fossify.keyboard.helpers.LANGUAGE_ROMANIAN
 import org.fossify.keyboard.helpers.LANGUAGE_RUSSIAN
 import org.fossify.keyboard.helpers.LANGUAGE_SLOVENIAN
@@ -304,6 +305,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_NORWEGIAN -> getString(R.string.translation_norwegian)
         LANGUAGE_POLISH -> getString(R.string.translation_polish)
         LANGUAGE_PORTUGUESE -> getString(R.string.translation_portuguese)
+        LANGUAGE_PORTUGUESE_HCESAR -> "${getString(R.string.translation_portuguese)} (HCESAR)"
         LANGUAGE_ROMANIAN -> getString(R.string.translation_romanian)
         LANGUAGE_RUSSIAN -> getString(R.string.translation_russian)
         LANGUAGE_SLOVENIAN -> getString(R.string.translation_slovenian)
