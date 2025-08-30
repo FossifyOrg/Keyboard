@@ -92,7 +92,7 @@
         <Key
             app:keyEdgeFlags="left"
             app:keyLabel="a"
-            app:popupCharacters="âáãà"
+            app:popupCharacters="áâãà"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
              app:keyLabel="s" />
