@@ -60,6 +60,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_GREEK
 import org.fossify.keyboard.helpers.LANGUAGE_HEBREW
 import org.fossify.keyboard.helpers.LANGUAGE_ITALIAN
 import org.fossify.keyboard.helpers.LANGUAGE_KABYLE_AZERTY
+import org.fossify.keyboard.helpers.LANGUAGE_LATVIAN
 import org.fossify.keyboard.helpers.LANGUAGE_LITHUANIAN
 import org.fossify.keyboard.helpers.LANGUAGE_NORWEGIAN
 import org.fossify.keyboard.helpers.LANGUAGE_POLISH
@@ -301,6 +302,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_HEBREW -> getString(R.string.translation_hebrew)
         LANGUAGE_ITALIAN -> getString(R.string.translation_italian)
         LANGUAGE_KABYLE_AZERTY -> "${getString(R.string.translation_kabyle)} (AZERTY)"
+        LANGUAGE_LATVIAN -> getString(R.string.translation_latvian)
         LANGUAGE_LITHUANIAN -> getString(R.string.translation_lithuanian)
         LANGUAGE_NORWEGIAN -> getString(R.string.translation_norwegian)
         LANGUAGE_POLISH -> getString(R.string.translation_polish)
