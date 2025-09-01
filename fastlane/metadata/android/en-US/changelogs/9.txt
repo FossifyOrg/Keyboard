@@ -1,0 +1,20 @@
+Added:
+
+• German QWERTZ layout without dedicated umlaut keys 
+• Portuguese layout 
+• Portuguese HCESAR layout 
+• Dutch layout 
+• Latvian layout 
+
+Changed:
+
+• Updated French AZERTY layout 
+• Updated Spanish layout 
+• Updated Italian layout 
+• Updated translations
+
+Fixed:
+
+• Keyboard language management dialog now respects `Use English language` preference 
+• Fixed incorrect sorting in keyboard language selection dialog 
+
