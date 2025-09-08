@@ -12,7 +12,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var vibrateOnKeypress: Boolean
-        get() = prefs.getBoolean(VIBRATE_ON_KEYPRESS, true)
+        get() = prefs.getBoolean(VIBRATE_ON_KEYPRESS, false)
         set(vibrateOnKeypress) = prefs.edit().putBoolean(VIBRATE_ON_KEYPRESS, vibrateOnKeypress).apply()
 
     var showPopupOnKeypress: Boolean
