@@ -72,8 +72,8 @@
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="7" />
         <Key
-            app:keyLabel="iİ"
-            app:popupCharacters="ıî8"
+            app:keyLabel="i"
+            app:popupCharacters="İîı8"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="8" />
         <Key
