@@ -27,7 +27,7 @@
             app:keyLabel="٨"
             app:topSmallNumber="8" />
         <Key
-            app:keyLabel="9"
+            app:keyLabel="٩"
             app:topSmallNumber="9" />
         <Key
             app:keyEdgeFlags="right"

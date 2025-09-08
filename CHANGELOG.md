@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Keyboard language management dialog now respects `Use English language` preference ([#238])
 - Fixed incorrect sorting in keyboard language selection dialog ([#239])
+- Fixed Arabic numeral for number nine
 
 ## [1.4.0] - 2025-08-22
 ### Added
