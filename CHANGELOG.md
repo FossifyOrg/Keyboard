@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Portuguese HCESAR layout ([#256])
 - Dutch layout ([#136])
 - Latvian layout ([#259])
+- Turkish (QWERTY) layout ([#265])
 
 ### Changed
 - Updated French AZERTY layout ([#134])
@@ -100,6 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#251]: https://github.com/FossifyOrg/Keyboard/issues/251
 [#256]: https://github.com/FossifyOrg/Keyboard/issues/256
 [#259]: https://github.com/FossifyOrg/Keyboard/issues/259
+[#265]: https://github.com/FossifyOrg/Keyboard/issues/265
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.4.0...HEAD
 [1.4.0]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...1.4.0
