@@ -12,10 +12,8 @@
             app:keyLabel="3"
             app:keyWidth="25%p" />
         <Key
-            app:code="-5"
-            app:isRepeatable="true"
             app:keyEdgeFlags="right"
-            app:keyIcon="@drawable/ic_clear_vector"
+            app:keyLabel="-"
             app:keyWidth="25%p" />
     </Row>
     <Row>
@@ -30,8 +28,9 @@
             app:keyLabel="6"
             app:keyWidth="25%p" />
         <Key
+            app:code="32"
             app:keyEdgeFlags="right"
-            app:keyLabel="-"
+            app:keyLabel="␣"
             app:keyWidth="25%p" />
     </Row>
     <Row>
@@ -46,9 +45,10 @@
             app:keyLabel="9"
             app:keyWidth="25%p" />
         <Key
-            app:code="32"
+            app:code="-5"
+            app:isRepeatable="true"
             app:keyEdgeFlags="right"
-            app:keyLabel="␣"
+            app:keyIcon="@drawable/ic_clear_vector"
             app:keyWidth="25%p" />
     </Row>
     <Row>
