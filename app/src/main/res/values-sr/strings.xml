@@ -30,4 +30,6 @@
     <string name="show_key_borders">Прикажи ивице кључева</string>
     <string name="show_numbers_row">Прикажи бројеве у посебном реду</string>
     <string name="emojis">Емоји</string>
+    <string name="redirection_note">Молимо те, омогући Fossify Keyboard на следећем екрану да би постала доступна. Након омогућавања, притисните ‘Назад.</string>
+    <string name="manage_keyboard_languages">Управљај језицима тастатуре</string>
 </resources>
