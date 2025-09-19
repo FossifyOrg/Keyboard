@@ -29,4 +29,11 @@
     <string name="show_key_borders">Εμφάνιση ορίων πλήκτρου</string>
     <string name="show_numbers_row">Εμφάνιση αριθμών σε ξεχωριστή γραμμή</string>
     <string name="start_sentences_capitalized">Αρχίστε τις προτάσεις με κεφαλαίο γράμμα</string>
-    </resources>
+    <string name="manage_keyboard_languages">Διαχείριση γλωσσών πληκτρολογίου</string>
+    <string name="emojis">Εμότζι</string>
+    <string name="recently_used">Πρόσφατα χρησιμοποιημένο</string>
+    <string name="activities">Δραστηριότητες</string>
+    <string name="symbols">Σύμβολα</string>
+    <string name="voice_typing_method">Μέθοδος Φωνητικής Πληκτρολόγησης</string>
+    <string name="switch_to_voice_typing">Εναλλαγή σε φωνητική πληκτρολόγηση</string>
+</resources>
