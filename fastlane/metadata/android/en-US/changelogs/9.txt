@@ -17,7 +17,5 @@ Changed:
 
 Fixed:
 
-• Keyboard language management dialog now respects `Use English language` preference 
 • Fixed incorrect sorting in keyboard language selection dialog 
 • Fixed Arabic numeral for number nine
-
