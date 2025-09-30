@@ -2,9 +2,9 @@
 <resources>
     <string name="app_launcher_name">Tastatur</string>
     <string name="change_keyboard">Skift tastatur</string>
-    <string name="manage_clipboard_items">Administrér elementer i Udklipsholder</string>
+    <string name="manage_clipboard_items">Administrer elementer i udklipsholder</string>
     <string name="manage_clipboard_empty">Din udklipsholder er tom.</string>
-    <string name="manage_clipboard_label">Når du har kopieret noget tekst, vil det dukke op her. Du kan også fastgøre klip, så de ikke forsvinder senere.</string>
+    <string name="manage_clipboard_label">Når du kopierer tekst, vises det her. Du kan også fastgøre udklip, så de ikke forsvinder senere.</string>
     <string name="clear_clipboard_data">Ryd data i udklipsholder</string>
     <string name="clear_clipboard_data_confirmation">Er du sikker på, at du vil slette data i udklipsholderen\?</string>
     <string name="clipboard_current">Nuværende</string>
@@ -19,7 +19,7 @@
     <string name="show_popup">Vis en popup ved tastetryk</string>
     <string name="vibrate_on_keypress">Vibrér ved tastetryk</string>
     <string name="keyboard_language">Tastatursprog</string>
-    <string name="redirection_note">Aktivér Fossify Tastatur på den næste skærm for at gøre den til et tilgængeligt tastatur. Tryk på \'Tilbage\', når det er aktiveret.</string>
+    <string name="redirection_note">Aktivér Fossify Tastatur på næste skærm for at gøre den tilgængelig. Tryk på \'Tilbage\', når det er aktiveret.</string>
     <string name="clipboard">Udklipsholder</string>
     <string name="pin_text">Fastgør tekst</string>
     <string name="export_clipboard_items">Eksporter elementer fra udklipsholder</string>
