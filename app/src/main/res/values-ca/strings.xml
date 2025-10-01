@@ -24,7 +24,7 @@
     <string name="show_clipboard_content">Mostra el contingut del porta-retalls si està disponible</string>
     <string name="show_popup">Mostra una finestra emergent en prémer les tecles</string>
     <string name="vibrate_on_keypress">Vibra en prémer les tecles</string>
-    <string name="keyboard_language">Idioma del teclat</string>
+    <string name="keyboard_language">Llengua del teclat</string>
     <string name="keyboard_height">Alçada del teclat</string>
     <string name="show_key_borders">Mostra les vores de les tecles</string>
     <string name="show_numbers_row">Mostra els números en una fila separada</string>
