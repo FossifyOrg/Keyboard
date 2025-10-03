@@ -22,4 +22,14 @@
     <string name="keycode_delete">Ezabatu</string>
     <string name="keycode_mode_change">Aldatu teklatu mota</string>
     <string name="keycode_enter">Sartu</string>
+    <string name="keycode_space">Zuriune-barra</string>
+    <string name="show_clipboard_content">Erakutsi arbeleko edukia eskuragarria badago</string>
+    <string name="show_popup">Handitu teklak, sakatzean</string>
+    <string name="vibrate_on_keypress">Dar-dar egin, tekla sakatzean</string>
+    <string name="keyboard_language">Teklatuaren hizkuntza</string>
+    <string name="keyboard_height">Teklatuaren altuera</string>
+    <string name="show_key_borders">Erakutsi teklen ertzak</string>
+    <string name="show_numbers_row">Erakutsi zenbakiak aparteko errenkada batean</string>
+    <string name="start_sentences_capitalized">Hasi esaldiak maiuskulaz</string>
+    <string name="emojis">Emojiak</string>
 </resources>
