@@ -1,21 +1,21 @@
-Introducing Fossify Keyboard – your go-to solution for effortless and efficient typing. Experience a seamless typing experience designed to cater to all your needs, whether chatting with friends or inserting texts, numbers, or symbols.<br><br>
-<b>📶 OFFLINE FUNCTIONALITY:</b><br>
-Fossify Keyboard operates entirely offline without internet permission, allowing you to use it anytime, anywhere, without needing an internet connection. This also provides you with more privacy, security, and stability compared to other keyboards that connect to the internet.<br><br>
-<b>🌐 MULTIPLE LANGUAGES AND LAYOUTS:</b><br>
-Choose from a wide variety of languages and keyboard layouts. Fossify Keyboard supports multiple languages, making it easy for you to switch and type in your preferred language effortlessly.<br><br>
-<b>📋 HANDY CLIPBOARD:</b><br>
-Create clips and pin frequently used ones for easy access. This feature allows you to insert your most-used texts quickly, saving you time and effort.<br><br>
-<b>📳 CUSTOMIZABLE SETTINGS:</b><br>
-Tailor your typing experience by toggling vibrations, popups on key presses, and selecting your preferred language from the list of supported ones. Personalize your keyboard settings to suit your preferences.<br><br>
-<b>🌙 MATERIAL DESIGN AND DARK THEME:</b><br>
-Enjoy a sleek, modern design with a default dark theme. Fossify Keyboard offers a visually appealing and comfortable user experience, making typing a pleasure.<br><br>
-<b>🔒 PRIVACY AND SECURITY:</b><br>
-Your privacy is our top priority. Fossify Keyboard does not collect or share any user information with third parties. Experience peace of mind knowing your typing activity remains private and secure.<br><br>
-<b>🎨 CUSTOMIZABLE COLORS:</b><br>
-Personalize your keyboard with customizable colors. Fossify Keyboard allows you to choose and adjust colors to match your style and preferences.<br><br>
-<b>🌐 OPEN-SOURCE TRANSPARENCY:</b><br>
-Fossify Keyboard is fully open-source, providing you with transparency and security. You have access to the source code for audits, ensuring a trustworthy and reliable typing tool.<br><br>
-Experience typing like never before – efficient, personalized, and secure. Download Fossify Keyboard now and elevate your typing experience.<br><br>
+Представляем Клавиатуру Fossify – Ваше идеальное решение для для лёгкой и эффективной печати. Насладитесь безупречным набором текста, разработанным для покрытия всех Ваших нужд, будь то общение с друзьями, вставка текста, цифр, или символов.<br><br>
+<b>📶 РАБОТА ОФФЛАЙН:</b><br>
+Клавиатура Fossify работает полность оффлайн, без необходимости подключения к интернету, позволяя пользоваться ею где угодно, и когда угодно. Это также предоставляет большую приватность, безопасность и стабильность в сравнении с другими клавиатурами, требующими подключения к интернету.<br><br>
+<b>🌐 МНОЖЕСТВО ЯЗЫКОВ И РАСКЛАДОК:</b><br>
+Выбирайте из широкого разнообразия языков и раскладок клавиатуры. Клавиатура Fossify поддерживает множество языков, позволяя легко переключаться и печатать на нужном языке.<br><br>
+<b>📋 УДОБНЫЙ БУФЕР:</b><br>
+Создавайте закладки и закрепляйте часто используемые для быстрого доступа. Эта функция позволяет вставлять часто используемые тексты быстро, экономя время и силы.<br><br>
+<b>📳 НАСТРАИВАЕМОСТЬ:</b><br>
+Настройте клавиатуру под себя, переключая вибрацию, подсказки при нажатии клавиш, и выбрав предпочитаемый язык из поддерживаемых.<br><br>
+<b>🌙 ДИЗАЙН МАТЕРИАЛОВ И ТЁМНАЯ ТЕМА:</b><br>
+Наслаждайтесь элегантным современным дизайном со стандартной тёмной темой. Клавиатура Fossify отличается привлекательностью и комфортом, превращая обычный набор текста в удовольствие.<br><br>
+<b>🔒 КОНФИДЕНЦИАЛЬНОСТЬ И БЕЗОПАСНОСТЬ:</b><br>
+Ваша конфиденциальность – наш главный приоритет. Клавиатура Fossify не собирает и не передает никакие Ваши данные третьим лицам. Будьте спокойны, зная что ваша активность остаётся только при вас.<br><br>
+<b>🎨 ИЗМЕНЯЕМЫЕ ЦВЕТА:</b><br>
+Персонализируйте свою клавиатуру. Клавиатура Fossify позволяет выбрать и изменять цвета, чтобы они подходили вашему стилю и предпочтениям.<br><br>
+<b>🌐 ОТКРЫТЫЙ ИСХОДНЫЙ КОД:</b><br>
+Клавиатура Fossify имеет полностью открытый исходный код, обеспечивая прозрачность и безопасность. У Вас есть доступ к исходному коду для проведения аудита, что гарантирует надежность и безопасность инструмента.<br><br>
+Печатайте как никогда раньше – быстро, персонализированно и безопасно. Скачайте Клавиатуру Fossify прямо сейчас и поднимите свой уровень печати на новый уровень.<br><br>
 Ознакомьтесь с другими приложениями от Fossify: https://www.fossify.org
 Исходный код: https://www.github.com/FossifyOrg
 Присоединяйтесь к сообществу на Reddit: https://www.reddit.com/r/Fossify
