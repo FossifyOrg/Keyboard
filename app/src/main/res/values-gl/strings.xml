@@ -23,4 +23,27 @@
     <string name="show_numbers_row">Mostralos números nunha fila afastada</string>
     <string name="emojis">Emoticona</string>
     <string name="redirection_note">Por favor, active Fossify Keyboard na pantalla que segue para facelo dispoñible. Prema «Atrás» tras rematar.</string>
+    <string name="clipboard">Portapapeis</string>
+    <string name="clipboard_recent">Recentes</string>
+    <string name="manage_keyboard_languages">Xestionar os idiomas do teclado</string>
+    <string name="pin_text">Fixar o texto</string>
+    <string name="export_clipboard_items">Exportar os elementos do portapapeis</string>
+    <string name="import_clipboard_items">Importar os elementos do portapapeis</string>
+    <string name="keycode_delete">Eliminar</string>
+    <string name="keycode_shift">Maiús</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="keycode_space">Barra espaciadora</string>
+    <string name="start_sentences_capitalized">Iniciar as frases con maiúscula</string>
+    <string name="recently_used">Usado recentemente</string>
+    <string name="smileys_and_emotions">Sorrisos e emocións</string>
+    <string name="people_and_body">Xente e corpo</string>
+    <string name="animals_and_nature">Animais e natureza</string>
+    <string name="food_and_drink">Comida e bebida</string>
+    <string name="travel_and_places">Viaxes e lugares</string>
+    <string name="activities">Actividades</string>
+    <string name="objects">Obxectos</string>
+    <string name="symbols">Símbolos</string>
+    <string name="flags">Bandeiras</string>
+    <string name="voice_typing_method">Método de escritura por voz</string>
+    <string name="switch_to_voice_typing">Mudar á escritura por voz</string>
 </resources>
