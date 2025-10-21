@@ -36,16 +36,13 @@ class SettingsActivity : SimpleActivity() {
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.apply {
-            updateMaterialActivityViews(
-                mainCoordinatorLayout = settingsCoordinator,
-                nestedView = settingsHolder,
-                useTransparentNavigation = true,
-                useTopSearchMenu = false
+            updateEdgeToEdge(
+                topAppBar = settingsToolbar,
+                scrollingView = settingsNestedScrollview,
             )
             setupMaterialScrollListener(settingsNestedScrollview, settingsToolbar)
         }

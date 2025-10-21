@@ -25,7 +25,6 @@ class MainActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         appLaunched(BuildConfig.APPLICATION_ID)
@@ -33,11 +32,9 @@ class MainActivity : SimpleActivity() {
         refreshMenuItems()
 
         binding.apply {
-            updateMaterialActivityViews(
-                mainCoordinator,
-                mainHolder,
-                useTransparentNavigation = false,
-                useTopSearchMenu = false
+            updateEdgeToEdge(
+                topAppBar = mainToolbar,
+                scrollingView = mainNestedScrollview,
             )
             setupMaterialScrollListener(mainNestedScrollview, mainToolbar)
 

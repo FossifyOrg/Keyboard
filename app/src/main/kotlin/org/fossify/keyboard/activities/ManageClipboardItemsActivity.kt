@@ -33,7 +33,6 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
     private val binding by viewBinding(ActivityManageClipboardItemsBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
@@ -41,7 +40,7 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         updateClips()
 
         binding.apply {
-            updateMaterialActivityViews(clipboardCoordinator, clipboardItemsList, useTransparentNavigation = true, useTopSearchMenu = false)
+            updateEdgeToEdge(topAppBar = clipboardToolbar, scrollingView = clipboardItemsList)
             setupMaterialScrollListener(clipboardNestedScrollview, clipboardToolbar)
 
             clipboardItemsPlaceholder.text = "${getText(R.string.manage_clipboard_empty)}\n\n${getText(R.string.manage_clips)}"
