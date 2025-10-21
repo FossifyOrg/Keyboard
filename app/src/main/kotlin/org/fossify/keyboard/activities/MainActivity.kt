@@ -32,11 +32,8 @@ class MainActivity : SimpleActivity() {
         refreshMenuItems()
 
         binding.apply {
-            updateEdgeToEdge(
-                topAppBar = mainToolbar,
-                scrollingView = mainNestedScrollview,
-            )
-            setupMaterialScrollListener(mainNestedScrollview, mainToolbar)
+            setupEdgeToEdge(padBottomSystem = listOf(mainNestedScrollview))
+            setupMaterialScrollListener(binding.mainNestedScrollview, binding.mainAppbar)
 
             changeKeyboardHolder.setOnClickListener {
                 inputMethodManager.showInputMethodPicker()
@@ -46,7 +43,7 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupTopAppBar(binding.mainToolbar)
+        setupTopAppBar(binding.mainAppbar)
         if (!isKeyboardEnabled()) {
             ConfirmationAdvancedDialog(
                 activity = this,

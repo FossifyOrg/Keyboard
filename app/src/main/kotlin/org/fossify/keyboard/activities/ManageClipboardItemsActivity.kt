@@ -40,8 +40,8 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         updateClips()
 
         binding.apply {
-            updateEdgeToEdge(topAppBar = clipboardToolbar, scrollingView = clipboardItemsList)
-            setupMaterialScrollListener(clipboardNestedScrollview, clipboardToolbar)
+            setupEdgeToEdge(padBottomSystem = listOf(clipboardItemsList))
+            setupMaterialScrollListener(binding.clipboardItemsList, binding.clipboardAppbar)
 
             clipboardItemsPlaceholder.text = "${getText(R.string.manage_clipboard_empty)}\n\n${getText(R.string.manage_clips)}"
             clipboardItemsPlaceholder2.apply {
@@ -56,7 +56,7 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
 
     override fun onResume() {
         super.onResume()
-        setupTopAppBar(binding.clipboardToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.clipboardAppbar, NavigationIcon.Arrow)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

@@ -561,7 +561,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private fun updateBackgroundColors() {
         val backgroundColor = safeStorageContext.getKeyboardBackgroundColor()
         binding.keyboardHolder.setBackgroundColor(backgroundColor)
-        window.window?.updateNavigationBarColors(backgroundColor)
+        window.window?.setSystemBarsAppearance(backgroundColor)
     }
 
     private fun Bitmap.toIcon(): Icon {
