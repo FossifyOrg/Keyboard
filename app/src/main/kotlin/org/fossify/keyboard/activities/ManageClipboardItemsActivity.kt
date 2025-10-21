@@ -56,7 +56,7 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.clipboardToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.clipboardToolbar, NavigationIcon.Arrow)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

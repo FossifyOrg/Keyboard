@@ -46,7 +46,7 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.mainToolbar)
+        setupTopAppBar(binding.mainToolbar)
         if (!isKeyboardEnabled()) {
             ConfirmationAdvancedDialog(
                 activity = this,
