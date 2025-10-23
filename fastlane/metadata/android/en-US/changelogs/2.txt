@@ -1,0 +1,5 @@
+* Fixed keyboard crash on lock screen
+* Fixed sticky keys
+* Replaced checkboxes with switches
+* Removed support for Android 7 and below versions
+* Added more translations

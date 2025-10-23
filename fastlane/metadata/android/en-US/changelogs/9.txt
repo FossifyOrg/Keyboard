@@ -1,0 +1,21 @@
+Added:
+
+• German QWERTZ layout without dedicated umlaut keys 
+• Portuguese layout 
+• Portuguese HCESAR layout 
+• Dutch layout 
+• Latvian layout 
+• Turkish (QWERTY) layout 
+
+Changed:
+
+• Updated French AZERTY layout 
+• Updated Spanish layout 
+• Updated Italian layout 
+• Updated backspace button position in number layout for better accessibility 
+• Updated translations
+
+Fixed:
+
+• Fixed incorrect sorting in keyboard language selection dialog 
+• Fixed Arabic numeral for number nine

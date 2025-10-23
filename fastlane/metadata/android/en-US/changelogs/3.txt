@@ -1,0 +1,2 @@
+* Fixed keyboard crash on lock screen
+* Added more translations

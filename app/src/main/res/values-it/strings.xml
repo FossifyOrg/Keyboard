@@ -32,4 +32,18 @@
     <string name="redirection_note">Attiva Tastiera Fossify nella schermata successiva per renderla disponibile. Una volta abilitata, premi \"Indietro\".</string>
     <string name="clipboard">Appunti</string>
     <string name="clipboard_recent">Recente</string>
+    <string name="objects">Oggetti</string>
+    <string name="symbols">Simboli</string>
+    <string name="flags">Bandiere</string>
+    <string name="voice_typing_method">Metodo immissione voce</string>
+    <string name="switch_to_voice_typing">Cambia immissione voce</string>
+    <string name="manage_keyboard_languages">Gestisci lingue tastiera</string>
+    <string name="pin_text">Fissa testo</string>
+    <string name="recently_used">Usati di recente</string>
+    <string name="smileys_and_emotions">Faccine e emozioni</string>
+    <string name="people_and_body">Persone e corpo</string>
+    <string name="animals_and_nature">Animali e natura</string>
+    <string name="food_and_drink">Cibo e bevande</string>
+    <string name="travel_and_places">Viaggi e luoghi</string>
+    <string name="activities">Attività</string>
 </resources>

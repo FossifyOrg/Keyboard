@@ -11,7 +11,7 @@ interface ClipsDao {
     @Query("SELECT * FROM clips ORDER BY id")
     fun getClips(): List<Clip>
 
-    @Query("SELECT id FROM clips WHERE value = :value COLLATE NOCASE")
+    @Query("SELECT id FROM clips WHERE value = :value")
     fun getClipWithValue(value: String): Long?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

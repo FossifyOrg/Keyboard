@@ -2,9 +2,9 @@
 <resources>
     <string name="app_launcher_name">Tastatur</string>
     <string name="change_keyboard">Skift tastatur</string>
-    <string name="manage_clipboard_items">Administrér elementer i Udklipsholder</string>
+    <string name="manage_clipboard_items">Administrer elementer i udklipsholder</string>
     <string name="manage_clipboard_empty">Din udklipsholder er tom.</string>
-    <string name="manage_clipboard_label">Når du har kopieret noget tekst, vil det dukke op her. Du kan også fastgøre klip, så de ikke forsvinder senere.</string>
+    <string name="manage_clipboard_label">Når du kopierer tekst, vises det her. Du kan også fastgøre udklip, så de ikke forsvinder senere.</string>
     <string name="clear_clipboard_data">Ryd data i udklipsholder</string>
     <string name="clear_clipboard_data_confirmation">Er du sikker på, at du vil slette data i udklipsholderen\?</string>
     <string name="clipboard_current">Nuværende</string>
@@ -15,15 +15,15 @@
     <string name="text_pinned">Tekst er blevet fastgjort</string>
     <string name="keycode_delete">Slet</string>
     <string name="keycode_mode_change">Skift tastaturtype</string>
-    <string name="show_clipboard_content">Vis indhold i udklipsholder, hvis det er tilgængeligt</string>
+    <string name="show_clipboard_content">Vis indhold i udklipsholder, hvis tilgængeligt</string>
     <string name="show_popup">Vis en popup ved tastetryk</string>
     <string name="vibrate_on_keypress">Vibrér ved tastetryk</string>
     <string name="keyboard_language">Tastatursprog</string>
-    <string name="redirection_note">Aktivér Fossify Tastatur på den næste skærm for at gøre den til et tilgængeligt tastatur. Tryk på \'Tilbage\', når det er aktiveret.</string>
+    <string name="redirection_note">Aktivér Fossify Tastatur på næste skærm for at gøre den tilgængelig. Tryk på \'Tilbage\', når det er aktiveret.</string>
     <string name="clipboard">Udklipsholder</string>
     <string name="pin_text">Fastgør tekst</string>
-    <string name="export_clipboard_items">Eksporter elementer fra udklipsholder</string>
-    <string name="import_clipboard_items">Importer elementer fra udklipsholder</string>
+    <string name="export_clipboard_items">Eksportér elementer fra udklipsholder</string>
+    <string name="import_clipboard_items">Importér elementer fra udklipsholder</string>
     <string name="keyboard_height">Tastaturhøjde</string>
     <string name="show_key_borders">Vis tastegrænser</string>
     <string name="show_numbers_row">Vis tal i en separat række</string>
@@ -33,7 +33,17 @@
     <string name="keycode_space">Mellemrumstast</string>
     <string name="manage_keyboard_languages">Administrer tastatursprog</string>
     <string name="keycode_shift">Shift</string>
-    <string name="start_sentences_capitalized">Start sætninger med stort begyndelsesbogstav</string>
-    <string name="voice_typing_method">Metode til stemmetastning</string>
-    <string name="switch_to_voice_typing">Skift til stemmestyret tastning</string>
+    <string name="start_sentences_capitalized">Begynd sætninger med stort bogstav</string>
+    <string name="voice_typing_method">Taleindtastningsmetode</string>
+    <string name="switch_to_voice_typing">Skift til taleindtastning</string>
+    <string name="flags">Flag</string>
+    <string name="animals_and_nature">Dyr og natur</string>
+    <string name="people_and_body">Mennesker og krop</string>
+    <string name="recently_used">Senest brugt</string>
+    <string name="smileys_and_emotions">Smileys og følelser</string>
+    <string name="food_and_drink">Mad og drikke</string>
+    <string name="travel_and_places">Rejse og steder</string>
+    <string name="activities">Aktiviteter</string>
+    <string name="objects">Objekter</string>
+    <string name="symbols">Symboler</string>
 </resources>

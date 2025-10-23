@@ -33,4 +33,17 @@
     <string name="redirection_note">Mohon aktifkan Keyboard Fossify pada layar berikutnya, untuk memunculkannya pada daftar keyboard yang tersedia. Tekan \'Kembali\' setelah mengaktifkannya.</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
+    <string name="manage_keyboard_languages">Kelola bahasa papan ketik</string>
+    <string name="activities">Aktivitas</string>
+    <string name="recently_used">Terakhir digunakan</string>
+    <string name="smileys_and_emotions">Senyuman dan emosi</string>
+    <string name="animals_and_nature">Hewan dan alam</string>
+    <string name="food_and_drink">Makanan dan minuman</string>
+    <string name="travel_and_places">Perjalanan dan tempat</string>
+    <string name="objects">Objek</string>
+    <string name="symbols">Simbol</string>
+    <string name="flags">Bendera</string>
+    <string name="voice_typing_method">Metode pengetikan suara</string>
+    <string name="switch_to_voice_typing">Beralih ke pengetikan suara</string>
+    <string name="people_and_body">Orang dan tubuh</string>
 </resources>

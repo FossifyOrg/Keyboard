@@ -18,7 +18,7 @@ body:
           required: true
         - label: "I made sure that there are **no existing issues** - [open](https://github.com/FossifyOrg/Keyboard/issues) or [closed](https://github.com/FossifyOrg/Keyboard/issues?q=is%3Aissue+is%3Aclosed) - to which I could contribute my information."
           required: true
-        - label: "I made sure that there are **no existing discussions** - [open](https://github.com/FossifyOrg/Keyboard/discussions) or [closed](https://github.com/FossifyOrg/Keyboard/discussions?discussions_q=is%3Aclosed) - to which I could contribute my information."
+        - label: "I made sure that there are **no existing discussions** - [open](https://github.com/orgs/FossifyOrg/discussions?discussions_q=is:open+label:keyboard) or [closed](https://github.com/orgs/FossifyOrg/discussions?discussions_q=is:closed+label:keyboard) - to which I could contribute my information."
           required: true
         - label: "I have read the FAQs inside the app (Menu -> About -> FAQs) and my problem isn't listed."
           required: true
@@ -77,9 +77,6 @@ body:
         What did you do for the bug to show up?
 
         If you can't cause the bug to show up again reliably (and hence don't have a proper set of steps to give us), please still try to give as many details as possible on how you think you encountered the bug.
-
-        ⚠️ Please **DO NOT** add links to SimpleMobileTools issues as they can be deleted at any time. Instead, copy-paste any useful information or instructions manually.
-
       placeholder: |
         1. Go to '...'
         2. Click on '....'
@@ -112,7 +109,7 @@ body:
       description: |
         A picture or video is worth a thousand words.
 
-        If applicable, drag and drop screenshots or a screen recording to help explain your problem. If your file is too big for Github to accept, try to compress it (ZIP file), or feel free to paste a link to an image/video hoster here instead.
+        If applicable, drag and drop screenshots or a screen recording to help explain your problem. If your file is too big for Github to accept, try to compress it (ZIP file), or feel free to paste a link to an image/video instead.
 
   - type: textarea
     id: additional-information

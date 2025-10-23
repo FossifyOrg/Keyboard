@@ -14,11 +14,11 @@
     <string name="add_new_item">Добавяне на нов елемент</string>
     <string name="manage_clips">Тук можете да управлявате или добавяте клипове за бърз достъп.</string>
     <string name="clip_text">Изрязване на текст</string>
-    <string name="pin_text">Закачи текст</string>
+    <string name="pin_text">Закачане на текста</string>
     <string name="text_pinned">Текстът е закачен</string>
     <string name="export_clipboard_items">Експортиране на елементи от клипборда</string>
     <string name="import_clipboard_items">Импортиране на елементи от клипборда</string>
-    <string name="keycode_delete">Изтрий</string>
+    <string name="keycode_delete">Премахване</string>
     <string name="keycode_mode_change">Промяна на типа клавиатура</string>
     <string name="show_clipboard_content">Показване на клипборд съдържанието, ако е налично</string>
     <string name="show_popup">Показване на изскачащ прозорец при натискане на клавиш</string>

@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.fossify.commons.views.MyAppCompatCheckbox
 import org.fossify.keyboard.R
-import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.helpers.Config
+
+typealias LanguageItem = Pair<Int, String>
 
 internal class ManageKeyboardLanguagesAdapter(
     private val config: Config,
-    private var languagesList: List<Int>,
+    private var languagesList: List<LanguageItem>,
 ) : RecyclerView.Adapter<ManageKeyboardLanguagesAdapter.MyViewHolder>() {
     private val selectedLanguages = config.selectedLanguages
 
@@ -28,14 +29,14 @@ internal class ManageKeyboardLanguagesAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = languagesList[position]
         holder.languageCheckboxItem.apply {
-            text = config.context.getKeyboardLanguageText(item)
-            isChecked = selectedLanguages.contains(item)
+            text = item.second
+            isChecked = selectedLanguages.contains(item.first)
 
             setOnClickListener {
                 if (isChecked) {
-                    selectedLanguages.add(item)
+                    selectedLanguages.add(item.first)
                 } else {
-                    selectedLanguages.remove(item)
+                    selectedLanguages.remove(item.first)
                 }
             }
         }
@@ -47,7 +48,7 @@ internal class ManageKeyboardLanguagesAdapter(
 
     fun getSelectedLanguages(): MutableSet<Int> {
         val defaultLang = config.getDefaultLanguage()
-        if (selectedLanguages.size == 0) {
+        if (selectedLanguages.isEmpty()) {
             selectedLanguages.add(defaultLang)
         }
         return selectedLanguages

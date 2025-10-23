@@ -30,4 +30,5 @@
     <string name="show_key_borders">Паказаць контуры клавіш</string>
     <string name="show_numbers_row">Паказаць лічбы ў асобным радку</string>
     <string name="emojis">Эмодзі</string>
+    <string name="redirection_note">Кклі ласка, уключыце Клавіятуру Fossify на наступным экране, каб яна стала даступнай. Націсніце \'Назад\' калі ўключыце.</string>
 </resources>

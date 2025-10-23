@@ -3,15 +3,32 @@ package org.fossify.keyboard.activities
 import android.content.Intent
 import android.os.Bundle
 import org.fossify.commons.dialogs.RadioGroupDialog
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.beGoneIf
+import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.isOrWasThankYouInstalled
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.extensions.updateTextColors
+import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.ActivitySettingsBinding
 import org.fossify.keyboard.dialogs.ManageKeyboardLanguagesDialog
-import org.fossify.keyboard.extensions.*
-import org.fossify.keyboard.helpers.*
+import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.extensions.getCurrentVoiceInputMethod
+import org.fossify.keyboard.extensions.getKeyboardLanguageText
+import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
+import org.fossify.keyboard.extensions.getVoiceInputMethods
+import org.fossify.keyboard.extensions.getVoiceInputRadioItems
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_100_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_120_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_140_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_160_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_70_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_80_PERCENT
+import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_90_PERCENT
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -24,7 +41,12 @@ class SettingsActivity : SimpleActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            updateMaterialActivityViews(settingsCoordinator, settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)
+            updateMaterialActivityViews(
+                mainCoordinatorLayout = settingsCoordinator,
+                nestedView = settingsHolder,
+                useTransparentNavigation = true,
+                useTopSearchMenu = false
+            )
             setupMaterialScrollListener(settingsNestedScrollview, settingsToolbar)
         }
     }
@@ -33,7 +55,6 @@ class SettingsActivity : SimpleActivity() {
         super.onResume()
         setupToolbar(binding.settingsToolbar, NavigationIcon.Arrow)
 
-        setupPurchaseThankYou()
         setupCustomizeColors()
         setupUseEnglish()
         setupLanguage()
@@ -63,20 +84,10 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupPurchaseThankYou() {
-        binding.apply {
-            settingsPurchaseThankYouHolder.beGoneIf(isOrWasThankYouInstalled())
-            settingsPurchaseThankYouHolder.setOnClickListener {
-                launchPurchaseThankYouIntent()
-            }
-        }
-    }
-
     private fun setupCustomizeColors() {
         binding.apply {
-            settingsColorCustomizationLabel.text = getCustomizeColorsString()
             settingsColorCustomizationHolder.setOnClickListener {
-                handleCustomizeColorsClick()
+                startCustomizationActivity()
             }
         }
     }
@@ -166,27 +177,51 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupKeyboardHeightMultiplier() {
         binding.apply {
-            settingsKeyboardHeightMultiplier.text = getKeyboardHeightPercentageText(config.keyboardHeightPercentage)
+            settingsKeyboardHeightMultiplier.text =
+                getKeyboardHeightPercentageText(config.keyboardHeightPercentage)
             settingsKeyboardHeightMultiplierHolder.setOnClickListener {
                 val items = arrayListOf(
-                    RadioItem(KEYBOARD_HEIGHT_70_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_70_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_80_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_80_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_90_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_90_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_100_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_100_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_120_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_120_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_140_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_140_PERCENT)),
-                    RadioItem(KEYBOARD_HEIGHT_160_PERCENT, getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_160_PERCENT)),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_70_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_70_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_80_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_80_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_90_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_90_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_100_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_100_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_120_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_120_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_140_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_140_PERCENT)
+                    ),
+                    RadioItem(
+                        id = KEYBOARD_HEIGHT_160_PERCENT,
+                        title = getKeyboardHeightPercentageText(KEYBOARD_HEIGHT_160_PERCENT)
+                    ),
                 )
 
                 RadioGroupDialog(this@SettingsActivity, items, config.keyboardHeightPercentage) {
                     config.keyboardHeightPercentage = it as Int
-                    settingsKeyboardHeightMultiplier.text = getKeyboardHeightPercentageText(config.keyboardHeightPercentage)
+                    settingsKeyboardHeightMultiplier.text =
+                        getKeyboardHeightPercentageText(config.keyboardHeightPercentage)
                 }
             }
         }
     }
 
-    private fun getKeyboardHeightPercentageText(keyboardHeightPercentage: Int): String = "$keyboardHeightPercentage%"
+    private fun getKeyboardHeightPercentageText(keyboardHeightPercentage: Int): String =
+        "$keyboardHeightPercentage%"
 
     private fun setupShowClipboardContent() {
         binding.apply {
@@ -220,7 +255,9 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupVoiceInputMethod() {
         binding.apply {
-            settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod()?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+            settingsVoiceInputMethodValue.text =
+                getCurrentVoiceInputMethod()?.first?.loadLabel(packageManager)
+                    ?: getString(R.string.none)
             settingsVoiceInputMethodHolder.setOnClickListener {
                 val inputMethods = getVoiceInputMethods()
                 if (inputMethods.isEmpty()) {
@@ -234,7 +271,9 @@ class SettingsActivity : SimpleActivity() {
                     checkedItemId = inputMethods.indexOf(getCurrentVoiceInputMethod(inputMethods))
                 ) {
                     config.voiceInputMethod = inputMethods.getOrNull(it as Int)?.first?.id.orEmpty()
-                    settingsVoiceInputMethodValue.text = getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager) ?: getString(R.string.none)
+                    settingsVoiceInputMethodValue.text =
+                        getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager)
+                            ?: getString(R.string.none)
                 }
             }
         }

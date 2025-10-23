@@ -15,11 +15,12 @@
     <string name="text_pinned">Fixouse o texto</string>
     <string name="keycode_mode_change">Cambialo tipo do teclado</string>
     <string name="show_clipboard_content">Mostralo contido do portapapeis se atopase dispoñible</string>
-    <string name="show_popup">Mostra unha ventá emerxente ao premer nunha tecla</string>
+    <string name="show_popup">Mostra unha xanela emerxente ao premer nunha tecla</string>
     <string name="vibrate_on_keypress">Vibrar ao premer unha tecla</string>
     <string name="keyboard_language">Lingua do teclado</string>
     <string name="keyboard_height">Altura do teclado</string>
     <string name="show_key_borders">Mostralos bordes das teclas</string>
     <string name="show_numbers_row">Mostralos números nunha fila afastada</string>
     <string name="emojis">Emoticona</string>
+    <string name="redirection_note">Por favor, active Fossify Keyboard na pantalla que segue para facelo dispoñible. Prema «Atrás» tras rematar.</string>
 </resources>

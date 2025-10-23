@@ -417,15 +417,20 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     private fun moveCursor(moveRight: Boolean) {
-        val extractedText = currentInputConnection?.getExtractedText(ExtractedTextRequest(), 0) ?: return
-        var newCursorPosition = extractedText.selectionStart
-        newCursorPosition = if (moveRight) {
-            newCursorPosition + 1
+        val inputConnection = currentInputConnection
+        val extractedText = inputConnection.getExtractedText(ExtractedTextRequest(), 0) ?: return
+        val text = extractedText.text ?: return
+        val oldPos = extractedText.selectionStart
+        val newPos = if (moveRight) {
+            oldPos + 1
         } else {
-            newCursorPosition - 1
-        }
+            oldPos - 1
+        }.coerceIn(0, text.length)
 
-        currentInputConnection?.setSelection(newCursorPosition, newCursorPosition)
+        if (newPos != oldPos) {
+            inputConnection?.setSelection(newPos, newPos)
+            keyboardView?.performHapticHandleMove()
+        }
     }
 
     private fun getImeOptionsActionId(): Int {
@@ -439,10 +444,16 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private fun getKeyboardLayoutXML(): Int {
         return when (baseContext.config.keyboardLanguage) {
             LANGUAGE_ARABIC -> R.xml.keys_letters_arabic
+            LANGUAGE_BELARUSIAN_CYRL -> R.xml.keys_letters_belarusian_cyrl
+            LANGUAGE_BELARUSIAN_LATN -> R.xml.keys_letters_belarusian_latn
             LANGUAGE_BENGALI -> R.xml.keys_letters_bengali
             LANGUAGE_BULGARIAN -> R.xml.keys_letters_bulgarian
+            LANGUAGE_CENTRAL_KURDISH -> R.xml.keys_letters_central_kurdish
             LANGUAGE_CHUVASH -> R.xml.keys_letters_chuvash
+            LANGUAGE_CZECH_QWERTY -> R.xml.keys_letters_czech_qwerty
+            LANGUAGE_CZECH_QWERTZ -> R.xml.keys_letters_czech_qwertz
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
+            LANGUAGE_DUTCH -> R.xml.keys_letters_dutch
             LANGUAGE_ENGLISH_ASSET -> R.xml.keys_letters_english_asset
             LANGUAGE_ENGLISH_COLEMAK -> R.xml.keys_letters_english_colemak
             LANGUAGE_ENGLISH_COLEMAKDH -> R.xml.keys_letters_english_colemakdh
@@ -455,16 +466,23 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
             LANGUAGE_GERMAN -> R.xml.keys_letters_german
+            LANGUAGE_GERMAN_QWERTZ -> R.xml.keys_letters_german_qwertz
             LANGUAGE_GREEK -> R.xml.keys_letters_greek
             LANGUAGE_HEBREW -> R.xml.keys_letters_hebrew
+            LANGUAGE_ITALIAN -> R.xml.keys_letters_italian
+            LANGUAGE_KABYLE_AZERTY -> R.xml.keys_letters_kabyle_azerty
+            LANGUAGE_LATVIAN -> R.xml.keys_letters_latvian
             LANGUAGE_LITHUANIAN -> R.xml.keys_letters_lithuanian
             LANGUAGE_NORWEGIAN -> R.xml.keys_letters_norwegian
             LANGUAGE_POLISH -> R.xml.keys_letters_polish
+            LANGUAGE_PORTUGUESE -> R.xml.keys_letters_portuguese
+            LANGUAGE_PORTUGUESE_HCESAR -> R.xml.keys_letters_portuguese_hcesar
             LANGUAGE_ROMANIAN -> R.xml.keys_letters_romanian
             LANGUAGE_RUSSIAN -> R.xml.keys_letters_russian
             LANGUAGE_SLOVENIAN -> R.xml.keys_letters_slovenian
             LANGUAGE_SWEDISH -> R.xml.keys_letters_swedish
             LANGUAGE_SPANISH -> R.xml.keys_letters_spanish_qwerty
+            LANGUAGE_TURKISH -> R.xml.keys_letters_turkish
             LANGUAGE_TURKISH_Q -> R.xml.keys_letters_turkish_q
             LANGUAGE_UKRAINIAN -> R.xml.keys_letters_ukrainian
             else -> R.xml.keys_letters_english_qwerty
@@ -527,7 +545,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         if (key != null && key in arrayOf(
                 SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
                 TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
-                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_USING_SHARED_THEME, IS_USING_SYSTEM_THEME
+                CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_GLOBAL_THEME_ENABLED, IS_SYSTEM_THEME_ENABLED
             )
         ) {
             keyboardView?.setupKeyboard()

@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">Teklatua</string>
+    <string name="redirection_note">Gaitu Fossify teklatua hurrengo pantailan, erabilgarri dagoen teklatua izan dadin. Sakatu \'Atzera\' behin gaituta.</string>
+    <string name="change_keyboard">Teklatu aldaketa</string>
+    <string name="manage_clipboard_items">Kudeatu arbeleko elementuak</string>
+    <string name="manage_clipboard_empty">Zure arbela hutsik dago.</string>
+    <string name="manage_clipboard_label">Behin testua kopiatuta, bertan agertuko da. Klipak ere jar ditzakezu, gero ez desagertzeko.</string>
+    <string name="clear_clipboard_data">Garbitu arbeleko datuak</string>
+    <string name="clear_clipboard_data_confirmation">Seguru zaude arbeleko datuak garbitu nahi dituzula?</string>
+    <string name="clipboard">Arbela</string>
+    <string name="clipboard_recent">Azken aldikoak</string>
+    <string name="clipboard_current">Unekoa</string>
+    <string name="clipboard_pinned">Finkatua</string>
+    <string name="add_new_item">Gehitu elementu berri bat</string>
+    <string name="manage_keyboard_languages">Kudeatu teklatuko hizkuntzak</string>
+    <string name="manage_clips">Klipak hemen kudeatu edo gehitu ditzakezu sarbide azkarrerako.</string>
+    <string name="pin_text">Finkatu testua</string>
+    <string name="text_pinned">Testua finkatu da</string>
+    <string name="export_clipboard_items">Esportatu arbeleko elementuak</string>
+    <string name="import_clipboard_items">Inportatu arbeleko elementuak</string>
+    <string name="keycode_delete">Ezabatu</string>
+    <string name="keycode_mode_change">Aldatu teklatu mota</string>
+    <string name="keycode_enter">Sartu</string>
+    <string name="keycode_space">Zuriune-barra</string>
+    <string name="show_clipboard_content">Erakutsi arbeleko edukia eskuragarria badago</string>
+    <string name="show_popup">Handitu teklak, sakatzean</string>
+    <string name="vibrate_on_keypress">Dar-dar egin, tekla sakatzean</string>
+    <string name="keyboard_language">Teklatuaren hizkuntza</string>
+    <string name="keyboard_height">Teklatuaren altuera</string>
+    <string name="show_key_borders">Erakutsi teklen ertzak</string>
+    <string name="show_numbers_row">Erakutsi zenbakiak aparteko errenkada batean</string>
+    <string name="start_sentences_capitalized">Hasi esaldiak maiuskulaz</string>
+    <string name="emojis">Emojiak</string>
+</resources>

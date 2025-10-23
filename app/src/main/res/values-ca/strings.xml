@@ -24,7 +24,7 @@
     <string name="show_clipboard_content">Mostra el contingut del porta-retalls si està disponible</string>
     <string name="show_popup">Mostra una finestra emergent en prémer les tecles</string>
     <string name="vibrate_on_keypress">Vibra en prémer les tecles</string>
-    <string name="keyboard_language">Idioma del teclat</string>
+    <string name="keyboard_language">Llengua del teclat</string>
     <string name="keyboard_height">Alçada del teclat</string>
     <string name="show_key_borders">Mostra les vores de les tecles</string>
     <string name="show_numbers_row">Mostra els números en una fila separada</string>
@@ -36,4 +36,14 @@
     <string name="switch_to_voice_typing">Canvia a escriptura per veu</string>
     <string name="manage_keyboard_languages">Gestió dels idiomes del teclat</string>
     <string name="voice_typing_method">Mètode d\'escriptura per veu</string>
+    <string name="objects">Objectes</string>
+    <string name="recently_used">Utilitzat recentment</string>
+    <string name="animals_and_nature">Animals i natura</string>
+    <string name="flags">Banderes</string>
+    <string name="smileys_and_emotions">Somriures i emocions</string>
+    <string name="people_and_body">Persones i cos</string>
+    <string name="food_and_drink">Alimentació i begudes</string>
+    <string name="travel_and_places">Viatges i llocs</string>
+    <string name="activities">Activitats</string>
+    <string name="symbols">Símbols</string>
 </resources>

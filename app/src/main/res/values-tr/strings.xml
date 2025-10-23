@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Klavye</string>
-    <string name="redirection_note">Kullanılabilir bir klavye yapmak için lütfen bir sonraki ekranda Fossify Klavye\'yi etkinleştirin. Etkinleştirildikten sonra \'Geri\' düğmesine basın.</string>
+    <string name="redirection_note">Fossify Klavye\'yi kullanabilmek için lütfen bir sonraki ekranda Fossify Klavye\'yi etkinleştirin. Etkinleştirdikten sonra \"geri\" tuşunu kullanın.</string>
     <string name="change_keyboard">Klavye Değiştir</string>
     <string name="manage_clipboard_items">Pano ögelerini yönet</string>
     <string name="manage_clipboard_empty">Panonuz boş.</string>
-    <string name="manage_clipboard_label">Bir metni kopyaladığınızda, burada görünecektir. Daha sonra kaybolmamaları için panoları da sabitleyebilirsiniz.</string>
+    <string name="manage_clipboard_label">Bir metni kopyaladığınızda burada görünecektir. Kaybolmamaları için bunları sabitleyebilirsiniz.</string>
     <string name="clear_clipboard_data">Pano verilerini temizle</string>
     <string name="clear_clipboard_data_confirmation">Pano verilerini silmek istediğinizden emin misiniz\?</string>
     <string name="clipboard">Pano</string>
@@ -36,4 +36,14 @@
     <string name="manage_keyboard_languages">Klavye dillerini yönet</string>
     <string name="voice_typing_method">Sesli yazma yöntemi</string>
     <string name="switch_to_voice_typing">Sesli yazmaya geç</string>
+    <string name="smileys_and_emotions">Suratlar ve duygular</string>
+    <string name="people_and_body">İnsanlar ve vücut</string>
+    <string name="travel_and_places">Seyahat ve mekanlar</string>
+    <string name="activities">Etkinlikler</string>
+    <string name="objects">Nesneler</string>
+    <string name="symbols">Simgeler</string>
+    <string name="flags">Bayraklar</string>
+    <string name="recently_used">Son kullanılan</string>
+    <string name="animals_and_nature">Hayvanlar ve doğa</string>
+    <string name="food_and_drink">Yiyecek ve içecek</string>
 </resources>

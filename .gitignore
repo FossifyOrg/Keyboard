@@ -9,5 +9,5 @@
 keystore.jks
 keystore.properties
 fastlane/fastlane.json
-Gemfile
-Gemfile.lock
+fastlane/report.xml
+.kotlin/

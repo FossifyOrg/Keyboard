@@ -6,7 +6,14 @@ import android.graphics.drawable.RippleDrawable
 import android.os.Bundle
 import android.provider.Settings
 import org.fossify.commons.dialogs.ConfirmationAdvancedDialog
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.appLaunched
+import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.getContrastColor
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.hideKeyboard
+import org.fossify.commons.extensions.launchMoreAppsFromUsIntent
+import org.fossify.commons.extensions.updateTextColors
+import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.LICENSE_GSON
 import org.fossify.commons.models.FAQItem
 import org.fossify.keyboard.BuildConfig
@@ -26,7 +33,12 @@ class MainActivity : SimpleActivity() {
         refreshMenuItems()
 
         binding.apply {
-            updateMaterialActivityViews(mainCoordinator, mainHolder, useTransparentNavigation = false, useTopSearchMenu = false)
+            updateMaterialActivityViews(
+                mainCoordinator,
+                mainHolder,
+                useTransparentNavigation = false,
+                useTopSearchMenu = false
+            )
             setupMaterialScrollListener(mainNestedScrollview, mainToolbar)
 
             changeKeyboardHolder.setOnClickListener {
@@ -39,7 +51,12 @@ class MainActivity : SimpleActivity() {
         super.onResume()
         setupToolbar(binding.mainToolbar)
         if (!isKeyboardEnabled()) {
-            ConfirmationAdvancedDialog(this, messageId = R.string.redirection_note, positive = R.string.ok, negative = 0) { success ->
+            ConfirmationAdvancedDialog(
+                activity = this,
+                messageId = R.string.redirection_note,
+                positive = R.string.ok,
+                negative = 0
+            ) { success ->
                 if (success) {
                     Intent(Settings.ACTION_INPUT_METHOD_SETTINGS).apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -69,7 +86,8 @@ class MainActivity : SimpleActivity() {
 
     private fun refreshMenuItems() {
         binding.mainToolbar.menu.apply {
-            findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
+            findItem(R.id.more_apps_from_us).isVisible =
+                !resources.getBoolean(R.bool.hide_google_relations)
         }
     }
 
@@ -91,8 +109,10 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun updateChangeKeyboardColor() {
-        val applyBackground = resources.getDrawable(R.drawable.button_background_rounded, theme) as RippleDrawable
-        (applyBackground as LayerDrawable).findDrawableByLayerId(R.id.button_background_holder).applyColorFilter(getProperPrimaryColor())
+        val applyBackground =
+            resources.getDrawable(R.drawable.button_background_rounded, theme) as RippleDrawable
+        (applyBackground as LayerDrawable).findDrawableByLayerId(R.id.button_background_holder)
+            .applyColorFilter(getProperPrimaryColor())
         binding.changeKeyboard.apply {
             background = applyBackground
             setTextColor(getProperPrimaryColor().getContrastColor())
