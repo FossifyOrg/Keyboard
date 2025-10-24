@@ -49,8 +49,14 @@ import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTY
 import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_DANISH
 import org.fossify.keyboard.helpers.LANGUAGE_DUTCH
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_ASSET
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAK
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAKDH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_NIRO
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_SOUL
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_WORKMAN
 import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_AZERTY
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_BEPO
