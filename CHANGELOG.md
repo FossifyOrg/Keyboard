@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Compatibility updates for Android 15 & 16
+
+### Fixed
+- Fixed invisible numbers in the top row ([#100])
+
 ## [1.5.0] - 2025-09-23
 ### Added
 - German QWERTZ layout without dedicated umlaut keys ([#47])
@@ -93,6 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
+[#100]: https://github.com/FossifyOrg/Keyboard/issues/100
 [#133]: https://github.com/FossifyOrg/Keyboard/issues/133
 [#134]: https://github.com/FossifyOrg/Keyboard/issues/134
 [#136]: https://github.com/FossifyOrg/Keyboard/issues/136

@@ -25,7 +25,6 @@ class MainActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         appLaunched(BuildConfig.APPLICATION_ID)
@@ -33,13 +32,8 @@ class MainActivity : SimpleActivity() {
         refreshMenuItems()
 
         binding.apply {
-            updateMaterialActivityViews(
-                mainCoordinator,
-                mainHolder,
-                useTransparentNavigation = false,
-                useTopSearchMenu = false
-            )
-            setupMaterialScrollListener(mainNestedScrollview, mainToolbar)
+            setupEdgeToEdge(padBottomSystem = listOf(mainNestedScrollview))
+            setupMaterialScrollListener(binding.mainNestedScrollview, binding.mainAppbar)
 
             changeKeyboardHolder.setOnClickListener {
                 inputMethodManager.showInputMethodPicker()
@@ -49,7 +43,7 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.mainToolbar)
+        setupTopAppBar(binding.mainAppbar)
         if (!isKeyboardEnabled()) {
             ConfirmationAdvancedDialog(
                 activity = this,

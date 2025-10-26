@@ -61,7 +61,6 @@
     <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newPath.getFilenameFromPath())</ID>
     <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$clipboardItemsPlaceholder.text = "${getText(R.string.manage_clipboard_empty)}\n\n${getText(R.string.manage_clips)}"</ID>
     <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$if</ID>
-    <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$updateMaterialActivityViews(clipboardCoordinator, clipboardItemsList, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
     <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$val msg = if (clipsImported &gt; 0) R.string.importing_successful else R.string.no_new_entries_for_importing</ID>
     <ID>MaxLineLength:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$}</ID>
     <ID>MaxLineLength:MyKeyboard.kt$MyKeyboard$*</ID>
@@ -102,11 +101,6 @@
     <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
     <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
     <ID>NestedBlockDepth:SimpleKeyboardIME.kt$SimpleKeyboardIME$override fun onKey(code: Int)</ID>
-    <ID>ReturnCount:EmojiHelper.kt$fun parseRawJsonSpecsFile(context: Context, path: String): HashMap&lt;String, String&gt;</ID>
-    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean</ID>
-    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun onModifiedTouchEvent(me: MotionEvent): Boolean</ID>
-    <ID>ReturnCount:MyKeyboardView.kt$MyKeyboardView$private fun openPopupIfRequired(me: MotionEvent): Boolean</ID>
-    <ID>ReturnCount:SimpleKeyboardIME.kt$SimpleKeyboardIME$private fun getCountToDelete(inputConnection: InputConnection): Int</ID>
     <ID>SpreadOperator:MyKeyboardView.kt$MyKeyboardView$(*animations.toTypedArray())</ID>
     <ID>SwallowedException:ManageClipboardItemsActivity.kt$ManageClipboardItemsActivity$e: ActivityNotFoundException</ID>
     <ID>SwallowedException:MyKeyboard.kt$MyKeyboard$e: Exception</ID>
