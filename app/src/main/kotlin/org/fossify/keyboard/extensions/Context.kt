@@ -49,8 +49,14 @@ import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTY
 import org.fossify.keyboard.helpers.LANGUAGE_CZECH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_DANISH
 import org.fossify.keyboard.helpers.LANGUAGE_DUTCH
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_ASSET
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAK
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAKDH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_NIRO
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_SOUL
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_WORKMAN
 import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_AZERTY
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_BEPO
@@ -292,8 +298,14 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_CZECH_QWERTZ -> "${getString(R.string.translation_czech)} (QWERTZ)"
         LANGUAGE_DANISH -> getString(R.string.translation_danish)
         LANGUAGE_DUTCH -> getString(R.string.translation_dutch)
+        LANGUAGE_ENGLISH_ASSET -> "${getString(R.string.translation_english)} (Asset)"
+        LANGUAGE_ENGLISH_COLEMAK -> "${getString(R.string.translation_english)} (Colemak)"
+        LANGUAGE_ENGLISH_COLEMAKDH -> "${getString(R.string.translation_english)} (Colemak-DH)"
         LANGUAGE_ENGLISH_DVORAK -> "${getString(R.string.translation_english)} (DVORAK)"
+        LANGUAGE_ENGLISH_NIRO -> "${getString(R.string.translation_english)} (Niro)"
         LANGUAGE_ENGLISH_QWERTZ -> "${getString(R.string.translation_english)} (QWERTZ)"
+        LANGUAGE_ENGLISH_SOUL -> "${getString(R.string.translation_english)} (Soul)"
+        LANGUAGE_ENGLISH_WORKMAN -> "${getString(R.string.translation_english)} (Workman)"
         LANGUAGE_ESPERANTO -> getString(R.string.translation_esperanto)
         LANGUAGE_FRENCH_AZERTY -> "${getString(R.string.translation_french)} (AZERTY)"
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
