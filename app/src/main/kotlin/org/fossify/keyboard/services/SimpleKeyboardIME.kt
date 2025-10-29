@@ -86,7 +86,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             setKeyboardHolder(binding)
             setKeyboard(keyboard!!)
             setEditorInfo(currentInputEditorInfo)
-            setupNavigationBarPadding()
+            setupEdgeToEdge()
             mOnKeyboardActionListener = this@SimpleKeyboardIME
         }
 
@@ -553,13 +553,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         }
     }
 
-    private fun setupNavigationBarPadding() {
+    private fun setupEdgeToEdge() {
         window.window?.apply {
-            WindowCompat.setDecorFitsSystemWindows(this, false)
+            WindowCompat.enableEdgeToEdge(this)
             ViewCompat.setOnApplyWindowInsetsListener(binding.keyboardHolder) { view, insets ->
                 val bottomPadding = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
                 binding.keyboardHolder.updatePadding(bottom = bottomPadding)
-                ViewCompat.onApplyWindowInsets(view, insets)
+                insets
             }
         }
     }
