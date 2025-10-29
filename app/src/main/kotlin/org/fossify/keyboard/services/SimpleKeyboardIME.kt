@@ -560,7 +560,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         window.window?.apply {
             WindowCompat.enableEdgeToEdge(this)
             ViewCompat.setOnApplyWindowInsetsListener(binding.keyboardHolder) { view, insets ->
-                val system = insets.getInsetsIgnoringVisibility(Type.navigationBars())
+                val system = insets.getInsetsIgnoringVisibility(Type.systemBars())
                 binding.keyboardHolder.updatePadding(bottom = system.bottom)
                 insets
             }
