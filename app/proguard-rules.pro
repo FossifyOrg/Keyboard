@@ -1,0 +1,2 @@
+-keep class org.fossify.keyboard.helpers.MyKeyboard { *; }
+-keep class org.fossify.keyboard.helpers.MyKeyboard$Key { *; }
