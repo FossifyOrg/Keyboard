@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed invisible numbers in the top row ([#100])
+- Fixed overlap between keyboard and navigation bar ([#117])
 
 ## [1.5.0] - 2025-09-23
 ### Added
@@ -102,6 +103,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
 [#100]: https://github.com/FossifyOrg/Keyboard/issues/100
+[#117]: https://github.com/FossifyOrg/Keyboard/issues/117
 [#133]: https://github.com/FossifyOrg/Keyboard/issues/133
 [#134]: https://github.com/FossifyOrg/Keyboard/issues/134
 [#136]: https://github.com/FossifyOrg/Keyboard/issues/136

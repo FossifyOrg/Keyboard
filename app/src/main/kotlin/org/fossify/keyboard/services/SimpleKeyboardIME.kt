@@ -31,7 +31,7 @@ import androidx.autofill.inline.v1.InlineSuggestionUi
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.updatePadding
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.*
@@ -96,6 +96,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(editorInfo, restarting)
         updateBackgroundColors()
+        binding.keyboardHolder.post {
+            ViewCompat.requestApplyInsets(binding.keyboardHolder)
+        }
     }
 
     override fun onPress(primaryCode: Int) {
@@ -557,8 +560,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         window.window?.apply {
             WindowCompat.enableEdgeToEdge(this)
             ViewCompat.setOnApplyWindowInsetsListener(binding.keyboardHolder) { view, insets ->
-                val bottomPadding = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-                binding.keyboardHolder.updatePadding(bottom = bottomPadding)
+                val system = insets.getInsetsIgnoringVisibility(Type.navigationBars())
+                binding.keyboardHolder.updatePadding(bottom = system.bottom)
                 insets
             }
         }
