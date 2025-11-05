@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Teclado</string>
-    <string name="change_keyboard">Mudar Teclado</string>
+    <string name="change_keyboard">Mudar teclado</string>
     <string name="manage_clipboard_items">Gerenciar itens da área de transferência</string>
     <string name="manage_clipboard_empty">Área de transferência vazia.</string>
     <string name="manage_clipboard_label">Depois de copiar algum texto, ele aparecerá aqui. Você também pode fixar clipes para que eles não desapareçam mais tarde.</string>
