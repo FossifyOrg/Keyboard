@@ -5,7 +5,7 @@ kotlin = "2.2.21"
 androidx-autofill = "1.3.0"
 androidx-emoji2 = "1.6.0"
 #KSP
-ksp = "2.3.0"
+ksp = "2.3.2"
 #Detekt
 detekt = "1.23.8"
 detektCompose = "0.4.27"
