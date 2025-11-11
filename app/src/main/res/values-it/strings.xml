@@ -28,6 +28,7 @@
     <string name="show_key_borders">Mostra i bordi dei tasti</string>
     <string name="show_numbers_row">Mostra i numeri su una riga separata</string>
     <string name="start_sentences_capitalized">Inizia le frasi con la lettera maiuscola</string>
+    <string name="show_emoji_key">Mostra tasto emoji</string>
     <string name="emojis">Emoji</string>
     <string name="redirection_note">Attiva Tastiera Fossify nella schermata successiva per renderla disponibile. Una volta abilitata, premi \"Indietro\".</string>
     <string name="clipboard">Appunti</string>

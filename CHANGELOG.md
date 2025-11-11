@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2025-11-11
+### Added
+- Option to show (default) or not the emoji key
+
+### Changed
+- Update translations
+
+### Fixed
+- Feature added ([#234])
+
 ## [1.6.0] - 2025-10-29
 ### Added
 - Added Colemak, Colemak-DH, Workman, Asset, Niro, Soul layouts
@@ -115,6 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#206]: https://github.com/FossifyOrg/Keyboard/issues/206
 [#222]: https://github.com/FossifyOrg/Keyboard/issues/222
 [#230]: https://github.com/FossifyOrg/Keyboard/issues/230
+[#234]: https://github.com/FossifyOrg/Keyboard/issues/234
 [#238]: https://github.com/FossifyOrg/Keyboard/issues/238
 [#239]: https://github.com/FossifyOrg/Keyboard/issues/239
 [#251]: https://github.com/FossifyOrg/Keyboard/issues/251
@@ -123,7 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#265]: https://github.com/FossifyOrg/Keyboard/issues/265
 [#274]: https://github.com/FossifyOrg/Keyboard/issues/274
 
-[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...HEAD
+[1.7.0]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/FossifyOrg/Keyboard/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/FossifyOrg/Keyboard/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/FossifyOrg/Keyboard/compare/1.3.0...1.4.0

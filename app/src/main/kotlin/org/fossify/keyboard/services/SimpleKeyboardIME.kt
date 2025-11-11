@@ -112,7 +112,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         inputTypeClass = attribute!!.inputType and TYPE_MASK_CLASS
         inputTypeClassVariation = attribute.inputType and TYPE_MASK_VARIATION
         enterKeyType = attribute.imeOptions and (IME_MASK_ACTION or IME_FLAG_NO_ENTER_ACTION)
-        keyboard = createNewKeyboard()
+        keyboard = createNewKeyboard().adjustForEmojiButton()
         keyboardView?.setKeyboard(keyboard!!)
         keyboardView?.setEditorInfo(attribute)
         if (isNougatPlus()) {
@@ -209,7 +209,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                         keyboardMode = KEYBOARD_SYMBOLS
                         R.xml.keys_symbols
                     }
-                    keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+                    keyboard = MyKeyboard(this, keyboardXml, enterKeyType).adjustForEmojiButton()
                     keyboardView!!.setKeyboard(keyboard!!)
                 }
                 keyboardView!!.invalidateAllKeys()
@@ -234,7 +234,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     R.xml.keys_symbols
                 }
 
-                keyboard = MyKeyboard(this, keyboardXML, enterKeyType)
+                keyboard = MyKeyboard(this, keyboardXML, enterKeyType).adjustForEmojiButton()
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
@@ -247,7 +247,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     getKeyboardLayoutXML()
                 }
 
-                keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+                keyboard = MyKeyboard(this, keyboardXml, enterKeyType).adjustForEmojiButton()
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
@@ -337,7 +337,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             // TODO: Change keyboardMode to enum class
             keyboardMode = KEYBOARD_LETTERS
 
-            keyboard = MyKeyboard(this, getKeyboardLayoutXML(), enterKeyType)
+            keyboard = MyKeyboard(this, getKeyboardLayoutXML(), enterKeyType).adjustForEmojiButton()
 
             val editorInfo = currentInputEditorInfo
             if (editorInfo != null && editorInfo.inputType != TYPE_NULL && keyboard?.mShiftState != ShiftState.ON_PERMANENT) {
@@ -364,7 +364,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun reloadKeyboard() {
-        val keyboard = createNewKeyboard()
+        val keyboard = createNewKeyboard().adjustForEmojiButton()
         this.keyboard = keyboard
         keyboardView?.setKeyboard(keyboard)
     }
@@ -403,7 +403,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             context = this,
             xmlLayoutResId = keyboardXml,
             enterKeyType = enterKeyType,
-        )
+        ).adjustForEmojiButton()
     }
 
     override fun onUpdateSelection(oldSelStart: Int, oldSelEnd: Int, newSelStart: Int, newSelEnd: Int, candidatesStart: Int, candidatesEnd: Int) {
@@ -581,5 +581,27 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         this.recycle()
 
         return Icon.createWithData(byteArray, 0, byteArray.size)
+    }
+
+    private fun MyKeyboard.adjustForEmojiButton(): MyKeyboard {
+        if (!config.showEmojiKey && keyboardMode == KEYBOARD_LETTERS) {
+            mKeys?.let { keys ->
+                val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI }
+                val spaceKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_SPACE }
+
+                if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
+                    val emojiKey = keys[emojiKeyIndex]
+                    val spaceKey = keys[spaceKeyIndex]
+
+                    spaceKey.width += emojiKey.width + emojiKey.gap
+                    spaceKey.x = emojiKey.x
+
+                    val mutableKeys = keys.toMutableList()
+                    mutableKeys.removeAt(emojiKeyIndex)
+                    mKeys = mutableKeys
+                }
+            }
+        }
+        return this
     }
 }

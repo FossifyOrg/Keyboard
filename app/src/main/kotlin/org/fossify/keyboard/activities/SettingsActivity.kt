@@ -59,6 +59,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageKeyboardLanguages()
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
+        setupShowEmojiKey()
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
@@ -234,6 +235,16 @@ class SettingsActivity : SimpleActivity() {
                 settingsStartSentencesCapitalized.toggle()
                 config.enableSentencesCapitalization = settingsStartSentencesCapitalized.isChecked
             }
+        }
+    }
+
+    private fun setupShowEmojiKey() {
+        binding.apply {
+            settingsShowEmojiKeyHolder.setOnClickListener {
+                settingsShowEmojiKey.toggle()
+                config.showEmojiKey = settingsShowEmojiKey.isChecked
+            }
+            settingsShowEmojiKey.isChecked = config.showEmojiKey
         }
     }
 
