@@ -43,4 +43,7 @@
     <string name="manage_clips">Tzemreḍ ad tesferkeḍ neɣ ad ternuḍ iklipin dagi akken ad tkecmeḍ s tɣawla.</string>
     <string name="keycode_space">Afeggag n tallunt</string>
     <string name="show_clipboard_content">Sken agbur n tecfawit ma yella</string>
+    <string name="show_popup">Sken-d asfaylu udhim deg usiti ɣef Tqeffalt</string>
+    <string name="vibrate_on_keypress">Argagi deg usiti ɣef Tqeffalt</string>
+    <string name="show_key_borders">Sken iran n tqeffalt</string>
 </resources>
