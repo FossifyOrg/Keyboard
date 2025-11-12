@@ -27,4 +27,19 @@
     <string name="recently_used">Wid yettwaseqdacen tagara</string>
     <string name="animals_and_nature">Iɣersiwen d ugama</string>
     <string name="voice_typing_method">Askar n usekcem s taɣect</string>
+    <string name="redirection_note">Ma ulac aɣilif, rmed anasiw Fossify deg ugdil i d-iteddun akken ad yili unasiw. Sit \'Uɣal\' seld dayen irmed.</string>
+    <string name="manage_clipboard_items">Sefrek tacfawit n yiferdisen</string>
+    <string name="manage_clipboard_empty">Tacfawit-ik d tilemt.</string>
+    <string name="manage_clipboard_label">Ticki tneɣleḍ kran n uḍris, ad d-iban dagi. Tzemreḍ daɣen ad tesneṭḍeḍ iklipin akken ur ttruḥun ara ticki.</string>
+    <string name="clear_clipboard_data">Sfeḍ isefka n tecfawt</string>
+    <string name="clear_clipboard_data_confirmation">Tebɣiḍ s tidet ad tsefḍeḍ isefka n tecfawt?</string>
+    <string name="show_numbers_row">Ssken-d uṭṭunen ɣef wadur yemgaraden</string>
+    <string name="start_sentences_capitalized">Bdu-d tifyar s usekkil ameqqran</string>
+    <string name="smileys_and_emotions">Acmumeḥ d iḥulfan</string>
+    <string name="people_and_body">Imdanen d tfekka</string>
+    <string name="food_and_drink">Učči d tissit</string>
+    <string name="travel_and_places">Asikel d yimukan</string>
+    <string name="switch_to_voice_typing">Uɣal ɣer tira n taɣect</string>
+    <string name="manage_clips">Tzemreḍ ad tesferkeḍ neɣ ad ternuḍ iklipin dagi akken ad tkecmeḍ s tɣawla.</string>
+    <string name="keycode_space">Afeggag n tallunt</string>
 </resources>
