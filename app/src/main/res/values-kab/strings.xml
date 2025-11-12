@@ -42,4 +42,5 @@
     <string name="switch_to_voice_typing">Uɣal ɣer tira n taɣect</string>
     <string name="manage_clips">Tzemreḍ ad tesferkeḍ neɣ ad ternuḍ iklipin dagi akken ad tkecmeḍ s tɣawla.</string>
     <string name="keycode_space">Afeggag n tallunt</string>
+    <string name="show_clipboard_content">Sken agbur n tecfawit ma yella</string>
 </resources>
