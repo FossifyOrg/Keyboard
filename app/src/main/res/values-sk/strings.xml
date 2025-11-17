@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Vaša schránka je prázdna.</string>
     <string name="manage_clipboard_label">Akonáhle skopírujete nejaký text, objaví sa tu. Budete ho aj môcť pripnúť, aby sa časom nestratil.</string>
     <string name="clear_clipboard_data">Vyčistič schránku</string>
-    <string name="clear_clipboard_data_confirmation">Ste si istý, že chcete vyčistiť schránku?</string>
     <string name="clipboard">Schránka</string>
-    <string name="clipboard_recent">Nedávne</string>
     <string name="clipboard_current">Súčasné</string>
     <string name="clipboard_pinned">Pripnuté</string>
     <string name="add_new_item">Pridať novú položku</string>

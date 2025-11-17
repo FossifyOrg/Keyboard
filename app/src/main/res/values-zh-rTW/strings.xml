@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">您的剪貼簿空空的。</string>
     <string name="manage_clipboard_label">當您複製了文字之後，它們就會出現在這裡。也可以釘選起來，讓它們之後不會消失。</string>
     <string name="clear_clipboard_data">清除剪貼簿資料</string>
-    <string name="clear_clipboard_data_confirmation">您確定要清除剪貼簿資料嗎？</string>
     <string name="clipboard">剪貼簿</string>
-    <string name="clipboard_recent">最近</string>
     <string name="clipboard_current">目前</string>
     <string name="clipboard_pinned">釘選</string>
     <string name="add_new_item">新增項目</string>

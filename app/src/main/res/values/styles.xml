@@ -20,4 +20,6 @@
         <item name="android:buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
         <item name="android:buttonBarNeutralButtonStyle">@style/DialogButtonStyle</item>
     </style>
+
+
 </resources>

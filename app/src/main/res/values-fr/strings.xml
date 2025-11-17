@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Votre presse-papiers est vide.</string>
     <string name="manage_clipboard_label">Lorsque vous copiez du texte, il s\'affiche ici. Vous pouvez également épingler des copies pour qu’elles ne disparaissent pas plus tard.</string>
     <string name="clear_clipboard_data">Effacer les données du presse-papiers</string>
-    <string name="clear_clipboard_data_confirmation">Voulez-vous vraiment effacer les données du presse-papiers \?</string>
     <string name="clipboard">Presse-papiers</string>
-    <string name="clipboard_recent">Récent</string>
     <string name="clipboard_current">Actuel</string>
     <string name="clipboard_pinned">Épinglé</string>
     <string name="add_new_item">Ajouter un nouvel élément</string>

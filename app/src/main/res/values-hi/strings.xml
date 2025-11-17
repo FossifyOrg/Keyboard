@@ -9,9 +9,7 @@
     <string name="manage_clipboard_empty">आपका क्लिपबोर्ड खाली है।</string>
     <string name="redirection_note">कृपया इसे उपलब्ध कीबोर्ड बनाने के लिए अगली स्क्रीन पर फोसिफाई कीबोर्ड सक्षम करें। सक्षम होने पर \'पीछे\' दबाएं।</string>
     <string name="clear_clipboard_data">क्लिपबोर्ड डेटा साफ करें</string>
-    <string name="clear_clipboard_data_confirmation">क्या आप वाकई क्लिपबोर्ड डेटा साफ करना चाहते हैं?</string>
     <string name="clipboard">क्लिपबोर्ड</string>
-    <string name="clipboard_recent">हालिया</string>
     <string name="clipboard_current">मौजूदा</string>
     <string name="manage_clips">आप त्वरित पहुंच के लिए यहां क्लिप प्रबंधित या जोड़ सकते हैं।</string>
     <string name="clipboard_pinned">पिन किया गया</string>

@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">O teu portapapeis está baleiro.</string>
     <string name="manage_clipboard_label">Despois de copiar algún texto, mostrarase aquí. Tamén pode fixar clips para que non desaparezan máis tarde.</string>
     <string name="clear_clipboard_data">Borrar os datos do portapapeis</string>
-    <string name="clear_clipboard_data_confirmation">Atoposte seguro de borrar os datos do portapapeis\?</string>
     <string name="clipboard_current">Actual</string>
     <string name="clipboard_pinned">Fixado</string>
     <string name="add_new_item">Engade un novo elemento</string>
@@ -24,7 +23,6 @@
     <string name="emojis">Emoticona</string>
     <string name="redirection_note">Por favor, active Fossify Keyboard na pantalla que segue para facelo dispoñible. Prema «Atrás» tras rematar.</string>
     <string name="clipboard">Portapapeis</string>
-    <string name="clipboard_recent">Recentes</string>
     <string name="manage_keyboard_languages">Xestionar os idiomas do teclado</string>
     <string name="pin_text">Fixar o texto</string>
     <string name="export_clipboard_items">Exportar os elementos do portapapeis</string>

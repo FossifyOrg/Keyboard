@@ -8,9 +8,7 @@
     <string name="manage_clipboard_empty">Your clipboard is empty.</string>
     <string name="manage_clipboard_label">Once you copy some text, it will show up here. You can also pin clips so they won\'t disappear later.</string>
     <string name="clear_clipboard_data">Clear clipboard data</string>
-    <string name="clear_clipboard_data_confirmation">Are you sure you want to clear the clipboard data?</string>
     <string name="clipboard">Clipboard</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="clipboard_current">Current</string>
     <string name="clipboard_pinned">Pinned</string>
     <string name="add_new_item">Add a new item</string>
@@ -51,6 +49,7 @@
     <!-- Voice Input -->
     <string name="voice_typing_method">Voice typing method</string>
     <string name="switch_to_voice_typing">Switch to voice typing</string>
+    <string name="search_emoji">Search Emoji</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res

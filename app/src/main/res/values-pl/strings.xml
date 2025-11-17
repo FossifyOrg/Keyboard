@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">Twój schowek jest pusty.</string>
     <string name="manage_clipboard_label">Gdy skopiujesz jakiś tekst, pojawi się on tutaj. Możesz także przypinać wpisy, aby później nie zniknęły.</string>
     <string name="clear_clipboard_data">Wyczyść dane schowka</string>
-    <string name="clear_clipboard_data_confirmation">Czy wyczyścić dane schowka\?</string>
     <string name="clipboard">Schowek</string>
-    <string name="clipboard_recent">Ostatnie</string>
     <string name="clipboard_current">Bieżący</string>
     <string name="clipboard_pinned">Przypięte</string>
     <string name="add_new_item">Dodaj nowy element</string>

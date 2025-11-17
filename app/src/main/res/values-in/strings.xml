@@ -5,9 +5,7 @@
     <string name="manage_clipboard_empty">Papan klip Anda kosong.</string>
     <string name="manage_clipboard_label">Setelah Anda menyalin teks, itu akan muncul di sini. Anda juga bisa sematkan klip supaya mereka tidak hilang.</string>
     <string name="clear_clipboard_data">Hapus data papan klip</string>
-    <string name="clear_clipboard_data_confirmation">Yakin untuk menghapus data papan klip\?</string>
     <string name="clipboard">Papan klip</string>
-    <string name="clipboard_recent">Terkini</string>
     <string name="clipboard_current">Saat ini</string>
     <string name="clipboard_pinned">Disematkan</string>
     <string name="add_new_item">Tambahkan item baru</string>

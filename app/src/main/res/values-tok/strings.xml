@@ -7,7 +7,6 @@
     <string name="manage_clipboard_empty">poki sitelen tenpo sina li ale ala.</string>
     <string name="manage_clipboard_label">sina sama e sitelen seme la ona li lukin lon ni. kin sina ken taki e sitelen tenpo la ona li weka ala.</string>
     <string name="clear_clipboard_data">o weka e sona pi poki sitelen tenpo</string>
-    <string name="clear_clipboard_data_confirmation">sina wile weka ala weka e sona pi poki sitelen tenpo?</string>
     <string name="food_and_drink">moku en telo</string>
     <string name="travel_and_places">tawa en ma</string>
     <string name="activities">pali</string>
@@ -17,7 +16,6 @@
     <string name="voice_typing_method">nasin pana kalama</string>
     <string name="switch_to_voice_typing">o ante tawa pana kalama</string>
     <string name="clipboard">poki sitelen tenpo</string>
-    <string name="clipboard_recent">tenpo sin</string>
     <string name="clipboard_current">tenpo ni</string>
     <string name="clipboard_pinned">taki</string>
     <string name="manage_keyboard_languages">o lawi e toki pi poki sitelen</string>

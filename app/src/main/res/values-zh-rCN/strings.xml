@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">您的剪贴板是空的。</string>
     <string name="manage_clipboard_label">您复制的文本将显示在此处。 你还可以固定文本片段，这样它们之后不会消失。</string>
     <string name="clear_clipboard_data">清除剪贴板数据</string>
-    <string name="clear_clipboard_data_confirmation">您确定想清除剪贴板数据吗？</string>
     <string name="clipboard">剪贴板</string>
-    <string name="clipboard_recent">最近</string>
     <string name="clipboard_current">当前</string>
     <string name="clipboard_pinned">已固定</string>
     <string name="add_new_item">添加新项目</string>

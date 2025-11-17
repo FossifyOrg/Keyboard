@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Ваш буфер абмену пусты.</string>
     <string name="manage_clipboard_label">Калі вы скапіруеце тэкст, ён з\'явіцца тут. Вы таксама можаце замацаваць кліпы, каб яны не зніклі пазней.</string>
     <string name="clear_clipboard_data">Ачысціць даныя буфера абмену</string>
-    <string name="clear_clipboard_data_confirmation">Вы ўпэўнены, што хочаце ачысціць даныя буфера абмену\?</string>
     <string name="clipboard">Буфер абмену</string>
-    <string name="clipboard_recent">Апошнія</string>
     <string name="clipboard_current">Ток</string>
     <string name="clipboard_pinned">Замацаваны</string>
     <string name="add_new_item">Дадайце новы элемент</string>

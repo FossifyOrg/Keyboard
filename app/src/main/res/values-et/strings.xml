@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Lõikelaud on tühi.</string>
     <string name="manage_clipboard_label">Kui sa mingi teksti oled kopeerinud, siis on ta siin nähtav. Et kirjed hiljem ei kaoks, siis võid neid ka klammerdada.</string>
     <string name="clear_clipboard_data">Kustuta lõikelaua kirjed</string>
-    <string name="clear_clipboard_data_confirmation">Kas sa oled kindel, et soovid kustutada kõik kirjed lõikelaualt\?</string>
     <string name="clipboard">Lõikelaud</string>
-    <string name="clipboard_recent">Hiljutine</string>
     <string name="clipboard_current">Praegune</string>
     <string name="clipboard_pinned">Klammerdatud</string>
     <string name="add_new_item">Lisa uus kirje</string>

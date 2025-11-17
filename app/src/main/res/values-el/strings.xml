@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Το πρόχειρό σας είναι άδειο.</string>
     <string name="manage_clipboard_label">Μόλις αντιγράψετε κάποιο κείμενο, θα εμφανιστεί εδώ. Μπορείτε επίσης να καρφιτσώσετε κλιπ ώστε να μην εξαφανιστούν αργότερα.</string>
     <string name="clear_clipboard_data">Καθαρισμός δεδομένων πρόχειρου</string>
-    <string name="clear_clipboard_data_confirmation">Είστε βέβαιοι ότι θέλετε να διαγράψετε τα δεδομένα του πρόχειρου;</string>
     <string name="clipboard">Πρόχειρο</string>
-    <string name="clipboard_recent">Πρόσφατα</string>
     <string name="clipboard_current">Τρέχον</string>
     <string name="clipboard_pinned">Καρφιτσωμένα</string>
     <string name="add_new_item">Προσθήκη νέου στοιχείου</string>

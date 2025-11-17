@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">Zure arbela hutsik dago.</string>
     <string name="manage_clipboard_label">Behin testua kopiatuta, bertan agertuko da. Klipak ere jar ditzakezu, gero ez desagertzeko.</string>
     <string name="clear_clipboard_data">Garbitu arbeleko datuak</string>
-    <string name="clear_clipboard_data_confirmation">Seguru zaude arbeleko datuak garbitu nahi dituzula?</string>
     <string name="clipboard">Arbela</string>
-    <string name="clipboard_recent">Azken aldikoak</string>
     <string name="clipboard_current">Unekoa</string>
     <string name="clipboard_pinned">Finkatua</string>
     <string name="add_new_item">Gehitu elementu berri bat</string>

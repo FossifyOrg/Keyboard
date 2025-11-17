@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Вашият клипборд е празен.</string>
     <string name="manage_clipboard_label">След като копирате някакъв текст, той ще се появи тук. Можете също да закачите клипове, за да не изчезнат по-късно.</string>
     <string name="clear_clipboard_data">Изчистване на клипборд данните</string>
-    <string name="clear_clipboard_data_confirmation">Сигурни ли сте, че искате да изтриете клипборд данните\?</string>
     <string name="clipboard">Клипборд</string>
-    <string name="clipboard_recent">Скорошни</string>
     <string name="clipboard_current">Текущо</string>
     <string name="clipboard_pinned">Закачено</string>
     <string name="add_new_item">Добавяне на нов елемент</string>

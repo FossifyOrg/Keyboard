@@ -5,7 +5,6 @@
     <string name="manage_clipboard_empty">سجل الحافظة فارغ.</string>
     <string name="manage_clipboard_label">بمجرد نسخ بعض النص ، سيظهر هنا. يمكنك أيضًا تثبيت المقاطع حتى لا تختفي لاحقًا.</string>
     <string name="clear_clipboard_data">مسح بيانات الحافظة</string>
-    <string name="clear_clipboard_data_confirmation">هل أنت متأكد أنك تريد مسح بيانات الحافظة؟</string>
     <string name="clipboard_current">حالي</string>
     <string name="clipboard_pinned">المثبته</string>
     <string name="add_new_item">أضف عنصرًا جديدًا</string>

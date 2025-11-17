@@ -23,7 +23,6 @@
     <string name="manage_clipboard_empty">คลิปบอร์ดของคุณว่างอยู่</string>
     <string name="clear_clipboard_data">ล้างข้อมูลคลิปบอร์ด</string>
     <string name="clipboard">คลิปบอร์ด</string>
-    <string name="clipboard_recent">ไม่นานนี้</string>
     <string name="clipboard_current">ปัจจุบัน</string>
     <string name="keycode_shift">ยก</string>
     <string name="recently_used">ใช้ไม่นานนี้</string>

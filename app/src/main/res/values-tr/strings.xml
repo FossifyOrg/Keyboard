@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">Panonuz boş.</string>
     <string name="manage_clipboard_label">Bir metni kopyaladığınızda burada görünecektir. Kaybolmamaları için bunları sabitleyebilirsiniz.</string>
     <string name="clear_clipboard_data">Pano verilerini temizle</string>
-    <string name="clear_clipboard_data_confirmation">Pano verilerini silmek istediğinizden emin misiniz\?</string>
     <string name="clipboard">Pano</string>
-    <string name="clipboard_recent">Son kopyalananlar</string>
     <string name="clipboard_current">Geçerli</string>
     <string name="clipboard_pinned">Sabitlenen</string>
     <string name="add_new_item">Yeni öge ekle</string>

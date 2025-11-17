@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">הלוח העתקה שלך ריק.</string>
     <string name="manage_clipboard_label">לאחר שתעתיק טקסט, הוא יופיע כאן. תוכל גם להצמיד קטעים כדי שלא ייעלמו אחר כך.</string>
     <string name="clear_clipboard_data">נקה את לוח העתקה</string>
-    <string name="clear_clipboard_data_confirmation">האם אתה בטוח שאתה רוצה לנקות את נתוני הלוח\?</string>
     <string name="clipboard">לוח העתקה</string>
-    <string name="clipboard_recent">לאחרונה</string>
     <string name="clipboard_current">נוכחי</string>
     <string name="clipboard_pinned">מוצמד</string>
     <string name="add_new_item">הוסף פריט חדש</string>

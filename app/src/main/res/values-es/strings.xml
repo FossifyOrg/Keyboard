@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Su portapapeles está vacío.</string>
     <string name="manage_clipboard_label">Una vez que copies un texto, aparecerá aquí. También puedes anclar clips para que no desaparezcan después.</string>
     <string name="clear_clipboard_data">Borrar los datos del portapapeles</string>
-    <string name="clear_clipboard_data_confirmation">¿Está seguro de que desea borrar los datos del portapapeles\?</string>
     <string name="clipboard">Portapapeles</string>
-    <string name="clipboard_recent">Recientes</string>
     <string name="clipboard_current">Actual</string>
     <string name="clipboard_pinned">Fijado</string>
     <string name="add_new_item">Añadir un nuevo elemento</string>

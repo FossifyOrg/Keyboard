@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Área de transferência vazia.</string>
     <string name="manage_clipboard_label">Assim que algum texto for copiado, será mostrado aqui. Pode também fixar entradas para que não desapareçam.</string>
     <string name="clear_clipboard_data">Limpar área de transferência</string>
-    <string name="clear_clipboard_data_confirmation">Tem a certeza de que pretende limpar a área de transferência\?</string>
     <string name="clipboard">Área de transferência</string>
-    <string name="clipboard_recent">Recente</string>
     <string name="clipboard_current">Atual</string>
     <string name="clipboard_pinned">Fixada</string>
     <string name="add_new_item">Adicionar novo item</string>

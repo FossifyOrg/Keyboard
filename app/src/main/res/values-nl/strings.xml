@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">Het klembord is leeg.</string>
     <string name="manage_clipboard_label">Bij het kopiëren van tekst zal die hier als clip verschijnen. Clips kunnen ook worden vastgezet, zodat ze later niet zullen verdwijnen.</string>
     <string name="clear_clipboard_data">Klembord wissen</string>
-    <string name="clear_clipboard_data_confirmation">Klembordgegevens verwijderen\?</string>
     <string name="clipboard">Klembord</string>
     <string name="clipboard_current">Huidig</string>
     <string name="clipboard_pinned">Vastgezet</string>
@@ -32,7 +31,6 @@
     <string name="redirection_note">Schakel Fossify Toetsenbord in bij het hierop volgende scherm om het beschikbaar te maken als toetsenbord. Druk daarna eenmaal op de Terug-knop.</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="manage_keyboard_languages">Toetsenbordtalen beheren</string>
     <string name="switch_to_voice_typing">Spraakgestuurd typen</string>
     <string name="voice_typing_method">Methode voor spraakgestuurd typen</string>

@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Leikepöytä on tyhjä.</string>
     <string name="manage_clipboard_label">Kun kopioit tekstiä, se näkyy tässä. Voit myös kiinnittää leikkeitä, jotta ne eivät katoa myöhemmin.</string>
     <string name="clear_clipboard_data">Tyhjennä leikepöydän tiedot</string>
-    <string name="clear_clipboard_data_confirmation">Haluatko varmasti tyhjentää leikepöydän tiedot\?</string>
     <string name="clipboard">Leikepöytä</string>
-    <string name="clipboard_recent">Viimeisimmät</string>
     <string name="clipboard_current">Nykyinen</string>
     <string name="clipboard_pinned">Kiinnitetty</string>
     <string name="add_new_item">Lisää uusi kohde</string>

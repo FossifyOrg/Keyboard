@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Tvoj međuspremnik je prazan.</string>
     <string name="manage_clipboard_label">Kada kopiraš neki tekst, on će se pojaviti ovdje. Također možeš prikvačiti isječke kako kasnije ne bi nestali.</string>
     <string name="clear_clipboard_data">Izbriši podatke međuspremnika</string>
-    <string name="clear_clipboard_data_confirmation">Stvarno želiš izbrisati podatke međuspremnika\?</string>
     <string name="clipboard">Međuspremnik</string>
-    <string name="clipboard_recent">Nedavni</string>
     <string name="clipboard_current">Aktualni</string>
     <string name="clipboard_pinned">Prikvačeni</string>
     <string name="add_new_item">Dodaj novu stavku</string>

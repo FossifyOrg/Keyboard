@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">کیلیپ بورد ایسا پتی هڌ.</string>
     <string name="clear_clipboard_data">روفتن داده یل کیلیپ بورد</string>
     <string name="clipboard">کیلیپ بورد</string>
-    <string name="clipboard_recent">دیندایی</string>
     <string name="clipboard_current">هیم سکویی</string>
     <string name="clipboard_pinned">دیسنیڌه وابیڌه</string>
 </resources>

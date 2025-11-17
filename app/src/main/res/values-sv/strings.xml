@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Ditt urklipp är tomt.</string>
     <string name="manage_clipboard_label">När du kopierar text visas den här. Du kan också fästa klipp så att de inte försvinner senare.</string>
     <string name="clear_clipboard_data">Rensa urklippsdata</string>
-    <string name="clear_clipboard_data_confirmation">Är du säker på att du vill rensa datan från urklippet\?</string>
     <string name="clipboard">Urklipp</string>
-    <string name="clipboard_recent">Senaste</string>
     <string name="clipboard_current">Nuvarande</string>
     <string name="clipboard_pinned">Fästa</string>
     <string name="add_new_item">Lägg till ett nytt objekt</string>

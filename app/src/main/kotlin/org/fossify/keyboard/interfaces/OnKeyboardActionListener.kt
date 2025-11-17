@@ -6,6 +6,11 @@ import android.view.inputmethod.InputMethodSubtype
  * The SimpleKeyboardIME class uses this interface to communicate with the input connection
  */
 interface OnKeyboardActionListener {
+    /*
+
+     called when  focus on the searchview */
+    fun searchViewFocused(searchView: androidx.appcompat.widget.AppCompatAutoCompleteTextView)
+
     /**
      * Called when the user presses a key. This is sent before the [.onKey] is called. For keys that repeat, this is only called once.
      * @param primaryCode the unicode of the key being pressed. If the touch is not on a valid key, the value will be zero.
@@ -48,4 +53,5 @@ interface OnKeyboardActionListener {
      * Called when input method is changed in-app.
      */
     fun changeInputMethod(id: String, subtype: InputMethodSubtype)
+    fun updateShiftStateToLowercase()
 }

@@ -9,9 +9,7 @@
     <string name="manage_clipboard_items">Bainistigh míreanna gearrthaisce</string>
     <string name="manage_clipboard_empty">Tá do ghearrthaisce folamh.</string>
     <string name="manage_clipboard_label">Nuair a chóipeálann tú roinnt téacs, taispeánfar anseo é. Is féidir leat gearrthóga bioráin freisin ionas nach n-imeoidh siad níos déanaí.</string>
-    <string name="clear_clipboard_data_confirmation">An bhfuil tú cinnte go bhfuil fonn ort sonraí na gearrthaisce a ghlanadh?</string>
     <string name="clipboard">Gearrthaisce</string>
-    <string name="clipboard_recent">Le déanaí</string>
     <string name="clipboard_current">Reatha</string>
     <string name="clipboard_pinned">Pinned</string>
     <string name="add_new_item">Cuir mír nua leis</string>

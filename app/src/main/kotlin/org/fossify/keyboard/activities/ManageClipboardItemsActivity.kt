@@ -61,10 +61,10 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
-        if (requestCode == PICK_EXPORT_CLIPS_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        if (requestCode == PICK_EXPORT_CLIPS_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val outputStream = contentResolver.openOutputStream(resultData.data!!)
             exportClipsTo(outputStream)
-        } else if (requestCode == PICK_IMPORT_CLIPS_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_IMPORT_CLIPS_SOURCE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val inputStream = contentResolver.openInputStream(resultData.data!!)
             parseFile(inputStream)
         }

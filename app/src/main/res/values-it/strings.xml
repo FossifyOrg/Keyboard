@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">Gli appunti sono vuoti.</string>
     <string name="manage_clipboard_label">Una volta copiato del testo, verrà mostrato qui. Puoi anche appuntare le clip in modo che non spariscano più tardi.</string>
     <string name="clear_clipboard_data">Elimina i dati degli appunti</string>
-    <string name="clear_clipboard_data_confirmation">Vuoi davvero eliminare i dati degli appunti\?</string>
     <string name="clipboard_current">Attuale</string>
     <string name="clipboard_pinned">Appuntato</string>
     <string name="add_new_item">Aggiungi un nuovo elemento</string>
@@ -31,7 +30,6 @@
     <string name="emojis">Emoji</string>
     <string name="redirection_note">Attiva Tastiera Fossify nella schermata successiva per renderla disponibile. Una volta abilitata, premi \"Indietro\".</string>
     <string name="clipboard">Appunti</string>
-    <string name="clipboard_recent">Recente</string>
     <string name="objects">Oggetti</string>
     <string name="symbols">Simboli</string>
     <string name="flags">Bandiere</string>

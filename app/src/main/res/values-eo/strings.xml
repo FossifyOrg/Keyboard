@@ -17,9 +17,7 @@
     <string name="keycode_space">Spacobreta</string>
     <string name="flags">Flagoj</string>
     <string name="export_clipboard_items">Eksporti tondujajn erojn</string>
-    <string name="clear_clipboard_data_confirmation">Ĉu vi certas, ke vi volas forigi la datumojn de la tondujo?</string>
     <string name="clipboard">Tondujo</string>
-    <string name="clipboard_recent">Lastatempa</string>
     <string name="clipboard_current">Aktuala</string>
     <string name="add_new_item">Aldoni novan eron</string>
     <string name="manage_clips">Vi povas administri aŭ aldoni klipoj ĉi tie por rapida aliro.</string>

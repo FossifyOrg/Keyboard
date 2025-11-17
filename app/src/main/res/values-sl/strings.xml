@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Vaše odložišče je prazno.</string>
     <string name="manage_clipboard_label">Skopirano besedilo se bo prikazalo tu. Izrezke lahko tudi pripnete, da pozneje ne bodo izginili.</string>
     <string name="clear_clipboard_data">Počisti podatke odložišča</string>
-    <string name="clear_clipboard_data_confirmation">Ali ste prepričani, da želite izbrisati podatke iz odložišča\?</string>
     <string name="clipboard">Odložišče</string>
-    <string name="clipboard_recent">Nedavno</string>
     <string name="clipboard_current">Trenutno</string>
     <string name="clipboard_pinned">Pripeto</string>
     <string name="add_new_item">Dodaj nov element</string>

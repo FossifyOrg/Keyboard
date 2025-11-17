@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">Din udklipsholder er tom.</string>
     <string name="manage_clipboard_label">Når du kopierer tekst, vises det her. Du kan også fastgøre udklip, så de ikke forsvinder senere.</string>
     <string name="clear_clipboard_data">Ryd data i udklipsholder</string>
-    <string name="clear_clipboard_data_confirmation">Er du sikker på, at du vil slette data i udklipsholderen\?</string>
     <string name="clipboard_current">Nuværende</string>
     <string name="clipboard_pinned">Fastgjort</string>
     <string name="add_new_item">Tilføj nyt element</string>
@@ -28,7 +27,6 @@
     <string name="show_key_borders">Vis tastegrænser</string>
     <string name="show_numbers_row">Vis tal i en separat række</string>
     <string name="emojis">Emojis</string>
-    <string name="clipboard_recent">Seneste</string>
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Mellemrumstast</string>
     <string name="manage_keyboard_languages">Administrer tastatursprog</string>

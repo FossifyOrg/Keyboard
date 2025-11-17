@@ -139,6 +139,8 @@ detekt {
 }
 
 dependencies {
+
+
     implementation(libs.fossify.commons)
     implementation(libs.androidx.emoji2.bundled)
     implementation(libs.androidx.autofill)
@@ -146,4 +148,9 @@ dependencies {
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
     detektPlugins(libs.compose.detekt)
+
+    implementation (project(":emojipicker"))
+
 }
+
+

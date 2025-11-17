@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Ваш међуспремник је празан.</string>
     <string name="manage_clipboard_label">Када копирате неки текст, он ће се појавити овде. Такође можете да закачите клипове како касније не би нестали.</string>
     <string name="clear_clipboard_data">Обришите податке међумеморије</string>
-    <string name="clear_clipboard_data_confirmation">Да ли сте сигурни да желите да обришете податке из међуспремника\?</string>
     <string name="clipboard">Цлипбоард</string>
-    <string name="clipboard_recent">Скорашњи</string>
     <string name="clipboard_current">Тренутни</string>
     <string name="clipboard_pinned">Закачен</string>
     <string name="add_new_item">Додајте нову ставку</string>

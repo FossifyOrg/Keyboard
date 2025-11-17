@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">Ihre Zwischenablage ist leer.</string>
     <string name="manage_clipboard_label">Sobald du einen Text kopierst, wird er hier angezeigt. Du kannst auch Clips anheften, damit sie später nicht verschwinden.</string>
     <string name="clear_clipboard_data">Daten in der Zwischenablage löschen</string>
-    <string name="clear_clipboard_data_confirmation">Sollen wirklich die Daten in der Zwischenablage gelöscht werden\?</string>
     <string name="clipboard">Zwischenablage</string>
-    <string name="clipboard_recent">Neueste</string>
     <string name="clipboard_current">Aktuell</string>
     <string name="clipboard_pinned">Angeheftet</string>
     <string name="add_new_item">Ein neues Element hinzufügen</string>

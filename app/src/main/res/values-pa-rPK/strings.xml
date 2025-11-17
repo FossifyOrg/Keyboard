@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">کوئی کاپی نہیں اے۔</string>
     <string name="manage_clipboard_label">جدوں کجھ لکھت کاپی کرن، اِتھے ویکھو۔ اِتھے تسی لکھت لگ وی سکدے او تاں جو اوہ بعد وچ غائب نا ہوݨ۔</string>
     <string name="clear_clipboard_data">کاپی کیتے ڈیٹے ہٹاؤ</string>
-    <string name="clear_clipboard_data_confirmation">کیہ تسیں پکے، ہٹ چاہندے او؟</string>
     <string name="clipboard">کاپی کیتے</string>
-    <string name="clipboard_recent">حالیہ</string>
     <string name="clipboard_current">موجودہ</string>
     <string name="clipboard_pinned">لگیاں</string>
     <string name="add_new_item">نویں چیز پایو</string>

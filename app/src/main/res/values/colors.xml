@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="key_press_color">#11ffffff</color>
+    <color name="text_color_according_to_theme">@color/theme_dark_background_color</color>
 </resources>

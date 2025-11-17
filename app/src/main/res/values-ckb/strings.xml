@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">بەشی لەبەرگیراوەکان بەتاڵە.</string>
     <string name="manage_clipboard_label">هەرکاتێ نووسینێکت کۆپی کرد بە خۆکاری لێرەدا دەرەکەون، بۆ هێشتنەوە لەبەرگیراوەکان پێویستە جێگیریان بکەیت.</string>
     <string name="clear_clipboard_data">سڕینەوەی لەبەرگیراوەکان</string>
-    <string name="clear_clipboard_data_confirmation">ئایا دڵنیایت لە سڕینەوەی لەبەرگیراوەکان؟</string>
     <string name="clipboard">لەبەرگیراوەکان</string>
-    <string name="clipboard_recent">دوایین لەبەرگیراوە</string>
     <string name="clipboard_current">لەبەرگیراوەکان</string>
     <string name="clipboard_pinned">جێگیرکراو</string>
     <string name="add_new_item">زیادکردنی نوێ</string>

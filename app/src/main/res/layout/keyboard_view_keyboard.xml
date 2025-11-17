@@ -5,120 +5,218 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/toolbar_holder"
+        android:id="@+id/parentToolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/keyboard_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/clipboard_clear"
-            android:layout_width="@dimen/toolbar_icon_height"
-            android:layout_height="@dimen/toolbar_icon_height"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/clear_clipboard_data"
-            android:padding="@dimen/small_margin"
-            android:src="@drawable/ic_delete_vector"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.rishabh.emojipicker.EmojiPickerView
+            android:id="@+id/search_result_emoji_picker_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:usedInSearchResult="true"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/topPopupSearchBarToolbar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <org.fossify.keyboard.views.InlineContentViewHorizontalScrollView
-            android:id="@+id/suggestions_holder"
-            android:layout_width="0dp"
+        <!--     top popup search toolbar -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topPopupSearchBarToolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:layout_marginEnd="@dimen/normal_margin"
-            android:fillViewport="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/settings_cliboard_toolbar_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"   >
+
+
+            <ImageView
+                android:id="@+id/topPopupSearchBarBack"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_arrow_left_vector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            add a linearlayout with horizontal orientaion and add two button first at start and end-->
+            <!--                then at start is search and end is cross button -->
+
+            <ImageView
+                android:id="@+id/popupSearchIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/topPopupSearchBarBack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_gravity="center_vertical|left"
+                android:src="@drawable/ic_search_vector" />
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/topPopupSearchBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/topPopupSearchBarBack"
+                android:completionThreshold="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:layout_constraintStart_toEndOf="@+id/popupSearchIcon"
+                app:layout_constraintEnd_toStartOf="@id/popupToolbarCross"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:padding="10dp" />
+
+            <ImageView
+                android:id="@+id/popupToolbarCross"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/topPopupSearchBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_cross_vector"
+                />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_cliboard_toolbar_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/voice_input_button"
-            app:layout_constraintStart_toEndOf="@+id/clipboard_clear"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <LinearLayout
-                android:id="@+id/suggestions_items_holder"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/clipboard_clear"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/clear_clipboard_data"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_delete_vector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/clipboard_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:autoLink="none"
-                    android:background="@drawable/clipboard_background"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:lines="1"
-                    android:paddingStart="@dimen/activity_margin"
-                    android:paddingTop="@dimen/small_margin"
-                    android:paddingEnd="@dimen/activity_margin"
-                    android:paddingBottom="@dimen/small_margin"
-                    android:textSize="@dimen/label_text_size"
-                    tools:text="Clipboard content" />
+            <org.fossify.keyboard.views.InlineContentViewHorizontalScrollView
+                android:id="@+id/suggestions_holder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/voice_input_button"
+                app:layout_constraintStart_toEndOf="@+id/clipboard_clear"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-                    android:id="@+id/autofill_suggestions_holder"
+                    android:id="@+id/suggestions_items_holder"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/clipboard_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoLink="none"
+                        android:background="@drawable/clipboard_background"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:paddingStart="@dimen/activity_margin"
+                        android:paddingTop="@dimen/small_margin"
+                        android:paddingEnd="@dimen/activity_margin"
+                        android:paddingBottom="@dimen/small_margin"
+                        android:textSize="@dimen/label_text_size"
+                        tools:text="Clipboard content" />
 
-        </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
+                    <LinearLayout
+                        android:id="@+id/autofill_suggestions_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
 
-        <ImageView
-            android:id="@+id/voice_input_button"
-            android:layout_width="@dimen/toolbar_icon_height"
-            android:layout_height="@dimen/toolbar_icon_height"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/switch_to_voice_typing"
-            android:padding="@dimen/small_margin"
-            android:src="@drawable/ic_microphone_vector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
-            app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-        <ImageView
-            android:id="@+id/pinned_clipboard_items"
-            android:layout_width="@dimen/toolbar_icon_height"
-            android:layout_height="@dimen/toolbar_icon_height"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/clipboard_pinned"
-            android:padding="@dimen/small_margin"
-            android:src="@drawable/ic_clipboard_vector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settings_cog"
-            app:layout_constraintTop_toTopOf="parent" />
+            </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
 
-        <ImageView
-            android:id="@+id/settings_cog"
-            android:layout_width="@dimen/toolbar_icon_height"
-            android:layout_height="@dimen/toolbar_icon_height"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/settings"
-            android:padding="@dimen/small_margin"
-            android:src="@drawable/ic_settings_cog_vector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/voice_input_button"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/switch_to_voice_typing"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_microphone_vector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pinned_clipboard_items"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/top_keyboard_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/divider"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/pinned_clipboard_items"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/clipboard_pinned"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_clipboard_vector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/settings_cog"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/settings_cog"
+                android:layout_width="@dimen/toolbar_icon_height"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/settings"
+                android:padding="@dimen/small_margin"
+                android:src="@drawable/ic_settings_cog_vector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/top_keyboard_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/divider"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -127,6 +225,7 @@
         style="@style/MyKeyboardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="visible"
         android:background="@color/theme_dark_background_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +241,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_holder">
+        app:layout_constraintTop_toTopOf="@+id/parentToolbar">
 
         <RelativeLayout
             android:id="@+id/emoji_palette_top_bar"
@@ -171,9 +270,32 @@
                 android:layout_marginStart="@dimen/medium_margin"
                 android:layout_toEndOf="@+id/emoji_palette_close"
                 android:ellipsize="end"
+                android:visibility="gone"
                 android:lines="1"
                 android:text="@string/emojis"
                 android:textSize="@dimen/big_text_size" />
+
+
+            <SearchView
+                android:id="@+id/emoji_search_view"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_centerVertical="true"
+                android:focusedByDefault="false"
+                android:focusable="true"
+                android:queryHint="Search Emoji"
+                android:focusableInTouchMode="true"
+                app:iconifiedByDefault="false"
+                android:layout_marginHorizontal="@dimen/medium_margin"
+                android:paddingHorizontal="@dimen/normal_margin"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_toEndOf="@+id/emoji_palette_close"
+                android:ellipsize="end"
+                android:searchHintIcon="@drawable/search_icon"
+
+
+                />
+
 
         </RelativeLayout>
 
@@ -184,8 +306,19 @@
             android:layout_above="@id/emoji_palette_bottom_bar"
             android:layout_below="@+id/emoji_palette_top_bar">
 
+            <com.rishabh.emojipicker.EmojiPickerView
+                android:id="@+id/emoji_picker_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="@dimen/small_margin"
+                android:scrollbars="vertical"
+
+                />
+
             <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/emojis_list"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
@@ -198,6 +331,7 @@
             android:id="@+id/emoji_palette_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_height"
+            android:visibility="gone"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical">
@@ -237,6 +371,7 @@
                 android:src="@drawable/ic_clear_vector" />
 
         </RelativeLayout>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -248,7 +383,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_holder">
+        app:layout_constraintTop_toTopOf="@+id/parentToolbar">
 
         <RelativeLayout
             android:id="@+id/clipboard_manager_top_bar"

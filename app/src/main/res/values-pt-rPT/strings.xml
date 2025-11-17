@@ -5,9 +5,7 @@
     <string name="clear_clipboard_data">Limpar área de transferência</string>
     <string name="keycode_delete">Eliminar</string>
     <string name="emojis">Emojis</string>
-    <string name="clear_clipboard_data_confirmation">Tem a certeza de que pretende limpar a área de transferência?</string>
     <string name="redirection_note">Ative o teclado Fossify no próximo ecrã e defina-o para ser utilizado por omissão. Prima \'Recuar\' assim que o ativar.</string>
-    <string name="clipboard_recent">Recente</string>
     <string name="change_keyboard">Trocar de teclado</string>
     <string name="manage_clipboard_items">Gerir itens na área de transferência</string>
     <string name="clipboard_current">Atual</string>

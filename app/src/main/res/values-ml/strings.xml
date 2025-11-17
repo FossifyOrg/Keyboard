@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡ് ശൂന്യമാണ്.</string>
     <string name="manage_clipboard_label">നിങ്ങൾ കുറച്ച് വാചകം പകർത്തിക്കഴിഞ്ഞാൽ, അത് ഇവിടെ കാണിക്കും. നിങ്ങൾക്ക് ക്ലിപ്പുകൾ പിൻ ചെയ്യാനും കഴിയും, അതിനാൽ അവ പിന്നീട് അപ്രത്യക്ഷമാകില്ല.</string>
     <string name="clear_clipboard_data">ക്ലിപ്പ്ബോർഡ് ഡാറ്റ മായ്‌ക്കുക</string>
-    <string name="clear_clipboard_data_confirmation">ക്ലിപ്പ്ബോർഡ് ഡാറ്റ മായ്‌ക്കണമെന്ന് തീർച്ചയാണോ\?</string>
     <string name="clipboard">ക്ലിപ്പ്ബോർഡ്</string>
-    <string name="clipboard_recent">അടുത്തിടെ</string>
     <string name="clipboard_current">നിലവിലുള്ളത്</string>
     <string name="clipboard_pinned">പിൻ ചെയ്തു</string>
     <string name="add_new_item">ഒരു പുതിയ ഇനം ചേർക്കുക</string>

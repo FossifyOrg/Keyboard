@@ -4,7 +4,6 @@
     <string name="manage_clipboard_items">Gerer le elementos del area de transferentia</string>
     <string name="manage_clipboard_empty">Tu area de transferentia es vacue.</string>
     <string name="clear_clipboard_data">Rader le datos del area de transferentia</string>
-    <string name="clear_clipboard_data_confirmation">Es tu secur que tu vole rader le datos del area de transferentia?</string>
     <string name="clipboard">Area de transferentia</string>
     <string name="add_new_item">Adder un nove elemento</string>
     <string name="export_clipboard_items">Exportar elementos del area de transferentia</string>
@@ -13,6 +12,5 @@
     <string name="keycode_mode_change">Cambiar le typo de claviero</string>
     <string name="show_clipboard_content">Monstrar contentos del area de transferentia si es disponibile</string>
     <string name="keyboard_language">Lingua del claviero</string>
-    <string name="clipboard_recent">Recentes</string>
     <string name="clipboard_current">Actual</string>
 </resources>

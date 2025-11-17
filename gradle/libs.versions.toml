@@ -14,13 +14,33 @@ room = "2.8.3"
 #Fossify
 commons = "5.7.3"
 #Gradle
-gradlePlugins-agp = "8.11.1"
+gradlePlugins-agp = "8.13.1"
 #build
 app-build-compileSDKVersion = "36"
 app-build-targetSDK = "36"
 app-build-minimumSDK = "26"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
+
+#Androidx And EmojiPicker
+androidx-coreKtx = "1.12.0"
+androidx-appcompat = "1.6.1"
+emoji2 = "1.6.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesPlayServices = "1.7.3"
+kotlinxCoroutinesGuava = "1.7.3"
+coreKtx = "1.15.0"
+coreVersion = "1.6.1"
+runner = "1.6.2"
+rules = "1.6.1"
+material = "1.11.0"
+firebaseCrashlyticsBuildtools = "3.0.3"
+
+
+
 [libraries]
 #AndroidX
 androidx-autofill = { module = "androidx.autofill:autofill", version.ref = "androidx-autofill" }
@@ -33,13 +53,40 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
+
+#emoji picker
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-coreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-emoji2 = { module = "androidx.emoji2:emoji2", version.ref = "emoji2" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+androidx-core = { module = "androidx.core:core", version.ref = "coreKtx" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinx-coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinxCoroutinesGuava" }
+test-core = { module = "androidx.test:core", version.ref = "coreVersion" }
+androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
+androidx-rules = { module = "androidx.test:rules", version.ref = "rules" }
+firebase-crashlytics-buildtools = { module = "com.google.firebase:firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutinesPlayServices" }
+
+
+
 [bundles]
 room = [
     "androidx-room-ktx",
     "androidx-room-runtime",
 ]
+
+
+
+
+
 [plugins]
 android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+library = { id = "com.android.library", version.ref = "gradlePlugins-agp" }

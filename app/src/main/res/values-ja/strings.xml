@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">クリップボードが空です。</string>
     <string name="manage_clipboard_label">テキストをコピーすると、ここに表示されます。また、後で消えないように、クリップをピン留めしておけます。</string>
     <string name="clear_clipboard_data">クリップボードデータを削除する</string>
-    <string name="clear_clipboard_data_confirmation">クリップボードのデータをクリアしてもよろしいですか？</string>
     <string name="clipboard">クリップボード</string>
-    <string name="clipboard_recent">最近</string>
     <string name="clipboard_current">現在</string>
     <string name="clipboard_pinned">ピン留め</string>
     <string name="add_new_item">新しいアイテムを追加</string>

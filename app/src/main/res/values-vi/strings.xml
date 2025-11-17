@@ -7,9 +7,7 @@
     <string name="manage_clipboard_empty">Khay nhớ tạm của bạn trống.</string>
     <string name="manage_clipboard_label">Sau khi bạn sao chép một số văn bản, văn bản đó sẽ hiển thị ở đây. Bạn cũng có thể ghim các clip để sau này chúng không biến mất.</string>
     <string name="clear_clipboard_data">Xóa dữ liệu trong khay nhớ tạm</string>
-    <string name="clear_clipboard_data_confirmation">Bạn có chắc chắn muốn xóa dữ liệu clipboard không?</string>
     <string name="clipboard">Khay nhớ tạm</string>
-    <string name="clipboard_recent">Gần đây</string>
     <string name="clipboard_current">Hiện tại</string>
     <string name="clipboard_pinned">Đã ghim</string>
     <string name="add_new_item">Thêm mục mới</string>

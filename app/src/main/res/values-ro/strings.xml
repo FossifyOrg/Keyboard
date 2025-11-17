@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">Clipboard-ul dvs. este gol.</string>
     <string name="manage_clipboard_label">Odată ce ați copiat un text, acesta va apărea aici. De asemenea, puteți fixa clipuri pentru ca acestea să nu dispară mai târziu.</string>
     <string name="clear_clipboard_data">Ștergeți datele din clipboard</string>
-    <string name="clear_clipboard_data_confirmation">Sunteți sigur că doriți să ștergeți datele din clipboard\?</string>
     <string name="clipboard_current">Curent</string>
     <string name="clipboard_pinned">Fixat</string>
     <string name="add_new_item">Adăugați un articol nou</string>
@@ -25,7 +24,6 @@
     <string name="keyboard_height">Înălțime tastatură</string>
     <string name="emojis">Emoticoane</string>
     <string name="clipboard">Planșa de transfer</string>
-    <string name="clipboard_recent">Recente</string>
     <string name="keycode_space">Bara de spațiu</string>
     <string name="start_sentences_capitalized">Începe propozițiile cu o literă mare</string>
     <string name="show_numbers_row">Arată numerele pe un rând separat</string>

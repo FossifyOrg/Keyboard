@@ -3,9 +3,7 @@
     <string name="redirection_note">다음 화면에서 Fossify 키보드를 사용 가능한 키보드로 설정하세요. 설정 후 \'뒤로가기\'를 누르세요.</string>
     <string name="change_keyboard">키보드 변경</string>
     <string name="app_launcher_name">키보드</string>
-    <string name="clear_clipboard_data_confirmation">클립보드 항목을 모두 지우시겠습니까?</string>
     <string name="clipboard">클립보드</string>
-    <string name="clipboard_recent">최근</string>
     <string name="clipboard_current">현재</string>
     <string name="clipboard_pinned">고정됨</string>
     <string name="add_new_item">새 항목 추가</string>

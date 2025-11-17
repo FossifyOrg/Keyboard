@@ -6,7 +6,6 @@
     <string name="manage_clipboard_empty">El porta-retalls està buit.</string>
     <string name="manage_clipboard_label">Després de copiar text, es mostrarà aquí. També podeu fixar clips perquè no desapareguin més tard.</string>
     <string name="clear_clipboard_data">Neteja les dades del porta-retalls</string>
-    <string name="clear_clipboard_data_confirmation">Esteu segur que voleu netejar les dades del porta-retalls\?</string>
     <string name="clipboard">Porta-retalls</string>
     <string name="clipboard_current">Actual</string>
     <string name="clipboard_pinned">Fixat</string>
@@ -29,7 +28,6 @@
     <string name="show_key_borders">Mostra les vores de les tecles</string>
     <string name="show_numbers_row">Mostra els números en una fila separada</string>
     <string name="start_sentences_capitalized">Comença les frases amb una lletra majúscula</string>
-    <string name="clipboard_recent">Recent</string>
     <string name="pin_text">Fixa el text</string>
     <string name="emojis">Emojis</string>
     <string name="redirection_note">Activeu el Fossify Keyboard a la pantalla següent, per a fer-lo disponible. Premeu «Enrere» una vegada activat.</string>

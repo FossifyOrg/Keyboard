@@ -9,7 +9,6 @@
     <dimen name="vertical_correction">-10dp</dimen>
     <dimen name="clip_pin_size">28dp</dimen>
     <dimen name="emoji_item_size">42dp</dimen>
-    <dimen name="emoji_category_item_size">24dp</dimen>
     <dimen name="emoji_palette_btn_size">42dp</dimen>
     <dimen name="suggestion_max_width">200dp</dimen>
 

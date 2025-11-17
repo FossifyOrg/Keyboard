@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Ваш буфер обмена пуст.</string>
     <string name="manage_clipboard_label">Здесь появится текст после того, как вы его скопируете. Вы также можете закрепить любой текст, чтобы он не был удалён автоматически.</string>
     <string name="clear_clipboard_data">Очистить данные буфера обмена</string>
-    <string name="clear_clipboard_data_confirmation">Вы уверены, что хотите очистить данные буфера обмена\?</string>
     <string name="clipboard">Буфер обмена</string>
-    <string name="clipboard_recent">Недавнее</string>
     <string name="clipboard_current">Текущее</string>
     <string name="clipboard_pinned">Закреплено</string>
     <string name="add_new_item">Добавить</string>

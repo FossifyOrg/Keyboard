@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<resources>
+    <color name="light_skin_tone">#edbd82</color>
+    <color name="medium_light_skin_tone">#ba8f63</color>
+    <color name="medium_skin_tone">#91674d</color>
+    <color name="medium_dark_skin_tone">#875334</color>
+    <color name="dark_skin_tone">#4a2f27</color>
+
+    <color name="white">#ffffff</color>
+</resources>

@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">ਤੁਹਾਡਾ ਕਲਿੱਪਬੋਰਡ ਖਾਲੀ ਹੈ।</string>
     <string name="manage_clipboard_label">ਇੱਕ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਟੈਕਸਟ ਨੂੰ ਕਾਪੀ ਕਰ ਲੈਂਦੇ ਹੋ, ਤਾਂ ਇਹ ਏਥੇ ਦਿਖਾਈ ਦੇਵੇਗਾ। ਤੁਸੀਂ ਕਲਿੱਪਾਂ ਨੂੰ ਪਿੰਨ ਵੀ ਕਰ ਸਕਦੇ ਹੋ ਤਾਂ ਜੋ ਉਹ ਬਾਅਦ ਵਿੱਚ ਗਾਇਬ ਨਾ ਹੋਣ।</string>
     <string name="clear_clipboard_data">ਕਲਿੱਪਬੋਰਡ ਡਾਟਾ ਸਾਫ਼ ਕਰੋ</string>
-    <string name="clear_clipboard_data_confirmation">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਕਲਿੱਪਬੋਰਡ ਡੇਟਾ ਨੂੰ ਸਾਫ਼ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ\?</string>
     <string name="clipboard">ਕਲਿੱਪਬੋਰਡ</string>
-    <string name="clipboard_recent">ਹਾਲ ਹੀ</string>
     <string name="clipboard_current">ਮੌਜੂਦਾ</string>
     <string name="clipboard_pinned">ਪਿੰਨ ਕੀਤਾ</string>
     <string name="add_new_item">ਨਵੀਂ ਆਈਟਮ ਸ਼ਾਮਲ ਕਰੋ</string>

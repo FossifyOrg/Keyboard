@@ -6,9 +6,7 @@
     <string name="manage_clipboard_empty">Jūsu starpliktuve ir tukša.</string>
     <string name="manage_clipboard_label">Šeit parādīsies teksts pēc tam, kad jūs to nokopēsiet. Jūs arī varat piespraust datus, lai nepazaudētu tos.</string>
     <string name="clear_clipboard_data">Izdzēst starpliktuves datus</string>
-    <string name="clear_clipboard_data_confirmation">Vai jūs tiešām gribat izdzēst starpliktuves datus\?</string>
     <string name="clipboard">Starpliktuve</string>
-    <string name="clipboard_recent">Nesens</string>
     <string name="clipboard_current">Pašreizējais</string>
     <string name="clipboard_pinned">Piesprausts</string>
     <string name="add_new_item">Pievienot jaunu datu</string>
