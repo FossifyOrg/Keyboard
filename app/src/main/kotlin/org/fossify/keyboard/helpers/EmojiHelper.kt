@@ -3,15 +3,19 @@ package org.fossify.keyboard.helpers
 import android.content.Context
 import android.util.Log
 import org.fossify.keyboard.R
+import org.json.JSONException
 import org.json.JSONObject
+import java.io.IOException
 import java.io.InputStream
+import java.lang.IndexOutOfBoundsException
 
 private var cachedEmojiData: MutableList<EmojiData>? = null
 val cachedVNTelexData: HashMap<String, String> = HashMap()
 
+private const val MAX_SEARCH_RESULTS = 18
+
 /**
- * Reads the emoji list at the given [path] and returns an parsed [MutableList]. If the
- * given file path does not exist, an empty [MutableList] is returned.
+ * Reads the emoji list at the given [path] and returns a parsed [MutableList].
  *
  * @param context The initiating view's context.
  * @param path The path to the asset file.
@@ -53,16 +57,11 @@ fun parseRawEmojiSpecsFile(context: Context, path: String): MutableList<EmojiDat
 
                         val searchTerms = if (parts.size > 1) {
                             parts[1].trim().split(" ").filter { it.isNotEmpty() }
-                        } else {
-                            emptyList()
-                        }
+                        } else emptyList()
 
-                        // Variants start from index 2 onwards
                         val variants = if (parts.size > 2) {
                             parts.drop(2).map { it.trim() }.filter { it.isNotEmpty() }
-                        } else {
-                            emptyList()
-                        }
+                        } else emptyList()
 
                         emojis.add(
                             EmojiData(
@@ -72,23 +71,21 @@ fun parseRawEmojiSpecsFile(context: Context, path: String): MutableList<EmojiDat
                                 searchTerms = searchTerms
                             )
                         )
-                    } catch (e: Exception) {
-                        // Log line parsing errors but continue
-                        android.util.Log.e("EmojiHelper", "Error parsing line in $filename: $line", e)
+                    } catch (e: IllegalArgumentException) {
+                        Log.e("EmojiHelper", "Invalid data in $filename: $line", e)
+                    } catch (e: IndexOutOfBoundsException) {
+                        Log.e("EmojiHelper", "Index error in $filename: $line", e)
                     }
                 }
             }
-        } catch (e: Exception) {
-            // Log file reading errors
-            android.util.Log.e("EmojiHelper", "Error reading file: $fullPath", e)
-            e.printStackTrace()
+        } catch (e: IOException) {
+            Log.e("EmojiHelper", "Error reading file: $fullPath", e)
         }
     }
 
     cachedEmojiData = emojis
     return emojis
 }
-
 
 fun parseRawJsonSpecsFile(context: Context, path: String): HashMap<String, String> {
     if (cachedVNTelexData.isNotEmpty()) {
@@ -101,14 +98,21 @@ fun parseRawJsonSpecsFile(context: Context, path: String): HashMap<String, Strin
         val jsonData = JSONObject(jsonString)
         val rulesObj = jsonData.getJSONObject("rules")
         val ruleKeys = rulesObj.keys()
+
         while (ruleKeys.hasNext()) {
             val key = ruleKeys.next()
             val value = rulesObj.getString(key)
             cachedVNTelexData[key] = value
         }
-    } catch (ignored: Exception) {
+
+    } catch (e: IOException) {
+        Log.e("EmojiHelper", "JSON file not found: $path", e)
+        return HashMap()
+    } catch (e: JSONException) {
+        Log.e("EmojiHelper", "JSON parse error in $path", e)
         return HashMap()
     }
+
     return cachedVNTelexData
 }
 
@@ -133,7 +137,6 @@ fun getCategoryIconRes(category: String): Int =
         else -> R.drawable.ic_clock_filled_vector
     }
 
-
 fun getCategoryTitleRes(category: String) =
     when (category) {
         "smileys_emotion" -> R.string.smileys_and_emotions
@@ -149,7 +152,7 @@ fun getCategoryTitleRes(category: String) =
     }
 
 /**
- * Search emojis by search query matching against search terms
+ * Search emojis by search query matching against search terms.
  */
 fun searchEmojis(allEmojis: List<EmojiData>, query: String): List<EmojiData> {
     if (query.trim().isEmpty()) return emptyList()
@@ -157,11 +160,9 @@ fun searchEmojis(allEmojis: List<EmojiData>, query: String): List<EmojiData> {
     val searchQuery = query.trim().lowercase()
 
     return allEmojis.filter { emojiData ->
-        // Match against emoji itself
         emojiData.emoji.contains(searchQuery, ignoreCase = true) ||
-            // Match against any search term
             emojiData.searchTerms.any { term ->
                 term.lowercase().contains(searchQuery)
             }
-    }.take(18)
+    }.take(MAX_SEARCH_RESULTS)
 }

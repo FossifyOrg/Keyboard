@@ -239,6 +239,8 @@ class MyKeyboardView @JvmOverloads constructor(
 
     private var stopTextWatcherTopPopupSearchView = true
 
+
+
     companion object {
         private const val NOT_A_KEY = -1
         private val LONG_PRESSABLE_STATE_SET = intArrayOf(R.attr.state_long_pressable)
@@ -249,6 +251,8 @@ class MyKeyboardView @JvmOverloads constructor(
         private const val DEBOUNCE_TIME = 70
         private const val REPEAT_INTERVAL = 50 // ~20 keys per second
         private const val REPEAT_START_DELAY = 400
+
+        private const val MAX_RECENT_EMOJIS = 21
         private val LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout()
         /*it assign the imputmethod to the default one and remove from the keybaord*/
         var searching:Boolean = false
@@ -1916,7 +1920,7 @@ class MyKeyboardView @JvmOverloads constructor(
     }
 
     private fun prepareEmojiCategories(emojis: List<EmojiData>): Map<String, List<EmojiData>> {
-        val recentEmojis = context.config.recentlyUsedEmojis.take(21)
+        val recentEmojis = context.config.recentlyUsedEmojis.take(MAX_RECENT_EMOJIS)
             .mapNotNull { emoji ->
                 val emojiData = emojis.firstOrNull { it.emoji == emoji }
                 emojiData?.copy(category = RECENTLY_USED_EMOJIS)
