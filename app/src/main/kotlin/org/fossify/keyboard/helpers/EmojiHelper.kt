@@ -73,8 +73,8 @@ fun parseRawEmojiSpecsFile(context: Context, path: String): MutableList<EmojiDat
                         )
                     } catch (e: IllegalArgumentException) {
                         Log.e("EmojiHelper", "Invalid data in $filename: $line", e)
-                    } catch (e: IndexOutOfBoundsException) {
-                        Log.e("EmojiHelper", "Index error in $filename: $line", e)
+                    } catch (e: IOException) {
+                        Log.e("EmojiHelper", "Error reading file: $fullPath", e)
                     }
                 }
             }
