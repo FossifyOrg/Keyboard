@@ -23,6 +23,9 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.text.Editable
+import android.text.SpannableStringBuilder
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
@@ -33,14 +36,18 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.animation.AccelerateInterpolator
 import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.PopupWindow
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.inline.InlineContentView
+import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.children
 import androidx.core.view.updateMarginsRelative
@@ -107,6 +114,7 @@ import org.fossify.keyboard.helpers.cachedVNTelexData
 import org.fossify.keyboard.helpers.getCategoryIconRes
 import org.fossify.keyboard.helpers.parseRawEmojiSpecsFile
 import org.fossify.keyboard.helpers.parseRawJsonSpecsFile
+import org.fossify.keyboard.helpers.searchEmojis
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
@@ -204,7 +212,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mUsingSystemTheme: Boolean = true
     private var mVoiceInputMethod: String = ""
 
-    private var mToolbarHolder: View? = null
+    private var msettingsCliboardToolbarHolder: View? = null
     private var mClipboardManagerHolder: View? = null
     private var mEmojiPaletteHolder: View? = null
     private var emojiCompatMetadataVersion = 0
@@ -229,6 +237,8 @@ class MyKeyboardView @JvmOverloads constructor(
 
     private var mHandler: Handler? = null
 
+    private var stopTextWatcherTopPopupSearchView = true
+
     companion object {
         private const val NOT_A_KEY = -1
         private val LONG_PRESSABLE_STATE_SET = intArrayOf(R.attr.state_long_pressable)
@@ -240,6 +250,8 @@ class MyKeyboardView @JvmOverloads constructor(
         private const val REPEAT_INTERVAL = 50 // ~20 keys per second
         private const val REPEAT_START_DELAY = 400
         private val LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout()
+        /*it assign the imputmethod to the default one and remove from the keybaord*/
+        var searching:Boolean = false
     }
 
     init {
@@ -338,6 +350,7 @@ class MyKeyboardView @JvmOverloads constructor(
 
         closeClipboardManager()
         removeMessages()
+        closeEmojiSearchResult()
         mKeyboard = keyboard
         val keys = mKeyboard!!.mKeys
         mKeys = keys!!.toMutableList() as ArrayList<MyKeyboard.Key>
@@ -346,7 +359,7 @@ class MyKeyboardView @JvmOverloads constructor(
         invalidateAllKeys()
         computeProximityThreshold(keyboard)
         mMiniKeyboardCache.clear()
-        mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
+        msettingsCliboardToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 
         accessHelper = AccessHelper(this, mKeyboard?.mKeys.orEmpty())
         ViewCompat.setAccessibilityDelegate(this, accessHelper)
@@ -357,12 +370,21 @@ class MyKeyboardView @JvmOverloads constructor(
         mAbortKey = true // Until the next ACTION_DOWN
     }
 
+    private fun closeEmojiSearchResult() {
+        searching=false
+        keyboardViewBinding?.topPopupSearchBarToolbar?.beGone()
+        keyboardViewBinding?.emojiSearchView?.beVisible()
+        keyboardViewBinding?.emojiSearchResultRecyclerView?.beGone()
+    }
+
     /** Sets the top row above the keyboard containing a couple buttons and the clipboard **/
     fun setKeyboardHolder(binding: KeyboardViewKeyboardBinding) {
         keyboardViewBinding = binding.apply {
-            mToolbarHolder = toolbarHolder
+            msettingsCliboardToolbarHolder = settingsCliboardToolbarHolder
             mClipboardManagerHolder = clipboardManagerHolder
             mEmojiPaletteHolder = emojiPaletteHolder
+
+
 
             voiceInputButton.setOnLongClickListener { context.toast(R.string.switch_to_voice_typing); true }
             voiceInputButton.setOnClickListener {
@@ -489,7 +511,7 @@ class MyKeyboardView @JvmOverloads constructor(
         keyboardViewBinding?.apply {
             topKeyboardDivider.beGoneIf(wasDarkened)
             topKeyboardDivider.background = ColorDrawable(mStrokeColor)
-            mToolbarHolder?.background = ColorDrawable(mKeyboardBackgroundColor)
+            msettingsCliboardToolbarHolder?.background = ColorDrawable(mKeyboardBackgroundColor)
 
             clipboardValue.apply {
                 background =
@@ -512,7 +534,7 @@ class MyKeyboardView @JvmOverloads constructor(
             voiceInputButton.applyColorFilter(mTextColor)
             voiceInputButton.beGoneIf(mVoiceInputMethod.isEmpty())
 
-            mToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
+            msettingsCliboardToolbarHolder?.beInvisibleIf(context.isDeviceLocked)
 
             topClipboardDivider.beGoneIf(wasDarkened)
             topClipboardDivider.background = ColorDrawable(mStrokeColor)
@@ -891,7 +913,7 @@ class MyKeyboardView @JvmOverloads constructor(
     }
 
     private fun handleClipboard() {
-        if (mToolbarHolder != null && mPopupParent.id != R.id.mini_keyboard_view && context.config.showClipboardContent) {
+        if (msettingsCliboardToolbarHolder != null && mPopupParent.id != R.id.mini_keyboard_view && context.config.showClipboardContent) {
             val clipboardContent = context.getCurrentClip()
             if (clipboardContent?.isNotEmpty() == true) {
                 keyboardViewBinding?.apply {
@@ -1637,12 +1659,46 @@ class MyKeyboardView @JvmOverloads constructor(
         keyboardViewBinding?.clipsList?.adapter = adapter
     }
 
+    fun tintSearchViewUnderline(searchView: SearchView, @ColorInt color: Int) {
+        searchView.post {
+            val res = searchView.context.resources
+
+            val id = res.getIdentifier("search_plate", "id", "android")
+            if (id != 0) {
+                val view = searchView.findViewById<View>(id)
+                view?.background?.let { bg ->
+                    val wrapped = DrawableCompat.wrap(bg.mutate())
+                    DrawableCompat.setTint(wrapped, color)
+                    view.background = wrapped
+                }
+            }
+
+        }
+    }
+
     private fun setupEmojiPalette(toolbarColor: Int, backgroundColor: Int, textColor: Int) {
         keyboardViewBinding?.apply {
             emojiPaletteTopBar.background = ColorDrawable(toolbarColor)
             emojiPaletteHolder.background = ColorDrawable(backgroundColor)
             emojiPaletteClose.applyColorFilter(textColor)
-            emojiPaletteLabel.setTextColor(textColor)
+            val searchEditTextId = emojiSearchView.context.resources
+                .getIdentifier("search_src_text", "id", "android")
+
+            val searchEditText = emojiSearchView.findViewById<EditText>(searchEditTextId)
+
+            searchEditText?.setTextColor(textColor)
+            searchEditText?.setHintTextColor(textColor)
+
+            tintSearchViewUnderline(emojiSearchView, textColor)
+
+            topPopupSearchBarToolbar.background = ColorDrawable(toolbarColor)
+            topPopupSearchBarBack.applyColorFilter(mTextColor)
+            topPopupSearchBar.setTextColor(mTextColor)
+            popupSearchIcon.applyColorFilter(mTextColor)
+            popupToolbarCross.applyColorFilter(mTextColor)
+            topPopupSearchBar.setHintTextColor(mTextColor)
+
+
 
             emojiPaletteBottomBar.background = ColorDrawable(toolbarColor)
             emojiPaletteModeChange.apply {
@@ -1688,7 +1744,12 @@ class MyKeyboardView @JvmOverloads constructor(
     fun openEmojiPalette() {
         keyboardViewBinding!!.emojiPaletteHolder.beVisible()
         keyboardViewBinding!!.suggestionsHolder.beGone()
+        //searchview is always expanded
+        keyboardViewBinding!!.emojiSearchView.onActionViewExpanded()
+        keyboardViewBinding!!.emojiSearchView.clearFocus()
         setupEmojis()
+        onEmojiSearchViewOperation()
+
     }
 
     private fun closeEmojiPalette() {
@@ -1717,6 +1778,136 @@ class MyKeyboardView @JvmOverloads constructor(
         }
     }
 
+    private fun onEmojiSearchViewOperation(){
+        keyboardViewBinding?.emojiSearchView?.setOnQueryTextListener(null)
+
+        keyboardViewBinding?.emojiSearchView?.setOnQueryTextFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                keyboardViewBinding?.apply {
+                    topPopupSearchBarToolbar.beVisible()
+                    stopTextWatcherTopPopupSearchView = true
+                    topPopupSearchBar.text = SpannableStringBuilder(emojiSearchView.query.toString())
+                    stopTextWatcherTopPopupSearchView = false
+                    settingsCliboardToolbarHolder.beGone()
+                    emojiSearchView.beGone()
+                    searching = true
+                    mOnKeyboardActionListener?.updateShiftStateToLowercase()
+                    emojiSearchView.clearFocus()
+                    topPopupSearchBar.requestFocus()
+                    //to connect with otherInputConnection
+                    mOnKeyboardActionListener?.searchViewFocused(topPopupSearchBar)
+                    emojiSearchResultRecyclerView.beVisible()
+                    emojiPaletteHolder.beGone()
+                    topPopupSearchBar.hint = resources.getString(R.string.search_emoji)
+
+                    // Show recent emojis when search is empty
+                    loadEmojiSearchResult(context,"")
+                }
+
+            }
+        }
+
+        keyboardViewBinding?.apply {
+            //clear the variable in the SimpleKeyhoardIME that holds keyboards typing
+            popupToolbarCross.setOnClickListener(OnClickListener {
+                stopTextWatcherTopPopupSearchView = true
+                topPopupSearchBar.setText("")
+                stopTextWatcherTopPopupSearchView = false
+            })
+
+            //on backpressed
+            topPopupSearchBarBack.setOnClickListener {
+                settingsCliboardToolbarHolder.beVisible()
+                searching = false
+                it.clearFocus()
+                topPopupSearchBarToolbar.beGone()
+                emojiSearchView.beVisible()
+                emojiSearchResultRecyclerView.beGone()
+                emojiPaletteHolder.beVisible()
+
+            }
+
+
+
+            val textWatcher = object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { return }
+
+                override fun onTextChanged(editable: CharSequence?, start: Int, before: Int, count: Int) {
+                    return
+                }
+
+                override fun afterTextChanged(editable: Editable?) {
+                    if (!stopTextWatcherTopPopupSearchView) {
+                        val query = editable.toString()
+
+                        loadEmojiSearchResult(context,query)
+                    }
+                }
+
+            }
+
+            // Attach the TextWatcher initially
+
+            topPopupSearchBar.addTextChangedListener(textWatcher)
+        }
+    }
+
+    fun loadEmojiSearchResult(context: Context, query: String?) {
+        ensureBackgroundThread {
+            val fullEmojiList = parseRawEmojiSpecsFile(context, EMOJI_SPEC_FILE_PATH)
+
+            val items = if (query.isNullOrBlank()) {
+                val recentEmojis = context.config.recentlyUsedEmojis.take(18)
+                val emojiMap = fullEmojiList.associateBy { it.emoji }
+                val recentEmojiData = recentEmojis.mapNotNull { emoji ->
+                    emojiMap[emoji]
+                }
+                recentEmojiData.map { EmojisAdapter.Item.Emoji(it) }
+
+            } else {
+                searchEmojis(fullEmojiList, query)
+                    .map { EmojisAdapter.Item.Emoji(it) }
+            }
+
+            Handler(Looper.getMainLooper()).post {
+                if (keyboardViewBinding!!.emojiSearchResultRecyclerView.layoutManager == null) {
+                    keyboardViewBinding!!.emojiSearchResultRecyclerView.layoutManager = AutoGridLayoutManager(
+                        context = context,
+                        itemWidth = context.resources.getDimensionPixelSize(R.dimen.emoji_item_size)
+                    )
+                }
+
+
+                keyboardViewBinding!!.emojiSearchResultRecyclerView.adapter = EmojisAdapter(
+                    context = safeStorageContext,
+                    items = items
+                ) { emoji ->
+                    searching=false
+                    mOnKeyboardActionListener?.onText(emoji.emoji)
+                    searching=true
+                    vibrateIfNeeded()
+                    context.config.addRecentEmoji(emoji.emoji)
+
+                        // Refresh the recent emojis list after adding
+                        ensureBackgroundThread {
+                            val updatedFullEmojiList = parseRawEmojiSpecsFile(context, EMOJI_SPEC_FILE_PATH)
+
+                            Handler(Looper.getMainLooper()).post {
+                                // Update the main emoji list (emojisList)
+                                val emojiCategories = prepareEmojiCategories(updatedFullEmojiList)
+                                var emojiItems = prepareEmojiItems(emojiCategories)
+                                (keyboardViewBinding?.emojisList?.adapter as? EmojisAdapter)?.updateItems(emojiItems)
+
+                            }
+                        }
+
+
+                }
+            }
+        }
+    }
+
+
     // For Vietnamese - Telex
     private fun setupLanguageTelex() {
         ensureBackgroundThread {
@@ -1725,7 +1916,7 @@ class MyKeyboardView @JvmOverloads constructor(
     }
 
     private fun prepareEmojiCategories(emojis: List<EmojiData>): Map<String, List<EmojiData>> {
-        val recentEmojis = context.config.recentlyUsedEmojis
+        val recentEmojis = context.config.recentlyUsedEmojis.take(21)
             .mapNotNull { emoji ->
                 val emojiData = emojis.firstOrNull { it.emoji == emoji }
                 emojiData?.copy(category = RECENTLY_USED_EMOJIS)

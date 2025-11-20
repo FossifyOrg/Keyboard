@@ -1,6 +1,7 @@
 package org.fossify.keyboard.helpers
 
 import android.content.Context
+import android.util.Log
 import org.fossify.keyboard.R
 import org.json.JSONObject
 import java.io.InputStream
@@ -21,52 +22,73 @@ fun parseRawEmojiSpecsFile(context: Context, path: String): MutableList<EmojiDat
     }
 
     val emojis = mutableListOf<EmojiData>()
-    var emojiEditorList: MutableList<String>? = null
-    var category: String? = null
 
-    fun commitEmojiEditorList() {
-        emojiEditorList?.let {
-            // add only the base emoji for now, ignore the variations
-            val base = it.first()
-            val variants = it.drop(1)
-            emojis.add(EmojiData(category ?: "none", base, variants))
-        }
-        emojiEditorList = null
-    }
+    // Map CSV filenames to category names
+    val csvFiles = mapOf(
+        "emoji_category_emotions.csv" to "smileys_emotion",
+        "emoji_category_people.csv" to "people_body",
+        "emoji_category_animals_nature.csv" to "animals_nature",
+        "emoji_category_food_drink.csv" to "food_drink",
+        "emoji_category_travel_places.csv" to "travel_places",
+        "emoji_category_activity.csv" to "activities",
+        "emoji_category_objects.csv" to "objects",
+        "emoji_category_symbols.csv" to "symbols",
+        "emoji_category_flags.csv" to "flags"
+    )
 
-    context.assets.open(path).bufferedReader().useLines { lines ->
-        for (line in lines) {
-            if (line.startsWith("#")) {
-                // Comment line
-            } else if (line.startsWith("[")) {
-                commitEmojiEditorList()
-                category = line.replace("[", "").replace("]", "")
-            } else if (line.trim().isEmpty()) {
-                // Empty line
-                continue
-            } else {
-                if (!line.startsWith("\t")) {
-                    commitEmojiEditorList()
-                }
+    csvFiles.forEach { (filename, category) ->
+        val fullPath = if (path.isNotEmpty()) "$path/$filename" else filename
 
-                // Assume it is a data line
-                val data = line.split(";")
-                if (data.size == 3) {
-                    val emoji = data[0].trim()
-                    if (emojiEditorList != null) {
-                        emojiEditorList!!.add(emoji)
-                    } else {
-                        emojiEditorList = mutableListOf(emoji)
+        try {
+            context.assets.open(fullPath).bufferedReader().use { reader ->
+                reader.forEachLine { line ->
+                    try {
+                        if (line.trim().isEmpty()) return@forEachLine
+
+                        val parts = line.split(",")
+                        if (parts.isEmpty()) return@forEachLine
+
+                        val emoji = parts[0].trim()
+                        if (emoji.isEmpty()) return@forEachLine
+
+                        val searchTerms = if (parts.size > 1) {
+                            parts[1].trim().split(" ").filter { it.isNotEmpty() }
+                        } else {
+                            emptyList()
+                        }
+
+                        // Variants start from index 2 onwards
+                        val variants = if (parts.size > 2) {
+                            parts.drop(2).map { it.trim() }.filter { it.isNotEmpty() }
+                        } else {
+                            emptyList()
+                        }
+
+                        emojis.add(
+                            EmojiData(
+                                category = category,
+                                emoji = emoji,
+                                variants = variants,
+                                searchTerms = searchTerms
+                            )
+                        )
+                    } catch (e: Exception) {
+                        // Log line parsing errors but continue
+                        android.util.Log.e("EmojiHelper", "Error parsing line in $filename: $line", e)
                     }
                 }
             }
+        } catch (e: Exception) {
+            // Log file reading errors
+            android.util.Log.e("EmojiHelper", "Error reading file: $fullPath", e)
+            e.printStackTrace()
         }
-        commitEmojiEditorList()
     }
 
     cachedEmojiData = emojis
     return emojis
 }
+
 
 fun parseRawJsonSpecsFile(context: Context, path: String): HashMap<String, String> {
     if (cachedVNTelexData.isNotEmpty()) {
@@ -93,7 +115,8 @@ fun parseRawJsonSpecsFile(context: Context, path: String): HashMap<String, Strin
 data class EmojiData(
     val category: String,
     val emoji: String,
-    val variants: List<String>
+    val variants: List<String>,
+    val searchTerms: List<String> = emptyList()
 )
 
 fun getCategoryIconRes(category: String): Int =
@@ -124,3 +147,21 @@ fun getCategoryTitleRes(category: String) =
         "flags" -> R.string.flags
         else -> R.string.recently_used
     }
+
+/**
+ * Search emojis by search query matching against search terms
+ */
+fun searchEmojis(allEmojis: List<EmojiData>, query: String): List<EmojiData> {
+    if (query.trim().isEmpty()) return emptyList()
+
+    val searchQuery = query.trim().lowercase()
+
+    return allEmojis.filter { emojiData ->
+        // Match against emoji itself
+        emojiData.emoji.contains(searchQuery, ignoreCase = true) ||
+            // Match against any search term
+            emojiData.searchTerms.any { term ->
+                term.lowercase().contains(searchQuery)
+            }
+    }.take(18)
+}

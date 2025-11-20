@@ -23,6 +23,7 @@ import android.view.inputmethod.EditorInfo.IME_FLAG_NO_ENTER_ACTION
 import android.view.inputmethod.EditorInfo.IME_MASK_ACTION
 import android.widget.inline.InlinePresentationSpec
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.autofill.inline.UiVersions
 import androidx.autofill.inline.common.ImageViewStyle
 import androidx.autofill.inline.common.TextViewStyle
@@ -44,6 +45,7 @@ import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.*
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
 import org.fossify.keyboard.views.MyKeyboardView
+import org.fossify.keyboard.views.MyKeyboardView.Companion.searching
 import java.io.ByteArrayOutputStream
 import java.util.Locale
 
@@ -74,6 +76,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private var breakIterator: BreakIterator? = null
 
     private lateinit var binding: KeyboardViewKeyboardBinding
+
+    private var otherInputConnection:OtherInputConnection? = null
+
 
     override fun onInitializeInterface() {
         super.onInitializeInterface()
@@ -128,7 +133,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
         val editorInfo = currentInputEditorInfo
         if (config.enableSentencesCapitalization && editorInfo != null && editorInfo.inputType != TYPE_NULL) {
-            if (currentInputConnection.getCursorCapsMode(editorInfo.inputType) != 0) {
+            if (currentInputConnection.getCursorCapsMode(editorInfo.inputType) != 0 && !searching) {
                 keyboard?.setShifted(ShiftState.ON_ONE_CHAR)
                 keyboardView?.invalidateAllKeys()
                 return
@@ -171,7 +176,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onKey(code: Int) {
-        val inputConnection = currentInputConnection
+        val inputConnection = getMyCurrentInputConnection()
         if (keyboard == null || inputConnection == null) {
             return
         }
@@ -360,7 +365,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onText(text: String) {
-        currentInputConnection?.commitText(text, 1)
+        getMyCurrentInputConnection().commitText(text, 1)
     }
 
     override fun reloadKeyboard() {
@@ -375,6 +380,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         } else {
             switchInputMethod(id)
         }
+    }
+
+    override fun updateShiftStateToLowercase() {
+        updateShiftKeyState()
+    }
+
+    override fun searchViewFocused(popupToolbarEditText: AppCompatAutoCompleteTextView) {
+        otherInputConnection = OtherInputConnection(popupToolbarEditText)
     }
 
     private fun createNewKeyboard(): MyKeyboard {
@@ -581,5 +594,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         this.recycle()
 
         return Icon.createWithData(byteArray, 0, byteArray.size)
+    }
+
+    fun getMyCurrentInputConnection():InputConnection{
+
+        if (searching){
+            if(otherInputConnection==null){
+                return currentInputConnection
+            }else{
+                return otherInputConnection!!
+            }
+
+        }else{
+            return currentInputConnection
+        }
     }
 }
