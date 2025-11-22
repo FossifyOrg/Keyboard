@@ -22,7 +22,7 @@
     <string name="keycode_delete">Sil</string>
     <string name="keycode_mode_change">Klavye türünü değiştir</string>
     <string name="keycode_space">Boşluk tuşu</string>
-    <string name="show_clipboard_content">Varsa pano içeriğini göster</string>
+    <string name="show_clipboard_content">Pano içeriği var ise göster</string>
     <string name="show_popup">Tuşa basıldığında bir açılır menü göster</string>
     <string name="vibrate_on_keypress">Tuşa basıldığında titreştir</string>
     <string name="keyboard_language">Klavye dili</string>
