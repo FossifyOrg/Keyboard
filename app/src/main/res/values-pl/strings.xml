@@ -46,4 +46,5 @@
     <string name="symbols">Symbole</string>
     <string name="flags">Flagi</string>
     <string name="smileys_and_emotions">Buźki i emocje</string>
+    <string name="show_emoji_key">Pokazuj klawisz emoji</string>
 </resources>
