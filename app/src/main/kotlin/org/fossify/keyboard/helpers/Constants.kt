@@ -130,7 +130,7 @@ const val KEYBOARD_HEIGHT_120_PERCENT = 120
 const val KEYBOARD_HEIGHT_140_PERCENT = 140
 const val KEYBOARD_HEIGHT_160_PERCENT = 160
 
-const val EMOJI_SPEC_FILE_PATH = "media/emoji_spec.txt"
+const val EMOJI_SPEC_FILE_PATH = "media"
 const val LANGUAGE_VN_TELEX = "language/extension.json"
 const val RECENT_EMOJIS_LIMIT = 36
 

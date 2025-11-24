@@ -48,4 +48,13 @@ interface OnKeyboardActionListener {
      * Called when input method is changed in-app.
      */
     fun changeInputMethod(id: String, subtype: InputMethodSubtype)
+
+    /*
+    To Update the Shift State to Lowercase
+    * */
+    fun updateShiftStateToLowercase()
+
+    /*
+     called when  focus on the searchview */
+    fun searchViewFocused(searchView: androidx.appcompat.widget.AppCompatAutoCompleteTextView)
 }

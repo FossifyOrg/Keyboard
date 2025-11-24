@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="you_keyboard_background_color">@android:color/system_neutral2_900</color>
+    <color name="text_color_according_to_theme">@color/theme_light_background_color</color>
+
 </resources>

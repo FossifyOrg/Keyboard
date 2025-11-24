@@ -51,6 +51,7 @@
     <!-- Voice Input -->
     <string name="voice_typing_method">Voice typing method</string>
     <string name="switch_to_voice_typing">Switch to voice typing</string>
+    <string name="search_emoji">Search Emoji</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
