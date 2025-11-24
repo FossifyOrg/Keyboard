@@ -36,6 +36,7 @@
     <string name="show_key_borders">Show key borders</string>
     <string name="show_numbers_row">Show numbers on a separate row</string>
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
+    <string name="show_emoji_key">Show emoji key</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
     <string name="recently_used">Recently used</string>

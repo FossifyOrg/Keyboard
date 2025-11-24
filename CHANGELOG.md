@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Option to disable the emoji key ([#234])
 
 ## [1.6.0] - 2025-10-29
 ### Added
@@ -115,6 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#206]: https://github.com/FossifyOrg/Keyboard/issues/206
 [#222]: https://github.com/FossifyOrg/Keyboard/issues/222
 [#230]: https://github.com/FossifyOrg/Keyboard/issues/230
+[#234]: https://github.com/FossifyOrg/Keyboard/issues/234
 [#238]: https://github.com/FossifyOrg/Keyboard/issues/238
 [#239]: https://github.com/FossifyOrg/Keyboard/issues/239
 [#251]: https://github.com/FossifyOrg/Keyboard/issues/251

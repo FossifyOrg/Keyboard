@@ -238,6 +238,21 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_show_emoji_key_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_show_emoji_key"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_emoji_key" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_keyboard_height_multiplier_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"

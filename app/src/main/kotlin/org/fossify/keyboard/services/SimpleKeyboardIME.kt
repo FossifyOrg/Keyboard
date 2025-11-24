@@ -209,7 +209,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                         keyboardMode = KEYBOARD_SYMBOLS
                         R.xml.keys_symbols
                     }
-                    keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+                    keyboard = constructKeyboard(keyboardXml, enterKeyType)
                     keyboardView!!.setKeyboard(keyboard!!)
                 }
                 keyboardView!!.invalidateAllKeys()
@@ -234,7 +234,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     R.xml.keys_symbols
                 }
 
-                keyboard = MyKeyboard(this, keyboardXML, enterKeyType)
+                keyboard = constructKeyboard(keyboardXML, enterKeyType)
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
@@ -247,7 +247,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     getKeyboardLayoutXML()
                 }
 
-                keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+                keyboard = constructKeyboard(keyboardXml, enterKeyType)
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
@@ -337,7 +337,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             // TODO: Change keyboardMode to enum class
             keyboardMode = KEYBOARD_LETTERS
 
-            keyboard = MyKeyboard(this, getKeyboardLayoutXML(), enterKeyType)
+            keyboard = constructKeyboard(getKeyboardLayoutXML(), enterKeyType)
 
             val editorInfo = currentInputEditorInfo
             if (editorInfo != null && editorInfo.inputType != TYPE_NULL && keyboard?.mShiftState != ShiftState.ON_PERMANENT) {
@@ -399,11 +399,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 getKeyboardLayoutXML()
             }
         }
-        return MyKeyboard(
-            context = this,
-            xmlLayoutResId = keyboardXml,
-            enterKeyType = enterKeyType,
-        )
+        return constructKeyboard(keyboardXml, enterKeyType)
     }
 
     override fun onUpdateSelection(oldSelStart: Int, oldSelEnd: Int, newSelStart: Int, newSelEnd: Int, candidatesStart: Int, candidatesEnd: Int) {
@@ -581,5 +577,32 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         this.recycle()
 
         return Icon.createWithData(byteArray, 0, byteArray.size)
+    }
+
+    private fun adjustForEmojiButton(keyboard: MyKeyboard): MyKeyboard {
+        if (!config.showEmojiKey && this.keyboardMode == KEYBOARD_LETTERS) {
+            keyboard.mKeys?.let { keys ->
+                val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI }
+                val spaceKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_SPACE }
+
+                if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
+                    val emojiKey = keys[emojiKeyIndex]
+                    val spaceKey = keys[spaceKeyIndex]
+
+                    spaceKey.width += emojiKey.width + emojiKey.gap
+                    spaceKey.x = emojiKey.x
+
+                    val mutableKeys = keys.toMutableList()
+                    mutableKeys.removeAt(emojiKeyIndex)
+                    keyboard.mKeys = mutableKeys
+                }
+            }
+        }
+        return keyboard
+    }
+
+    private fun constructKeyboard(keyboardXml: Int, enterKeyType: Int): MyKeyboard {
+        val keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+        return adjustForEmojiButton(keyboard)
     }
 }

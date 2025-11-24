@@ -23,6 +23,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SENTENCES_CAPITALIZATION, true)
         set(enableCapitalization) = prefs.edit().putBoolean(SENTENCES_CAPITALIZATION, enableCapitalization).apply()
 
+    var showEmojiKey: Boolean
+        get() = prefs.getBoolean(SHOW_EMOJI_KEY, true)
+        set(showEmojiKey) = prefs.edit().putBoolean(SHOW_EMOJI_KEY, showEmojiKey).apply()
+
     var showKeyBorders: Boolean
         get() = prefs.getBoolean(SHOW_KEY_BORDERS, true)
         set(showKeyBorders) = prefs.edit().putBoolean(SHOW_KEY_BORDERS, showKeyBorders).apply()
