@@ -46,4 +46,5 @@
     <string name="food_and_drink">Essen und Trinken</string>
     <string name="travel_and_places">Reisen und Orte</string>
     <string name="flags">Flaggen</string>
+    <string name="show_emoji_key">Emoji-Taste anzeigen</string>
 </resources>
