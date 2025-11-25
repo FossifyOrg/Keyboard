@@ -46,4 +46,5 @@
     <string name="objects">物件</string>
     <string name="symbols">符號</string>
     <string name="flags">旗幟</string>
+    <string name="show_emoji_key">顯示表情符號鍵</string>
 </resources>
