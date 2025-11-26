@@ -46,4 +46,5 @@
     <string name="smileys_and_emotions">Sonrisas y emociones</string>
     <string name="people_and_body">Personas y cuerpo</string>
     <string name="flags">Banderas</string>
+    <string name="show_emoji_key">Mostrar tecla de emoticonos</string>
 </resources>
