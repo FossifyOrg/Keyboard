@@ -13,7 +13,7 @@
     <string name="clipboard">Gearrthaisce</string>
     <string name="clipboard_recent">Le déanaí</string>
     <string name="clipboard_current">Reatha</string>
-    <string name="clipboard_pinned">Pinned</string>
+    <string name="clipboard_pinned">Bioránta</string>
     <string name="add_new_item">Cuir mír nua leis</string>
     <string name="manage_keyboard_languages">Bainistigh teangacha méarchláir</string>
     <string name="manage_clips">Is féidir leat gearrthóga a bhainistiú nó a chur leis anseo le haghaidh rochtain thapa.</string>
@@ -46,4 +46,5 @@
     <string name="flags">Bratacha</string>
     <string name="voice_typing_method">Modh clóscríofa gutha</string>
     <string name="switch_to_voice_typing">Athraigh go clóscríobh gutha</string>
+    <string name="show_emoji_key">Taispeáin eochair emoji</string>
 </resources>
