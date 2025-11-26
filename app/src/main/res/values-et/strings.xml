@@ -46,4 +46,5 @@
     <string name="food_and_drink">Toit ja jook</string>
     <string name="travel_and_places">Reisimine ja kohad</string>
     <string name="objects">Esemed</string>
+    <string name="show_emoji_key">Näita emojide klahvi</string>
 </resources>
