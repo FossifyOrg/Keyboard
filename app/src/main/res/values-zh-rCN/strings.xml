@@ -46,4 +46,5 @@
     <string name="objects">物体</string>
     <string name="symbols">符号</string>
     <string name="flags">旗帜</string>
+    <string name="show_emoji_key">显示表情图片键</string>
 </resources>

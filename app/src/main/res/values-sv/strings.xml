@@ -23,7 +23,7 @@
     <string name="keycode_shift">Skift</string>
     <string name="keycode_space">Blanksteg</string>
     <string name="show_clipboard_content">Visa urklippets innehåll om tillgängligt</string>
-    <string name="show_popup">Visa en popupp vid knapptryck</string>
+    <string name="show_popup">Visa en popup vid tangenttryck</string>
     <string name="vibrate_on_keypress">Vibrera vid knapptryck</string>
     <string name="keyboard_language">Tangentbordsspråk</string>
     <string name="keyboard_height">Tangentbordshöjd</string>
@@ -46,4 +46,5 @@
     <string name="objects">Föremål</string>
     <string name="flags">Flaggor</string>
     <string name="redirection_note">Aktivera Fossify Keyboard på nästa skärm för att göra tangentbordet tillgängligt. Tryck på \'Tillbaka\' när det har aktiverats.</string>
+    <string name="show_emoji_key">Visa emojitangent</string>
 </resources>

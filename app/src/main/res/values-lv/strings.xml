@@ -44,4 +44,5 @@
     <string name="voice_typing_method">Balss ievades veids</string>
     <string name="switch_to_voice_typing">Pārslēgties uz balss ievadi</string>
     <string name="recently_used">Nesen izmantotās</string>
+    <string name="show_emoji_key">Rādīt emocijzīmju taustiņu</string>
 </resources>

@@ -46,4 +46,5 @@
     <string name="travel_and_places">Vojaĝo kaj lokoj</string>
     <string name="objects">Objektoj</string>
     <string name="symbols">Simboloj</string>
+    <string name="show_emoji_key">Montri emogîo-klavon</string>
 </resources>
