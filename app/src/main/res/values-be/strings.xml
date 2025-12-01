@@ -31,4 +31,20 @@
     <string name="show_numbers_row">Паказаць лічбы ў асобным радку</string>
     <string name="emojis">Эмодзі</string>
     <string name="redirection_note">Кклі ласка, уключыце Клавіятуру Fossify на наступным экране, каб яна стала даступнай. Націсніце \'Назад\' калі ўключыце.</string>
+    <string name="show_emoji_key">Паказваць кнопку эмодзі</string>
+    <string name="manage_keyboard_languages">Кіраванне мовамі клавіятуры</string>
+    <string name="keycode_space">Прабел</string>
+    <string name="start_sentences_capitalized">Пачынаць сказы з вялікай літары</string>
+    <string name="recently_used">Нядаўняе</string>
+    <string name="smileys_and_emotions">Усмешкі і эмоцыі</string>
+    <string name="people_and_body">Людзі і цела</string>
+    <string name="animals_and_nature">Жывёлы і прырода</string>
+    <string name="food_and_drink">Ежа і напоі</string>
+    <string name="travel_and_places">Падарожжы і месцы</string>
+    <string name="activities">Актыўнасці</string>
+    <string name="objects">Аб\'екты</string>
+    <string name="symbols">Сімвалы</string>
+    <string name="flags">Сцягі</string>
+    <string name="voice_typing_method">Метад галасавога ўводу</string>
+    <string name="switch_to_voice_typing">Пераключыцца на галасавы ўвод</string>
 </resources>
