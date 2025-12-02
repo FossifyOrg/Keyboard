@@ -46,4 +46,5 @@
     <string name="people_and_body">Люди й тіло</string>
     <string name="symbols">Символи</string>
     <string name="flags">Прапори</string>
+    <string name="show_emoji_key">Показати ключ емоджі</string>
 </resources>
