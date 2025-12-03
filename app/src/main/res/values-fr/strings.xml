@@ -46,4 +46,5 @@
     <string name="travel_and_places">Voyages et lieux</string>
     <string name="animals_and_nature">Animaux et nature</string>
     <string name="manage_keyboard_languages">Modifier les langues du clavier</string>
+    <string name="show_emoji_key">Afficher la touche emoji</string>
 </resources>
