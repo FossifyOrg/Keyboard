@@ -33,7 +33,7 @@
     <string name="emojis">Emoji</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Giriş</string>
-    <string name="manage_keyboard_languages">Klavyenin dillerini yönet</string>
+    <string name="manage_keyboard_languages">Klavye dillerini yönet</string>
     <string name="voice_typing_method">Sesli yazı yazma</string>
     <string name="switch_to_voice_typing">Sesli yazmaya geç</string>
     <string name="smileys_and_emotions">Duygu ve ifadeler</string>
@@ -46,4 +46,5 @@
     <string name="recently_used">Son kullanılan</string>
     <string name="animals_and_nature">Hayvanlar ve doğa</string>
     <string name="food_and_drink">Yiyecek ve içecek</string>
+    <string name="show_emoji_key">Emoji tuşunu göster</string>
 </resources>
