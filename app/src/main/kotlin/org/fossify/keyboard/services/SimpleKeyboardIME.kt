@@ -547,8 +547,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 CUSTOM_PRIMARY_COLOR, CUSTOM_ACCENT_COLOR, IS_GLOBAL_THEME_ENABLED, IS_SYSTEM_THEME_ENABLED
             )
         ) {
-            keyboardView?.setupKeyboard()
-            updateBackgroundColors()
+            if (::binding.isInitialized) {
+                keyboardView?.setupKeyboard()
+                updateBackgroundColors()
+            }
         }
     }
 

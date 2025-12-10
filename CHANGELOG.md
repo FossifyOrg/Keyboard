@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Option to disable the emoji key ([#234])
 
+### Fixed
+- Fixed crash on initial startup in some cases ([#335])
+
 ## [1.6.0] - 2025-10-29
 ### Added
 - Added Colemak, Colemak-DH, Workman, Asset, Niro, Soul layouts
@@ -125,6 +128,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#259]: https://github.com/FossifyOrg/Keyboard/issues/259
 [#265]: https://github.com/FossifyOrg/Keyboard/issues/265
 [#274]: https://github.com/FossifyOrg/Keyboard/issues/274
+[#335]: https://github.com/FossifyOrg/Keyboard/issues/335
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...HEAD
 [1.6.0]: https://github.com/FossifyOrg/Keyboard/compare/1.5.0...1.6.0
