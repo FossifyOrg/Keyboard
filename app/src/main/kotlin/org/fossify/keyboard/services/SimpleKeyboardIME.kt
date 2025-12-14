@@ -3,6 +3,7 @@ package org.fossify.keyboard.services
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Bitmap
+import android.graphics.Typeface
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.RippleDrawable
@@ -14,6 +15,8 @@ import android.os.Bundle
 import android.text.InputType.*
 import android.text.TextUtils
 import android.util.Size
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +24,8 @@ import android.view.inputmethod.*
 import android.view.inputmethod.EditorInfo.IME_ACTION_NONE
 import android.view.inputmethod.EditorInfo.IME_FLAG_NO_ENTER_ACTION
 import android.view.inputmethod.EditorInfo.IME_MASK_ACTION
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.inline.InlinePresentationSpec
 import androidx.annotation.RequiresApi
 import androidx.autofill.inline.UiVersions
@@ -53,6 +58,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     companion object {
         // How quickly do we have to double tap shift to enable permanent caps lock
         private var SHIFT_PERM_TOGGLE_SPEED = 500
+        private const val DIVIDER_ALPHA = 0.3f
 
         // Keyboard modes
         const val KEYBOARD_LETTERS = 0
@@ -72,12 +78,22 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private var enterKeyType = IME_ACTION_NONE
     private var switchToLetters = false
     private var breakIterator: BreakIterator? = null
+    private var spellChecker: SpellChecker? = null
+    private val wordBuffer = StringBuilder()
+    private var currentSuggestions: List<String> = emptyList()
 
     private lateinit var binding: KeyboardViewKeyboardBinding
 
     override fun onInitializeInterface() {
         super.onInitializeInterface()
         safeStorageContext.getSharedPrefs().registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        spellChecker?.destroy()
+        spellChecker = null
+        safeStorageContext.getSharedPrefs().unregisterOnSharedPreferenceChangeListener(this)
     }
 
     override fun onCreateInputView(): View {
@@ -88,6 +104,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             setEditorInfo(currentInputEditorInfo)
             setupEdgeToEdge()
             mOnKeyboardActionListener = this@SimpleKeyboardIME
+        }
+
+        spellChecker?.destroy()
+        spellChecker = SpellChecker(this)
+        spellChecker?.onSuggestionsReady = { suggestions ->
+            if (isPasswordField()) {
+                clearSpellSuggestions()
+            } else {
+                currentSuggestions = suggestions
+                if (baseContext.config.showSuggestions) {
+                    showSpellSuggestions(suggestions)
+                }
+            }
         }
 
         return binding.root
@@ -119,6 +148,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             breakIterator = BreakIterator.getCharacterInstance(ULocale.getDefault())
         }
         updateShiftKeyState()
+        wordBuffer.clear()
+        clearSpellSuggestions()
     }
 
     private fun updateShiftKeyState() {
@@ -188,6 +219,12 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     inputConnection.deleteSurroundingText(count, 0)
                 } else {
                     inputConnection.commitText("", 1)
+                }
+                if (wordBuffer.isNotEmpty()) wordBuffer.deleteAt(wordBuffer.length - 1)
+                if (wordBuffer.isEmpty()) {
+                    clearSpellSuggestions()
+                } else {
+                    triggerSpellCheck()
                 }
             }
 
@@ -267,15 +304,15 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     }
                 }
 
-                // If the keyboard is set to symbols and the user presses space, we usually should switch back to the letters keyboard.
-                // However, avoid doing that in cases when the EditText for example requires numbers as the input.
-                // We can detect that by the text not changing on pressing Space.
                 if (keyboardMode != KEYBOARD_LETTERS && inputTypeClass == TYPE_CLASS_TEXT && code == MyKeyboard.KEYCODE_SPACE) {
                     inputConnection.commitText(codeChar.toString(), 1)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
                         switchToLetters = keyboardMode != KEYBOARD_SYMBOLS_ALT
                     }
+                } else if (code == MyKeyboard.KEYCODE_SPACE) {
+                    handleAutoCorrectSpace()
+                    updateShiftKeyState()
                 } else {
                     when {
                         !originalText.isNullOrEmpty() && cachedVNTelexData.isNotEmpty() -> {
@@ -306,6 +343,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                             inputConnection.commitText(codeChar.toString(), 1)
                             updateShiftKeyState()
                         }
+                    }
+
+                    if (Character.isLetter(codeChar)) {
+                        wordBuffer.append(codeChar.lowercaseChar())
+                        triggerSpellCheck()
+                    } else {
+                        wordBuffer.clear()
+                        clearSpellSuggestions()
                     }
                 }
             }
@@ -407,6 +452,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         if (newSelStart == newSelEnd) {
             keyboardView?.closeClipboardManager()
         }
+
+        val expectedPosition = oldSelEnd + 1
+        if (newSelStart != expectedPosition || newSelStart != newSelEnd) {
+            wordBuffer.clear()
+            clearSpellSuggestions()
+        }
+
         updateShiftKeyState()
     }
 
@@ -606,5 +658,107 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private fun constructKeyboard(keyboardXml: Int, enterKeyType: Int): MyKeyboard {
         val keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
         return adjustForEmojiButton(keyboard)
+    }
+
+    private fun showSpellSuggestions(suggestions: List<String>) {
+        if (suggestions.isEmpty()) {
+            binding.spellSuggestionsHolder.beGone()
+            binding.clipboardValue.beVisibleIf(baseContext.config.showClipboardContent)
+            return
+        }
+
+        binding.clipboardValue.beGone()
+        binding.spellSuggestionsHolder.beVisible()
+
+        val textColor = getProperTextColor()
+        val dividerColor = textColor.adjustAlpha(DIVIDER_ALPHA)
+
+        val slot0 = suggestions.getOrNull(1)
+        val slot1 = suggestions.getOrNull(0) // best candidate in middle
+        val slot2 = suggestions.getOrNull(2)
+
+        binding.suggestionSlot0.apply {
+            text = slot0 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot0?.let { applySuggestion(it) } }
+        }
+        binding.suggestionDivider0.setTextColor(dividerColor)
+
+        binding.suggestionSlot1.apply {
+            text = slot1 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot1?.let { applySuggestion(it) } }
+        }
+        binding.suggestionDivider1.setTextColor(dividerColor)
+
+        binding.suggestionSlot2.apply {
+            text = slot2 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot2?.let { applySuggestion(it) } }
+        }
+    }
+
+    private fun clearSpellSuggestions() {
+        currentSuggestions = emptyList()
+        if (::binding.isInitialized) {
+            binding.spellSuggestionsHolder.beGone()
+            binding.clipboardValue.beVisibleIf(baseContext.config.showClipboardContent)
+        }
+    }
+
+    private fun applySuggestion(word: String) {
+        val currentWord = wordBuffer.toString()
+        if (currentWord.isNotEmpty()) {
+            currentInputConnection?.deleteSurroundingText(currentWord.length, 0)
+        }
+        currentInputConnection?.commitText("$word ", 1)
+        wordBuffer.clear()
+        clearSpellSuggestions()
+    }
+
+    private fun isPasswordField(): Boolean {
+        return inputTypeClassVariation == TYPE_TEXT_VARIATION_PASSWORD ||
+            inputTypeClassVariation == TYPE_TEXT_VARIATION_VISIBLE_PASSWORD ||
+            inputTypeClassVariation == TYPE_TEXT_VARIATION_WEB_PASSWORD ||
+            inputTypeClassVariation == TYPE_NUMBER_VARIATION_PASSWORD
+    }
+
+    private fun triggerSpellCheck() {
+        if (isPasswordField()) {
+            clearSpellSuggestions()
+            return
+        }
+
+        if (!baseContext.config.showSuggestions && !baseContext.config.autoCorrectOnSpace) {
+            clearSpellSuggestions()
+            return
+        }
+
+        if (wordBuffer.length >= 2) {
+            spellChecker?.checkWord(wordBuffer.toString())
+        } else {
+            clearSpellSuggestions()
+        }
+    }
+
+    private fun handleAutoCorrectSpace() {
+        val currentWord = wordBuffer.toString()
+        val topSuggestion = currentSuggestions.firstOrNull()
+
+        val shouldAutoCorrect = baseContext.config.autoCorrectOnSpace &&
+            !isPasswordField() &&
+            topSuggestion != null &&
+            currentWord.isNotEmpty() &&
+            spellChecker?.isValidWord(currentWord) == false
+
+        if (shouldAutoCorrect) {
+            currentInputConnection?.deleteSurroundingText(currentWord.length, 0)
+            currentInputConnection?.commitText("$topSuggestion ", 1)
+        } else {
+            currentInputConnection?.commitText(" ", 1)
+        }
+
+        wordBuffer.clear()
+        clearSpellSuggestions()
     }
 }
