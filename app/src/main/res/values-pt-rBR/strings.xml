@@ -46,4 +46,5 @@
     <string name="activities">Atividades</string>
     <string name="objects">Objetos</string>
     <string name="symbols">Símbolos</string>
+    <string name="show_emoji_key">Mostrar tecla de emojis</string>
 </resources>
