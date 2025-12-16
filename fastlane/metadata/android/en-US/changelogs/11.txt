@@ -1,0 +1,12 @@
+Added:
+
+• Option to disable the emoji key 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed crash on initial startup in some cases 
+
