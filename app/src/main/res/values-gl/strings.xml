@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Teclado</string>
-    <string name="change_keyboard">Cambialo teclado</string>
+    <string name="change_keyboard">Cambiar o teclado</string>
     <string name="manage_clipboard_items">Xestionar elementos do portapapeis</string>
     <string name="manage_clipboard_empty">O teu portapapeis está baleiro.</string>
     <string name="manage_clipboard_label">Despois de copiar algún texto, mostrarase aquí. Tamén pode fixar clips para que non desaparezan máis tarde.</string>
     <string name="clear_clipboard_data">Borrar os datos do portapapeis</string>
-    <string name="clear_clipboard_data_confirmation">Atoposte seguro de borrar os datos do portapapeis\?</string>
+    <string name="clear_clipboard_data_confirmation">Estás certo de borrar os datos do portapapeis?</string>
     <string name="clipboard_current">Actual</string>
     <string name="clipboard_pinned">Fixado</string>
     <string name="add_new_item">Engade un novo elemento</string>
     <string name="manage_clips">Podes xestionar ou engadir clips aquí para acceder rapidamente.</string>
     <string name="clip_text">Clip do texto</string>
     <string name="text_pinned">Fixouse o texto</string>
-    <string name="keycode_mode_change">Cambialo tipo do teclado</string>
-    <string name="show_clipboard_content">Mostralo contido do portapapeis se atopase dispoñible</string>
+    <string name="keycode_mode_change">Cambiar o tipo de teclado</string>
+    <string name="show_clipboard_content">Mostrar o contido do portapapeis se está dispoñible</string>
     <string name="show_popup">Mostra unha xanela emerxente ao premer nunha tecla</string>
     <string name="vibrate_on_keypress">Vibrar ao premer unha tecla</string>
     <string name="keyboard_language">Lingua do teclado</string>
     <string name="keyboard_height">Altura do teclado</string>
     <string name="show_key_borders">Mostralos bordes das teclas</string>
-    <string name="show_numbers_row">Mostralos números nunha fila afastada</string>
+    <string name="show_numbers_row">Mostrar os números nunha fila afastada</string>
     <string name="emojis">Emoticona</string>
     <string name="redirection_note">Por favor, active Fossify Keyboard na pantalla que segue para facelo dispoñible. Prema «Atrás» tras rematar.</string>
     <string name="clipboard">Portapapeis</string>
@@ -46,4 +46,5 @@
     <string name="flags">Bandeiras</string>
     <string name="voice_typing_method">Método de escritura por voz</string>
     <string name="switch_to_voice_typing">Mudar á escritura por voz</string>
+    <string name="show_emoji_key">Amosar tecla de emoticonas</string>
 </resources>
