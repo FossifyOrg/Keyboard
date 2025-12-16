@@ -46,4 +46,5 @@
     <string name="flags">דגלים</string>
     <string name="voice_typing_method">שיטת הקלדה קולית</string>
     <string name="switch_to_voice_typing">עבור להקלדה קולית</string>
+    <string name="show_emoji_key">הצג מקש אמוג\'י</string>
 </resources>
