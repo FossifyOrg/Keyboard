@@ -32,4 +32,19 @@
     <string name="show_numbers_row">Erakutsi zenbakiak aparteko errenkada batean</string>
     <string name="start_sentences_capitalized">Hasi esaldiak maiuskulaz</string>
     <string name="emojis">Emojiak</string>
+    <string name="clip_text">Moztu testua</string>
+    <string name="keycode_shift">Maius</string>
+    <string name="show_emoji_key">Erakutsi emojien tekla</string>
+    <string name="recently_used">Duela gutxi erabilita</string>
+    <string name="smileys_and_emotions">Irribarreak eta emozioak</string>
+    <string name="people_and_body">Pertsonak eta gorputza</string>
+    <string name="animals_and_nature">Animaliak eta natura</string>
+    <string name="food_and_drink">Janaria eta edaria</string>
+    <string name="travel_and_places">Bidaiak eta tokiak</string>
+    <string name="activities">Aktibitateak</string>
+    <string name="objects">Objektuak</string>
+    <string name="symbols">Ikurrak</string>
+    <string name="flags">Banderak</string>
+    <string name="voice_typing_method">Ahotsa idazteko metodoa</string>
+    <string name="switch_to_voice_typing">Aldatu ahots idazketara</string>
 </resources>
