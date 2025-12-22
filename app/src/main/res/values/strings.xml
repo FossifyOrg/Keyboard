@@ -37,6 +37,8 @@
     <string name="show_numbers_row">Show numbers on a separate row</string>
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
     <string name="show_emoji_key">Show emoji key</string>
+    <string name="show_suggestions">Show word suggestions</string>
+    <string name="auto_correct_on_space">Auto-correct on space</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
     <string name="recently_used">Recently used</string>

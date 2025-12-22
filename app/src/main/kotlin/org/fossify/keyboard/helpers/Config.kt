@@ -91,4 +91,12 @@ class Config(context: Context) : BaseConfig(context) {
         recentEmojis.add(0, emoji)
         recentlyUsedEmojis = recentEmojis.take(RECENT_EMOJIS_LIMIT)
     }
+
+    var showSuggestions: Boolean
+        get() = prefs.getBoolean(SHOW_SUGGESTIONS, true)
+        set(showSuggestions) = prefs.edit().putBoolean(SHOW_SUGGESTIONS, showSuggestions).apply()
+
+    var autoCorrectOnSpace: Boolean
+        get() = prefs.getBoolean(AUTO_CORRECT_ON_SPACE, true)
+        set(autoCorrectOnSpace) = prefs.edit().putBoolean(AUTO_CORRECT_ON_SPACE, autoCorrectOnSpace).apply()
 }

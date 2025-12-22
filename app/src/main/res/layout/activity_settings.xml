@@ -223,6 +223,36 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_show_suggestions_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_show_suggestions"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_suggestions" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_auto_correct_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_auto_correct"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_correct_on_space" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_start_sentences_capitalized_holder"
                 style="@style/SettingsHolderSwitchStyle"
                 android:layout_width="match_parent"

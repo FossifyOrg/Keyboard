@@ -63,6 +63,8 @@ class SettingsActivity : SimpleActivity() {
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
+        setupShowSuggestions()
+        setupAutoCorrect()
         setupVoiceInputMethod()
 
         binding.apply {
@@ -280,6 +282,26 @@ class SettingsActivity : SimpleActivity() {
                         getCurrentVoiceInputMethod(inputMethods)?.first?.loadLabel(packageManager)
                             ?: getString(R.string.none)
                 }
+            }
+        }
+    }
+
+    private fun setupShowSuggestions() {
+        binding.apply {
+            settingsShowSuggestions.isChecked = config.showSuggestions
+            settingsShowSuggestionsHolder.setOnClickListener {
+                settingsShowSuggestions.toggle()
+                config.showSuggestions = settingsShowSuggestions.isChecked
+            }
+        }
+    }
+
+    private fun setupAutoCorrect() {
+        binding.apply {
+            settingsAutoCorrect.isChecked = config.autoCorrectOnSpace
+            settingsAutoCorrectHolder.setOnClickListener {
+                settingsAutoCorrect.toggle()
+                config.autoCorrectOnSpace = settingsAutoCorrect.isChecked
             }
         }
     }
