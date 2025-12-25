@@ -688,19 +688,19 @@ class MyKeyboardView @JvmOverloads constructor(
         for (i in 0 until keyCount) {
             val key = keys[i]
             val code = key.code
+            val label = adjustCase(key.label)?.toString()
 
             setupKeyBackground(key, code, canvas)
             val textColor = when {
                 key.pressed -> mTextColor.adjustAlpha(0.5f)
-                code == KEYCODE_SPACE -> mTextColor.adjustAlpha(HIGHER_ALPHA)
+                code == KEYCODE_SPACE && label.orEmpty().length > 1 -> mTextColor.adjustAlpha(HIGHER_ALPHA)
                 else -> mTextColor
             }
 
             // Switch the character to uppercase if shift is pressed
-            val label = adjustCase(key.label)?.toString()
             if (label?.isNotEmpty() == true) {
                 // For characters, use large font. For labels like "Done", use small font.
-                if (code == KEYCODE_SPACE) {
+                if (code == KEYCODE_SPACE && key.label.length > 1) {
                     // Use smaller font size for current language label on space bar
                     paint.textSize = mSpaceBarTextSize.toFloat()
                     paint.typeface = Typeface.DEFAULT
@@ -837,7 +837,7 @@ class MyKeyboardView @JvmOverloads constructor(
 
     private fun setupKeyBackground(key: MyKeyboard.Key, keyCode: Int, canvas: Canvas) {
         val keyBackground = when {
-            keyCode == KEYCODE_SPACE && key.label.isBlank() -> getSpaceKeyBackground()
+            keyCode == KEYCODE_SPACE && key.label.length > 1 -> getSpaceKeyBackground()
             keyCode == KEYCODE_ENTER -> getEnterKeyBackground()
             else -> mKeyBackground
         }
