@@ -8,8 +8,7 @@
     <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$(show &amp;&amp; keyboardViewBinding?.clipboardValue!!.alpha == 0f) || (!show &amp;&amp; keyboardViewBinding?.clipboardValue!!.alpha == 1f)</ID>
     <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$key.label.isNotEmpty() &amp;&amp; key.code != KEYCODE_MODE_CHANGE &amp;&amp; key.code != KEYCODE_SYMBOLS_MODE_CHANGE &amp;&amp; key.code != KEYCODE_SHIFT</ID>
     <ID>ComplexCondition:MyKeyboardView.kt$MyKeyboardView$mBuffer == null || mKeyboardChanged &amp;&amp; (mBuffer!!.width != width || mBuffer!!.height != height)</ID>
-    <ID>CyclomaticComplexMethod:Context.kt$fun Context.getKeyboardLanguageText(language: Int): String</ID>
-    <ID>CyclomaticComplexMethod:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>CyclomaticComplexMethod:ContextExt.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
     <ID>CyclomaticComplexMethod:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
     <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
     <ID>CyclomaticComplexMethod:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>
@@ -54,7 +53,6 @@
     <ID>MaxLineLength:ClipsActivityAdapter.kt$ClipsActivityAdapter$override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)</ID>
     <ID>MaxLineLength:ClipsKeyboardAdapter.kt$ClipsKeyboardAdapter$layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(context.getStrokeColor())</ID>
     <ID>MaxLineLength:Config.kt$Config$set(lastExportedClipsFolder) = prefs.edit().putString(LAST_EXPORTED_CLIPS_FOLDER, lastExportedClipsFolder).apply()</ID>
-    <ID>MaxLineLength:Context.kt$fun</ID>
     <ID>MaxLineLength:EmojisAdapter.kt$EmojisAdapter.EmojiCategoryViewHolder$inner</ID>
     <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$exportClipsFilename.setText("${activity.getString(R.string.app_launcher_name)}_${activity.getCurrentFormattedDateTime()}")</ID>
     <ID>MaxLineLength:ExportClipsDialog.kt$ExportClipsDialog$val activity: BaseSimpleActivity</ID>
@@ -93,7 +91,7 @@
     <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(getProperBackgroundColor())</ID>
     <ID>MaxLineLength:SimpleKeyboardIME.kt$SimpleKeyboardIME$override</ID>
     <ID>MaxLineLength:SwitchLanguageDialog.kt$SwitchLanguageDialog$addView(radioButton, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))</ID>
-    <ID>NestedBlockDepth:Context.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
+    <ID>NestedBlockDepth:ContextExt.kt$fun Context.setupKeyboardDialogStuff( windowToken: IBinder, view: View, dialog: AlertDialog.Builder, titleId: Int = 0, titleText: String = "", cancelOnTouchOutside: Boolean = true, callback: ((alertDialog: AlertDialog) -&gt; Unit)? = null )</ID>
     <ID>NestedBlockDepth:MyKeyboard.kt$MyKeyboard$@SuppressLint("UseCompatLoadingForDrawables") private fun loadKeyboard(context: Context, parser: XmlResourceParser)</ID>
     <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$@SuppressLint("UseCompatLoadingForDrawables") private fun onBufferDraw()</ID>
     <ID>NestedBlockDepth:MyKeyboardView.kt$MyKeyboardView$override fun onTouchEvent(me: MotionEvent): Boolean</ID>

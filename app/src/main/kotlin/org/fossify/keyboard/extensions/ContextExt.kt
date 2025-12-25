@@ -189,7 +189,9 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
-fun Context.getVoiceInputMethods(imm: InputMethodManager = inputMethodManager): List<Pair<InputMethodInfo, InputMethodSubtype>> {
+fun Context.getVoiceInputMethods(
+    imm: InputMethodManager = inputMethodManager
+): List<Pair<InputMethodInfo, InputMethodSubtype>> {
     return imm.enabledInputMethodList.flatMap { im ->
         imm.getEnabledInputMethodSubtypeList(im, true)
             .filter { it.mode == INPUT_METHOD_SUBTYPE_VOICE }

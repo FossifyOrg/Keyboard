@@ -1178,7 +1178,7 @@ class MyKeyboardView @JvmOverloads constructor(
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_SPACE) {
-            if (!mCursorControlActive) {
+            return if (!mCursorControlActive) {
                 setCurrentKeyPressed(false)
                 mRepeatKeyIndex = NOT_A_KEY
                 mHandler?.removeMessages(MSG_REPEAT)
@@ -1186,9 +1186,8 @@ class MyKeyboardView @JvmOverloads constructor(
                 SwitchLanguageDialog(this) {
                     mOnKeyboardActionListener?.reloadKeyboard()
                 }
-                return true
-            }
-            return false
+                true
+            } else false
         } else if (popupKey.code == KEYCODE_EMOJI_OR_LANGUAGE) {
             setCurrentKeyPressed(false)
             if (context.config.showEmojiKey) {
