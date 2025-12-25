@@ -47,4 +47,5 @@
     <string name="objects">Objetos</string>
     <string name="symbols">Símbolos</string>
     <string name="show_emoji_key">Mostrar tecla de emojis</string>
+    <string name="show_language_switch_key">Mostrar tecla de troca de idioma</string>
 </resources>
