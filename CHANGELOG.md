@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Added apostrophe as secondary symbol on the dot key ([#356])
+- Added apostrophe as a pop-up character on the dot key ([#356])
 
 ## [1.7.0] - 2025-12-16
 ### Added
