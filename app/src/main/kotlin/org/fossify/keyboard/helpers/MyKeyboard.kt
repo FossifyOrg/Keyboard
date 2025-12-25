@@ -237,7 +237,9 @@ class MyKeyboard {
                 KEYCODE_ENTER -> context.getString(R.string.keycode_enter)
                 KEYCODE_DELETE -> context.getString(R.string.keycode_delete)
                 KEYCODE_SPACE -> context.getString(R.string.keycode_space)
-                KEYCODE_EMOJI_OR_LANGUAGE -> context.getString(R.string.emojis)
+                KEYCODE_EMOJI_OR_LANGUAGE -> context.getString(
+                    if (context.config.showEmojiKey) R.string.emojis else R.string.keyboard_language
+                )
                 else -> label
             }
         }
