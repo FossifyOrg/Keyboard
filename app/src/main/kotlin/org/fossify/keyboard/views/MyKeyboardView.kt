@@ -192,7 +192,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mRepeatKeyIndex = NOT_A_KEY
     private var mPopupLayout = 0
     private var mAbortKey = false
-    private var mIsLongPressingSpace = false
+    private var mCursorControlActive = false
     private var mLastSpaceMoveX = 0
     private var mPopupMaxMoveDistance = 0f
     private var mTopSmallNumberSize = 0f
@@ -308,7 +308,7 @@ class MyKeyboardView @JvmOverloads constructor(
                 override fun handleMessage(msg: Message) {
                     when (msg.what) {
                         MSG_REMOVE_PREVIEW -> mPreviewText!!.visibility = INVISIBLE
-                        MSG_REPEAT -> if (repeatKey(false)) {
+                        MSG_REPEAT -> if (repeatKey()) {
                             val repeat = Message.obtain(this, MSG_REPEAT)
                             sendMessageDelayed(repeat, REPEAT_INTERVAL.toLong())
                         }
@@ -1178,14 +1178,17 @@ class MyKeyboardView @JvmOverloads constructor(
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_SPACE) {
-            setCurrentKeyPressed(false)
-            mRepeatKeyIndex = NOT_A_KEY
-            mIsLongPressingSpace = false
-            mHandler?.removeMessages(MSG_REPEAT)
-            SwitchLanguageDialog(this) {
-                mOnKeyboardActionListener?.reloadKeyboard()
+            if (!mCursorControlActive) {
+                setCurrentKeyPressed(false)
+                mRepeatKeyIndex = NOT_A_KEY
+                mHandler?.removeMessages(MSG_REPEAT)
+                vibrateIfNeeded()
+                SwitchLanguageDialog(this) {
+                    mOnKeyboardActionListener?.reloadKeyboard()
+                }
+                return true
             }
-            return true
+            return false
         } else if (popupKey.code == KEYCODE_EMOJI_OR_LANGUAGE) {
             setCurrentKeyPressed(false)
             if (context.config.showEmojiKey) {
@@ -1436,11 +1439,12 @@ class MyKeyboardView @JvmOverloads constructor(
 
                     val msg = mHandler!!.obtainMessage(MSG_REPEAT)
                     mHandler!!.sendMessageDelayed(msg, REPEAT_START_DELAY.toLong())
-                    // if the user long presses Space, move the cursor after swipine left/right
+                    // if the user long presses space bar, move the cursor after swiping left/right
                     if (mKeys[mCurrentKey].code == KEYCODE_SPACE) {
                         mLastSpaceMoveX = -1
+                        mCursorControlActive = false
                     } else {
-                        repeatKey(true)
+                        repeatKey()
                     }
 
                     // Delivering the key could have caused an abort
@@ -1484,7 +1488,9 @@ class MyKeyboardView @JvmOverloads constructor(
                     }
                 }
 
-                if (mIsLongPressingSpace) {
+                // activate cursor control immediately on sufficient movement
+                val currentKey = mKeys.getOrNull(mCurrentKey)
+                if (currentKey?.code == KEYCODE_SPACE && mLastSpaceMoveX != 0) {
                     if (mLastSpaceMoveX == -1) {
                         mLastSpaceMoveX = mLastX
                     }
@@ -1495,16 +1501,18 @@ class MyKeyboardView @JvmOverloads constructor(
                             mOnKeyboardActionListener?.moveCursorLeft()
                         }
                         mLastSpaceMoveX = mLastX
+                        mCursorControlActive = true
                     } else if (diff > mSpaceMoveThreshold) {
                         for (i in 0 until diff / mSpaceMoveThreshold) {
                             mOnKeyboardActionListener?.moveCursorRight()
                         }
                         mLastSpaceMoveX = mLastX
+                        mCursorControlActive = true
                     }
                 } else if (!continueLongPress) {
-                    // Cancel old longpress
+                    // Cancel old long-press
                     mHandler!!.removeMessages(MSG_LONGPRESS)
-                    // Start new longpress if key has changed
+                    // Start new long-press if key has changed
                     if (keyIndex != NOT_A_KEY) {
                         val msg = mHandler!!.obtainMessage(MSG_LONGPRESS, me)
                         mHandler!!.sendMessageDelayed(msg, LONGPRESS_TIMEOUT.toLong())
@@ -1544,17 +1552,17 @@ class MyKeyboardView @JvmOverloads constructor(
                 // If we're not on a repeating key (which sends on a DOWN event)
                 if (mRepeatKeyIndex == NOT_A_KEY && !mMiniKeyboardOnScreen && !mAbortKey) {
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
-                } else if (currentKeyCode == KEYCODE_SPACE && !mIsLongPressingSpace) {
+                } else if (currentKeyCode == KEYCODE_SPACE && !mCursorControlActive) {
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
-                mIsLongPressingSpace = false
+                mCursorControlActive = false
             }
 
             MotionEvent.ACTION_CANCEL -> {
-                mIsLongPressingSpace = false
+                mCursorControlActive = false
                 mLastSpaceMoveX = 0
                 removeMessages()
                 dismissPopupKeyboard()
@@ -1569,15 +1577,9 @@ class MyKeyboardView @JvmOverloads constructor(
         return true
     }
 
-    private fun repeatKey(initialCall: Boolean): Boolean {
+    private fun repeatKey(): Boolean {
         val key = mKeys[mRepeatKeyIndex]
-        if (!initialCall && key.code == KEYCODE_SPACE) {
-            if (!mIsLongPressingSpace) {
-                vibrateIfNeeded()
-            }
-
-            mIsLongPressingSpace = true
-        } else {
+        if (key.code != KEYCODE_SPACE) {
             detectAndSendKey(mCurrentKey, key.x, key.y, mLastTapTime)
         }
         return true

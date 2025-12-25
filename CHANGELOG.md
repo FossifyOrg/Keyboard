@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - The space bar now shows the currently selected language ([#62])
+- Space bar cursor control now activates immediately on swipe ([#129])
 
 ## [1.7.0] - 2025-12-16
 ### Added
@@ -123,6 +124,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
 [#100]: https://github.com/FossifyOrg/Keyboard/issues/100
 [#117]: https://github.com/FossifyOrg/Keyboard/issues/117
+[#129]: https://github.com/FossifyOrg/Keyboard/issues/129
 [#133]: https://github.com/FossifyOrg/Keyboard/issues/133
 [#134]: https://github.com/FossifyOrg/Keyboard/issues/134
 [#136]: https://github.com/FossifyOrg/Keyboard/issues/136
