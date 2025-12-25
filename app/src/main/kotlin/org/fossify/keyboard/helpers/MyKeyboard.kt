@@ -66,7 +66,7 @@ class MyKeyboard {
         const val KEYCODE_ENTER = -4
         const val KEYCODE_DELETE = -5
         const val KEYCODE_SPACE = 32
-        const val KEYCODE_EMOJI = -6
+        const val KEYCODE_EMOJI_OR_LANGUAGE = -6
 
         fun getDimensionOrFraction(a: TypedArray, index: Int, base: Int, defValue: Int): Int {
             val value = a.peekValue(index) ?: return defValue
@@ -237,7 +237,9 @@ class MyKeyboard {
                 KEYCODE_ENTER -> context.getString(R.string.keycode_enter)
                 KEYCODE_DELETE -> context.getString(R.string.keycode_delete)
                 KEYCODE_SPACE -> context.getString(R.string.keycode_space)
-                KEYCODE_EMOJI -> context.getString(R.string.emojis)
+                KEYCODE_EMOJI_OR_LANGUAGE -> context.getString(
+                    if (context.config.showEmojiKey) R.string.emojis else R.string.keyboard_language
+                )
                 else -> label
             }
         }

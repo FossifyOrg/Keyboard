@@ -60,6 +60,7 @@ class SettingsActivity : SimpleActivity() {
         setupKeyboardLanguage()
         setupKeyboardHeightMultiplier()
         setupShowEmojiKey()
+        setupShowLanguageSwitchKey()
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
@@ -243,8 +244,26 @@ class SettingsActivity : SimpleActivity() {
             settingsShowEmojiKeyHolder.setOnClickListener {
                 settingsShowEmojiKey.toggle()
                 config.showEmojiKey = settingsShowEmojiKey.isChecked
+                if (settingsShowEmojiKey.isChecked) {
+                    config.showLanguageSwitchKey = false
+                    settingsShowLanguageSwitchKey.isChecked = false
+                }
             }
             settingsShowEmojiKey.isChecked = config.showEmojiKey
+        }
+    }
+
+    private fun setupShowLanguageSwitchKey() {
+        binding.apply {
+            settingsShowLanguageSwitchKeyHolder.setOnClickListener {
+                settingsShowLanguageSwitchKey.toggle()
+                config.showLanguageSwitchKey = settingsShowLanguageSwitchKey.isChecked
+                if (settingsShowLanguageSwitchKey.isChecked) {
+                    config.showEmojiKey = false
+                    settingsShowEmojiKey.isChecked = false
+                }
+            }
+            settingsShowLanguageSwitchKey.isChecked = config.showLanguageSwitchKey
         }
     }
 

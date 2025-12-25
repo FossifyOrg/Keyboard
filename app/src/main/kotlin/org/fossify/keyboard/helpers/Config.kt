@@ -27,6 +27,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SHOW_EMOJI_KEY, true)
         set(showEmojiKey) = prefs.edit().putBoolean(SHOW_EMOJI_KEY, showEmojiKey).apply()
 
+    var showLanguageSwitchKey: Boolean
+        get() = prefs.getBoolean(SHOW_LANGUAGE_SWITCH_KEY, false)
+        set(showLanguageSwitchKey) = prefs.edit().putBoolean(SHOW_LANGUAGE_SWITCH_KEY, showLanguageSwitchKey).apply()
+
     var showKeyBorders: Boolean
         get() = prefs.getBoolean(SHOW_KEY_BORDERS, true)
         set(showKeyBorders) = prefs.edit().putBoolean(SHOW_KEY_BORDERS, showKeyBorders).apply()
