@@ -156,7 +156,7 @@
         <Key
             app:keyLabel="."
             app:keyWidth="10%p"
-            app:popupCharacters=",?!;:…"
+            app:popupCharacters=",?!;:'…"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:code="-4"

@@ -117,7 +117,7 @@
         <Key
             app:keyEdgeFlags="right"
             app:keyLabel="."
-            app:popupCharacters=",?!;:…"
+            app:popupCharacters=",?!;:'…"
             app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
     <Row>
