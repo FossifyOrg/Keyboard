@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added apostrophe as a pop-up character on the dot key ([#356])
 
 ## [1.7.0] - 2025-12-16
 ### Added
@@ -134,6 +136,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#265]: https://github.com/FossifyOrg/Keyboard/issues/265
 [#274]: https://github.com/FossifyOrg/Keyboard/issues/274
 [#335]: https://github.com/FossifyOrg/Keyboard/issues/335
+[#356]: https://github.com/FossifyOrg/Keyboard/issues/356
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...HEAD
 [1.7.0]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...1.7.0
