@@ -28,6 +28,7 @@ import androidx.autofill.inline.common.ImageViewStyle
 import androidx.autofill.inline.common.TextViewStyle
 import androidx.autofill.inline.common.ViewStyle
 import androidx.autofill.inline.v1.InlineSuggestionUi
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -39,6 +40,8 @@ import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardBackgroundColor
+import org.fossify.keyboard.extensions.getKeyboardLanguageText
+import org.fossify.keyboard.extensions.getSelectedLanguagesSorted
 import org.fossify.keyboard.extensions.getStrokeColor
 import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.*
@@ -251,8 +254,18 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 keyboardView!!.setKeyboard(keyboard!!)
             }
 
-            MyKeyboard.KEYCODE_EMOJI -> {
-                keyboardView?.openEmojiPalette()
+            MyKeyboard.KEYCODE_EMOJI_OR_LANGUAGE -> {
+                if (config.showEmojiKey) {
+                    keyboardView?.openEmojiPalette()
+                } else if (config.showLanguageSwitchKey) {
+                    val sortedLanguages = getSelectedLanguagesSorted()
+                    if (sortedLanguages.size > 1) {
+                        val currentIndex = sortedLanguages.indexOf(config.keyboardLanguage)
+                        val nextIndex = (currentIndex + 1) % sortedLanguages.size
+                        config.keyboardLanguage = sortedLanguages[nextIndex]
+                        reloadKeyboard()
+                    }
+                }
             }
 
             else -> {
@@ -581,30 +594,47 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         return Icon.createWithData(byteArray, 0, byteArray.size)
     }
 
-    private fun adjustForEmojiButton(keyboard: MyKeyboard): MyKeyboard {
-        if (!config.showEmojiKey && this.keyboardMode == KEYBOARD_LETTERS) {
-            keyboard.mKeys?.let { keys ->
-                val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI }
-                val spaceKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_SPACE }
+    private fun constructKeyboard(keyboardXml: Int, enterKeyType: Int): MyKeyboard {
+        val keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
+        return adjustBottomRow(keyboard)
+    }
 
-                if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
-                    val emojiKey = keys[emojiKeyIndex]
-                    val spaceKey = keys[spaceKeyIndex]
+    // hacky, but good enough for now
+    private fun adjustBottomRow(keyboard: MyKeyboard): MyKeyboard {
+        keyboard.mKeys?.let { keys ->
+            val spaceKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_SPACE }
+            if (spaceKeyIndex != -1) {
+                val spaceKey = keys[spaceKeyIndex]
+                spaceKey.label = spaceKey.label.ifEmpty {
+                    getKeyboardLanguageText(config.keyboardLanguage)
+                }
+            }
 
-                    spaceKey.width += emojiKey.width + emojiKey.gap
-                    spaceKey.x = emojiKey.x
+            if (keyboardMode != KEYBOARD_LETTERS) return keyboard
+            val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI_OR_LANGUAGE }
+            if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
+                val emojiKey = keys[emojiKeyIndex]
+                val spaceKey = keys[spaceKeyIndex]
+                emojiKey.secondaryIcon = null
+                when {
+                    config.showEmojiKey -> {
+                        // no-op
+                    }
+                    config.showLanguageSwitchKey -> {
+                        emojiKey.icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_language_outlined, theme)
+                    }
+                    else -> {
+                        // both emoji and language keys are disabled
+                        spaceKey.width += emojiKey.width + emojiKey.gap
+                        spaceKey.x = emojiKey.x
 
-                    val mutableKeys = keys.toMutableList()
-                    mutableKeys.removeAt(emojiKeyIndex)
-                    keyboard.mKeys = mutableKeys
+                        val mutableKeys = keys.toMutableList()
+                        mutableKeys.removeAt(emojiKeyIndex)
+                        keyboard.mKeys = mutableKeys
+                    }
                 }
             }
         }
         return keyboard
-    }
-
-    private fun constructKeyboard(keyboardXml: Int, enterKeyType: Int): MyKeyboard {
-        val keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
-        return adjustForEmojiButton(keyboard)
     }
 }

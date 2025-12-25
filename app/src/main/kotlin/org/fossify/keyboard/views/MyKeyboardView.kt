@@ -64,6 +64,7 @@ import org.fossify.commons.extensions.lightenColor
 import org.fossify.commons.extensions.performHapticFeedback
 import org.fossify.commons.extensions.removeUnderlines
 import org.fossify.commons.extensions.toast
+import org.fossify.commons.helpers.HIGHER_ALPHA
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isOreoMr1Plus
 import org.fossify.commons.helpers.isPiePlus
@@ -95,7 +96,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_VN_TELEX
 import org.fossify.keyboard.helpers.MAX_KEYS_PER_MINI_ROW
 import org.fossify.keyboard.helpers.MyKeyboard
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
-import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI_OR_LANGUAGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
@@ -140,6 +141,7 @@ class MyKeyboardView @JvmOverloads constructor(
 
     private var mLabelTextSize = 0
     private var mKeyTextSize = 0
+    private var mSpaceBarTextSize = 0
 
     private var mTextColor = 0
     private var mBackgroundColor = 0
@@ -264,6 +266,7 @@ class MyKeyboardView @JvmOverloads constructor(
         mKeyBackground = resources.getDrawable(R.drawable.keyboard_key_selector, context.theme)
         mVerticalCorrection = resources.getDimension(R.dimen.vertical_correction).toInt()
         mLabelTextSize = resources.getDimension(R.dimen.label_text_size).toInt()
+        mSpaceBarTextSize = resources.getDimension(R.dimen.space_bar_text_size).toInt()
         mPreviewHeight = resources.getDimension(R.dimen.key_height).toInt()
         mSpaceMoveThreshold = resources.getDimension(R.dimen.medium_margin).toInt()
 
@@ -687,17 +690,21 @@ class MyKeyboardView @JvmOverloads constructor(
             val code = key.code
 
             setupKeyBackground(key, code, canvas)
-            val textColor = if (key.pressed) {
-                mTextColor.adjustAlpha(0.5f)
-            } else {
-                mTextColor
+            val textColor = when {
+                key.pressed -> mTextColor.adjustAlpha(0.5f)
+                code == KEYCODE_SPACE -> mTextColor.adjustAlpha(HIGHER_ALPHA)
+                else -> mTextColor
             }
 
             // Switch the character to uppercase if shift is pressed
             val label = adjustCase(key.label)?.toString()
             if (label?.isNotEmpty() == true) {
                 // For characters, use large font. For labels like "Done", use small font.
-                if (label.length > 1) {
+                if (code == KEYCODE_SPACE) {
+                    // Use smaller font size for current language label on space bar
+                    paint.textSize = mSpaceBarTextSize.toFloat()
+                    paint.typeface = Typeface.DEFAULT
+                } else if (label.length > 1) {
                     paint.textSize = mLabelTextSize.toFloat()
                     paint.typeface = Typeface.DEFAULT_BOLD
                 } else {
@@ -758,7 +765,7 @@ class MyKeyboardView @JvmOverloads constructor(
                     val contrastColor = mPrimaryColor.getContrastColor()
                     key.icon!!.applyColorFilter(contrastColor)
                     key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
-                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI) {
+                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI_OR_LANGUAGE) {
                     key.icon!!.applyColorFilter(textColor)
                     key.secondaryIcon?.applyColorFilter(
                         if (key.pressed) {
@@ -1019,6 +1026,7 @@ class MyKeyboardView @JvmOverloads constructor(
         }
 
         val key = keys[keyIndex]
+        if (key.code == KEYCODE_SPACE) return // no popup for the language label
         if (key.icon != null) {
             mPreviewText!!.setCompoundDrawables(null, null, null, key.icon)
         } else {
@@ -1169,10 +1177,23 @@ class MyKeyboardView @JvmOverloads constructor(
      * handle the call.
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
-        if (popupKey.code == KEYCODE_EMOJI) {
+        if (popupKey.code == KEYCODE_SPACE) {
             setCurrentKeyPressed(false)
+            mRepeatKeyIndex = NOT_A_KEY
+            mIsLongPressingSpace = false
+            mHandler?.removeMessages(MSG_REPEAT)
             SwitchLanguageDialog(this) {
                 mOnKeyboardActionListener?.reloadKeyboard()
+            }
+            return true
+        } else if (popupKey.code == KEYCODE_EMOJI_OR_LANGUAGE) {
+            setCurrentKeyPressed(false)
+            if (context.config.showEmojiKey) {
+                openEmojiPalette()
+            } else {
+                SwitchLanguageDialog(this) {
+                    mOnKeyboardActionListener?.reloadKeyboard()
+                }
             }
             return true
         } else {

@@ -18,4 +18,5 @@
     <dimen name="label_text_size">16sp</dimen>      <!-- text size used at keys with longer labels, like "123" -->
     <dimen name="emoji_text_size">30sp</dimen>
     <dimen name="emoji_category_text_size">13sp</dimen>
+    <dimen name="space_bar_text_size">13sp</dimen>
 </resources>

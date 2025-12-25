@@ -273,15 +273,16 @@ fun Context.setupKeyboardDialogStuff(
     }
 }
 
+fun Context.getSelectedLanguagesSorted(): List<Int> {
+    return config.selectedLanguages
+        .map { it to getKeyboardLanguageText(it) }
+        .sortedBy { it.second }
+        .map { it.first }
+}
+
 fun Context.getKeyboardLanguagesRadioItems(): ArrayList<RadioItem> {
-    val selectedLanguagesRadioItems = arrayListOf<RadioItem>()
-
-    for (lang in config.selectedLanguages) {
-        selectedLanguagesRadioItems.add(RadioItem(lang, getKeyboardLanguageText(lang)))
-    }
-
-    return selectedLanguagesRadioItems
-        .sortedBy { it.title }
+    return getSelectedLanguagesSorted()
+        .map { RadioItem(it, getKeyboardLanguageText(it)) }
         .toMutableList() as ArrayList<RadioItem>
 }
 
