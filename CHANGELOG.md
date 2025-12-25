@@ -121,6 +121,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
+[#62]: https://github.com/FossifyOrg/Keyboard/issues/62
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
 [#100]: https://github.com/FossifyOrg/Keyboard/issues/100
 [#117]: https://github.com/FossifyOrg/Keyboard/issues/117
