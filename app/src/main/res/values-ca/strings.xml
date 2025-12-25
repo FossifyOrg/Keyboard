@@ -47,4 +47,5 @@
     <string name="activities">Activitats</string>
     <string name="symbols">Símbols</string>
     <string name="show_emoji_key">Mostra la tecla dels emojis</string>
+    <string name="show_language_switch_key">Mostra la tecla de canvi d\'idioma</string>
 </resources>
