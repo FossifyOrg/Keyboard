@@ -1500,12 +1500,14 @@ class MyKeyboardView @JvmOverloads constructor(
                             mOnKeyboardActionListener?.moveCursorLeft()
                         }
                         mLastSpaceMoveX = mLastX
+                        if (!mCursorControlActive) mHandler?.removeMessages(MSG_LONGPRESS)
                         mCursorControlActive = true
                     } else if (diff > mSpaceMoveThreshold) {
                         for (i in 0 until diff / mSpaceMoveThreshold) {
                             mOnKeyboardActionListener?.moveCursorRight()
                         }
                         mLastSpaceMoveX = mLastX
+                        if (!mCursorControlActive) mHandler?.removeMessages(MSG_LONGPRESS)
                         mCursorControlActive = true
                     }
                 } else if (!continueLongPress) {
