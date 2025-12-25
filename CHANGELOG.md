@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Optional key to quickly switch keyboard language ([#62])
 - Added apostrophe as a pop-up character on the dot key ([#356])
+
+### Changed
+- The space bar now shows the currently selected language ([#62])
 
 ## [1.7.0] - 2025-12-16
 ### Added
