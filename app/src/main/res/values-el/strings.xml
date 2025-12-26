@@ -36,4 +36,5 @@
     <string name="symbols">Σύμβολα</string>
     <string name="voice_typing_method">Μέθοδος Φωνητικής Πληκτρολόγησης</string>
     <string name="switch_to_voice_typing">Εναλλαγή σε φωνητική πληκτρολόγηση</string>
+    <string name="show_language_switch_key">Εμφάνιση πλήκτρου εναλλαγής γλώσσας</string>
 </resources>
