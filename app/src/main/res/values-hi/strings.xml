@@ -46,4 +46,6 @@
     <string name="objects">वस्तुएं</string>
     <string name="symbols">प्रतीक</string>
     <string name="flags">झंडे</string>
+    <string name="show_emoji_key">इमोजी कुंजी दिखाएं</string>
+    <string name="show_language_switch_key">भाषा स्विच कुंजी दिखाएं</string>
 </resources>
