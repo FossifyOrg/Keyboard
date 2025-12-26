@@ -47,4 +47,5 @@
     <string name="flags">Флаги</string>
     <string name="activities">Деятельность</string>
     <string name="show_emoji_key">Показывать кнопку эмодзи</string>
+    <string name="show_language_switch_key">Показать кнопку смены языка</string>
 </resources>
