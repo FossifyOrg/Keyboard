@@ -67,6 +67,11 @@ class MyKeyboard {
         const val KEYCODE_DELETE = -5
         const val KEYCODE_SPACE = 32
         const val KEYCODE_EMOJI_OR_LANGUAGE = -6
+        const val KEYCODE_POPUP_EMOJI = -7
+        const val KEYCODE_POPUP_SETTINGS = -8
+
+        // Key roles for special keys
+        const val KEY_ROLE_TOOLS = "tools"
 
         fun getDimensionOrFraction(a: TypedArray, index: Int, base: Int, defValue: Int): Int {
             val value = a.peekValue(index) ?: return defValue
@@ -169,6 +174,9 @@ class MyKeyboard {
         /** Popup characters showing after long pressing the key  */
         var popupCharacters: CharSequence? = null
 
+        /** Role identifier for special keys (e.g., "tools" for the tools popup host key) */
+        var role: String? = null
+
         /**
          * Flags that specify the anchoring to edges of the keyboard for detecting touch events that are just out of the boundary of the key.
          * This is a bit mask of [MyKeyboard.EDGE_LEFT], [MyKeyboard.EDGE_RIGHT].
@@ -221,7 +229,7 @@ class MyKeyboard {
             secondaryIcon?.setBounds(0, 0, secondaryIcon!!.intrinsicWidth, secondaryIcon!!.intrinsicHeight)
 
             topSmallNumber = a.getString(R.styleable.MyKeyboard_Key_topSmallNumber) ?: ""
-
+            role = a.getString(R.styleable.MyKeyboard_Key_keyRole)
 
             a.recycle()
         }
@@ -271,7 +279,6 @@ class MyKeyboard {
      * @param xmlLayoutResId the resource file that contains the keyboard layout and keys.
      * @param enterKeyType determines what icon should we show on Enter key
      */
-    @JvmOverloads
     constructor(context: Context, @XmlRes xmlLayoutResId: Int, enterKeyType: Int) {
         mDisplayWidth = context.resources.displayMetrics.widthPixels
         mDefaultHorizontalGap = 0
@@ -378,8 +385,9 @@ class MyKeyboard {
                             if (context.config.showNumbersRow) {
                                 // Removes numbers (i.e 0-9) from the popupCharacters if numbers row is enabled
                                 key.apply {
+                                    val hadPopupCharacters = popupCharacters != null
                                     popupCharacters = popupCharacters?.replace(Regex("\\d+"), "")
-                                    if (popupCharacters.isNullOrEmpty()) {
+                                    if (hadPopupCharacters && popupCharacters.isNullOrEmpty()) {
                                         popupResId = 0
                                     }
                                 }

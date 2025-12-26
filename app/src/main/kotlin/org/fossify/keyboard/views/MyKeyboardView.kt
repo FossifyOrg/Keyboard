@@ -99,6 +99,8 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI_OR_LANGUAGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_POPUP_EMOJI
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_POPUP_SETTINGS
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SYMBOLS_MODE_CHANGE
@@ -722,9 +724,9 @@ class MyKeyboardView @JvmOverloads constructor(
                     canvas.drawText(row, key.width / 2f, startY + textSize * index, paint)
                 }
 
-                if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(
-                        key.topSmallNumber
-                    ))
+                if (
+                    key.topSmallNumber.isNotEmpty()
+                    && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))
                 ) {
                     val bounds = Rect().also {
                         smallLetterPaint.getTextBounds(
@@ -749,6 +751,9 @@ class MyKeyboardView @JvmOverloads constructor(
                     )
                 }
 
+                // Draw secondary icons for label-based keys
+                drawSecondaryIcon(key, canvas, textColor)
+
                 // Turn off drop shadow
                 paint.setShadowLayer(0f, 0f, 0f, 0)
             } else if (key.icon != null && mKeyboard != null) {
@@ -765,7 +770,15 @@ class MyKeyboardView @JvmOverloads constructor(
                     val contrastColor = mPrimaryColor.getContrastColor()
                     key.icon!!.applyColorFilter(contrastColor)
                     key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
-                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI_OR_LANGUAGE) {
+                } else if (
+                    code in arrayOf(
+                        KEYCODE_DELETE,
+                        KEYCODE_SHIFT,
+                        KEYCODE_EMOJI_OR_LANGUAGE,
+                        KEYCODE_POPUP_EMOJI,
+                        KEYCODE_POPUP_SETTINGS
+                    )
+                ) {
                     key.icon!!.applyColorFilter(textColor)
                     key.secondaryIcon?.applyColorFilter(
                         if (key.pressed) {
@@ -779,10 +792,9 @@ class MyKeyboardView @JvmOverloads constructor(
                 val keyIcon = key.icon!!
                 val secondaryIcon = key.secondaryIcon
                 if (secondaryIcon != null) {
+                    // When secondary icon exists, shrink main icon to 90%
                     val keyIconWidth = (keyIcon.intrinsicWidth * 0.9f).toInt()
                     val keyIconHeight = (keyIcon.intrinsicHeight * 0.9f).toInt()
-                    val secondaryIconWidth = (secondaryIcon.intrinsicWidth * 0.5f).toInt()
-                    val secondaryIconHeight = (secondaryIcon.intrinsicHeight * 0.5f).toInt()
 
                     val centerX = key.width / 2
                     val centerY = key.height / 2
@@ -798,20 +810,7 @@ class MyKeyboardView @JvmOverloads constructor(
                     )
                     keyIcon.draw(canvas)
 
-                    val secondaryIconPaddingRight = 10
-                    val secondaryIconLeft =
-                        key.width - secondaryIconPaddingRight - secondaryIconWidth
-                    val secondaryIconRight = secondaryIconLeft + secondaryIconWidth
-
-                    val secondaryIconTop = 14 // This will act as a topPadding
-                    val secondaryIconBottom = secondaryIconTop + secondaryIconHeight
-
-                    secondaryIcon.setBounds(
-                        secondaryIconLeft, secondaryIconTop, secondaryIconRight, secondaryIconBottom
-                    )
-                    secondaryIcon.draw(canvas)
-
-                    secondaryIcon.draw(canvas)
+                    drawSecondaryIcon(key, canvas, textColor)
                 } else {
                     val drawableX = (key.width - keyIcon.intrinsicWidth) / 2
                     val drawableY = (key.height - keyIcon.intrinsicHeight) / 2
@@ -895,6 +894,25 @@ class MyKeyboardView @JvmOverloads constructor(
             R.drawable.keyboard_enter_background
         }
         return resources.getDrawable(drawableId, context.theme)
+    }
+
+    private fun drawSecondaryIcon(key: MyKeyboard.Key, canvas: Canvas, textColor: Int) {
+        val secondaryIcon = key.secondaryIcon ?: return
+        secondaryIcon.applyColorFilter(
+            if (key.pressed) textColor else mTextColor.adjustAlpha(0.6f)
+        )
+        val secondaryIconWidth = (secondaryIcon.intrinsicWidth * 0.5f).toInt()
+        val secondaryIconHeight = (secondaryIcon.intrinsicHeight * 0.5f).toInt()
+        val secondaryIconPaddingRight = 10
+        val secondaryIconLeft = key.width - secondaryIconPaddingRight - secondaryIconWidth
+        val secondaryIconRight = secondaryIconLeft + secondaryIconWidth
+        val secondaryIconTop = 14
+        val secondaryIconBottom = secondaryIconTop + secondaryIconHeight
+
+        secondaryIcon.setBounds(
+            secondaryIconLeft, secondaryIconTop, secondaryIconRight, secondaryIconBottom
+        )
+        secondaryIcon.draw(canvas)
     }
 
     private fun handleClipboard() {
@@ -1178,26 +1196,9 @@ class MyKeyboardView @JvmOverloads constructor(
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_SPACE) {
-            return if (!mCursorControlActive) {
-                setCurrentKeyPressed(false)
-                mRepeatKeyIndex = NOT_A_KEY
-                mHandler?.removeMessages(MSG_REPEAT)
-                vibrateIfNeeded()
-                SwitchLanguageDialog(this) {
-                    mOnKeyboardActionListener?.reloadKeyboard()
-                }
-                true
-            } else false
+            return onSpaceBarLongPressed()
         } else if (popupKey.code == KEYCODE_EMOJI_OR_LANGUAGE) {
-            setCurrentKeyPressed(false)
-            if (context.config.showEmojiKey) {
-                openEmojiPalette()
-            } else {
-                SwitchLanguageDialog(this) {
-                    mOnKeyboardActionListener?.reloadKeyboard()
-                }
-            }
-            return true
+            return onEmojiOrLanguageLongPressed()
         } else {
             val popupKeyboardId = popupKey.popupResId
             if (popupKeyboardId != 0) {
@@ -1205,9 +1206,11 @@ class MyKeyboardView @JvmOverloads constructor(
 
                 // For 'number' and 'phone' keyboards the count of popup keys might be bigger than count of keys in the main keyboard.
                 // And therefore the width of the key might be smaller than width declared in MyKeyboard.Key.width for the main keyboard.
-                val popupKeyWidth = popupKey.calcKeyWidth(
-                    containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width
-                )
+                val popupKeyWidth = if (popupKey.popupCharacters != null) {
+                    popupKey.calcKeyWidth(containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width)
+                } else {
+                    popupKey.width
+                }
 
                 if (mMiniKeyboardContainer == null) {
                     val inflater =
@@ -1243,8 +1246,9 @@ class MyKeyboardView @JvmOverloads constructor(
                 mPopupX = popupKey.x
                 mPopupY = popupKey.y
 
-                val widthToUse =
-                    mMiniKeyboardContainer!!.measuredWidth - (popupKey.popupCharacters!!.length / 2) * popupKeyWidth
+                // Use popupCharacters length if available, otherwise use actual key count from the loaded keyboard
+                val popupKeyCount = popupKey.popupCharacters?.length ?: mMiniKeyboard!!.mKeys.size
+                val widthToUse = mMiniKeyboardContainer!!.measuredWidth - (popupKeyCount / 2) * popupKeyWidth
                 mPopupX = mPopupX + popupKeyWidth - widthToUse
                 mPopupY -= mMiniKeyboardContainer!!.measuredHeight
                 val x = mPopupX + mCoordinates[0]
@@ -1604,6 +1608,32 @@ class MyKeyboardView @JvmOverloads constructor(
             suggestionsHolder.hideAllInlineContentViews()
         }
         setupStoredClips()
+    }
+
+    private fun onSpaceBarLongPressed(): Boolean {
+        return if (!mCursorControlActive) {
+            setCurrentKeyPressed(false)
+            mRepeatKeyIndex = NOT_A_KEY
+            mHandler?.removeMessages(MSG_REPEAT)
+            vibrateIfNeeded()
+            SwitchLanguageDialog(this) {
+                mOnKeyboardActionListener?.reloadKeyboard()
+            }
+            true
+        } else false
+    }
+
+    private fun onEmojiOrLanguageLongPressed(): Boolean {
+        setCurrentKeyPressed(false)
+        if (context.config.showEmojiKey) {
+            openEmojiPalette()
+        } else {
+            SwitchLanguageDialog(this) {
+                mOnKeyboardActionListener?.reloadKeyboard()
+            }
+        }
+
+        return true
     }
 
     private fun setupStoredClips() {
