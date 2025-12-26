@@ -385,8 +385,9 @@ class MyKeyboard {
                             if (context.config.showNumbersRow) {
                                 // Removes numbers (i.e 0-9) from the popupCharacters if numbers row is enabled
                                 key.apply {
+                                    val hadPopupCharacters = popupCharacters != null
                                     popupCharacters = popupCharacters?.replace(Regex("\\d+"), "")
-                                    if (popupCharacters.isNullOrEmpty()) {
+                                    if (hadPopupCharacters && popupCharacters.isNullOrEmpty()) {
                                         popupResId = 0
                                     }
                                 }
