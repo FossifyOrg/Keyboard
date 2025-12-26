@@ -99,6 +99,8 @@ import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_DELETE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_EMOJI_OR_LANGUAGE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_ENTER
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_MODE_CHANGE
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_POPUP_EMOJI
+import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_POPUP_SETTINGS
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SHIFT
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SPACE
 import org.fossify.keyboard.helpers.MyKeyboard.Companion.KEYCODE_SYMBOLS_MODE_CHANGE
@@ -768,7 +770,10 @@ class MyKeyboardView @JvmOverloads constructor(
                     val contrastColor = mPrimaryColor.getContrastColor()
                     key.icon!!.applyColorFilter(contrastColor)
                     key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
-                } else if (code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI_OR_LANGUAGE) {
+                } else if (
+                    code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI_OR_LANGUAGE
+                    || code == KEYCODE_POPUP_EMOJI || code == KEYCODE_POPUP_SETTINGS
+                ) {
                     key.icon!!.applyColorFilter(textColor)
                     key.secondaryIcon?.applyColorFilter(
                         if (key.pressed) {
