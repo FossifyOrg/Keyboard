@@ -1186,26 +1186,9 @@ class MyKeyboardView @JvmOverloads constructor(
      */
     private fun onLongPress(popupKey: MyKeyboard.Key, me: MotionEvent): Boolean {
         if (popupKey.code == KEYCODE_SPACE) {
-            return if (!mCursorControlActive) {
-                setCurrentKeyPressed(false)
-                mRepeatKeyIndex = NOT_A_KEY
-                mHandler?.removeMessages(MSG_REPEAT)
-                vibrateIfNeeded()
-                SwitchLanguageDialog(this) {
-                    mOnKeyboardActionListener?.reloadKeyboard()
-                }
-                true
-            } else false
+            return onSpaceBarLongPressed()
         } else if (popupKey.code == KEYCODE_EMOJI_OR_LANGUAGE) {
-            setCurrentKeyPressed(false)
-            if (context.config.showEmojiKey) {
-                openEmojiPalette()
-            } else {
-                SwitchLanguageDialog(this) {
-                    mOnKeyboardActionListener?.reloadKeyboard()
-                }
-            }
-            return true
+            return onEmojiOrLanguageLongPressed()
         } else {
             val popupKeyboardId = popupKey.popupResId
             if (popupKeyboardId != 0) {
@@ -1615,6 +1598,32 @@ class MyKeyboardView @JvmOverloads constructor(
             suggestionsHolder.hideAllInlineContentViews()
         }
         setupStoredClips()
+    }
+
+    private fun onSpaceBarLongPressed(): Boolean {
+        return if (!mCursorControlActive) {
+            setCurrentKeyPressed(false)
+            mRepeatKeyIndex = NOT_A_KEY
+            mHandler?.removeMessages(MSG_REPEAT)
+            vibrateIfNeeded()
+            SwitchLanguageDialog(this) {
+                mOnKeyboardActionListener?.reloadKeyboard()
+            }
+            true
+        } else false
+    }
+
+    private fun onEmojiOrLanguageLongPressed(): Boolean {
+        setCurrentKeyPressed(false)
+        if (context.config.showEmojiKey) {
+            openEmojiPalette()
+        } else {
+            SwitchLanguageDialog(this) {
+                mOnKeyboardActionListener?.reloadKeyboard()
+            }
+        }
+
+        return true
     }
 
     private fun setupStoredClips() {

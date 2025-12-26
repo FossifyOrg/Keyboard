@@ -619,7 +619,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 }
             }
 
-            if (keyboardMode != KEYBOARD_LETTERS) return@let
+            if (keyboardMode != KEYBOARD_LETTERS) return keyboard
             val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI_OR_LANGUAGE }
             if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
                 val emojiKey = keys[emojiKeyIndex]
