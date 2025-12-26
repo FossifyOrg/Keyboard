@@ -47,4 +47,5 @@
     <string name="symbols">符号</string>
     <string name="flags">旗帜</string>
     <string name="show_emoji_key">显示表情图片键</string>
+    <string name="show_language_switch_key">显示语言切换键</string>
 </resources>
