@@ -771,8 +771,13 @@ class MyKeyboardView @JvmOverloads constructor(
                     key.icon!!.applyColorFilter(contrastColor)
                     key.secondaryIcon?.applyColorFilter(contrastColor.adjustAlpha(0.6f))
                 } else if (
-                    code == KEYCODE_DELETE || code == KEYCODE_SHIFT || code == KEYCODE_EMOJI_OR_LANGUAGE
-                    || code == KEYCODE_POPUP_EMOJI || code == KEYCODE_POPUP_SETTINGS
+                    code in arrayOf(
+                        KEYCODE_DELETE,
+                        KEYCODE_SHIFT,
+                        KEYCODE_EMOJI_OR_LANGUAGE,
+                        KEYCODE_POPUP_EMOJI,
+                        KEYCODE_POPUP_SETTINGS
+                    )
                 ) {
                     key.icon!!.applyColorFilter(textColor)
                     key.secondaryIcon?.applyColorFilter(
