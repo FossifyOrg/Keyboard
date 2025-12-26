@@ -722,9 +722,9 @@ class MyKeyboardView @JvmOverloads constructor(
                     canvas.drawText(row, key.width / 2f, startY + textSize * index, paint)
                 }
 
-                if (key.topSmallNumber.isNotEmpty() && !(context.config.showNumbersRow && Regex("\\d").matches(
-                        key.topSmallNumber
-                    ))
+                if (
+                    key.topSmallNumber.isNotEmpty()
+                    && !(context.config.showNumbersRow && Regex("\\d").matches(key.topSmallNumber))
                 ) {
                     val bounds = Rect().also {
                         smallLetterPaint.getTextBounds(
@@ -748,6 +748,9 @@ class MyKeyboardView @JvmOverloads constructor(
                         smallLetterPaint
                     )
                 }
+
+                // Draw secondary icons for label-based keys
+                drawSecondaryIcon(key, canvas, textColor)
 
                 // Turn off drop shadow
                 paint.setShadowLayer(0f, 0f, 0f, 0)
@@ -779,10 +782,9 @@ class MyKeyboardView @JvmOverloads constructor(
                 val keyIcon = key.icon!!
                 val secondaryIcon = key.secondaryIcon
                 if (secondaryIcon != null) {
+                    // When secondary icon exists, shrink main icon to 90%
                     val keyIconWidth = (keyIcon.intrinsicWidth * 0.9f).toInt()
                     val keyIconHeight = (keyIcon.intrinsicHeight * 0.9f).toInt()
-                    val secondaryIconWidth = (secondaryIcon.intrinsicWidth * 0.5f).toInt()
-                    val secondaryIconHeight = (secondaryIcon.intrinsicHeight * 0.5f).toInt()
 
                     val centerX = key.width / 2
                     val centerY = key.height / 2
@@ -798,20 +800,7 @@ class MyKeyboardView @JvmOverloads constructor(
                     )
                     keyIcon.draw(canvas)
 
-                    val secondaryIconPaddingRight = 10
-                    val secondaryIconLeft =
-                        key.width - secondaryIconPaddingRight - secondaryIconWidth
-                    val secondaryIconRight = secondaryIconLeft + secondaryIconWidth
-
-                    val secondaryIconTop = 14 // This will act as a topPadding
-                    val secondaryIconBottom = secondaryIconTop + secondaryIconHeight
-
-                    secondaryIcon.setBounds(
-                        secondaryIconLeft, secondaryIconTop, secondaryIconRight, secondaryIconBottom
-                    )
-                    secondaryIcon.draw(canvas)
-
-                    secondaryIcon.draw(canvas)
+                    drawSecondaryIcon(key, canvas, textColor)
                 } else {
                     val drawableX = (key.width - keyIcon.intrinsicWidth) / 2
                     val drawableY = (key.height - keyIcon.intrinsicHeight) / 2
@@ -895,6 +884,25 @@ class MyKeyboardView @JvmOverloads constructor(
             R.drawable.keyboard_enter_background
         }
         return resources.getDrawable(drawableId, context.theme)
+    }
+
+    private fun drawSecondaryIcon(key: MyKeyboard.Key, canvas: Canvas, textColor: Int) {
+        val secondaryIcon = key.secondaryIcon ?: return
+        secondaryIcon.applyColorFilter(
+            if (key.pressed) textColor else mTextColor.adjustAlpha(0.6f)
+        )
+        val secondaryIconWidth = (secondaryIcon.intrinsicWidth * 0.5f).toInt()
+        val secondaryIconHeight = (secondaryIcon.intrinsicHeight * 0.5f).toInt()
+        val secondaryIconPaddingRight = 10
+        val secondaryIconLeft = key.width - secondaryIconPaddingRight - secondaryIconWidth
+        val secondaryIconRight = secondaryIconLeft + secondaryIconWidth
+        val secondaryIconTop = 14
+        val secondaryIconBottom = secondaryIconTop + secondaryIconHeight
+
+        secondaryIcon.setBounds(
+            secondaryIconLeft, secondaryIconTop, secondaryIconRight, secondaryIconBottom
+        )
+        secondaryIcon.draw(canvas)
     }
 
     private fun handleClipboard() {
@@ -1205,9 +1213,11 @@ class MyKeyboardView @JvmOverloads constructor(
 
                 // For 'number' and 'phone' keyboards the count of popup keys might be bigger than count of keys in the main keyboard.
                 // And therefore the width of the key might be smaller than width declared in MyKeyboard.Key.width for the main keyboard.
-                val popupKeyWidth = popupKey.calcKeyWidth(
-                    containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width
-                )
+                val popupKeyWidth = if (popupKey.popupCharacters != null) {
+                    popupKey.calcKeyWidth(containerWidth = mMiniKeyboardContainer?.measuredWidth ?: width)
+                } else {
+                    popupKey.width
+                }
 
                 if (mMiniKeyboardContainer == null) {
                     val inflater =
@@ -1243,8 +1253,9 @@ class MyKeyboardView @JvmOverloads constructor(
                 mPopupX = popupKey.x
                 mPopupY = popupKey.y
 
-                val widthToUse =
-                    mMiniKeyboardContainer!!.measuredWidth - (popupKey.popupCharacters!!.length / 2) * popupKeyWidth
+                // Use popupCharacters length if available, otherwise use actual key count from the loaded keyboard
+                val popupKeyCount = popupKey.popupCharacters?.length ?: mMiniKeyboard!!.mKeys.size
+                val widthToUse = mMiniKeyboardContainer!!.measuredWidth - (popupKeyCount / 2) * popupKeyWidth
                 mPopupX = mPopupX + popupKeyWidth - widthToUse
                 mPopupY -= mMiniKeyboardContainer!!.measuredHeight
                 val x = mPopupX + mCoordinates[0]

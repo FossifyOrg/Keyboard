@@ -99,13 +99,12 @@
             app:keyLabel="s"
             app:popupCharacters="ş"
             app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="d" />
+        <Key app:keyLabel="f" />
         <Key
-             app:keyLabel="d" />
-        <Key
-             app:keyLabel="f" />
-        <Key app:keyLabel="g"
+            app:keyLabel="g"
             app:popupCharacters="ğ"
-            app:popupKeyboard="@xml/keyboard_popup_template" />	
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="h" />
         <Key app:keyLabel="j" />
         <Key app:keyLabel="k" />
@@ -119,8 +118,7 @@
             app:keyEdgeFlags="left"
             app:keyIcon="@drawable/ic_caps_outline_vector"
             app:keyWidth="15%p" />
-        <Key
-             app:keyLabel="z" />
+        <Key app:keyLabel="z" />
         <Key app:keyLabel="x" />
         <Key
             app:keyLabel="c"
@@ -128,8 +126,7 @@
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="v" />
         <Key app:keyLabel="b" />
-        <Key
-            app:keyLabel="n" />
+        <Key app:keyLabel="n" />
         <Key app:keyLabel="m" />
         <Key
             app:code="-5"
@@ -146,7 +143,10 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:keyWidth="10%p"
+            app:keyRole="tools"
+            app:popupKeyboard="@xml/popup_tools_with_emoji_key"
+            app:secondaryKeyIcon="@drawable/ic_emoji_emotions_outline_vector" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"

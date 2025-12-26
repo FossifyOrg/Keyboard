@@ -132,17 +132,17 @@
             app:keyWidth="8%p" />
         <Key
             app:keyLabel="і"
+            app:keyWidth="8%p"
             app:popupCharacters="иї"
-            app:popupKeyboard="@xml/keyboard_popup_template"
-            app:keyWidth="8%p" />
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:keyLabel="т"
             app:keyWidth="8%p" />
         <Key
             app:keyLabel="ь"
+            app:keyWidth="8%p"
             app:popupCharacters="ъ"
-            app:popupKeyboard="@xml/keyboard_popup_template"
-            app:keyWidth="8%p" />
+            app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:keyLabel="б"
             app:keyWidth="8%p" />
@@ -164,7 +164,10 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:keyWidth="10%p"
+            app:keyRole="tools"
+            app:popupKeyboard="@xml/popup_tools_with_emoji_key"
+            app:secondaryKeyIcon="@drawable/ic_emoji_emotions_outline_vector" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"

@@ -66,7 +66,9 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
-            app:keyWidth="10%p" />
+            app:keyRole="tools"
+            app:keyWidth="10%p"
+            app:popupKeyboard="@xml/popup_tools" />
         <Key
             app:code="-3"
             app:keyLabel="12\n34"

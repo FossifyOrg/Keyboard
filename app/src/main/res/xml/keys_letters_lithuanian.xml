@@ -192,9 +192,10 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel=","
+            app:keyRole="tools"
             app:keyWidth="10%p"
-            app:popupCharacters="‚„“‘"
-            app:popupKeyboard="@xml/keyboard_popup_template" />
+            app:popupKeyboard="@xml/popup_tools_with_emoji_key"
+            app:secondaryKeyIcon="@drawable/ic_emoji_emotions_outline_vector" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"
@@ -208,7 +209,7 @@
         <Key
             app:keyLabel="."
             app:keyWidth="10%p"
-            app:popupCharacters=",?!;:'…"
+            app:popupCharacters="‚„”’,?!;:'…"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:code="-4"

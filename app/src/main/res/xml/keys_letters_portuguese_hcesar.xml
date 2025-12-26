@@ -148,7 +148,10 @@
             app:keyWidth="15%p" />
         <Key
             app:keyLabel="y"
-            app:keyWidth="10%p" />
+            app:keyRole="tools"
+            app:keyWidth="10%p"
+            app:popupKeyboard="@xml/popup_tools_with_emoji_key"
+            app:secondaryKeyIcon="@drawable/ic_emoji_emotions_outline_vector" />
         <Key
             app:code="-6"
             app:keyEdgeFlags="left"

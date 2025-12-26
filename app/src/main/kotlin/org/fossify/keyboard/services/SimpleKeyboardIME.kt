@@ -1,6 +1,7 @@
 package org.fossify.keyboard.services
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.drawable.Icon
@@ -37,6 +38,7 @@ import androidx.core.view.updatePadding
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.*
 import org.fossify.keyboard.R
+import org.fossify.keyboard.activities.SettingsActivity
 import org.fossify.keyboard.databinding.KeyboardViewKeyboardBinding
 import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.getKeyboardBackgroundColor
@@ -267,6 +269,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     }
                 }
             }
+
+            MyKeyboard.KEYCODE_POPUP_EMOJI -> keyboardView?.openEmojiPalette()
+            MyKeyboard.KEYCODE_POPUP_SETTINGS -> Intent(this, SettingsActivity::class.java)
+                .apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(this)
+                }
 
             else -> {
                 var codeChar = code.toChar()
@@ -610,7 +619,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 }
             }
 
-            if (keyboardMode != KEYBOARD_LETTERS) return keyboard
+            if (keyboardMode != KEYBOARD_LETTERS) return@let
             val emojiKeyIndex = keys.indexOfFirst { it.code == MyKeyboard.KEYCODE_EMOJI_OR_LANGUAGE }
             if (emojiKeyIndex != -1 && spaceKeyIndex != -1) {
                 val emojiKey = keys[emojiKeyIndex]
@@ -632,6 +641,16 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                         mutableKeys.removeAt(emojiKeyIndex)
                         keyboard.mKeys = mutableKeys
                     }
+                }
+            }
+
+            // When emoji key is enabled, show settings-only popup with no hint on tools key
+            if (config.showEmojiKey) {
+                val currentKeys = keyboard.mKeys ?: return keyboard
+                val toolsKey = currentKeys.firstOrNull { it.role == MyKeyboard.KEY_ROLE_TOOLS }
+                if (toolsKey != null) {
+                    toolsKey.popupResId = R.xml.popup_tools
+                    toolsKey.secondaryIcon = null
                 }
             }
         }
