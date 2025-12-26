@@ -47,4 +47,5 @@
     <string name="symbols">Символи</string>
     <string name="flags">Прапори</string>
     <string name="show_emoji_key">Показати ключ емоджі</string>
+    <string name="show_language_switch_key">Показати клавішу перемикання мови</string>
 </resources>
