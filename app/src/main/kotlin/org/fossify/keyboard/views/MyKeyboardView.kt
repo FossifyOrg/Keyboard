@@ -26,7 +26,6 @@ import android.os.Message
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -61,12 +60,10 @@ import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.lightenColor
-import org.fossify.commons.extensions.performHapticFeedback
 import org.fossify.commons.extensions.removeUnderlines
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.helpers.HIGHER_ALPHA
 import org.fossify.commons.helpers.ensureBackgroundThread
-import org.fossify.commons.helpers.isOreoMr1Plus
 import org.fossify.commons.helpers.isPiePlus
 import org.fossify.keyboard.R
 import org.fossify.keyboard.activities.ManageClipboardItemsActivity
@@ -90,6 +87,7 @@ import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.AccessHelper
 import org.fossify.keyboard.helpers.EMOJI_SPEC_FILE_PATH
 import org.fossify.keyboard.helpers.EmojiData
+import org.fossify.keyboard.helpers.KeyboardFeedbackManager
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
 import org.fossify.keyboard.helpers.LANGUAGE_VIETNAMESE_TELEX
 import org.fossify.keyboard.helpers.LANGUAGE_VN_TELEX
@@ -137,6 +135,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var keyboardViewBinding: KeyboardViewKeyboardBinding? = null
 
     private var accessHelper: AccessHelper? = null
+    private val feedbackManager by lazy { KeyboardFeedbackManager(context) }
 
     private var mKeyboard: MyKeyboard? = null
     private var mCurrentKeyIndex: Int = NOT_A_KEY
@@ -546,20 +545,15 @@ class MyKeyboardView @JvmOverloads constructor(
     }
 
     fun vibrateIfNeeded() {
-        if (context.config.vibrateOnKeypress) {
-            performHapticFeedback()
-        }
+        feedbackManager.vibrateIfNeeded(this)
+    }
+
+    fun performKeypressFeedback(keyCode: Int) {
+        feedbackManager.performKeypressFeedback(this, keyCode)
     }
 
     fun performHapticHandleMove() {
-        if (!context.config.vibrateOnKeypress) return
-        if (isOreoMr1Plus()) {
-            @Suppress("DEPRECATION")
-            performHapticFeedback(
-                HapticFeedbackConstants.TEXT_HANDLE_MOVE,
-                HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
-            )
-        }
+        feedbackManager.performHapticHandleMove(this)
     }
 
     /**

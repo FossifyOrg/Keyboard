@@ -12,6 +12,12 @@ const val MAX_KEYS_PER_MINI_ROW = 9
 
 // shared prefs
 const val VIBRATE_ON_KEYPRESS = "vibrate_on_keypress"
+
+const val SOUND_ON_KEYPRESS = "sound_on_keypress"
+const val SOUND_NONE = 0
+const val SOUND_SYSTEM = 1
+const val SOUND_ALWAYS = 2
+
 const val SHOW_POPUP_ON_KEYPRESS = "show_popup_on_keypress"
 const val SHOW_KEY_BORDERS = "show_key_borders"
 const val SENTENCES_CAPITALIZATION = "sentences_capitalization"

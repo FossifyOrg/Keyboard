@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Option to play sound on keypress ([#79])
 - Optional key to quickly switch keyboard language ([#62])
 - Added apostrophe as a pop-up character on the dot key ([#356])
 
@@ -123,6 +124,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
 [#62]: https://github.com/FossifyOrg/Keyboard/issues/62
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
+[#79]: https://github.com/FossifyOrg/Keyboard/issues/79
 [#100]: https://github.com/FossifyOrg/Keyboard/issues/100
 [#117]: https://github.com/FossifyOrg/Keyboard/issues/117
 [#129]: https://github.com/FossifyOrg/Keyboard/issues/129

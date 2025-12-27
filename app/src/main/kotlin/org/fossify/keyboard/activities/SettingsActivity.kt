@@ -3,10 +3,8 @@ package org.fossify.keyboard.activities
 import android.content.Intent
 import android.os.Bundle
 import org.fossify.commons.dialogs.RadioGroupDialog
-import org.fossify.commons.extensions.beGoneIf
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getProperPrimaryColor
-import org.fossify.commons.extensions.isOrWasThankYouInstalled
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.updateTextColors
 import org.fossify.commons.extensions.viewBinding
@@ -29,6 +27,9 @@ import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_160_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_70_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_80_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_90_PERCENT
+import org.fossify.keyboard.helpers.SOUND_ALWAYS
+import org.fossify.keyboard.helpers.SOUND_NONE
+import org.fossify.keyboard.helpers.SOUND_SYSTEM
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -54,6 +55,7 @@ class SettingsActivity : SimpleActivity() {
         setupLanguage()
         setupManageClipboardItems()
         setupVibrateOnKeypress()
+        setupSoundOnKeypress()
         setupShowPopupOnKeypress()
         setupShowKeyBorders()
         setupManageKeyboardLanguages()
@@ -127,6 +129,35 @@ class SettingsActivity : SimpleActivity() {
             }
         }
     }
+
+    private fun setupSoundOnKeypress() {
+        binding.apply {
+            settingsSoundOnKeypress.text = getSoundOnKeypressText(config.soundOnKeypress)
+            settingsSoundOnKeypressHolder.setOnClickListener {
+                val items = arrayListOf(
+                    RadioItem(SOUND_NONE, getString(R.string.sound_none)),
+                    RadioItem(SOUND_SYSTEM, getString(R.string.sound_system)),
+                    RadioItem(SOUND_ALWAYS, getString(R.string.sound_always))
+                )
+                RadioGroupDialog(
+                    activity = this@SettingsActivity,
+                    items = items,
+                    checkedItemId = config.soundOnKeypress
+                ) {
+                    config.soundOnKeypress = it as Int
+                    settingsSoundOnKeypress.text = getSoundOnKeypressText(config.soundOnKeypress)
+                }
+            }
+        }
+    }
+
+    private fun getSoundOnKeypressText(mode: Int): String = getString(
+        when (mode) {
+            SOUND_SYSTEM -> R.string.sound_system
+            SOUND_ALWAYS -> R.string.sound_always
+            else -> R.string.sound_none
+        }
+    )
 
     private fun setupShowPopupOnKeypress() {
         binding.apply {
