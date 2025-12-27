@@ -52,4 +52,7 @@
     <string name="sound_none">Wyłączony</string>
     <string name="sound_system">Zgodnie z systemem</string>
     <string name="sound_always">Zawsze włączony</string>
+    <string name="layout_and_appearance">Układ i wygląd</string>
+    <string name="keypress">Naciśnięcie klawiszy</string>
+    <string name="typing_and_input">Pisanie i wprowadzanie</string>
 </resources>
