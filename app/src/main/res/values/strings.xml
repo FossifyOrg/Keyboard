@@ -31,6 +31,10 @@
     <string name="show_clipboard_content">Show clipboard content if available</string>
     <string name="show_popup">Show a popup on keypress</string>
     <string name="vibrate_on_keypress">Vibrate on keypress</string>
+    <string name="sound_on_keypress">Keypress sound</string>
+    <string name="sound_none">Off</string>
+    <string name="sound_system">Follow system</string>
+    <string name="sound_always">Always on</string>
     <string name="keyboard_language">Keyboard language</string>
     <string name="keyboard_height">Keyboard height</string>
     <string name="show_key_borders">Show key borders</string>
