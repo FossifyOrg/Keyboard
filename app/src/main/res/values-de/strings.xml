@@ -48,4 +48,8 @@
     <string name="flags">Flaggen</string>
     <string name="show_emoji_key">Emoji-Taste anzeigen</string>
     <string name="show_language_switch_key">Sprachumschalttaste anzeigen</string>
+    <string name="sound_on_keypress">Ton bei Tastendruck</string>
+    <string name="sound_none">Aus</string>
+    <string name="sound_always">Immer an</string>
+    <string name="sound_system">System folgen</string>
 </resources>
