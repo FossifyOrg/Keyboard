@@ -48,4 +48,8 @@
     <string name="flags">旗帜</string>
     <string name="show_emoji_key">显示表情图片键</string>
     <string name="show_language_switch_key">显示语言切换键</string>
+    <string name="sound_on_keypress">按键声</string>
+    <string name="sound_none">关</string>
+    <string name="sound_system">跟随系统</string>
+    <string name="sound_always">始终开启</string>
 </resources>
