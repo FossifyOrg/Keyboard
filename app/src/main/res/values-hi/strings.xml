@@ -48,4 +48,8 @@
     <string name="flags">झंडे</string>
     <string name="show_emoji_key">इमोजी कुंजी दिखाएं</string>
     <string name="show_language_switch_key">भाषा स्विच कुंजी दिखाएं</string>
+    <string name="sound_on_keypress">कीप्रेस पर ध्वनि</string>
+    <string name="sound_none">बंद</string>
+    <string name="sound_system">सिस्टम का पालन करें</string>
+    <string name="sound_always">हमेशा चालू</string>
 </resources>
