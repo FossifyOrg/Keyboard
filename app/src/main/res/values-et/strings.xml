@@ -47,4 +47,12 @@
     <string name="travel_and_places">Reisimine ja kohad</string>
     <string name="objects">Esemed</string>
     <string name="show_emoji_key">Näita emojide klahvi</string>
+    <string name="layout_and_appearance">Paigutus ja välimus</string>
+    <string name="sound_on_keypress">Märgi klahvivajutust heliga</string>
+    <string name="sound_none">Pole kasutusel</string>
+    <string name="sound_system">Järgi süsteemi seadistust</string>
+    <string name="sound_always">Alati sisselülitatuna</string>
+    <string name="show_language_switch_key">Näita keelevahetuse klahvi</string>
+    <string name="keypress">Klahvivajutus</string>
+    <string name="typing_and_input">Kirjutamine ja sisestus</string>
 </resources>
