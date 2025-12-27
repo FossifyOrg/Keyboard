@@ -52,4 +52,7 @@
     <string name="sound_none">关</string>
     <string name="sound_system">跟随系统</string>
     <string name="sound_always">始终开启</string>
+    <string name="layout_and_appearance">布局和外观</string>
+    <string name="keypress">按键</string>
+    <string name="typing_and_input">打字和输入</string>
 </resources>
