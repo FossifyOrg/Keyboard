@@ -47,4 +47,5 @@
     <string name="food_and_drink">Jídlo a pití</string>
     <string name="objects">Věci</string>
     <string name="show_emoji_key">Zobrazit klávesu emodži</string>
+    <string name="show_language_switch_key">Zobrazit klávesu pro přepnutí jazyka</string>
 </resources>

@@ -47,4 +47,5 @@
     <string name="smileys_and_emotions">Smileys en emoticons</string>
     <string name="people_and_body">Mens en lichaam</string>
     <string name="show_emoji_key">Emoji-knop tonen</string>
+    <string name="show_language_switch_key">Taalwisselknop tonen</string>
 </resources>
