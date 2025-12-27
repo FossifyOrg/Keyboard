@@ -48,4 +48,8 @@
     <string name="smileys_and_emotions">Buźki i emocje</string>
     <string name="show_emoji_key">Pokazuj klawisz emoji</string>
     <string name="show_language_switch_key">Pokazuj klawisz przełączania języka</string>
+    <string name="sound_on_keypress">Dźwięk przy naciśnięciu klawisza</string>
+    <string name="sound_none">Wyłączony</string>
+    <string name="sound_system">Zgodnie z systemem</string>
+    <string name="sound_always">Zawsze włączony</string>
 </resources>
