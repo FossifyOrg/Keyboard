@@ -52,4 +52,7 @@
     <string name="sound_none">बंद</string>
     <string name="sound_system">सिस्टम का पालन करें</string>
     <string name="sound_always">हमेशा चालू</string>
+    <string name="layout_and_appearance">लेआउट और दिखावट</string>
+    <string name="keypress">कीप्रेस</string>
+    <string name="typing_and_input">टाइपिंग और इनपुट</string>
 </resources>
