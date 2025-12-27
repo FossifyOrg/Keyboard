@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - The space bar now shows the currently selected language ([#62])
 - Space bar cursor control now activates immediately on swipe ([#129])
+- Reorganized options on the settings screen
 
 ## [1.7.0] - 2025-12-16
 ### Added
