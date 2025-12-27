@@ -16,7 +16,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(vibrateOnKeypress) = prefs.edit().putBoolean(VIBRATE_ON_KEYPRESS, vibrateOnKeypress).apply()
 
     var soundOnKeypress: Int
-        get() = prefs.getInt(SOUND_ON_KEYPRESS, SOUND_NONE)
+        get() = prefs.getInt(SOUND_ON_KEYPRESS, SOUND_SYSTEM)
         set(soundOnKeypress) = prefs.edit().putInt(SOUND_ON_KEYPRESS, soundOnKeypress).apply()
 
     var showPopupOnKeypress: Boolean
