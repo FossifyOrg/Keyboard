@@ -48,4 +48,11 @@
     <string name="objects">Věci</string>
     <string name="show_emoji_key">Zobrazit klávesu emodži</string>
     <string name="show_language_switch_key">Zobrazit klávesu pro přepnutí jazyka</string>
+    <string name="layout_and_appearance">Rozložení a vzhled</string>
+    <string name="keypress">Stisk klávesy</string>
+    <string name="typing_and_input">Psaní a vstup</string>
+    <string name="sound_on_keypress">Zvuk při stisku klávesy</string>
+    <string name="sound_none">Vypnutý</string>
+    <string name="sound_system">Podle systému</string>
+    <string name="sound_always">Vždy zapnutý</string>
 </resources>
