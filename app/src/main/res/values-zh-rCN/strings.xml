@@ -21,12 +21,12 @@
     <string name="import_clipboard_items">导入剪贴板项目</string>
     <string name="keycode_delete">删除</string>
     <string name="keycode_mode_change">更改键盘类型</string>
-    <string name="keycode_shift">上档</string>
-    <string name="keycode_enter">输入</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
     <string name="keycode_space">空格键</string>
     <string name="show_clipboard_content">如可用显示剪贴板内容</string>
     <string name="show_popup">按键时显示弹框</string>
-    <string name="vibrate_on_keypress">按键时振动</string>
+    <string name="vibrate_on_keypress">按键振动</string>
     <string name="keyboard_language">键盘语言</string>
     <string name="keyboard_height">键盘高度</string>
     <string name="show_key_borders">显示键符边界</string>
@@ -48,7 +48,7 @@
     <string name="flags">旗帜</string>
     <string name="show_emoji_key">显示表情图片键</string>
     <string name="show_language_switch_key">显示语言切换键</string>
-    <string name="sound_on_keypress">按键声</string>
+    <string name="sound_on_keypress">按键音效</string>
     <string name="sound_none">关</string>
     <string name="sound_system">跟随系统</string>
     <string name="sound_always">始终开启</string>
