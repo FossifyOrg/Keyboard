@@ -28,6 +28,9 @@
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Spacebar</string>
     <!-- Settings -->
+    <string name="layout_and_appearance">Layout &amp; appearance</string>
+    <string name="keypress">Keypress</string>
+    <string name="typing_and_input">Typing &amp; input</string>
     <string name="show_clipboard_content">Show clipboard content if available</string>
     <string name="show_popup">Show a popup on keypress</string>
     <string name="vibrate_on_keypress">Vibrate on keypress</string>

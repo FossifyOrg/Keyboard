@@ -74,7 +74,9 @@ class SettingsActivity : SimpleActivity() {
             arrayOf(
                 settingsColorCustomizationSectionLabel,
                 settingsGeneralSettingsLabel,
-                settingsKeyboardSettingsLabel,
+                settingsLayoutAppearanceLabel,
+                settingsKeypressLabel,
+                settingsTypingInputLabel,
                 settingsClipboardSettingsLabel
             ).forEach {
                 it.setTextColor(getProperPrimaryColor())

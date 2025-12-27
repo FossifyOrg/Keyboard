@@ -73,7 +73,7 @@
             <org.fossify.commons.views.PurchaseThankYouItem
                 android:id="@+id/settings_purchase_thank_you_holder"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <RelativeLayout
                 android:id="@+id/settings_use_english_holder"
@@ -156,63 +156,11 @@
                 layout="@layout/divider" />
 
             <TextView
-                android:id="@+id/settings_keyboard_settings_label"
+                android:id="@+id/settings_layout_appearance_label"
                 style="@style/SettingsSectionLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/keyboard_short" />
-
-            <RelativeLayout
-                android:id="@+id/settings_vibrate_on_keypress_holder"
-                style="@style/SettingsHolderSwitchStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyMaterialSwitch
-                    android:id="@+id/settings_vibrate_on_keypress"
-                    style="@style/SettingsSwitchStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/vibrate_on_keypress" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/settings_sound_on_keypress_holder"
-                style="@style/SettingsHolderTextViewStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_sound_on_keypress_label"
-                    style="@style/SettingsTextLabelStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sound_on_keypress" />
-
-                <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_sound_on_keypress"
-                    style="@style/SettingsTextValueStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_sound_on_keypress_label" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/settings_show_popup_on_keypress_holder"
-                style="@style/SettingsHolderSwitchStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyMaterialSwitch
-                    android:id="@+id/settings_show_popup_on_keypress"
-                    style="@style/SettingsSwitchStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/show_popup" />
-
-            </RelativeLayout>
+                android:text="@string/layout_and_appearance" />
 
             <RelativeLayout
                 android:id="@+id/settings_show_key_borders_holder"
@@ -241,21 +189,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/show_numbers_row" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/settings_start_sentences_capitalized_holder"
-                style="@style/SettingsHolderSwitchStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <org.fossify.commons.views.MyMaterialSwitch
-                    android:id="@+id/settings_start_sentences_capitalized"
-                    style="@style/SettingsSwitchStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/start_sentences_capitalized" />
 
             </RelativeLayout>
 
@@ -312,6 +245,95 @@
 
             </RelativeLayout>
 
+            <include
+                android:id="@+id/settings_layout_appearance_divider"
+                layout="@layout/divider" />
+
+            <TextView
+                android:id="@+id/settings_keypress_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/keypress" />
+
+            <RelativeLayout
+                android:id="@+id/settings_show_popup_on_keypress_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_show_popup_on_keypress"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_popup" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_vibrate_on_keypress_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_vibrate_on_keypress"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vibrate_on_keypress" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_sound_on_keypress_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_sound_on_keypress_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sound_on_keypress" />
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_sound_on_keypress"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_sound_on_keypress_label" />
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/settings_keypress_divider"
+                layout="@layout/divider" />
+
+            <TextView
+                android:id="@+id/settings_typing_input_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/typing_and_input" />
+
+            <RelativeLayout
+                android:id="@+id/settings_start_sentences_capitalized_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_start_sentences_capitalized"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_sentences_capitalized" />
+
+            </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/settings_voice_input_method_holder"
                 style="@style/SettingsHolderTextViewStyle"
@@ -336,10 +358,9 @@
             </RelativeLayout>
 
             <include
-                android:id="@+id/settings_keyboard_divider"
+                android:id="@+id/settings_typing_input_divider"
                 layout="@layout/divider" />
 
-            <!-- CLIPBOARD SETTINGS -->
             <TextView
                 android:id="@+id/settings_clipboard_settings_label"
                 style="@style/SettingsSectionLabelStyle"
