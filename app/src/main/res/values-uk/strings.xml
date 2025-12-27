@@ -48,4 +48,11 @@
     <string name="flags">Прапори</string>
     <string name="show_emoji_key">Показати ключ емоджі</string>
     <string name="show_language_switch_key">Показати клавішу перемикання мови</string>
+    <string name="layout_and_appearance">Макет і зовнішній вигляд</string>
+    <string name="keypress">Натискання клавіші</string>
+    <string name="typing_and_input">Введення тексту</string>
+    <string name="sound_on_keypress">Звук при натисканні клавіші</string>
+    <string name="sound_none">Вимкнено</string>
+    <string name="sound_system">Слідкуйте за системою</string>
+    <string name="sound_always">Завжди увімкнено</string>
 </resources>
