@@ -48,4 +48,11 @@
     <string name="symbols">Símbols</string>
     <string name="show_emoji_key">Mostra la tecla dels emojis</string>
     <string name="show_language_switch_key">Mostra la tecla de canvi d\'idioma</string>
+    <string name="layout_and_appearance">Disposició i aparença</string>
+    <string name="keypress">Pulsació de tecla</string>
+    <string name="typing_and_input">Tecleig i entrada</string>
+    <string name="sound_on_keypress">So en prémer tecles</string>
+    <string name="sound_none">Apagat</string>
+    <string name="sound_system">Segueix el sistema</string>
+    <string name="sound_always">Sempre actiu</string>
 </resources>
