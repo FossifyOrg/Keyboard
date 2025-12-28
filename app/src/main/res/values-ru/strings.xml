@@ -22,8 +22,8 @@
     <string name="keycode_mode_change">Изменить тип клавиатуры</string>
     <string name="keycode_space">Пробел</string>
     <string name="show_clipboard_content">Показывать содержимое буфера обмена при наличии</string>
-    <string name="show_popup">Показывать ввод по нажатию</string>
-    <string name="vibrate_on_keypress">Вибрация по нажатию</string>
+    <string name="show_popup">Показывать ввод при нажатии</string>
+    <string name="vibrate_on_keypress">Вибрация при нажатии</string>
     <string name="keyboard_language">Язык клавиатуры</string>
     <string name="keyboard_height">Высота клавиатуры</string>
     <string name="show_key_borders">Показывать границы кнопок</string>
@@ -48,4 +48,11 @@
     <string name="activities">Деятельность</string>
     <string name="show_emoji_key">Показывать кнопку эмодзи</string>
     <string name="show_language_switch_key">Показывать кнопку смены языка</string>
+    <string name="typing_and_input">Набор и ввод</string>
+    <string name="sound_on_keypress">Звук при нажатии</string>
+    <string name="sound_system">Как в системе</string>
+    <string name="sound_none">Отключён</string>
+    <string name="sound_always">Включён</string>
+    <string name="layout_and_appearance">Внешний вид</string>
+    <string name="keypress">Нажатие</string>
 </resources>
