@@ -47,4 +47,12 @@
     <string name="voice_typing_method">Modh clóscríofa gutha</string>
     <string name="switch_to_voice_typing">Athraigh go clóscríobh gutha</string>
     <string name="show_emoji_key">Taispeáin eochair emoji</string>
+    <string name="layout_and_appearance">Leagan amach &amp; cuma</string>
+    <string name="keypress">Eochairbhrú</string>
+    <string name="typing_and_input">Clóscríobh &amp; ionchur</string>
+    <string name="sound_on_keypress">Fuaim ar bhrú eochair</string>
+    <string name="sound_none">As</string>
+    <string name="sound_system">Córas leantach</string>
+    <string name="sound_always">I gcónaí ar siúl</string>
+    <string name="show_language_switch_key">Taispeáin eochair athraithe teanga</string>
 </resources>
