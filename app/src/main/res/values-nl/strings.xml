@@ -48,4 +48,11 @@
     <string name="people_and_body">Mens en lichaam</string>
     <string name="show_emoji_key">Emoji-knop tonen</string>
     <string name="show_language_switch_key">Taalwisselknop tonen</string>
+    <string name="sound_always">Altijd aan</string>
+    <string name="sound_system">Systeeminstelling volgen</string>
+    <string name="sound_none">Uit</string>
+    <string name="sound_on_keypress">Geluid bij toetsaanslag</string>
+    <string name="typing_and_input">Typen en invoeren</string>
+    <string name="keypress">Toetsaanslag</string>
+    <string name="layout_and_appearance">Indeling en uiterlijk</string>
 </resources>
