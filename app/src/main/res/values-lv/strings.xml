@@ -46,4 +46,11 @@
     <string name="recently_used">Nesen izmantotās</string>
     <string name="show_emoji_key">Rādīt emocijzīmju taustiņu</string>
     <string name="show_language_switch_key">Rādīt valodu pārslēgšanas taustiņu</string>
+    <string name="keypress">Taustiņu nospiešana</string>
+    <string name="typing_and_input">Rakstīšana un ievade</string>
+    <string name="layout_and_appearance">Izkārtojums un izskats</string>
+    <string name="sound_always">Vienmēr ieslēgta</string>
+    <string name="sound_system">Ievērot sistēmas</string>
+    <string name="sound_none">Izslēgta</string>
+    <string name="sound_on_keypress">Taustiņu nospiešanas skaņa</string>
 </resources>
