@@ -47,4 +47,12 @@
     <string name="symbols">符號</string>
     <string name="flags">旗幟</string>
     <string name="show_emoji_key">顯示表情符號鍵</string>
+    <string name="layout_and_appearance">版面配置與外觀</string>
+    <string name="keypress">按鍵輸入</string>
+    <string name="typing_and_input">打字與輸入</string>
+    <string name="sound_on_keypress">按鍵按下時發出聲音</string>
+    <string name="sound_none">關閉</string>
+    <string name="sound_system">按系統設定</string>
+    <string name="sound_always">一律開啟</string>
+    <string name="show_language_switch_key">顯示語言切換鍵</string>
 </resources>
