@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.8.0] - 2025-12-29
 ### Added
 - Option to play sound on keypress ([#79])
 - Optional key to quickly switch keyboard language ([#62])
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The space bar now shows the currently selected language ([#62])
 - Space bar cursor control now activates immediately on swipe ([#129])
 - Reorganized options on the settings screen
+- Updated translations
 
 ## [1.7.0] - 2025-12-16
 ### Added
@@ -148,7 +151,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#335]: https://github.com/FossifyOrg/Keyboard/issues/335
 [#356]: https://github.com/FossifyOrg/Keyboard/issues/356
 
-[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.8.0...HEAD
+[1.8.0]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/FossifyOrg/Keyboard/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/FossifyOrg/Keyboard/compare/1.4.0...1.5.0
