@@ -1,0 +1,13 @@
+Added:
+
+• Option to play sound on keypress 
+• Optional key to quickly switch keyboard language 
+• Added apostrophe as a pop-up character on the dot key 
+
+Changed:
+
+• The space bar now shows the currently selected language 
+• Space bar cursor control now activates immediately on swipe 
+• Reorganized options on the settings screen
+• Updated translations
+
