@@ -6,10 +6,10 @@
     <string name="manage_clipboard_empty">Ditt urklipp är tomt.</string>
     <string name="manage_clipboard_label">När du kopierar text visas den här. Du kan också fästa klipp så att de inte försvinner senare.</string>
     <string name="clear_clipboard_data">Rensa urklippsdata</string>
-    <string name="clear_clipboard_data_confirmation">Är du säker på att du vill rensa datan från urklippet\?</string>
+    <string name="clear_clipboard_data_confirmation">Är du säker på att du vill rensa urklippsdata?</string>
     <string name="clipboard">Urklipp</string>
     <string name="clipboard_recent">Senaste</string>
-    <string name="clipboard_current">Nuvarande</string>
+    <string name="clipboard_current">Aktuellt</string>
     <string name="clipboard_pinned">Fästa</string>
     <string name="add_new_item">Lägg till ett nytt objekt</string>
     <string name="manage_clips">Du kan hantera eller lägga till klipp här för snabb åtkomst.</string>
@@ -22,7 +22,7 @@
     <string name="keycode_mode_change">Ändra tangentbordstyp</string>
     <string name="keycode_shift">Skift</string>
     <string name="keycode_space">Blanksteg</string>
-    <string name="show_clipboard_content">Visa urklippets innehåll om tillgängligt</string>
+    <string name="show_clipboard_content">Visa innehållet i urklipp om tillgängligt</string>
     <string name="show_popup">Visa en popup vid tangenttryck</string>
     <string name="vibrate_on_keypress">Vibrera vid tangenttryck</string>
     <string name="keyboard_language">Tangentbordsspråk</string>
@@ -48,4 +48,11 @@
     <string name="redirection_note">Aktivera Fossify Keyboard på nästa skärm för att göra tangentbordet tillgängligt. Tryck på \'Tillbaka\' när det har aktiverats.</string>
     <string name="show_emoji_key">Visa emojitangent</string>
     <string name="show_language_switch_key">Visa skifttangent för språk</string>
+    <string name="sound_on_keypress">Ljud vid tangenttryck</string>
+    <string name="sound_none">Av</string>
+    <string name="sound_system">Följ systemet</string>
+    <string name="sound_always">Alltid på</string>
+    <string name="layout_and_appearance">Layout och utseende</string>
+    <string name="keypress">Tangenttryck</string>
+    <string name="typing_and_input">Inmatning</string>
 </resources>
