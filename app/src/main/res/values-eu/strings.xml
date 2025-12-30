@@ -47,4 +47,12 @@
     <string name="flags">Banderak</string>
     <string name="voice_typing_method">Ahotsa idazteko metodoa</string>
     <string name="switch_to_voice_typing">Aldatu ahots idazketara</string>
+    <string name="layout_and_appearance">Diseinua eta itxura</string>
+    <string name="keypress">Tekla sakatzea</string>
+    <string name="typing_and_input">Idazketa eta sarrera</string>
+    <string name="sound_on_keypress">Soinua eta teklen sakatzea</string>
+    <string name="sound_none">Itzalita</string>
+    <string name="sound_system">Jarraitu sistema</string>
+    <string name="sound_always">Beti piztua</string>
+    <string name="show_language_switch_key">Erakutsi hizkuntza aldatzeko tekla</string>
 </resources>
