@@ -46,4 +46,13 @@
     <string name="animals_and_nature">Životinje i priroda</string>
     <string name="food_and_drink">Hrana i pića</string>
     <string name="symbols">Simboli</string>
+    <string name="layout_and_appearance">Raspored i izgled</string>
+    <string name="keypress">Pritiskanje tipki</string>
+    <string name="typing_and_input">Tipkanje i unos</string>
+    <string name="sound_on_keypress">Zvuk pri pritiskanju tipki</string>
+    <string name="sound_none">Isključeno</string>
+    <string name="sound_system">Slijedi sustav</string>
+    <string name="sound_always">Uvijek uključeno</string>
+    <string name="show_emoji_key">Prikaži tipku emojija</string>
+    <string name="show_language_switch_key">Prikaži tipku za mijenjanje jezika</string>
 </resources>
