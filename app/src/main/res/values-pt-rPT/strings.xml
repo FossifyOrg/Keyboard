@@ -46,4 +46,13 @@
     <string name="objects">Objetos</string>
     <string name="symbols">Símbolos</string>
     <string name="flags">Bandeiras</string>
+    <string name="layout_and_appearance">Layout e aparência</string>
+    <string name="keypress">Pressão de tecla</string>
+    <string name="typing_and_input">Digitação e entrada</string>
+    <string name="sound_on_keypress">Som ao premir teclas</string>
+    <string name="sound_none">Desligado</string>
+    <string name="sound_system">Seguir o sistema</string>
+    <string name="sound_always">Sempre ativo</string>
+    <string name="show_emoji_key">Mostrar tecla de emojis</string>
+    <string name="show_language_switch_key">Mostrar tecla de troca de idioma</string>
 </resources>
