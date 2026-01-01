@@ -113,11 +113,6 @@
     <ID>WildcardImport:ExportClipsDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:ManageClipboardItemsActivity.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:ManageClipboardItemsActivity.kt$import org.fossify.commons.helpers.*</ID>
-    <ID>WildcardImport:SimpleKeyboardIME.kt$import android.text.InputType.*</ID>
-    <ID>WildcardImport:SimpleKeyboardIME.kt$import android.view.inputmethod.*</ID>
-    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.commons.extensions.*</ID>
-    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.commons.helpers.*</ID>
-    <ID>WildcardImport:SimpleKeyboardIME.kt$import org.fossify.keyboard.helpers.*</ID>
     <ID>WildcardImport:SwitchLanguageDialog.kt$import org.fossify.keyboard.extensions.*</ID>
   </CurrentIssues>
 </SmellBaseline>
