@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed an issue where sound/vibration preferences were ignored after reboot ([#372])
 
 ## [1.8.0] - 2025-12-29
 ### Added
@@ -150,6 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#274]: https://github.com/FossifyOrg/Keyboard/issues/274
 [#335]: https://github.com/FossifyOrg/Keyboard/issues/335
 [#356]: https://github.com/FossifyOrg/Keyboard/issues/356
+[#372]: https://github.com/FossifyOrg/Keyboard/issues/372
 
 [Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.8.0...HEAD
 [1.8.0]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...1.8.0
