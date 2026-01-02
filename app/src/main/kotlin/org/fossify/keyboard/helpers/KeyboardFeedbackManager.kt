@@ -14,7 +14,9 @@ import org.fossify.keyboard.extensions.safeStorageContext
  */
 class KeyboardFeedbackManager(private val context: Context) {
 
-    private val config = context.safeStorageContext.config
+    private val config: Config
+        get() = context.safeStorageContext.config
+
     private val audioManager by lazy {
         context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
     }
