@@ -38,4 +38,11 @@
     <string name="switch_to_voice_typing">Εναλλαγή σε φωνητική πληκτρολόγηση</string>
     <string name="show_language_switch_key">Εμφάνιση πλήκτρου εναλλαγής γλώσσας</string>
     <string name="redirection_note">Παρακαλώ ενεργοποιήστε το Fossify Keyboard στην επόμενη οθόνη, ώστε να γίνει διαθέσιμο πληκτρολόγιο. Πατήστε \"Πίσω\" μόλις το ενεργοποιήσετε.</string>
+    <string name="keycode_enter">Επιβεβαίωση</string>
+    <string name="typing_and_input">Πληκτρολόγηση &amp; εισαγωγή</string>
+    <string name="sound_on_keypress">Ήχος στο πάτημα κουμπιού</string>
+    <string name="sound_none">Απενεργοποίηση</string>
+    <string name="sound_system">Ίδιο με το σύστημα</string>
+    <string name="animals_and_nature">Ζώα και φύση</string>
+    <string name="food_and_drink">Φαγητά και ποτά</string>
 </resources>
