@@ -46,4 +46,13 @@
     <string name="activities">Aktiviteter</string>
     <string name="objects">Objekter</string>
     <string name="symbols">Symboler</string>
+    <string name="layout_and_appearance">Layout &amp; udseende</string>
+    <string name="typing_and_input">Tastning &amp; input</string>
+    <string name="sound_on_keypress">Lyd ved tastetryk</string>
+    <string name="sound_none">Fra</string>
+    <string name="sound_system">Følg system</string>
+    <string name="sound_always">Altid på</string>
+    <string name="show_emoji_key">Vis emoji-tast</string>
+    <string name="show_language_switch_key">Vis tast til skift af sprog</string>
+    <string name="keypress">Tastetryk</string>
 </resources>
