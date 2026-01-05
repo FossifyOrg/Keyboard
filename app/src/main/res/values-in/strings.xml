@@ -46,4 +46,13 @@
     <string name="voice_typing_method">Metode pengetikan suara</string>
     <string name="switch_to_voice_typing">Beralih ke pengetikan suara</string>
     <string name="people_and_body">Orang dan tubuh</string>
+    <string name="layout_and_appearance">Tata letak &amp; tampilan</string>
+    <string name="keypress">Tekan tombol</string>
+    <string name="typing_and_input">Pengetikan &amp; masukan</string>
+    <string name="sound_on_keypress">Suara saat tombol ditekan</string>
+    <string name="sound_none">Nonaktif</string>
+    <string name="sound_system">Ikuti sistem</string>
+    <string name="sound_always">Selalu aktif</string>
+    <string name="show_emoji_key">Tampilkan tombol emoji</string>
+    <string name="show_language_switch_key">Tampilkan tombol ganti bahasa</string>
 </resources>
