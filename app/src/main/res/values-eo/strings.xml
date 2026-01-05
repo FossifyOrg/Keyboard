@@ -47,4 +47,12 @@
     <string name="objects">Objektoj</string>
     <string name="symbols">Simboloj</string>
     <string name="show_emoji_key">Montri emogîo-klavon</string>
+    <string name="layout_and_appearance">Aranĝo &amp; aspekto</string>
+    <string name="keypress">Klavopremo</string>
+    <string name="typing_and_input">Tajpado &amp; enigo</string>
+    <string name="sound_on_keypress">Sono ĉe klavopremo</string>
+    <string name="sound_none">Malŝaltita</string>
+    <string name="sound_system">Obei sistemon</string>
+    <string name="sound_always">Ĉiam ŝaltita</string>
+    <string name="show_language_switch_key">Montri lingvoŝanĝan klavon</string>
 </resources>
