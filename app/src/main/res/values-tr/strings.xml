@@ -47,4 +47,12 @@
     <string name="animals_and_nature">Hayvanlar ve doğa</string>
     <string name="food_and_drink">Yiyecek ve içecek</string>
     <string name="show_emoji_key">Emoji tuşunu göster</string>
+    <string name="layout_and_appearance">Düzen &amp; görünüm</string>
+    <string name="keypress">Tuşlara dokunma</string>
+    <string name="typing_and_input">Yazma &amp; giriş</string>
+    <string name="sound_on_keypress">Tuşlara basınca ses</string>
+    <string name="sound_none">Kapalı</string>
+    <string name="sound_system">Sistem ayarı</string>
+    <string name="sound_always">Her zaman açık</string>
+    <string name="show_language_switch_key">Dil değiştirme tuşunu göster</string>
 </resources>
