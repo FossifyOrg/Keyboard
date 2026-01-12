@@ -177,29 +177,4 @@ class VietnameseTelexTest {
         return word
     }
 
-    /**
-     * Helper function that applies rules with case-insensitive matching.
-     * Matches rules regardless of input case and preserves case in output.
-     */
-    private fun applyRulesCaseInsensitive(word: String): String {
-        for (length in word.length downTo 1) {
-            val suffix = word.substring(word.length - length)
-            val suffixLower = suffix.lowercase()
-            
-            if (telexRules.containsKey(suffixLower)) {
-                val prefix = word.substring(0, word.length - length)
-                val transformed = telexRules[suffixLower]!!
-                
-                val result = if (suffix[0].isUpperCase() && transformed.isNotEmpty()) {
-                    transformed[0].uppercaseChar() + transformed.substring(1)
-                } else {
-                    transformed
-                }
-                
-                return prefix + result
-            }
-        }
-        
-        return word
-    }
 }
