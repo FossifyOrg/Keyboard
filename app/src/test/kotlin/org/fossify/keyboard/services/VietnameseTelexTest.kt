@@ -12,6 +12,7 @@ class VietnameseTelexTest {
     fun setup() {
         telexRules = hashMapOf(
             "w" to "ư",
+            "ww" to "ư",
             "a" to "ă",
             "aw" to "ă",
             "aa" to "â",
@@ -63,7 +64,7 @@ class VietnameseTelexTest {
     fun testDoubleWTransformation() {
         val input = "ww"
         val shortestFirstResult = applyRulesShortestFirst(input)
-        assertEquals("Wư", shortestFirstResult)
+        assertEquals("wư", shortestFirstResult)
         
         val longestFirstResult = applyRulesLongestFirst(input)
         assertEquals("ư", longestFirstResult)
@@ -122,6 +123,34 @@ class VietnameseTelexTest {
         assertEquals("O ư", result)
     }
 
+    @Test
+    fun testUppercaseCasePreservation_Aw() {
+        val input = "Aw"
+        val result = applyRulesWithCasePreservation(input)
+        assertEquals("Ă", result)
+    }
+
+    @Test
+    fun testLowercaseCasePreservation_aw() {
+        val input = "aw"
+        val result = applyRulesWithCasePreservation(input)
+        assertEquals("ă", result)
+    }
+
+    @Test
+    fun testUppercaseCasePreservation_Ow() {
+        val input = "Ow"
+        val result = applyRulesWithCasePreservation(input)
+        assertEquals("Ơ", result)
+    }
+
+    @Test
+    fun testLowercaseCasePreservation_ow() {
+        val input = "ow"
+        val result = applyRulesWithCasePreservation(input)
+        assertEquals("ơ", result)
+    }
+
     /**
      * Helper function that applies transformation rules checking shortest patterns first.
      * This demonstrates incorrect behavior when shorter patterns match before longer ones.
@@ -133,10 +162,11 @@ class VietnameseTelexTest {
         for (char in wordChars.size - 1 downTo 0) {
             predictWord.append(wordChars[char])
             val shouldChangeText = predictWord.reverse().toString()
+            val shouldChangeTextLower = shouldChangeText.lowercase()
             
-            if (telexRules.containsKey(shouldChangeText)) {
+            if (telexRules.containsKey(shouldChangeTextLower)) {
                 val prefix = word.substring(0, word.length - shouldChangeText.length)
-                return prefix + telexRules[shouldChangeText]
+                return prefix + telexRules[shouldChangeTextLower]
             }
             
             predictWord.reverse()
@@ -152,12 +182,36 @@ class VietnameseTelexTest {
     private fun applyRulesLongestFirst(word: String): String {
         for (length in word.length downTo 1) {
             val suffix = word.substring(word.length - length)
-            if (telexRules.containsKey(suffix)) {
+            val suffixLower = suffix.lowercase()
+            if (telexRules.containsKey(suffixLower)) {
                 val prefix = word.substring(0, word.length - length)
-                return prefix + telexRules[suffix]!!
+                return prefix + telexRules[suffixLower]!!
             }
         }
         
+        return word
+    }
+
+    /**
+     * Helper function that applies transformation rules with case preservation.
+     * Matches case-insensitively but preserves the original case in output.
+     */
+    private fun applyRulesWithCasePreservation(word: String): String {
+        for (length in word.length downTo 1) {
+            val suffix = word.substring(word.length - length)
+            val suffixLower = suffix.lowercase()
+            if (telexRules.containsKey(suffixLower)) {
+                val prefix = word.substring(0, word.length - length)
+                val replacement = telexRules[suffixLower]!!
+                // Preserve case: if first char is uppercase, capitalize replacement
+                val finalReplacement = if (suffix.firstOrNull()?.isUpperCase() == true && replacement.isNotEmpty()) {
+                    replacement.replaceFirstChar { it.uppercase() }
+                } else {
+                    replacement
+                }
+                return prefix + finalReplacement
+            }
+        }
         return word
     }
 

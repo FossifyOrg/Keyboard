@@ -383,14 +383,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                             } else 0
                             if (lastIndexEmpty >= 0) {
                                 val word = fullText.subSequence(lastIndexEmpty, fullText.length).trim().toString()
-                                val wordChars = word.toCharArray()
-                                val predictWord = StringBuilder()
-                                for (char in wordChars.size - 1 downTo 0) {
-                                    predictWord.append(wordChars[char])
-                                    val shouldChangeText = predictWord.reverse().toString()
-                                    if (cachedVNTelexData.containsKey(shouldChangeText)) {
-                                        inputConnection.setComposingRegion(fullText.length - shouldChangeText.length, fullText.length)
-                                        inputConnection.setComposingText(cachedVNTelexData[shouldChangeText], fullText.length)
+                                for (i in word.indices) {
+                                    val partialWord = word.substring(i, word.length)
+                                    val partialWordLower = partialWord.lowercase()
+                                    if (cachedVNTelexData.containsKey(partialWordLower)) {
+                                        val replacement = cachedVNTelexData[partialWordLower]!!
+                                        // Preserve case: if first char is uppercase, capitalize replacement
+                                        val finalReplacement = if (partialWord.firstOrNull()?.isUpperCase() == true && replacement.isNotEmpty()) {
+                                            replacement.replaceFirstChar { it.uppercase() }
+                                        } else {
+                                            replacement
+                                        }
+                                        inputConnection.setComposingRegion(fullText.length - partialWordLower.length, fullText.length)
+                                        inputConnection.setComposingText(finalReplacement, fullText.length)
                                         inputConnection.setComposingRegion(fullText.length, fullText.length)
                                         return
                                     }
