@@ -383,23 +383,50 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                             } else 0
                             if (lastIndexEmpty >= 0) {
                                 val word = fullText.subSequence(lastIndexEmpty, fullText.length).trim().toString()
+                                
+                                // Check for escape sequence FIRST (before single-char transformations)
+                                // Only applies when: 1) last two chars are same,
+                                // 2) no rule for doubled sequence, 3) rule exists for single char
+                                if (word.length >= 2) {
+                                    val lastTwo = word.takeLast(2)
+                                    if (lastTwo[0] == lastTwo[1]) {
+                                        val doubledSeq = lastTwo.lowercase()
+                                        val singleChar = lastTwo[0].toString().lowercase()
+                                        // If there's NO rule for the doubled sequence,
+                                        // but there IS a rule for single char, it's an escape
+                                        if (!cachedVNTelexData.containsKey(doubledSeq) && cachedVNTelexData.containsKey(singleChar)) {
+                                            // This is an escape sequence - delete last char to keep just one
+                                            inputConnection.deleteSurroundingText(1, 0)
+                                            return
+                                        }
+                                    }
+                                }
+                                
+                                // Then check for transformation rules (longest patterns first)
                                 for (i in word.indices) {
                                     val partialWord = word.substring(i, word.length)
                                     val partialWordLower = partialWord.lowercase()
                                     if (cachedVNTelexData.containsKey(partialWordLower)) {
                                         val replacement = cachedVNTelexData[partialWordLower]!!
                                         // Preserve case: if first char is uppercase, capitalize replacement
-                                        val finalReplacement = if (partialWord.firstOrNull()?.isUpperCase() == true && replacement.isNotEmpty()) {
+                                        val finalReplacement = if (
+                                            partialWord.firstOrNull()?.isUpperCase() == true &&
+                                            replacement.isNotEmpty()
+                                        ) {
                                             replacement.replaceFirstChar { it.uppercase() }
                                         } else {
                                             replacement
                                         }
-                                        inputConnection.setComposingRegion(fullText.length - partialWordLower.length, fullText.length)
+                                        inputConnection.setComposingRegion(
+                                            fullText.length - partialWordLower.length,
+                                            fullText.length
+                                        )
                                         inputConnection.setComposingText(finalReplacement, fullText.length)
                                         inputConnection.setComposingRegion(fullText.length, fullText.length)
                                         return
                                     }
                                 }
+                                
                                 inputConnection.commitText(codeChar.toString(), 1)
                                 updateShiftKeyState()
                             }

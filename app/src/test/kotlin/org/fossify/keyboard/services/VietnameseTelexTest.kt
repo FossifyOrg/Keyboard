@@ -12,7 +12,6 @@ class VietnameseTelexTest {
     fun setup() {
         telexRules = hashMapOf(
             "w" to "ư",
-            "ww" to "ư",
             "a" to "ă",
             "aw" to "ă",
             "aa" to "â",
@@ -66,8 +65,9 @@ class VietnameseTelexTest {
         val shortestFirstResult = applyRulesShortestFirst(input)
         assertEquals("wư", shortestFirstResult)
         
+        // With escape logic, "ww" should produce "w" (escape sequence)
         val longestFirstResult = applyRulesLongestFirst(input)
-        assertEquals("ư", longestFirstResult)
+        assertEquals("w", longestFirstResult)
     }
 
     @Test
@@ -113,14 +113,16 @@ class VietnameseTelexTest {
     fun testTripleW() {
         val input = "www"
         val result = applyRulesLongestFirst(input)
-        assertEquals("wư", result)
+        // "www" → lastTwo "ww" escape to "w", result is "ww"
+        assertEquals("ww", result)
     }
 
     @Test
     fun testSpaceDoubleW() {
         val input = "O ww"
         val result = applyRulesLongestFirst(input)
-        assertEquals("O ư", result)
+        // "ww" after space escapes to "w"
+        assertEquals("O w", result)
     }
 
     @Test
@@ -149,6 +151,21 @@ class VietnameseTelexTest {
         val input = "ow"
         val result = applyRulesWithCasePreservation(input)
         assertEquals("ơ", result)
+    }
+
+    @Test
+    fun testEscapeSequence_ww() {
+        // Typing "ww" should produce "w" (escape transformation)
+        val result = applyRulesLongestFirst("ww")
+        assertEquals("Double 'w' should escape to literal 'w'", "w", result)
+    }
+
+    @Test
+    fun testEscapeAfterTransformation() {
+        // "ưw" is not a doubled character (last two are 'ư' and 'w'), so "w" transforms normally to "ư"
+        // This gives us "ư" (prefix) + "ư" (transformation of "w") = "ưư"
+        val result = applyRulesLongestFirst("ưw")
+        assertEquals("ưw should transform the 'w' to 'ư', giving 'ưư'", "ưư", result)
     }
 
     /**
@@ -180,6 +197,23 @@ class VietnameseTelexTest {
      * This demonstrates correct behavior where longer patterns take precedence.
      */
     private fun applyRulesLongestFirst(word: String): String {
+        // Check for escape sequence FIRST (before single-char transformations)
+        // Only applies when: 1) last two chars are same,
+        // 2) no rule for doubled sequence, 3) rule exists for single char
+        if (word.length >= 2) {
+            val lastTwo = word.takeLast(2)
+            if (lastTwo[0] == lastTwo[1]) {
+                val doubledSeq = lastTwo.lowercase()
+                val singleChar = lastTwo[0].toString().lowercase()
+                // If there's NO rule for the doubled sequence, but there IS a rule for single char, it's an escape
+                if (!telexRules.containsKey(doubledSeq) && telexRules.containsKey(singleChar)) {
+                    // This is an escape sequence - return word with just one of the doubled char
+                    return word.substring(0, word.length - 1)
+                }
+            }
+        }
+        
+        // Then check for transformation rules (longest patterns first)
         for (length in word.length downTo 1) {
             val suffix = word.substring(word.length - length)
             val suffixLower = suffix.lowercase()
@@ -197,6 +231,21 @@ class VietnameseTelexTest {
      * Matches case-insensitively but preserves the original case in output.
      */
     private fun applyRulesWithCasePreservation(word: String): String {
+        // Check for escape sequence FIRST (before single-char transformations)
+        if (word.length >= 2) {
+            val lastTwo = word.takeLast(2)
+            if (lastTwo[0] == lastTwo[1]) {
+                val doubledSeq = lastTwo.lowercase()
+                val singleChar = lastTwo[0].toString().lowercase()
+                // If there's NO rule for the doubled sequence, but there IS a rule for single char, it's an escape
+                if (!telexRules.containsKey(doubledSeq) && telexRules.containsKey(singleChar)) {
+                    // This is an escape sequence - return word with just one of the doubled char
+                    return word.substring(0, word.length - 1)
+                }
+            }
+        }
+        
+        // Then check for transformation rules (longest patterns first)
         for (length in word.length downTo 1) {
             val suffix = word.substring(word.length - length)
             val suffixLower = suffix.lowercase()
@@ -212,6 +261,7 @@ class VietnameseTelexTest {
                 return prefix + finalReplacement
             }
         }
+        
         return word
     }
 
