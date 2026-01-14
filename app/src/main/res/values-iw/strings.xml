@@ -47,4 +47,12 @@
     <string name="voice_typing_method">שיטת הקלדה קולית</string>
     <string name="switch_to_voice_typing">עבור להקלדה קולית</string>
     <string name="show_emoji_key">הצג מקש אמוג\'י</string>
+    <string name="layout_and_appearance">פריסה ומראה</string>
+    <string name="keypress">לחיצה על מקש</string>
+    <string name="typing_and_input">הקלדה וקלט</string>
+    <string name="sound_on_keypress">צליל בלחיצה על מקש</string>
+    <string name="sound_none">כיבוי</string>
+    <string name="sound_system">כמו המערכת</string>
+    <string name="sound_always">כל הזמן פועל</string>
+    <string name="show_language_switch_key">הצג מקש החלפת שפה</string>
 </resources>
