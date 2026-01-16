@@ -46,4 +46,11 @@
     <string name="activities">Atividades</string>
     <string name="voice_typing_method">Método de introdução por voz</string>
     <string name="switch_to_voice_typing">Comutar para escrita por voz</string>
+    <string name="layout_and_appearance">Layout &amp; aparência</string>
+    <string name="sound_on_keypress">Som ao premir teclas</string>
+    <string name="sound_none">Desligado</string>
+    <string name="sound_system">Seguir o sistema</string>
+    <string name="sound_always">Sempre ligado</string>
+    <string name="show_emoji_key">Mostrar tecla de emojis</string>
+    <string name="show_language_switch_key">Mostrar tecla de troca de idioma</string>
 </resources>
