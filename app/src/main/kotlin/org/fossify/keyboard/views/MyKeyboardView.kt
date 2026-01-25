@@ -62,6 +62,7 @@ import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.lightenColor
 import org.fossify.commons.extensions.removeUnderlines
 import org.fossify.commons.extensions.toast
+import org.fossify.commons.helpers.FontHelper
 import org.fossify.commons.helpers.HIGHER_ALPHA
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isPiePlus
@@ -670,11 +671,12 @@ class MyKeyboardView @JvmOverloads constructor(
         val paint = mPaint
         val keys = mKeys
         paint.color = mTextColor
+        val customTypeface = FontHelper.getTypeface(context)
         val smallLetterPaint = Paint().apply {
             set(paint)
             color = paint.color.adjustAlpha(0.8f)
             textSize = mTopSmallNumberSize
-            typeface = Typeface.DEFAULT
+            typeface = customTypeface
         }
 
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
@@ -699,13 +701,13 @@ class MyKeyboardView @JvmOverloads constructor(
                 if (code == KEYCODE_SPACE && key.label.length > 1) {
                     // Use smaller font size for current language label on space bar
                     paint.textSize = mSpaceBarTextSize.toFloat()
-                    paint.typeface = Typeface.DEFAULT
+                    paint.typeface = customTypeface
                 } else if (label.length > 1) {
                     paint.textSize = mLabelTextSize.toFloat()
-                    paint.typeface = Typeface.DEFAULT_BOLD
+                    paint.typeface = Typeface.create(customTypeface, Typeface.BOLD)
                 } else {
                     paint.textSize = mKeyTextSize.toFloat()
-                    paint.typeface = Typeface.DEFAULT
+                    paint.typeface = customTypeface
                 }
 
                 paint.color = textColor
@@ -1042,15 +1044,16 @@ class MyKeyboardView @JvmOverloads constructor(
         if (key.icon != null) {
             mPreviewText!!.setCompoundDrawables(null, null, null, key.icon)
         } else {
+            val customTypeface = FontHelper.getTypeface(context)
             if (key.label.length > 1) {
                 mPreviewText!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mKeyTextSize.toFloat())
-                mPreviewText!!.typeface = Typeface.DEFAULT_BOLD
+                mPreviewText!!.typeface = Typeface.create(customTypeface, Typeface.BOLD)
             } else {
                 mPreviewText!!.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     mPreviewTextSizeLarge.toFloat()
                 )
-                mPreviewText!!.typeface = Typeface.DEFAULT
+                mPreviewText!!.typeface = customTypeface
             }
 
             mPreviewText!!.setCompoundDrawables(null, null, null, null)
