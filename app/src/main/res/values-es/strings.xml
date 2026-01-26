@@ -47,4 +47,12 @@
     <string name="people_and_body">Personas y cuerpo</string>
     <string name="flags">Banderas</string>
     <string name="show_emoji_key">Mostrar tecla de emoticonos</string>
+    <string name="layout_and_appearance">Diseño y apariencia</string>
+    <string name="keypress">Pulsación de tecla</string>
+    <string name="typing_and_input">Escritura y entrada</string>
+    <string name="sound_on_keypress">Sonido al pulsar teclas</string>
+    <string name="sound_none">Desactivado</string>
+    <string name="sound_system">Seguir el sistema</string>
+    <string name="sound_always">Siempre activado</string>
+    <string name="show_language_switch_key">Mostrar la tecla de cambio de idioma</string>
 </resources>
