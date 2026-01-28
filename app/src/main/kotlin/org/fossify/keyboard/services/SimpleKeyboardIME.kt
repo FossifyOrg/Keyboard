@@ -691,7 +691,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             if (spaceKeyIndex != -1) {
                 val spaceKey = keys[spaceKeyIndex]
                 spaceKey.label = spaceKey.label.ifEmpty {
-                    getKeyboardLanguageText(config.keyboardLanguage)
+                    if (config.selectedLanguages.size > 1) getKeyboardLanguageText(config.keyboardLanguage) else ""
                 }
             }
 
