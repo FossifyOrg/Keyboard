@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added support for custom fonts
 
+### Changed
+- Space bar language label is now hidden for single-language users
+
 ### Fixed
 - Fixed an issue where sound/vibration preferences were ignored after reboot ([#372])
 
