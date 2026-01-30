@@ -5,11 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.9.0] - 2026-01-30
 ### Added
 - Added support for custom fonts
 
 ### Changed
 - Space bar language label is now hidden for single-language users
+- Updated translations
 
 ### Fixed
 - Fixed an issue where sound/vibration preferences were ignored after reboot ([#372])
@@ -160,7 +163,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#356]: https://github.com/FossifyOrg/Keyboard/issues/356
 [#372]: https://github.com/FossifyOrg/Keyboard/issues/372
 
-[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.8.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.9.0...HEAD
+[1.9.0]: https://github.com/FossifyOrg/Keyboard/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/FossifyOrg/Keyboard/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/FossifyOrg/Keyboard/compare/1.5.0...1.6.0
