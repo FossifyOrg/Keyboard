@@ -14,37 +14,37 @@
     </Row>
 
     <Row>
-        <Key app:keyEdgeFlags="left" app:keyLabel="ޤ" app:popupCharacters="1" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="1" />
-        <Key app:keyLabel="ވ" app:popupCharacters="2" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="2" />
-        <Key app:keyLabel="އ" app:popupCharacters="ޢ3" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="3" />
-        <Key app:keyLabel="ރ" app:popupCharacters="ޜ4" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="4" />
-        <Key app:keyLabel="ތ" app:popupCharacters="ޓ5" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="5" />
-        <Key app:keyLabel="ޔ" app:popupCharacters="6" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="6" />
-        <Key app:keyLabel="ު" app:popupCharacters="ޫ7" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="7" />
-        <Key app:keyLabel="ި" app:popupCharacters="ީ8" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="8" />
-        <Key app:keyLabel="ޮ" app:popupCharacters="ޯ9" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="9" />
-        <Key app:keyEdgeFlags="right" app:keyLabel="ޕ" app:popupCharacters="0" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="0" />
+        <Key app:keyEdgeFlags="left" app:keyLabel="ް" app:popupCharacters="ޤ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="1" />
+        <Key app:keyLabel="ޢ" app:popupCharacters="އ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="2" />
+        <Key app:keyLabel="ެ" app:popupCharacters="ޭ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="3" />
+        <Key app:keyLabel="ރ" app:popupCharacters="ޜ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="4" />
+        <Key app:keyLabel="ތ" app:popupCharacters="ޓ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="5" />
+        <Key app:keyLabel="ޔ" app:popupCharacters="ޘ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="6" />
+        <Key app:keyLabel="ު" app:popupCharacters="ޫ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="7" />
+        <Key app:keyLabel="ި" app:popupCharacters="ީ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="8" />
+        <Key app:keyLabel="ޮ" app:popupCharacters="ޯ" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="9" />
+        <Key app:keyEdgeFlags="right" app:keyLabel="ޕ" app:popupCharacters="÷" app:popupKeyboard="@xml/keyboard_popup_template" app:topSmallNumber="0" />
     </Row>
 
     <Row>
         <Key app:horizontalGap="5%" app:keyEdgeFlags="left" app:keyLabel="ަ" app:popupCharacters="ާ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ސ" app:popupCharacters="ށ" app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="ދ" app:popupCharacters="ޕ" app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ދ" app:popupCharacters="ޑ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ފ" app:popupCharacters="ﷲ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ގ" app:popupCharacters="ޣ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ހ" app:popupCharacters="ޙ" app:popupKeyboard="@xml/keyboard_popup_template" />
-        <Key app:keyLabel="ޖ" app:popupCharacters="ޒ" app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ޖ" app:popupCharacters="ޛ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ކ" app:popupCharacters="ޚ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyEdgeFlags="right" app:keyLabel="ލ" app:popupCharacters="ޅ" app:popupKeyboard="@xml/keyboard_popup_template" />
     </Row>
 
     <Row>
         <Key app:code="-1" app:keyEdgeFlags="left" app:keyIcon="@drawable/ic_caps_outline_vector" app:keyWidth="15%p" />
-        <Key app:keyLabel="ޒ" />
-        <Key app:keyLabel="ޝ" />
-        <Key app:keyLabel="ޗ" />
+        <Key app:keyLabel="ޒ" app:popupCharacters="ޜ" app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ޘ" app:popupCharacters="×" app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ޝ" app:popupCharacters="ޗ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ވ" />
-        <Key app:keyLabel="ބ" />
+        <Key app:keyLabel="ބ" app:popupCharacters="ޟ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ނ" app:popupCharacters="ޏ" app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="މ" />
         <Key app:code="-5" app:isRepeatable="true" app:keyEdgeFlags="right" app:keyIcon="@drawable/ic_clear_vector" app:keyWidth="15%p" />
