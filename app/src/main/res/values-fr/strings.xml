@@ -47,4 +47,12 @@
     <string name="animals_and_nature">Animaux et nature</string>
     <string name="manage_keyboard_languages">Modifier les langues du clavier</string>
     <string name="show_emoji_key">Afficher la touche emoji</string>
+    <string name="layout_and_appearance">Mise en page et apparence</string>
+    <string name="keypress">Appui sur une touche</string>
+    <string name="typing_and_input">Saisie &amp; entrée</string>
+    <string name="sound_on_keypress">Son à l\'appui sur une touche</string>
+    <string name="sound_none">Arrêt</string>
+    <string name="sound_system">Système de suivi</string>
+    <string name="sound_always">Toujours en marche</string>
+    <string name="show_language_switch_key">Afficher la touche de changement de langue</string>
 </resources>
