@@ -46,4 +46,13 @@
     <string name="flags">Vlajky</string>
     <string name="voice_typing_method">Spôsob písania podľa hlasu</string>
     <string name="switch_to_voice_typing">Prepnúť na písanie podľa hlasu</string>
+    <string name="layout_and_appearance">Pozícia a vzhľad</string>
+    <string name="keypress">Stlačenie klávesy</string>
+    <string name="typing_and_input">Písanie a vstup</string>
+    <string name="sound_on_keypress">Zvuk pri stlačení klávesy</string>
+    <string name="sound_none">Vypnuté</string>
+    <string name="sound_system">Systém</string>
+    <string name="sound_always">Vždy zapnuté</string>
+    <string name="show_emoji_key">Ukázať klávesu emoji</string>
+    <string name="show_language_switch_key">Ukázať klávesu pre zmenu jazyka</string>
 </resources>

@@ -1,0 +1,13 @@
+Added:
+
+• Added support for custom fonts
+
+Changed:
+
+• Space bar language label is now hidden for single-language users
+• Updated translations
+
+Fixed:
+
+• Fixed an issue where sound/vibration preferences were ignored after reboot 
+
