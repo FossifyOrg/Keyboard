@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed keyboard crash on lock screen after device reboot ([#59])
 
 ## [1.9.0] - 2026-01-30
 ### Added
@@ -137,6 +139,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
+[#59]: https://github.com/FossifyOrg/Keyboard/issues/59
 [#62]: https://github.com/FossifyOrg/Keyboard/issues/62
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78
 [#79]: https://github.com/FossifyOrg/Keyboard/issues/79
