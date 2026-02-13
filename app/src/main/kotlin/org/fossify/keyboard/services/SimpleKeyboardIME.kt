@@ -89,6 +89,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_DUTCH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_ASSET
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAK
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAKDH
+import org.fossify.keyboard.helpers.LANGUAGE_DHIVEHI
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_NIRO
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
@@ -551,6 +552,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_CZECH_QWERTZ -> R.xml.keys_letters_czech_qwertz
             LANGUAGE_DANISH -> R.xml.keys_letters_danish
             LANGUAGE_DUTCH -> R.xml.keys_letters_dutch
+            LANGUAGE_DHIVEHI -> R.xml.keys_letters_dhivehi
             LANGUAGE_ENGLISH_ASSET -> R.xml.keys_letters_english_asset
             LANGUAGE_ENGLISH_COLEMAK -> R.xml.keys_letters_english_colemak
             LANGUAGE_ENGLISH_COLEMAKDH -> R.xml.keys_letters_english_colemakdh
