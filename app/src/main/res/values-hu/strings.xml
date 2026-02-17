@@ -46,4 +46,13 @@
     <string name="switch_to_voice_typing">Váltson hangalapú gépelésre</string>
     <string name="recently_used">Legutóbb használt</string>
     <string name="manage_keyboard_languages">Billentyűzetnyelvek kezelése</string>
+    <string name="layout_and_appearance">Elrendezés és megjelenés</string>
+    <string name="keypress">Gombnyomás</string>
+    <string name="typing_and_input">Gépelés és bevitel</string>
+    <string name="sound_on_keypress">Hang billentyűleütéskor</string>
+    <string name="sound_none">Ki</string>
+    <string name="sound_system">Rendszer követése</string>
+    <string name="sound_always">Mindig bekapcsolva</string>
+    <string name="show_emoji_key">Emoji billentyű megjelenítése</string>
+    <string name="show_language_switch_key">Nyelvválasztó gomb megjelenítése</string>
 </resources>
