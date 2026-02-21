@@ -36,4 +36,10 @@
     <string name="manage_clipboard_empty">클립보드가 비어있습니다.</string>
     <string name="manage_clipboard_label">복사한 텍스트가 여기에 표시됩니다. 나중에 사라지지 않도록 클립을 고정할 수 있습니다.</string>
     <string name="voice_typing_method">음성 입력</string>
+    <string name="layout_and_appearance">레이아웃 및 모양</string>
+    <string name="keypress">키 누름</string>
+    <string name="typing_and_input">타이핑 및 입력</string>
+    <string name="sound_on_keypress">키 누름 소리</string>
+    <string name="sound_none">꺼짐</string>
+    <string name="sound_system">시스템에 따르기</string>
 </resources>
