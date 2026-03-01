@@ -39,7 +39,7 @@ import org.fossify.keyboard.interfaces.ClipsDao
 val Context.config: Config get() = Config.newInstance(applicationContext.safeStorageContext)
 
 val Context.safeStorageContext: Context
-    get() = if (isNougatPlus() && isDeviceInDirectBootMode) {
+    get() = if (isDeviceInDirectBootMode) {
         createDeviceProtectedStorageContext()
     } else {
         this
