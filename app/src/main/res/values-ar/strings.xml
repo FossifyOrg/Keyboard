@@ -50,4 +50,9 @@
     <string name="people_and_body">الناس والجسم</string>
     <string name="animals_and_nature">الحيوانات والطبيعة</string>
     <string name="food_and_drink">المأكولات والمشروبات</string>
+    <string name="redirection_note">يُرجى تفعيل لوحة مفاتيح Fossify في الشاشة التالية لتصبح متاحة للاستخدام. اضغط على \"رجوع\" بمجرد تفعيلها.</string>
+    <string name="keycode_shift">Shift</string>
+    <string name="keycode_enter">Enter</string>
+    <string name="activities">أنشطة</string>
+    <string name="objects">أشياء</string>
 </resources>

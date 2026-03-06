@@ -16,7 +16,7 @@ Gizliliğiniz bizim önceliğimizdir. Fossify Klavye hiçbir kullanıcı bilgisi
 <b>🌐 AÇIK KAYNAKLI ŞEFFAFLIK:</b><br>
 Fossify Klavye tamamen açık kaynaklıdır, size şeffaflık ve güvenlik sağlar. İncelemek için kaynak koduna erişiminiz vardır, bu da sağlam ve güvenilir bir yazma aracı sağlar.<br><br>
 Daha önce hiç olmadığı gibi bir yazma deneyimi – verimli, kişiselleştirilmiş ve güvenli. Fossify Klavye'yi şimdi indirin ve yazma deneyiminizi yükseltin.<br><br>
-Fossify Klavye hakkında daha fazlasını keşfedin: https://www.fossify.org<br>
+Daha fazla Fossify uygulamalarını keşfedin: https://www.fossify.org<br>
 Açık kaynak kodu: https://www.github.com/FossifyOrg<br>
 Reddit topluluğuna katılın: https://www.reddit.com/r/Fossify<br>
 Telegram üzerinden iletişime geçin: https://t.me/Fossify<br>
