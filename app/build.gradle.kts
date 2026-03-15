@@ -149,4 +149,7 @@ dependencies {
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
     detektPlugins(libs.compose.detekt)
+    
+    // Unit testing dependencies
+    testImplementation("junit:junit:4.13.2")
 }
