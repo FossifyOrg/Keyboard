@@ -1,0 +1,22 @@
+Vi presenterar Fossify Keyboard - din lösning för enkel och effektiv skrivning. Upplev en sömlös skrivupplevelse som är utformad för att tillgodose alla dina behov, oavsett om du chattar med vänner eller infogar texter, siffror eller symboler.<br><br>
+<b>📶 OFFLINE-FUNKTIONALITET:</b><br>
+Fossify Keyboard fungerar helt offline utan internettillstånd, så att du kan använda det när som helst, var som helst, utan att behöva en internetanslutning. Detta ger dig också mer integritet, säkerhet och stabilitet jämfört med andra tangentbord som ansluter till internet.<br><br>
+<b>🌐 FLERA SPRÅK OCH LAYOUTS:</b><br>
+Välj bland en mängd olika språk och tangentbordslayouter. Fossify Keyboard stöder flera språk, vilket gör det enkelt för dig att byta och skriva på ditt föredragna språk utan ansträngning.<br><br>
+<b>📋 HANDY CLIPBOARD:</b><br>
+Skapa klipp och fäst ofta använda klipp för enkel åtkomst. Den här funktionen gör att du snabbt kan infoga dina mest använda texter, vilket sparar tid och ansträngning.<br><br>
+<b>📳 Anpassningsbara inställningar:</b><br>
+Skräddarsy din skrivupplevelse genom att växla mellan vibrationer, popup-fönster vid tangenttryckningar och välja önskat språk från listan över språk som stöds. Anpassa dina tangentbordsinställningar så att de passar dina önskemål.<br><br>
+<b>🌙 MATERIALDESIGN OCH MÖRKT TEMA:</b><br>
+Njut av en elegant, modern design med ett mörkt standardtema. Fossify Keyboard erbjuder en visuellt tilltalande och bekväm användarupplevelse, vilket gör skrivandet till ett nöje.<br><br>
+<b>🔒 PRIVITET OCH SÄKERHET:</b><br>
+Din integritet är vår högsta prioritet. Fossify Keyboard samlar inte in eller delar någon användarinformation med tredje part. Upplev sinnesfrid när du vet att din skrivaktivitet förblir privat och säker.<br><br>
+<b>🎨 ANPASSNINGSBARA FÄRGER:</b><br>
+Anpassa ditt tangentbord med anpassningsbara färger. Fossify Keyboard låter dig välja och justera färger för att matcha din stil och dina preferenser.<br><br>
+<b>🌐 Öppen källkod:</b><br>
+Fossify Keyboard är helt öppen källkod, vilket ger dig transparens och säkerhet. Du har tillgång till källkoden för revisioner, vilket säkerställer ett pålitligt och pålitligt skrivverktyg.<br><br>
+Upplev att skriva som aldrig förr - effektivt, personligt och säkert. Ladda ner Fossify Keyboard nu och förhöj din skrivupplevelse.<br><br>
+Utforska fler Fossify-appar: https://www.fossify.org<br>
+Kod med öppen källkod: https://www.github.com/FossifyOrg<br>
+Gå med i gemenskapen på Reddit: https://www.reddit.com/r/Fossify<br>
+Anslut på Telegram: https://t.me/Fossify<br>
