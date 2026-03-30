@@ -30,7 +30,7 @@
     <string name="start_sentences_capitalized">Inizia le frasi con la lettera maiuscola</string>
     <string name="show_emoji_key">Mostra tasto emoji</string>
     <string name="emojis">Emoji</string>
-    <string name="redirection_note">Attiva Tastiera Fossify nella schermata successiva per renderla disponibile. Una volta abilitata, premi \"Indietro\".</string>
+    <string name="redirection_note">Si prega di abilitare Tastiera Fossify nella schermata successiva per renderla disponibile. Una volta abilitata, premi \"Indietro\".</string>
     <string name="clipboard">Appunti</string>
     <string name="clipboard_recent">Recente</string>
     <string name="objects">Oggetti</string>
