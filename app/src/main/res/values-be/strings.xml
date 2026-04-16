@@ -47,4 +47,12 @@
     <string name="flags">Сцягі</string>
     <string name="voice_typing_method">Метад галасавога ўводу</string>
     <string name="switch_to_voice_typing">Пераключыцца на галасавы ўвод</string>
+    <string name="layout_and_appearance">Знешні выгляд</string>
+    <string name="keypress">Націсканне</string>
+    <string name="typing_and_input">Набор і ўвод</string>
+    <string name="sound_on_keypress">Гук пры націсканні</string>
+    <string name="sound_none">Адключана</string>
+    <string name="sound_system">Як у сістэме</string>
+    <string name="sound_always">Заўсёды уключана</string>
+    <string name="show_language_switch_key">Паказваць клавішу змены мовы</string>
 </resources>
