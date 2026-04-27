@@ -43,7 +43,7 @@
             app:topSmallNumber="1" />
         <Key
             app:keyLabel="w"
-            app:popupCharacters="2"
+            app:popupCharacters="2ư"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="2" />
         <Key
@@ -78,7 +78,7 @@
             app:topSmallNumber="8" />
         <Key
             app:keyLabel="o"
-            app:popupCharacters="őöøóôòõ9ō"
+            app:popupCharacters="őöøóôòõ9ōơ"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="9" />
         <Key
@@ -93,7 +93,7 @@
             app:horizontalGap="5%"
             app:keyEdgeFlags="left"
             app:keyLabel="a"
-            app:popupCharacters="áàâãäåāæą"
+            app:popupCharacters="áàâãäåāæąă"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key
             app:keyLabel="s"
