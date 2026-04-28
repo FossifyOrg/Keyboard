@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="change_keyboard">Billentyűzet módosítása</string>
+    <string name="change_keyboard">Billentyűzet váltása</string>
     <string name="manage_clipboard_items">Vágólapelemek kezelése</string>
     <string name="manage_clipboard_empty">A vágólapja üres.</string>
     <string name="manage_clipboard_label">Ha bemásolsz egy szöveget, az itt fog megjelenni. A klipeket is rögzítheted, hogy később ne tűnjenek el.</string>
@@ -29,7 +29,7 @@
     <string name="show_numbers_row">Számok megjelenítése külön sorban</string>
     <string name="emojis">Emodzsik</string>
     <string name="app_launcher_name">Billentyűzet</string>
-    <string name="redirection_note">Engedélyezze a Fossify Billentyűzetet a következő képernyőn, hogy elérhető legyen. Ha engedélyezte, nyomja meg a „Vissza” gombot.</string>
+    <string name="redirection_note">Engedélyezze a Fossify Billentyűzetet a következő képernyőn, hogy az elérhetővé váljon. Engedélyezést követően nyomja meg a \'Vissza\' gombot.</string>
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">Szóköz</string>
     <string name="start_sentences_capitalized">Mondatok nagybetűvel kezdése</string>
