@@ -47,7 +47,7 @@
     <string name="objects">Objekter</string>
     <string name="symbols">Symboler</string>
     <string name="layout_and_appearance">Layout &amp; udseende</string>
-    <string name="typing_and_input">Tastning &amp; input</string>
+    <string name="typing_and_input">Indtastning</string>
     <string name="sound_on_keypress">Lyd ved tastetryk</string>
     <string name="sound_none">Fra</string>
     <string name="sound_system">Følg system</string>
