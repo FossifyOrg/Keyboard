@@ -5,7 +5,7 @@
     <string name="manage_clipboard_empty">A vágólapja üres.</string>
     <string name="manage_clipboard_label">Ha bemásol egy szöveget, az itt fog megjelenni. A klipeket is rögzítheti, hogy később ne tűnjenek el.</string>
     <string name="clear_clipboard_data">Vágólapadatok törlése</string>
-    <string name="clear_clipboard_data_confirmation">Biztos, hogy törli a vágólapadatokat?</string>
+    <string name="clear_clipboard_data_confirmation">Biztosan üríti a vágólapot?</string>
     <string name="clipboard">Vágólap</string>
     <string name="clipboard_recent">Legutóbbi</string>
     <string name="clipboard_current">Jelenlegi</string>
