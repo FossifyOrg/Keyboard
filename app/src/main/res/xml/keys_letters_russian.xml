@@ -63,7 +63,7 @@
         <Key
             app:keyLabel="е"
             app:keyWidth="9.05%p"
-            app:popupCharacters="5"
+            app:popupCharacters="5ё"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="5" />
         <Key
