@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed the letter ё being untypeable on the Russian keyboard; long-press the е key to type it ([#405])
 
+### Added
+- Add option for finnish keyboard layout
+
 ## [1.9.1] - 2026-02-02
 ### Changed
 - Updated translations
