@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.9.2] - 2026-07-21
+### Changed
+- Updated translations
+
 ### Fixed
 - Fixed the letter ё being untypeable on the Russian keyboard; long-press the е key to type it ([#405])
 
@@ -174,7 +179,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#372]: https://github.com/FossifyOrg/Keyboard/issues/372
 [#405]: https://github.com/FossifyOrg/Keyboard/issues/405
 
-[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.9.1...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Keyboard/compare/1.9.2...HEAD
+[1.9.2]: https://github.com/FossifyOrg/Keyboard/compare/1.9.1...1.9.2
 [1.9.1]: https://github.com/FossifyOrg/Keyboard/compare/1.9.0...1.9.1
 [1.9.0]: https://github.com/FossifyOrg/Keyboard/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/FossifyOrg/Keyboard/compare/1.7.0...1.8.0
