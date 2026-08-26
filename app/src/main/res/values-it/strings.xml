@@ -47,4 +47,12 @@
     <string name="food_and_drink">Cibo e bevande</string>
     <string name="travel_and_places">Viaggi e luoghi</string>
     <string name="activities">Attività</string>
+    <string name="layout_and_appearance">Layout e aspetto</string>
+    <string name="keypress">Pressione di un tasto</string>
+    <string name="typing_and_input">Digitazione e immissione</string>
+    <string name="sound_on_keypress">Suono alla pressione dei tasti</string>
+    <string name="sound_none">Spento</string>
+    <string name="sound_system">Segui le impostazioni di sistema</string>
+    <string name="sound_always">Sempre attivo</string>
+    <string name="show_language_switch_key">Mostra il tasto di cambio lingua</string>
 </resources>
