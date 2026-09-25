@@ -216,8 +216,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             }
         }
 
-        keyboard?.setShifted(ShiftState.OFF)
-        keyboardView?.invalidateAllKeys()
+        if(keyboard?.mShiftState == ShiftState.ON_ONE_CHAR){
+            keyboard?.setShifted(ShiftState.OFF)
+            keyboardView?.invalidateAllKeys()
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -355,7 +357,6 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
             else -> {
                 var codeChar = code.toChar()
-                val originalText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
 
                 if (Character.isLetter(codeChar) && keyboard!!.mShiftState > ShiftState.OFF) {
                     if (baseContext.config.keyboardLanguage == LANGUAGE_TURKISH_Q) {
@@ -369,6 +370,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 // However, avoid doing that in cases when the EditText for example requires numbers as the input.
                 // We can detect that by the text not changing on pressing Space.
                 if (keyboardMode != KEYBOARD_LETTERS && inputTypeClass == TYPE_CLASS_TEXT && code == MyKeyboard.KEYCODE_SPACE) {
+                    val originalText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     inputConnection.commitText(codeChar.toString(), 1)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
@@ -376,25 +378,32 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     }
                 } else {
                     when {
-                        !originalText.isNullOrEmpty() && cachedVNTelexData.isNotEmpty() -> {
-                            val fullText = originalText.toString() + codeChar.toString()
-                            val lastIndexEmpty = if (fullText.contains(" ")) {
-                                fullText.lastIndexOf(" ")
-                            } else 0
-                            if (lastIndexEmpty >= 0) {
-                                val word = fullText.subSequence(lastIndexEmpty, fullText.length).trim().toString()
-                                val wordChars = word.toCharArray()
-                                val predictWord = StringBuilder()
-                                for (char in wordChars.size - 1 downTo 0) {
-                                    predictWord.append(wordChars[char])
-                                    val shouldChangeText = predictWord.reverse().toString()
-                                    if (cachedVNTelexData.containsKey(shouldChangeText)) {
-                                        inputConnection.setComposingRegion(fullText.length - shouldChangeText.length, fullText.length)
-                                        inputConnection.setComposingText(cachedVNTelexData[shouldChangeText], fullText.length)
-                                        inputConnection.setComposingRegion(fullText.length, fullText.length)
-                                        return
+                        cachedVNTelexData.isNotEmpty() -> {
+                            val originalText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
+                            if (!originalText.isNullOrEmpty()) {
+
+                                val fullText = originalText.toString() + codeChar.toString()
+                                val lastIndexEmpty = if (fullText.contains(" ")) {
+                                    fullText.lastIndexOf(" ")
+                                } else 0
+                                if (lastIndexEmpty >= 0) {
+                                    val word = fullText.subSequence(lastIndexEmpty, fullText.length).trim().toString()
+                                    val wordChars = word.toCharArray()
+                                    val predictWord = StringBuilder()
+                                    for (char in wordChars.size - 1 downTo 0) {
+                                        predictWord.append(wordChars[char])
+                                        val shouldChangeText = predictWord.reverse().toString()
+                                        if (cachedVNTelexData.containsKey(shouldChangeText)) {
+                                            inputConnection.setComposingRegion(fullText.length - shouldChangeText.length, fullText.length)
+                                            inputConnection.setComposingText(cachedVNTelexData[shouldChangeText], fullText.length)
+                                            inputConnection.setComposingRegion(fullText.length, fullText.length)
+                                            return
+                                        }
                                     }
+                                    inputConnection.commitText(codeChar.toString(), 1)
+                                    updateShiftKeyState()
                                 }
+                            } else {
                                 inputConnection.commitText(codeChar.toString(), 1)
                                 updateShiftKeyState()
                             }
