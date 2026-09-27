@@ -1,0 +1,75 @@
+# Words to add on top of the Hunspell dictionary: word<TAB>optional zipf override. Surfaces keep their case.
+# Elided words typed without their apostrophe are corrected to these (cest → c'est)
+c'est	6.7
+c'était	5.6
+j'ai	6.0
+j'étais	4.8
+j'aime	4.8
+j'avais	5.0
+j'espère	4.5
+qu'il	5.6
+qu'elle	5.0
+qu'on	5.0
+n'est	5.6
+n'ai	5.0
+n'a	5.0
+n'y	4.8
+s'il	5.2
+d'accord	5.0
+l'on	4.8
+jusqu'à	5.0
+# Words with hyphens, which wordfreq splits
+peut-être	5.9
+c'est-à-dire	4.6
+rendez-vous	4.5
+week-end	4.6
+week-ends	4.0
+après-midi	4.6
+arc-en-ciel	3.8
+grand-mère	4.3
+grand-père	4.3
+grands-parents	4.0
+belle-mère	3.8
+beau-père	3.8
+porte-monnaie	3.6
+au-dessus	4.5
+au-dessous	3.9
+là-bas	4.8
+celui-ci	4.6
+celle-ci	4.6
+ceux-ci	4.4
+celui-là	4.2
+celle-là	4.1
+vis-à-vis	4.1
+est-ce	5.6
+qu'est-ce	5.4
+sud-est	3.9
+nord-est	3.8
+# Chat abbreviations, flagged n in deny_fr_FR.tsv
+stp	4.0
+svp	4.5
+mdr	4.5
+ptdr	3.8
+jsp	3.8
+bcp	4.0
+tkt	3.8
+pk	3.8
+pcq	3.5
+jpp	3.3
+cc	4.0
+slt	3.8
+bjr	3.5
+dsl	3.8
+ok	5.0
+# Informal words
+ouf	4.0
+wesh	3.5
+chelou	3.3
+relou	3.3
+kiffer	3.3
+# Everyday technology words
+wifi	4.0
+email	4.0
+WhatsApp	4.5
+YouTube	4.5
+Instagram	4.0

@@ -1,0 +1,62 @@
+fr_FR.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+
+================================================================================
+Word frequencies: wordfreq 3.1.1
+================================================================================
+
+Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in fr_FR.tsv are an adaptation of that data
+(converted from Zipf values to integers) and are shared under the same license.
+
+wordfreq's data is derived from Wikipedia, the OpenSubtitles corpus via ParaCrawl and OPUS, SUBTLEX, news and web
+text, Google Books Ngrams, Reddit, Twitter and other sources; see the wordfreq README for the full list and credits.
+The SUBTLEX data is freely available and was made by Marc Brysbaert, Boris New, Emmanuel Keuleers and others.
+
+================================================================================
+Word list: the French dictionaries of Grammalecte, version 7.7
+================================================================================
+
+The words were selected with the Hunspell spelling dictionaries fr (Classique) of the LibreOffice dictionaries
+repository (https://github.com/LibreOffice/dictionaries, commit 32b006a2c22a4ac7e8ed3f03346f7b3d85a970a4). Their notice follows.
+
+_______________________________________________________________________________
+
+   DICTIONNAIRES ORTHOGRAPHIQUES FRANÇAIS
+   version 7.7
+
+   Olivier R.
+   https://grammalecte.net/
+
+   Licence :
+     MPL : Mozilla Public License
+     version 2.0  --  http://www.mozilla.org/MPL/2.0/
+
+   Ce dictionnaire ne peut fonctionner qu’avec un logiciel utilisant le
+   correcteur Hunspell : OpenOffice.org 3.2+, Firefox 4+, Thunderbird 5+
+
+   Principaux contributeurs :
+   - Jean-Luc T. ;
+   - Sylvain P. ;
+   - Laurent Dubois ;
+   - Dominique Pellé ;
+   - Pierre Poisson ;
+   - Pierre-Yves ;
+   - Pierre Choffardet ;
+   - Leywen ;
+   - Romain Muller et Serge Bibauw, de l’association RENOUVO, grâce à qui
+     la nouvelle orthographe et ses anciennes variantes ont pu être établies ;
+   - Chantal Contant, pour ses recherches sur la réforme de 1990 ;
+   - Benoît Sagot, qui nous a autorisé à comparer notre lexique avec Lefff,
+     ce qui a mis en évidence des dizaines d’erreurs d’étiquetage grammatical ;
+   - Philipp Burgess, pour la normalisation Unicode avec Hunspell.
+
+   Merci aussi à tous ceux qui ont apporté leur pierre à l’édifice.
+   https://grammalecte.net/members.php?prj=fr
+
+   Pour participer à l’amélioration du dictionnaire, allez sur :
+   https://grammalecte.net/home.php?prj=fr
+
+(In English: the French dictionaries of Grammalecte, version 7.7, by Olivier R. and the contributors listed above,
+are licensed under the Mozilla Public License 2.0 (http://mozilla.org/MPL/2.0/). fr_FR.tsv uses the "Classique"
+dictionary. The MPL 2.0 allows combining it with works under the GNU GPL, like Fossify Keyboard.)

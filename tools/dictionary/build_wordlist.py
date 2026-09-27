@@ -235,6 +235,24 @@ LANGUAGES["de_DE"] = Language(
     sharp_s=True,
 )
 
+LANGUAGES["fr_FR"] = Language(
+    locale="fr_FR",
+    wordfreq="fr",
+    hunspell=(
+        Hunspell(
+            "fr_FR/dictionaries/fr",
+            "b78a868e31dd6e373b6c3217969afb898a9acde828a5e7ef97308da42218c88c",
+            "c176610cd5dc4846806a65ddd029f422d87978bf58f224aa44222662a16a2de5",
+        ),
+    ),
+    credit="(c) Olivier R. and others (Grammalecte), MPL-2.0",
+    single_letters=frozenset(["a", "à", "y"]),
+    max_entries=100_000,
+    elisions=frozenset(["c", "d", "j", "l", "m", "n", "qu", "s", "t", "jusqu", "lorsqu", "puisqu", "quoiqu"]),
+    apostrophe_words=300,
+    accentless_max_gap=1.0,
+)
+
 
 @dataclass
 class Word:

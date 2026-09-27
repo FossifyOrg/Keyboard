@@ -1,0 +1,61 @@
+# Words to drop or restrict, matched by lowercase spelling: word<TAB>flags.
+#   x = drop the word (default)
+#   o = offensive: valid when typed, but never suggested or corrected to
+#   n = valid and suggested, but never corrected to
+#
+# The elided words that wordfreq splits off without their apostrophe (l'homme gives l) are only words with it
+qu	x
+# Offensive
+putain	o
+putains	o
+pute	o
+putes	o
+merde	o
+merdes	o
+merdique	o
+connard	o
+connards	o
+connasse	o
+connasses	o
+salope	o
+salopes	o
+salaud	o
+salauds	o
+enculé	o
+enculés	o
+enculer	o
+encule	o
+nique	o
+niquer	o
+bite	o
+bites	o
+couille	o
+couilles	o
+chier	o
+pédé	o
+pédés	o
+tapette	o
+gouine	o
+bougnoule	o
+négro	o
+bamboula	o
+branleur	o
+branler	o
+foutre	o
+cul	o
+nichons	o
+# Chat abbreviations: suggested, but never corrected to
+stp	n
+svp	n
+mdr	n
+ptdr	n
+jsp	n
+bcp	n
+tkt	n
+pk	n
+pcq	n
+jpp	n
+cc	n
+slt	n
+bjr	n
+dsl	n

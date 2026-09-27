@@ -132,6 +132,9 @@ fun Int.dictionaryLocale(): String? {
         LANGUAGE_GERMAN,
         LANGUAGE_GERMAN_QWERTZ -> "de_DE"
 
+        LANGUAGE_FRENCH_AZERTY,
+        LANGUAGE_FRENCH_BEPO -> "fr_FR"
+
         else -> null
     }
 }

@@ -72,12 +72,27 @@ data class LanguageRules(
             extraSeparators = "$CLOSING_PUNCTUATION“",
         )
 
+        /** Tuned by the weights study on the French datasets. */
+        val FRENCH = LanguageRules(
+            weights = EngineWeights(
+                subBase = 0.32f, subPerKey = 0.35f, insNear = 0.74f, delApostrophe = 0.06f, delDouble = 0.62f,
+                transposition = 0.7f, firstLetterFactor = 1.27f, costWeight = 2.81f, jwWeight = 7.79f, margin = 0.8f,
+            ),
+            restoresAccents = true,
+            elisionPrefixes = setOf(
+                "c", "d", "j", "l", "m", "n", "qu", "s", "t", "jusqu", "lorsqu", "puisqu", "quoiqu",
+            ),
+            splitsAtHyphen = true,
+            extraSeparators = CLOSING_PUNCTUATION,
+        )
+
         fun forLocale(locale: String): LanguageRules {
             return when (locale) {
                 "en_US" -> ENGLISH
                 "es" -> SPANISH
                 "pt_BR" -> PORTUGUESE
                 "de_DE" -> GERMAN
+                "fr_FR" -> FRENCH
                 else -> DEFAULT
             }
         }

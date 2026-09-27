@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Word suggestions while typing with English, Spanish, Portuguese and German layouts ([#58])
+- Word suggestions while typing with English, Spanish, Portuguese, German and French layouts ([#58])
 - Optional autocorrect; press backspace right after a correction to undo it ([#58])
 - The keyboard learns new words you type; learned words can be cleared in settings ([#58])
 

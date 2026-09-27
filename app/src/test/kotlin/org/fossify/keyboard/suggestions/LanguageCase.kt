@@ -141,8 +141,29 @@ class LanguageCase(
             maxUnknownChanged = 0.15f,
         )
 
+        val FRENCH = LanguageCase(
+            locale = "fr_FR",
+            geometry = layout(KeyRow("azertyuiop"), KeyRow("qsdfghjklm"), KeyRow("wxcvbn'", start = SHIFT)),
+            isSourceWord = ::isLetterWord,
+            sizes = 90_000..115_000,
+            commonestWord = "de",
+            mustCorrect = listOf(
+                "etre" to "être", "tres" to "très", "deja" to "déjà", "coeur" to "cœur", "cest" to "c'est",
+                "jai" to "j'ai", "francais" to "français",
+            ),
+            mustSuggest = listOf(
+                "bonjoue" to "bonjour", "mervi" to "merci", "pourqoi" to "pourquoi", "a" to "a", "à" to "à",
+                "ou" to "ou", "où" to "où",
+            ),
+            expectedWords = listOf(
+                "être", "cœur", "à", "a", "où", "ou", "aujourd'hui", "c'est", "français", "peut-être",
+            ),
+            absentWords = listOf("etre", "tres", "qu"),
+            offensiveWords = listOf("putain", "merde"),
+        )
+
         /** Every language with a dictionary, English first. */
-        val ALL = listOf(ENGLISH, SPANISH, PORTUGUESE, GERMAN)
+        val ALL = listOf(ENGLISH, SPANISH, PORTUGUESE, GERMAN, FRENCH)
 
         fun of(locale: String) = ALL.first { it.locale == locale }
 
