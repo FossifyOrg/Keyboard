@@ -94,8 +94,27 @@ class LanguageCase(
             maxAutocorrectWrong = 0.06f,
         )
 
+        val PORTUGUESE = LanguageCase(
+            locale = "pt_BR",
+            geometry = layout(KeyRow("qwertyuiop"), KeyRow("asdfghjklç"), KeyRow("zxcvbnm", start = SHIFT)),
+            isSourceWord = ::isLetterWord,
+            sizes = 90_000..115_000,
+            commonestWord = "de",
+            mustCorrect = listOf(
+                "nao" to "não", "voce" to "você", "tambem" to "também", "entao" to "então", "ha" to "há",
+                "coracao" to "coração", "ate" to "até",
+            ),
+            mustSuggest = listOf(
+                "obrigafo" to "obrigado", "qur" to "que", "oara" to "para", "exelente" to "excelente", "e" to "e",
+                "é" to "é", "esta" to "esta", "está" to "está",
+            ),
+            expectedWords = listOf("não", "você", "é", "e", "também", "coração", "segunda-feira", "está", "esta"),
+            absentWords = listOf("nao", "voce", "tambem", "ate"),
+            offensiveWords = listOf("porra", "merda"),
+        )
+
         /** Every language with a dictionary, English first. */
-        val ALL = listOf(ENGLISH, SPANISH)
+        val ALL = listOf(ENGLISH, SPANISH, PORTUGUESE)
 
         fun of(locale: String) = ALL.first { it.locale == locale }
 

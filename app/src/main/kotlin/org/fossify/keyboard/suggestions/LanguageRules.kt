@@ -48,10 +48,22 @@ data class LanguageRules(
             extraSeparators = CLOSING_PUNCTUATION,
         )
 
+        /** Tuned by the weights study on the Brazilian Portuguese datasets. */
+        val PORTUGUESE = LanguageRules(
+            weights = EngineWeights(
+                subBase = 0.1f, subPerKey = 0.47f, insNear = 0.44f, delApostrophe = 0.26f, delDouble = 0.33f,
+                transposition = 0.44f, firstLetterFactor = 1.24f, costWeight = 2.84f, jwWeight = 8.92f, margin = 1.0f,
+            ),
+            restoresAccents = true,
+            splitsAtHyphen = true,
+            extraSeparators = CLOSING_PUNCTUATION,
+        )
+
         fun forLocale(locale: String): LanguageRules {
             return when (locale) {
                 "en_US" -> ENGLISH
                 "es" -> SPANISH
+                "pt_BR" -> PORTUGUESE
                 else -> DEFAULT
             }
         }

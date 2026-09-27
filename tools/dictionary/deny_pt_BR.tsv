@@ -1,0 +1,76 @@
+# Words to drop or restrict, matched by lowercase spelling: word<TAB>flags.
+#   x = drop the word (default)
+#   o = offensive: valid when typed, but never suggested or corrected to
+#   n = valid and suggested, but never corrected to
+#
+# Rare spellings that are almost always a more common word typed without its accent, besides those dropped by
+# accentless_max_gap
+atê	x
+# Offensive
+porra	o
+porras	o
+caralho	o
+caralhos	o
+merda	o
+merdas	o
+buceta	o
+boceta	o
+puta	o
+putas	o
+puto	o
+putaria	o
+puteiro	o
+foder	o
+foda	o
+fodido	o
+fodida	o
+fodendo	o
+viado	o
+viados	o
+bicha	o
+cu	o
+cuzão	o
+arrombado	o
+arrombada	o
+vadia	o
+vadias	o
+cacete	o
+pica	o
+xoxota	o
+xereca	o
+punheta	o
+boquete	o
+corno	o
+cornos	o
+crioulo	o
+# Chat abbreviations: suggested, but never corrected to
+vc	n
+vcs	n
+tb	n
+tbm	n
+pq	n
+q	n
+blz	n
+vlw	n
+obg	n
+kkk	n
+kkkk	n
+kkkkk	n
+rs	n
+rsrs	n
+pfv	n
+tmj	n
+sdds	n
+msm	n
+mt	n
+mto	n
+mds	n
+cmg	n
+ctg	n
+hj	n
+td	n
+tds	n
+nd	n
+ngm	n
+qnd	n
+fds	n

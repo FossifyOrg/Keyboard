@@ -203,6 +203,22 @@ LANGUAGES["es"] = Language(
     accentless_max_gap=1.0,
 )
 
+LANGUAGES["pt_BR"] = Language(
+    locale="pt_BR",
+    wordfreq="pt",
+    hunspell=(
+        Hunspell(
+            "pt_BR/pt_BR",
+            "a38bfb26b68ece2834e79fe83e48d5792652970ace12db89d1b9674bf9933183",
+            "21d8ad2a769a60e17e2b5ea4ef11d4d593a58b9e2a82d642ef82d6a4c5523865",
+        ),
+    ),
+    credit="(c) Raimundo Moura and others (VERO), LGPL-3.0 or MPL",
+    single_letters=frozenset(["a", "à", "e", "é", "o"]),
+    max_entries=100_000,
+    accentless_max_gap=1.0,
+)
+
 
 @dataclass
 class Word:

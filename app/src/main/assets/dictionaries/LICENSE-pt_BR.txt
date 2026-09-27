@@ -1,0 +1,54 @@
+pt_BR.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+
+================================================================================
+Word frequencies: wordfreq 3.1.1
+================================================================================
+
+Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in pt_BR.tsv are an adaptation of that data
+(converted from Zipf values to integers) and are shared under the same license.
+
+wordfreq's data is derived from Wikipedia, the OpenSubtitles corpus via ParaCrawl and OPUS, SUBTLEX, news and web
+text, Google Books Ngrams, Reddit, Twitter and other sources; see the wordfreq README for the full list and credits.
+The SUBTLEX data is freely available and was made by Marc Brysbaert, Boris New, Emmanuel Keuleers and others.
+
+================================================================================
+Word list: VERO, the Brazilian Portuguese dictionary of LibreOffice
+================================================================================
+
+The words were selected with the Hunspell spelling dictionary pt_BR of the LibreOffice dictionaries repository
+(https://github.com/LibreOffice/dictionaries, commit 32b006a2c22a4ac7e8ed3f03346f7b3d85a970a4). Their notice follows.
+
+Author: Raimundo Moura <raimundomoura@openoffice.org>
+
+en-US: This dictionary is under continuous development by Raimundo Moura and his team. It is
+licensed under the terms of the GNU Lesser General Public License version 3 (LGPLv3),
+as published by the Free Software Foundation, and Mozilla Public License as published by
+The Mozilla Foundation.  The credits are available at
+http://pt-br.libreoffice.org/projetos/projeto-vero-verificador-ortografico/ and you can
+find new releases at
+http://extensions.libreoffice.org
+
+Copyright (C) 2006 - 2013 by Raimundo Santos Moura <raimundo.smoura@gmail.com>
+
+============
+INTRODUCTION
+============
+
+The LibreOffice Spell Checker and Hyphenation  is a colaborative project developed
+by the Brazilian community.
+The complete list of participants in this project is at
+http://pt-br.libreoffice.org/projetos/projeto-vero-verificador-ortografico/
+
+***********************************************************************
+* This is a dictionary for spell correction and hyphenation for the   *
+* Brazilian Portuguese language for hunspell.                         *
+* This is a free program and it can be redistributed and/or           *
+* modified under the terms of the GNU Lesser General Public License   *
+* (LGPL) version 3 and Mozilla Public License.                        *
+*                                                                     *
+***********************************************************************
+
+(pt_BR.tsv uses the dictionary under the GNU LGPL version 3, which allows its use in Fossify Keyboard, licensed
+under the GNU GPL version 3.)
