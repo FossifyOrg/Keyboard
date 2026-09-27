@@ -12,6 +12,7 @@
     <dimen name="emoji_category_item_size">24dp</dimen>
     <dimen name="emoji_palette_btn_size">42dp</dimen>
     <dimen name="suggestion_max_width">200dp</dimen>
+    <dimen name="word_suggestion_min_text_size">11sp</dimen>
 
     <dimen name="keyboard_text_size">22sp</dimen>
     <dimen name="preview_text_size">26sp</dimen>

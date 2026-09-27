@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Word suggestions while typing with English layouts ([#58])
+- Optional autocorrect; press backspace right after a correction to undo it ([#58])
+- The keyboard learns new words you type; learned words can be cleared in settings ([#58])
+
 ### Fixed
 - Fixed the letter ё being untypeable on the Russian keyboard; long-press the е key to type it ([#405])
 
@@ -146,6 +151,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 
 [#47]: https://github.com/FossifyOrg/Keyboard/issues/47
+[#58]: https://github.com/FossifyOrg/Keyboard/issues/58
 [#59]: https://github.com/FossifyOrg/Keyboard/issues/59
 [#62]: https://github.com/FossifyOrg/Keyboard/issues/62
 [#78]: https://github.com/FossifyOrg/Keyboard/issues/78

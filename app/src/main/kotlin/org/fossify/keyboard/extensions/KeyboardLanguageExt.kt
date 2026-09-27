@@ -1,6 +1,5 @@
 package org.fossify.keyboard.extensions
 
-import android.annotation.SuppressLint
 import android.content.Context
 import org.fossify.commons.models.RadioItem
 import org.fossify.keyboard.R
@@ -20,6 +19,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAK
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_COLEMAKDH
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_DVORAK
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_NIRO
+import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTY
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_SOUL
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_WORKMAN
@@ -108,5 +108,22 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_UKRAINIAN -> getString(R.string.translation_ukrainian)
         LANGUAGE_VIETNAMESE_TELEX -> "${getString(R.string.translation_vietnamese)} (Telex)"
         else -> "${getString(R.string.translation_english)} (QWERTY)"
+    }
+}
+
+/** Returns the locale of the word suggestion dictionary for a keyboard language, or null if there is none. */
+fun Int.dictionaryLocale(): String? {
+    return when (this) {
+        LANGUAGE_ENGLISH_QWERTY,
+        LANGUAGE_ENGLISH_QWERTZ,
+        LANGUAGE_ENGLISH_DVORAK,
+        LANGUAGE_ENGLISH_ASSET,
+        LANGUAGE_ENGLISH_COLEMAK,
+        LANGUAGE_ENGLISH_COLEMAKDH,
+        LANGUAGE_ENGLISH_NIRO,
+        LANGUAGE_ENGLISH_SOUL,
+        LANGUAGE_ENGLISH_WORKMAN -> "en_US"
+
+        else -> null
     }
 }

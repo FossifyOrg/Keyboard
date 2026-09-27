@@ -40,6 +40,7 @@ import android.widget.inline.InlineContentView
 import androidx.annotation.RequiresApi
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.children
 import androidx.core.view.updateMarginsRelative
@@ -114,6 +115,7 @@ import org.fossify.keyboard.interfaces.RefreshClipsListener
 import org.fossify.keyboard.models.Clip
 import org.fossify.keyboard.models.ClipsSectionLabel
 import org.fossify.keyboard.models.ListItem
+import org.fossify.keyboard.suggestions.SuggestionChip
 import java.util.Arrays
 import java.util.Locale
 
@@ -209,6 +211,7 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mVoiceInputMethod: String = ""
 
     private var mToolbarHolder: View? = null
+    private var hasWordSuggestions = false
     private var mClipboardManagerHolder: View? = null
     private var mEmojiPaletteHolder: View? = null
     private var emojiCompatMetadataVersion = 0
@@ -396,6 +399,13 @@ class MyKeyboardView @JvmOverloads constructor(
                 openClipboardManager()
             }
 
+            wordSuggestionChips().forEachIndexed { index, chip ->
+                chip.setOnClickListener {
+                    vibrateIfNeeded()
+                    mOnKeyboardActionListener?.onSuggestionPicked(index)
+                }
+            }
+
             clipboardClear.setOnLongClickListener { context.toast(R.string.clear_clipboard_data); true; }
             clipboardClear.setOnClickListener {
                 vibrateIfNeeded()
@@ -496,20 +506,8 @@ class MyKeyboardView @JvmOverloads constructor(
             topKeyboardDivider.background = ColorDrawable(mStrokeColor)
             mToolbarHolder?.background = ColorDrawable(mKeyboardBackgroundColor)
 
-            clipboardValue.apply {
-                background =
-                    resources.getDrawable(R.drawable.clipboard_background, context.theme).apply {
-                        val layerDrawable = (this as RippleDrawable)
-                            .findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
-                        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke)
-                            .applyColorFilter(mStrokeColor)
-                        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape)
-                            .applyColorFilter(mBackgroundColor)
-                    }
-
-                setTextColor(mTextColor)
-                setLinkTextColor(mTextColor)
-            }
+            applyChipStyle(clipboardValue)
+            wordSuggestionChips().forEach { applyWordChipStyle(it, highlighted = it.isSelected) }
 
             settingsCog.applyColorFilter(mTextColor)
             pinnedClipboardItems.applyColorFilter(mTextColor)
@@ -912,6 +910,11 @@ class MyKeyboardView @JvmOverloads constructor(
     }
 
     private fun handleClipboard() {
+        if (hasWordSuggestions) {
+            // The word suggestions take the place of the clipboard until the word is finished
+            return
+        }
+
         if (mToolbarHolder != null && mPopupParent.id != R.id.mini_keyboard_view && context.config.showClipboardContent) {
             val clipboardContent = context.getCurrentClip()
             if (clipboardContent?.isNotEmpty() == true) {
@@ -933,6 +936,69 @@ class MyKeyboardView @JvmOverloads constructor(
         } else {
             hideClipboardViews()
         }
+    }
+
+    /**
+     * Shows word suggestions in place of the clipboard and autofill suggestions, from left to right, or hides them if
+     * [chips] is empty. Empty chips keep their place, so the best suggestion is always in the middle. A typed word is
+     * shown in quotes and the word autocorrect will pick is highlighted.
+     */
+    fun setWordSuggestions(chips: List<SuggestionChip?>) {
+        val binding = keyboardViewBinding ?: return
+        binding.wordSuggestionChips().forEachIndexed { index, view ->
+            val chip = chips.getOrNull(index)
+            view.text = when {
+                chip == null -> null
+                chip.isTyped -> context.getString(R.string.typed_word, chip.word)
+                else -> chip.word
+            }
+
+            // The word autocorrect will pick is selected, which also tells accessibility services about it
+            val highlighted = chip?.isCorrection == true
+            if (view.isSelected != highlighted) {
+                view.isSelected = highlighted
+                applyWordChipStyle(view, highlighted)
+            }
+
+            view.beInvisibleIf(chip == null)
+        }
+
+        val show = chips.isNotEmpty()
+        if (show == hasWordSuggestions) return
+
+        hasWordSuggestions = show
+        binding.apply {
+            wordSuggestionsHolder.beVisibleIf(show)
+            suggestionsHolder.beInvisibleIf(show)
+            clipboardClear.visibility = if (show) INVISIBLE else clipboardValue.visibility
+        }
+
+        if (!show) handleClipboard()
+    }
+
+    private fun KeyboardViewKeyboardBinding.wordSuggestionChips() =
+        listOf(wordSuggestionLeft, wordSuggestionMiddle, wordSuggestionRight)
+
+    /** Styles a chip on the toolbar like the clipboard content, with a stroke in the primary color if [highlighted]. */
+    private fun applyChipStyle(view: TextView, highlighted: Boolean = false) {
+        val background = ResourcesCompat.getDrawable(resources, R.drawable.clipboard_background, context.theme)
+        view.background = (background?.mutate() as? RippleDrawable)?.apply {
+            val layerDrawable = findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
+            layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke)
+                .applyColorFilter(if (highlighted) mPrimaryColor else mStrokeColor)
+            layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape)
+                .applyColorFilter(mBackgroundColor)
+        }
+
+        view.setTextColor(mTextColor)
+        view.setLinkTextColor(mTextColor)
+    }
+
+    /** Styles a word suggestion chip, in bold with a primary color stroke if [highlighted], in the font of the keys. */
+    private fun applyWordChipStyle(view: TextView, highlighted: Boolean) {
+        applyChipStyle(view, highlighted)
+        val style = if (highlighted) Typeface.BOLD else Typeface.NORMAL
+        view.typeface = Typeface.create(FontHelper.getTypeface(context), style)
     }
 
     private fun hideClipboardViews() {

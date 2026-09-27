@@ -73,6 +73,7 @@ import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.extensions.getSelectedLanguagesSorted
 import org.fossify.keyboard.extensions.getStrokeColor
 import org.fossify.keyboard.extensions.safeStorageContext
+import org.fossify.keyboard.helpers.AUTO_CORRECT
 import org.fossify.keyboard.helpers.HEIGHT_PERCENTAGE
 import org.fossify.keyboard.helpers.KEYBOARD_LANGUAGE
 import org.fossify.keyboard.helpers.LANGUAGE_ARABIC
@@ -117,10 +118,13 @@ import org.fossify.keyboard.helpers.LANGUAGE_SWEDISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
 import org.fossify.keyboard.helpers.LANGUAGE_UKRAINIAN
+import org.fossify.keyboard.helpers.LEARN_WORDS
 import org.fossify.keyboard.helpers.MyKeyboard
 import org.fossify.keyboard.helpers.SHOW_KEY_BORDERS
 import org.fossify.keyboard.helpers.SHOW_NUMBERS_ROW
+import org.fossify.keyboard.helpers.SHOW_WORD_SUGGESTIONS
 import org.fossify.keyboard.helpers.ShiftState
+import org.fossify.keyboard.helpers.SuggestionsController
 import org.fossify.keyboard.helpers.VOICE_INPUT_METHOD
 import org.fossify.keyboard.helpers.cachedVNTelexData
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
@@ -155,6 +159,15 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private var breakIterator: BreakIterator? = null
 
     private lateinit var binding: KeyboardViewKeyboardBinding
+
+    private val suggestions by lazy {
+        SuggestionsController(this, { currentInputConnection }) { keyboardView?.setWordSuggestions(it) }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        suggestions.loadSettings()
+    }
 
     override fun onInitializeInterface() {
         super.onInitializeInterface()
@@ -200,6 +213,12 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             breakIterator = BreakIterator.getCharacterInstance(ULocale.getDefault())
         }
         updateShiftKeyState()
+        suggestions.onInputChanged(attribute)
+    }
+
+    override fun onFinishInput() {
+        super.onFinishInput()
+        suggestions.onInputChanged(null)
     }
 
     private fun updateShiftKeyState() {
@@ -265,11 +284,14 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             MyKeyboard.KEYCODE_DELETE -> {
                 val selectedText = inputConnection.getSelectedText(0)
                 if (TextUtils.isEmpty(selectedText)) {
-                    val count = getCountToDelete(inputConnection)
-                    inputConnection.deleteSurroundingText(count, 0)
+                    if (!suggestions.undoCorrection()) {
+                        val count = getCountToDelete(inputConnection)
+                        inputConnection.deleteSurroundingText(count, 0)
+                    }
                 } else {
                     inputConnection.commitText("", 1)
                 }
+                suggestions.refresh()
             }
 
             MyKeyboard.KEYCODE_SHIFT -> {
@@ -301,6 +323,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 if (imeOptionsActionId != IME_ACTION_NONE) {
                     inputConnection.performEditorAction(imeOptionsActionId)
                 } else {
+                    suggestions.onCharTyped('\n')
                     inputConnection.sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
                     inputConnection.sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER))
                 }
@@ -369,7 +392,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                 // However, avoid doing that in cases when the EditText for example requires numbers as the input.
                 // We can detect that by the text not changing on pressing Space.
                 if (keyboardMode != KEYBOARD_LETTERS && inputTypeClass == TYPE_CLASS_TEXT && code == MyKeyboard.KEYCODE_SPACE) {
-                    inputConnection.commitText(codeChar.toString(), 1)
+                    commitTypedChar(inputConnection, codeChar)
                     val newText = inputConnection.getExtractedText(ExtractedTextRequest(), 0)?.text
                     if (originalText != newText) {
                         switchToLetters = keyboardMode != KEYBOARD_SYMBOLS_ALT
@@ -401,12 +424,20 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                         }
 
                         else -> {
-                            inputConnection.commitText(codeChar.toString(), 1)
+                            commitTypedChar(inputConnection, codeChar)
                             updateShiftKeyState()
                         }
                     }
                 }
+                suggestions.refresh()
             }
+        }
+    }
+
+    /** Commits a typed char, unless autocorrect committed it along with a correction of the word before it. */
+    private fun commitTypedChar(inputConnection: InputConnection, char: Char) {
+        if (!suggestions.onCharTyped(char)) {
+            inputConnection.commitText(char.toString(), 1)
         }
     }
 
@@ -459,6 +490,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
     override fun onText(text: String) {
         currentInputConnection?.commitText(text, 1)
+        suggestions.refresh()
+    }
+
+    override fun onSuggestionPicked(index: Int) {
+        if (suggestions.pick(index)) {
+            updateShiftKeyState()
+        }
     }
 
     override fun reloadKeyboard() {
@@ -506,6 +544,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             keyboardView?.closeClipboardManager()
         }
         updateShiftKeyState()
+        suggestions.refresh()
     }
 
     override fun onUpdateCursorAnchorInfo(cursorAnchorInfo: CursorAnchorInfo?) {
@@ -639,6 +678,10 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key in arrayOf(KEYBOARD_LANGUAGE, SHOW_WORD_SUGGESTIONS, AUTO_CORRECT, LEARN_WORDS)) {
+            suggestions.loadSettings()
+        }
+
         if (key != null && key in arrayOf(
                 SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
                 TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
@@ -680,8 +723,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     private fun constructKeyboard(keyboardXml: Int, enterKeyType: Int): MyKeyboard {
-        val keyboard = MyKeyboard(this, keyboardXml, enterKeyType)
-        return adjustBottomRow(keyboard)
+        val keyboard = adjustBottomRow(MyKeyboard(this, keyboardXml, enterKeyType))
+        suggestions.onKeyboardChanged(keyboard)
+        return keyboard
     }
 
     // hacky, but good enough for now

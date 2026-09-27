@@ -71,6 +71,37 @@
 
         </org.fossify.keyboard.views.InlineContentViewHorizontalScrollView>
 
+        <LinearLayout
+            android:id="@+id/word_suggestions_holder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/voice_input_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/word_suggestion_left"
+                style="@style/WordSuggestionChip" />
+
+            <TextView
+                android:id="@+id/word_suggestion_middle"
+                style="@style/WordSuggestionChip"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin" />
+
+            <TextView
+                android:id="@+id/word_suggestion_right"
+                style="@style/WordSuggestionChip" />
+
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/voice_input_button"
             android:layout_width="@dimen/toolbar_icon_height"

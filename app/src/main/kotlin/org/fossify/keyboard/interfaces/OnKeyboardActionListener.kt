@@ -40,6 +40,12 @@ interface OnKeyboardActionListener {
     fun onText(text: String)
 
     /**
+     * Called when the user taps a word suggestion.
+     * @param index the position of the suggestion on the strip, from the left
+     */
+    fun onSuggestionPicked(index: Int)
+
+    /**
      * Called to force the KeyboardView to reload the keyboard
      */
     fun reloadKeyboard()

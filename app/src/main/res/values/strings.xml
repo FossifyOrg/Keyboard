@@ -45,6 +45,13 @@
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
     <string name="show_emoji_key">Show emoji key</string>
     <string name="show_language_switch_key">Show language switch key</string>
+    <string name="show_word_suggestions">Show word suggestions</string>
+    <string name="auto_correct">Correct typos automatically</string>
+    <string name="learn_words">Learn new words</string>
+    <string name="clear_learned_words">Clear learned words</string>
+    <string name="clear_learned_words_confirmation">Are you sure you want to forget all the words the keyboard has learned?</string>
+    <!-- A typed word on the suggestion strip, which autocorrect would replace -->
+    <string name="typed_word">“%s”</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
     <string name="recently_used">Recently used</string>

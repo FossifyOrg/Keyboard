@@ -14,6 +14,24 @@
         <item name="keyTextSize">@dimen/preview_text_size</item>
     </style>
 
+    <style name="WordSuggestionChip">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:autoSizeMaxTextSize">@dimen/label_text_size</item>
+        <item name="android:autoSizeMinTextSize">@dimen/word_suggestion_min_text_size</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:background">@drawable/clipboard_background</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">@dimen/small_margin</item>
+        <item name="android:paddingTop">@dimen/tiny_margin</item>
+        <item name="android:paddingEnd">@dimen/small_margin</item>
+        <item name="android:paddingBottom">@dimen/tiny_margin</item>
+        <item name="android:textSize">@dimen/label_text_size</item>
+    </style>
+
     <style name="MyKeyboard.Alert" parent="Theme.Material3.Light.Dialog.Alert">
         <item name="colorAccent">@color/color_primary</item>
         <item name="android:buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>

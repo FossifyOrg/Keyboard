@@ -2,12 +2,14 @@ package org.fossify.keyboard.activities
 
 import android.content.Intent
 import android.os.Bundle
+import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.updateTextColors
 import org.fossify.commons.extensions.viewBinding
+import org.fossify.commons.helpers.MEDIUM_ALPHA
 import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
@@ -30,6 +32,7 @@ import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_90_PERCENT
 import org.fossify.keyboard.helpers.SOUND_ALWAYS
 import org.fossify.keyboard.helpers.SOUND_NONE
 import org.fossify.keyboard.helpers.SOUND_SYSTEM
+import org.fossify.keyboard.helpers.UserWordsRepository
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -65,6 +68,10 @@ class SettingsActivity : SimpleActivity() {
         setupShowLanguageSwitchKey()
         setupShowClipboardContent()
         setupSentencesCapitalization()
+        setupShowWordSuggestions()
+        setupAutoCorrect()
+        setupLearnWords()
+        setupClearLearnedWords()
         setupShowNumbersRow()
         setupVoiceInputMethod()
 
@@ -269,6 +276,60 @@ class SettingsActivity : SimpleActivity() {
                 settingsStartSentencesCapitalized.toggle()
                 config.enableSentencesCapitalization = settingsStartSentencesCapitalized.isChecked
             }
+        }
+    }
+
+    private fun setupShowWordSuggestions() {
+        binding.apply {
+            settingsShowWordSuggestions.isChecked = config.showWordSuggestions
+            settingsShowWordSuggestionsHolder.setOnClickListener {
+                settingsShowWordSuggestions.toggle()
+                config.showWordSuggestions = settingsShowWordSuggestions.isChecked
+                updateWordSuggestionSettings()
+            }
+        }
+    }
+
+    private fun setupAutoCorrect() {
+        binding.apply {
+            settingsAutoCorrect.isChecked = config.autoCorrect
+            settingsAutoCorrectHolder.setOnClickListener {
+                settingsAutoCorrect.toggle()
+                config.autoCorrect = settingsAutoCorrect.isChecked
+            }
+        }
+        updateWordSuggestionSettings()
+    }
+
+    private fun setupLearnWords() {
+        binding.apply {
+            settingsLearnWords.isChecked = config.learnWords
+            settingsLearnWordsHolder.setOnClickListener {
+                settingsLearnWords.toggle()
+                config.learnWords = settingsLearnWords.isChecked
+            }
+        }
+        updateWordSuggestionSettings()
+    }
+
+    private fun setupClearLearnedWords() {
+        binding.settingsClearLearnedWordsHolder.setOnClickListener {
+            ConfirmationDialog(this, "", R.string.clear_learned_words_confirmation, R.string.yes, R.string.cancel) {
+                UserWordsRepository.getInstance(this).clear()
+            }
+        }
+    }
+
+    /** The settings that refine word suggestions are disabled while suggestions are off. */
+    private fun updateWordSuggestionSettings() {
+        val enabled = config.showWordSuggestions
+        binding.apply {
+            arrayOf(settingsAutoCorrectHolder, settingsLearnWordsHolder).forEach {
+                it.isEnabled = enabled
+                it.alpha = if (enabled) 1f else MEDIUM_ALPHA
+            }
+            settingsAutoCorrect.isEnabled = enabled
+            settingsLearnWords.isEnabled = enabled
         }
     }
 

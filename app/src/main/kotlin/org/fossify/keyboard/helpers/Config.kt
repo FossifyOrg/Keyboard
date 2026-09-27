@@ -63,6 +63,18 @@ class Config(context: Context) : BaseConfig(context) {
         }
         set(showNumbersRow) = prefs.edit().putBoolean(SHOW_NUMBERS_ROW, showNumbersRow).apply()
 
+    var showWordSuggestions: Boolean
+        get() = prefs.getBoolean(SHOW_WORD_SUGGESTIONS, true)
+        set(showWordSuggestions) = prefs.edit().putBoolean(SHOW_WORD_SUGGESTIONS, showWordSuggestions).apply()
+
+    var autoCorrect: Boolean
+        get() = prefs.getBoolean(AUTO_CORRECT, false)
+        set(autoCorrect) = prefs.edit().putBoolean(AUTO_CORRECT, autoCorrect).apply()
+
+    var learnWords: Boolean
+        get() = prefs.getBoolean(LEARN_WORDS, true)
+        set(learnWords) = prefs.edit().putBoolean(LEARN_WORDS, learnWords).apply()
+
     var voiceInputMethod: String
         get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
         set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()

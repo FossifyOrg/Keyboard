@@ -31,6 +31,9 @@ const val SHOW_NUMBERS_ROW = "show_numbers_row"
 const val SELECTED_LANGUAGES = "selected_languages"
 const val VOICE_INPUT_METHOD = "voice_input_method"
 const val RECENTLY_USED_EMOJIS = "recently_used_emojis"
+const val SHOW_WORD_SUGGESTIONS = "show_word_suggestions"
+const val AUTO_CORRECT = "auto_correct"
+const val LEARN_WORDS = "learn_words"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0
@@ -140,6 +143,7 @@ const val KEYBOARD_HEIGHT_160_PERCENT = 160
 
 const val EMOJI_SPEC_FILE_PATH = "media/emoji_spec.txt"
 const val LANGUAGE_VN_TELEX = "language/extension.json"
+const val DICTIONARIES_FOLDER = "dictionaries"
 const val RECENT_EMOJIS_LIMIT = 36
 
 // Android constant

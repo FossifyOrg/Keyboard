@@ -13,6 +13,8 @@ detektCompose = "0.4.28"
 room = "2.8.5"
 #Fossify
 commons = "6.1.6"
+#Testing
+junit = "4.13.2"
 #Gradle
 gradlePlugins-agp = "9.4.1"
 #build
@@ -33,6 +35,8 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
+#Testing
+junit = { module = "junit:junit", version.ref = "junit" }
 [bundles]
 room = [
     "androidx-room-ktx",
