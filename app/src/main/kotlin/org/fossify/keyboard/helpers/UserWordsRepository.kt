@@ -7,6 +7,7 @@ import org.fossify.keyboard.databases.UserWordsDatabase
 import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.models.UserWord
 import org.fossify.keyboard.suggestions.EngineConstants
+import org.fossify.keyboard.suggestions.LanguageRules
 import org.fossify.keyboard.suggestions.UserLexicon
 import java.util.concurrent.Executors
 
@@ -23,12 +24,13 @@ class UserWordsRepository private constructor(context: Context) {
     /** Returns the lexicon of [locale]. The first time, its words are loaded in the background. */
     fun lexicon(locale: String): UserLexicon {
         return lexicons.getOrPut(locale) {
-            UserLexicon().also { lexicon ->
-                executor.execute {
-                    val words = dao.getWords(locale)
-                    handler.post { words.forEach { lexicon.add(it.word, it.count) } }
-                }
+            val rules = LanguageRules.forLocale(locale)
+            val lexicon = UserLexicon(keepsCapitals = rules.keepsLearnedCapitals, keepsAccents = rules.restoresAccents)
+            executor.execute {
+                val words = dao.getWords(locale)
+                handler.post { words.forEach { lexicon.add(it.word, it.count) } }
             }
+            lexicon
         }
     }
 

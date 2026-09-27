@@ -7,6 +7,7 @@ import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.dictionaryLocale
 import org.fossify.keyboard.extensions.isDeviceLocked
 import org.fossify.keyboard.suggestions.KeyboardGeometry
+import org.fossify.keyboard.suggestions.LanguageRules
 import org.fossify.keyboard.suggestions.SuggestionChip
 import org.fossify.keyboard.suggestions.SuggestionEngine
 import org.fossify.keyboard.suggestions.SuggestionSession
@@ -45,7 +46,7 @@ class SuggestionsController(
             dictionaries.load(locale) { trie ->
                 // The language may have changed while the dictionary was loading
                 if (context.config.keyboardLanguage.dictionaryLocale() == locale) {
-                    engine = SuggestionEngine(trie, geometry)
+                    engine = SuggestionEngine(trie, geometry, LanguageRules.forLocale(locale))
                     engineLocale = locale
                     updateSession()
                     refresh()

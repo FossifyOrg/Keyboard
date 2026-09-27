@@ -8,9 +8,16 @@ class UserCandidate(val word: String, val key: String, val freq: Int, val cost: 
 
 /**
  * The words the user taught the keyboard, with how often they were confirmed. There are few enough of them to be
- * compared with the typed word one by one. The least recently confirmed words make room for new ones.
+ * compared with the typed word one by one. The least recently confirmed words make room for new ones. Spellings of a
+ * word that fold alike are one word; [keepsCapitals] and [keepsAccents] tell whether a later spelling without the
+ * capital or the accents of the learned one is still the same spelling, as in languages where nouns are capitalized
+ * or accents are often left out.
  */
-class UserLexicon(private val capacity: Int = EngineConstants.MAX_USER_WORDS) {
+class UserLexicon(
+    private val capacity: Int = EngineConstants.MAX_USER_WORDS,
+    private val keepsCapitals: Boolean = false,
+    private val keepsAccents: Boolean = false,
+) {
     private val words = object : LinkedHashMap<String, Entry>(INITIAL_CAPACITY, LOAD_FACTOR, false) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, Entry>) = size > capacity
     }
@@ -33,12 +40,18 @@ class UserLexicon(private val capacity: Int = EngineConstants.MAX_USER_WORDS) {
     /**
      * Counts [uses] confirmations of [word] and returns the learned word, or null if it doesn't fit the alphabet. A
      * word first learned with a capital is kept in lowercase once it's used in lowercase, as the capital was probably
-     * the sentence's.
+     * the sentence's, unless [keepsCapitals]. A word learned with accents keeps them if [keepsAccents].
      */
     fun learn(word: String, uses: Int = 1): LearnedWord? {
         val key = Alphabet.fold(word) ?: return null
         val entry = words.remove(key)
-        val surface = if (entry == null || word == word.lowercase()) word else entry.word
+        val surface = when {
+            entry == null -> word
+            word != word.lowercase() -> entry.word
+            keepsCapitals && entry.word != entry.word.lowercase() -> entry.word
+            keepsAccents && hasAccents(entry.word) && !hasAccents(word) -> entry.word
+            else -> word
+        }
         val learned = Entry(surface, (entry?.count ?: 0) + uses)
         words[key] = learned
         version++
@@ -92,6 +105,8 @@ class UserLexicon(private val capacity: Int = EngineConstants.MAX_USER_WORDS) {
         val zipf = EngineConstants.USER_WORD_ZIPF + ln(count.toFloat())
         return (zipf * EngineConstants.FREQ_SCALE).roundToInt().coerceAtMost(ArrayTrie.MAX_FREQ)
     }
+
+    private fun hasAccents(word: String) = Alphabet.fold(word) != word.lowercase()
 
     private class Entry(val word: String, val count: Int) {
         val symbols = Alphabet.fold(word).orEmpty().let { key -> IntArray(key.length) { Alphabet.symbolOf(key[it]) } }

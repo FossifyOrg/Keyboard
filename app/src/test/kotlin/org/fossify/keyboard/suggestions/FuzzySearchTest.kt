@@ -76,12 +76,12 @@ class FuzzySearchTest {
 
     @Test
     fun neighbouringKeysAreCheaper() {
-        val qwerty = KeyboardGeometry.QWERTY
+        val qwerty = KeyboardErrorModel(KeyboardGeometry.QWERTY)
         val q = Alphabet.symbolOf('q')
         val p = Alphabet.symbolOf('p')
         assertTrue(qwerty.substitutionCost(q, Alphabet.symbolOf('w')) < qwerty.substitutionCost(q, p))
         assertEquals(EngineConstants.SUB_MAX, qwerty.substitutionCost(q, Alphabet.symbolOf('p')))
-        assertTrue(qwerty.areNeighbours(q, Alphabet.symbolOf('a')))
+        assertTrue(KeyboardGeometry.QWERTY.areNeighbours(q, Alphabet.symbolOf('a')))
     }
 
     @Test
@@ -90,12 +90,13 @@ class FuzzySearchTest {
             listOf("',.pyfgcrl", "aoeuidhtns", ";qjkxbmwvz"),
             listOf(0f, 0.5f, 1.5f)
         )
-        val qwerty = KeyboardGeometry.QWERTY
+        val qwerty = KeyboardErrorModel(KeyboardGeometry.QWERTY)
+        val dvorakCosts = KeyboardErrorModel(dvorak)
         val t = Alphabet.symbolOf('t')
         val h = Alphabet.symbolOf('h')
         val y = Alphabet.symbolOf('y')
-        assertTrue(dvorak.substitutionCost(t, h) < qwerty.substitutionCost(t, h))
-        assertTrue(dvorak.substitutionCost(t, y) > qwerty.substitutionCost(t, y))
+        assertTrue(dvorakCosts.substitutionCost(t, h) < qwerty.substitutionCost(t, h))
+        assertTrue(dvorakCosts.substitutionCost(t, y) > qwerty.substitutionCost(t, y))
 
         // D is next to H on Dvorak but not on QWERTY
         val dvorakEngine = SuggestionEngine(TestDictionary.trie, dvorak)

@@ -3,6 +3,10 @@ package org.fossify.keyboard.suggestions
 
 /** Tuning constants of the suggestion engine. Costs are in edits, distances in key widths. Weights were tuned with
  * TypoEvaluationTest on the dev half of its datasets.
+ *
+ * The weights of the error model and the ranking tuned per language (SUB_BASE, SUB_PER_KEY, INS_NEAR, DEL_APOSTROPHE,
+ * DEL_DOUBLE, TRANSPOSITION, FIRST_LETTER_FACTOR, COST_WEIGHT, JW_WEIGHT and AUTOCORRECT_MARGIN) are those of English
+ * here, and the defaults of [EngineWeights].
  */
 object EngineConstants {
     // Substitution: min(SUB_MAX, SUB_BASE + SUB_PER_KEY * distance between the key centres)
@@ -55,6 +59,9 @@ object EngineConstants {
     const val JW_WEIGHT = 6.0f
     const val EXACT_BONUS = 1.0f
 
+    /** Added to the spelling of the typed key that matches the typed accents, above any frequency difference. */
+    const val TYPED_SPELLING_BONUS = 9.0f
+
     // Jaro-Winkler
     const val JW_PREFIX_SCALE = 0.1f
     const val JW_MAX_PREFIX = 4
@@ -75,6 +82,10 @@ object EngineConstants {
      */
     const val LEARN_AFTER_USES = 2
     const val STICKY_USES = 3
+
+    // Compounds: words at least this long made of two words at least this long are valid in some languages
+    const val MIN_COMPOUND_LENGTH = 8
+    const val MIN_COMPOUND_PART_LENGTH = 3
 
     const val MAX_SUGGESTIONS = 3
     const val CACHE_SIZE = 32

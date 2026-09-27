@@ -7,32 +7,33 @@ package org.fossify.keyboard.suggestions
  */
 object AutocorrectPolicy {
     private const val BLOCKING_CHARS = ".@#/_:"
-    private const val LONE_I = "i"
 
     /**
      * Returns the word [token] should be corrected to, or null. [token] is the text since the last whitespace, so it
      * includes any symbols before the word [suggestions] were made for. [isStickyUserWord] tells whether the typed word
      * was learned for good; a learned word that isn't sticky yet is suggested, but corrected like an unknown word.
-     * [margin] is how much the best candidate must beat the runner-up by.
+     * [margin] is how much the best candidate must beat the runner-up by, by default that of the language.
      */
     fun correctionFor(
         token: String,
         suggestions: Suggestions,
         reverted: Set<String>,
         isStickyUserWord: Boolean,
-        margin: Float = EngineConstants.AUTOCORRECT_MARGIN,
+        margin: Float = suggestions.rules.weights.margin,
     ): ScoredWord? {
         val typed = suggestions.typed
         val candidates = if (suggestions.typedIsWord) {
             suggestions.candidates
         } else {
-            // The only exact match of a word missing from the dictionary is the learned word itself
-            suggestions.candidates.filterNot { it.isExact }
+            // A word missing from the dictionary isn't replaced by itself or by the word learned for it, but an exact
+            // match spelled differently is a correction, like não for nao
+            suggestions.candidates.filterNot { it.isExact && (it.isLearned || it.word.equals(typed, true)) }
         }
 
         val top = candidates.firstOrNull()
         return when {
-            top == null || !isCorrectable(token, typed) || typed in reverted || isStickyUserWord -> null
+            top == null || typed in reverted || isStickyUserWord -> null
+            !isCorrectable(token, typed, suggestions.rules) -> null
             suggestions.typedIsWord -> top.takeIf { isCaseFix(typed, it) }
             !isSafe(top, suggestions.maxCost) -> null
             isApostropheFix(typed, top) -> top
@@ -40,10 +41,13 @@ object AutocorrectPolicy {
         }
     }
 
-    /** Words with digits or inside mentions, hashtags, paths, URLs and e-mail addresses are never corrected. */
-    fun isCorrectable(token: String, typed: String): Boolean {
+    /**
+     * Words with digits or inside mentions, hashtags, paths, URLs and e-mail addresses are never corrected, and single
+     * letters only if the [rules] of the language say so.
+     */
+    fun isCorrectable(token: String, typed: String, rules: LanguageRules = LanguageRules.ENGLISH): Boolean {
         return when {
-            typed.isEmpty() || (typed.length < 2 && typed != LONE_I) -> false
+            typed.isEmpty() || (typed.length < 2 && typed !in rules.loneLetterFixes) -> false
             token.any { it.isDigit() || it in BLOCKING_CHARS } -> false
             else -> typed.length < 2 || CaseMapper.patternOf(typed) != CaseMapper.UPPER
         }

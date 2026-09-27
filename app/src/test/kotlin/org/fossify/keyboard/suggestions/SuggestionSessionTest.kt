@@ -212,6 +212,18 @@ class SuggestionSessionTest {
         assertEquals("teh the |", field.toString())
     }
 
+    @Test
+    fun revertedWordsAreForgottenWithAnotherDictionary() {
+        autocorrecting()
+        val field = FakeTextField("")
+        type(field, "teh ")
+        session.undoCorrection(field)
+        type(field, " ")
+        session.engine = SuggestionEngine(TestDictionary.trie)
+        type(field, "teh ")
+        assertEquals("teh the |", field.toString())
+    }
+
     private fun learning(): UserLexicon {
         val lexicon = UserLexicon()
         session.engine!!.userLexicon = lexicon

@@ -2,11 +2,28 @@ package org.fossify.keyboard.suggestions
 
 import java.io.File
 
-/** The real en_US dictionary asset, loaded once for all tests. Unit tests run with the module as working directory. */
+/** The real dictionary assets, loaded once per locale for all tests. Unit tests run with the module as working dir. */
 object TestDictionary {
-    val file = File("src/main/assets/dictionaries/en_US.tsv")
+    private val loaded = HashMap<String, Pair<List<DictionaryEntry>, ArrayTrie>>()
 
-    val entries: List<DictionaryEntry> by lazy { file.inputStream().use { DictionaryLoader.parse(it) } }
+    fun file(locale: String) = File("src/main/assets/dictionaries/$locale.tsv")
 
-    val trie: ArrayTrie by lazy { TrieBuilder.build(entries) }
+    fun entries(locale: String) = load(locale).first
+
+    fun trie(locale: String) = load(locale).second
+
+    /** The English dictionary, which most tests use. */
+    val entries: List<DictionaryEntry>
+        get() = entries(ENGLISH)
+
+    val trie: ArrayTrie
+        get() = trie(ENGLISH)
+
+    @Synchronized
+    private fun load(locale: String) = loaded.getOrPut(locale) {
+        val entries = file(locale).inputStream().use { DictionaryLoader.parse(it) }
+        entries to TrieBuilder.build(entries)
+    }
+
+    private const val ENGLISH = "en_US"
 }

@@ -83,9 +83,13 @@ object TrieBuilder {
             if (previousSymbol != Alphabet.NO_SYMBOL) rangeHi[nodeCount - 1] = hi
         }
 
-        /** The most frequent entry of a key is its primary word, the others go to the variant table. */
+        /**
+         * The most frequent entry of a key is its primary word, the others go to the variant table. Offensive entries
+         * are only primary if every entry is, so completions, which only look at primary words, still find the others.
+         */
         private fun makeTerminal(node: Int, group: IntRange) {
-            val primary = entries[group.maxBy { entries[it].freq }]
+            val inoffensive = group.filter { entries[it].flags and ArrayTrie.OFFENSIVE == 0 }
+            val primary = entries[inoffensive.ifEmpty { group.toList() }.maxBy { entries[it].freq }]
             val caseKind = caseKindOf(primary.key, primary.surface)
             var link = ArrayTrie.FLAG_TERMINAL or
                 (caseKind shl ArrayTrie.CASE_SHIFT) or

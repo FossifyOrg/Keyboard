@@ -15,6 +15,8 @@ class KeyboardGeometryTest {
         }
     }
 
+    private fun costs(geometry: KeyboardGeometry) = KeyboardErrorModel(geometry)
+
     private val qwertyRows = listOf("qwertyuiop", "asdfghjkl", "zxcvbnm")
     private val qwertyOffsets = listOf(0f, 0.5f, 1.5f)
 
@@ -26,7 +28,8 @@ class KeyboardGeometryTest {
                 val sa = Alphabet.symbolOf(a)
                 val sb = Alphabet.symbolOf(b)
                 val grid = KeyboardGeometry.QWERTY
-                assertEquals("$a$b", grid.substitutionCost(sa, sb), geometry.substitutionCost(sa, sb), DELTA)
+                val expected = costs(grid).substitutionCost(sa, sb)
+                assertEquals("$a$b", expected, costs(geometry).substitutionCost(sa, sb), DELTA)
                 assertEquals("$a$b", grid.areNeighbours(sa, sb), geometry.areNeighbours(sa, sb))
             }
         }
@@ -38,9 +41,10 @@ class KeyboardGeometryTest {
         val dvorak = KeyboardGeometry.fromKeyBounds(bounds(dvorakRows, listOf(0f, 0f, 0f)))!!
         val e = Alphabet.symbolOf('e')
         val r = Alphabet.symbolOf('r')
-        assertNotEquals(KeyboardGeometry.QWERTY.substitutionCost(e, r), dvorak.substitutionCost(e, r))
+        val dvorakCosts = costs(dvorak)
+        assertNotEquals(costs(KeyboardGeometry.QWERTY).substitutionCost(e, r), dvorakCosts.substitutionCost(e, r))
         val neighbourCost = EngineConstants.SUB_BASE + EngineConstants.SUB_PER_KEY
-        assertEquals(neighbourCost, dvorak.substitutionCost(Alphabet.symbolOf('o'), Alphabet.symbolOf('e')), DELTA)
+        assertEquals(neighbourCost, dvorakCosts.substitutionCost(Alphabet.symbolOf('o'), Alphabet.symbolOf('e')), DELTA)
     }
 
     @Test

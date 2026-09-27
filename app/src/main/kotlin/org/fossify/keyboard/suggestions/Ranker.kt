@@ -8,6 +8,8 @@ class Ranker(
     private val costWeight: Float = EngineConstants.COST_WEIGHT,
     private val jaroWinklerWeight: Float = EngineConstants.JW_WEIGHT,
 ) {
+    constructor(weights: EngineWeights) : this(weights.costWeight, weights.jwWeight)
+
     fun score(
         typedKey: String,
         candidateKey: String,

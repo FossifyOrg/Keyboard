@@ -96,11 +96,10 @@ class ArrayTrie internal constructor(
 
 /** Returns the node reached by the folded chars of [word], or [ArrayTrie.NO_NODE]. It isn't necessarily a word. */
 fun ArrayTrie.find(word: CharSequence): Int {
+    val key = Alphabet.fold(word) ?: return ArrayTrie.NO_NODE
     var node = ArrayTrie.ROOT
-    for (c in word) {
-        val symbol = Alphabet.symbolOf(Alphabet.fold(c))
-        if (symbol == Alphabet.NO_SYMBOL) return ArrayTrie.NO_NODE
-        node = child(node, symbol)
+    for (c in key) {
+        node = child(node, Alphabet.symbolOf(c))
         if (node == ArrayTrie.NO_NODE) return ArrayTrie.NO_NODE
     }
 

@@ -3,35 +3,23 @@ package org.fossify.keyboard.suggestions
 import kotlin.math.hypot
 
 /**
- * Key centres of the active layout in key-width units, and the substitution costs derived from them. Symbols without a
- * key (such as the apostrophe on most layouts) are as far from everything as possible.
+ * Key centres of the active layout in key-width units, and which keys are neighbours. Symbols without a key (such as
+ * the apostrophe on most layouts) are as far from everything as possible. The costs of hitting the wrong key are
+ * derived from the distances by [KeyboardErrorModel].
  */
 class KeyboardGeometry private constructor(private val xs: FloatArray, private val ys: FloatArray) {
-    private val substitutionCosts = FloatArray(Alphabet.size * Alphabet.size)
     private val neighbours = BooleanArray(Alphabet.size * Alphabet.size)
 
     init {
         for (a in 0 until Alphabet.size) {
             for (b in 0 until Alphabet.size) {
-                val distance = distance(a, b)
-                val index = a * Alphabet.size + b
-                substitutionCosts[index] = when {
-                    a == b -> 0f
-                    distance.isNaN() -> EngineConstants.SUB_MAX
-                    else -> minOf(
-                        EngineConstants.SUB_MAX,
-                        EngineConstants.SUB_BASE + EngineConstants.SUB_PER_KEY * distance
-                    )
-                }
-                neighbours[index] = a != b && distance <= EngineConstants.NEIGHBOUR_DISTANCE
+                neighbours[a * Alphabet.size + b] = a != b && distance(a, b) <= EngineConstants.NEIGHBOUR_DISTANCE
             }
         }
     }
 
     /** Returns the distance between the key centres of two symbols, or NaN if one of them has no key. */
     fun distance(a: Int, b: Int) = hypot(xs[a] - xs[b], ys[a] - ys[b])
-
-    fun substitutionCost(typed: Int, intended: Int) = substitutionCosts[typed * Alphabet.size + intended]
 
     fun areNeighbours(a: Int, b: Int) = neighbours[a * Alphabet.size + b]
 
@@ -42,15 +30,23 @@ class KeyboardGeometry private constructor(private val xs: FloatArray, private v
         private const val HALF = 0.5f
         private const val MIN_LETTER_KEYS = 20
 
-        /** Builds the geometry from key centres in any unit, given the width of a key in that unit. */
+        /**
+         * Builds the geometry from key centres in any unit, given the width of a key in that unit. A symbol is placed
+         * on its own key rather than on an accented one, so n stays where it is on layouts with an ñ key; accented
+         * keys only place symbols that have no key of their own.
+         */
         fun fromKeys(chars: CharArray, xs: FloatArray, ys: FloatArray, keyWidth: Float): KeyboardGeometry {
             val symbolXs = FloatArray(Alphabet.size) { Float.NaN }
             val symbolYs = FloatArray(Alphabet.size) { Float.NaN }
-            for (i in chars.indices) {
-                val symbol = Alphabet.symbolOf(Alphabet.fold(chars[i]))
-                if (symbol != Alphabet.NO_SYMBOL && symbolXs[symbol].isNaN()) {
-                    symbolXs[symbol] = xs[i] / keyWidth
-                    symbolYs[symbol] = ys[i] / keyWidth
+            for (plainKeys in listOf(true, false)) {
+                for (i in chars.indices) {
+                    val folded = Alphabet.fold(chars[i])
+                    val symbol = Alphabet.symbolOf(folded)
+                    val isPlain = folded == chars[i].lowercaseChar()
+                    if (symbol != Alphabet.NO_SYMBOL && isPlain == plainKeys && symbolXs[symbol].isNaN()) {
+                        symbolXs[symbol] = xs[i] / keyWidth
+                        symbolYs[symbol] = ys[i] / keyWidth
+                    }
                 }
             }
 

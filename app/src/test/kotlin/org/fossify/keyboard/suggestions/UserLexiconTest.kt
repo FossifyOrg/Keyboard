@@ -135,7 +135,7 @@ class UserLexiconTest {
             .take(EngineConstants.MAX_USER_WORDS)
             .toList()
 
-        val queries = Evaluation.syntheticCases(LATENCY_QUERIES).map { it.typed }
+        val queries = LanguageCase.ENGLISH.evaluation.syntheticCases(LATENCY_QUERIES).map { it.typed }
         val engine = SuggestionEngine(TestDictionary.trie)
         val (_, withoutWords) = Evaluation.latency({ engine.suggest(it).words }, queries)
         engine.userLexicon = UserLexicon().apply { learned.forEach { learn(it) } }

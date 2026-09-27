@@ -7,8 +7,19 @@ package org.fossify.keyboard.suggestions
  * updates can arrive late.
  */
 class SuggestionSession {
-    /** The engine of the dictionary for the keyboard language, or null while none is loaded. */
+    /**
+     * The engine of the dictionary for the keyboard language, or null while none is loaded. What was learned about
+     * the words typed with another engine is forgotten.
+     */
     var engine: SuggestionEngine? = null
+        set(value) {
+            if (value !== field) {
+                unknownWordUses.clear()
+                reverted.clear()
+                lastCorrection = null
+            }
+            field = value
+        }
 
     /** Whether the settings and the text field allow suggestions. */
     var isEnabled = false
@@ -44,7 +55,7 @@ class SuggestionSession {
         val text = if (isEnabled && engine != null) readText(field) else null
         if (text == null || lastCorrection?.matches(text) != true) lastCorrection = null
 
-        val current = text?.let { CurrentWord.find(it.before, it.after) }
+        val current = text?.let { findWord(it, engine) }
         word = current?.word
         if (engine == null || current == null) return show(emptyList())
 
@@ -70,10 +81,10 @@ class SuggestionSession {
 
     private fun finishWord(field: TextField, char: Char): Boolean {
         val engine = engine ?: return false
-        if (!isEnabled || !isSeparator(char)) return false
+        if (!isEnabled || !isSeparator(char, engine.rules)) return false
 
         val text = readText(field) ?: return false
-        val current = CurrentWord.find(text.before, text.after) ?: return false
+        val current = findWord(text, engine) ?: return false
 
         // A single letter before a period is an abbreviation, like the i of i.e.
         if (char == PERIOD && current.word.length == 1) return false
@@ -82,7 +93,9 @@ class SuggestionSession {
         val correction = AutocorrectPolicy.correctionFor(current.token, suggestions, reverted, isSticky(current.word))
         return when {
             correction == null -> {
-                if (AutocorrectPolicy.isCorrectable(current.token, current.word)) confirm(current.word, 1)
+                if (AutocorrectPolicy.isCorrectable(current.token, current.word, engine.rules)) {
+                    confirm(current.word, 1)
+                }
                 false
             }
 
@@ -163,7 +176,7 @@ class SuggestionSession {
      */
     fun pick(field: TextField, index: Int): Boolean {
         val chip = chips.getOrNull(index) ?: return false
-        val current = readText(field)?.let { CurrentWord.find(it.before, it.after) }
+        val current = readText(field)?.let { findWord(it, engine) }
         if (current == null || current.word != word) return false
 
         field.replaceBeforeCursor(current.word.length, chip.word + SPACE)
@@ -225,6 +238,14 @@ class SuggestionSession {
             return TextAroundCursor(before, after)
         }
 
-        fun isSeparator(char: Char) = char in SEPARATORS || char == NEW_LINE
+        /** Finds the word before the cursor, or the part of it the dictionary of the [engine] is asked about. */
+        private fun findWord(text: TextAroundCursor, engine: SuggestionEngine?): CurrentWord? {
+            val current = CurrentWord.find(text.before, text.after) ?: return null
+            if (engine == null) return current
+            return current.lookedUp(engine.rules) { engine.isKnownPrefix(it) }
+        }
+
+        fun isSeparator(char: Char, rules: LanguageRules) =
+            char in SEPARATORS || char == NEW_LINE || char in rules.extraSeparators
     }
 }

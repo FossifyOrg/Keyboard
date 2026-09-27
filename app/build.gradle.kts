@@ -111,6 +111,11 @@ android {
         generateLocaleConfig = true
     }
 
+    testOptions {
+        // The suggestion tests load the dictionaries of several languages at once
+        unitTests.all { it.maxHeapSize = "2g" }
+    }
+
     tasks.withType<KotlinCompile> {
         compilerOptions.jvmTarget.set(
             JvmTarget.fromTarget(project.libs.versions.app.build.kotlinJVMTarget.get())

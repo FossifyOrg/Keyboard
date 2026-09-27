@@ -28,28 +28,49 @@ interface ErrorModel {
 
 /**
  * Weights edits by what's likely on a touch keyboard: hitting a neighbouring key, touching two adjacent keys at once,
- * doubling or missing a double letter and leaving out apostrophes are cheap.
+ * doubling or missing a double letter and leaving out apostrophes are cheap. The costs come from the [weights] of the
+ * language and the key positions of the [geometry].
  */
-class KeyboardErrorModel(private val geometry: KeyboardGeometry) : ErrorModel {
+class KeyboardErrorModel(
+    private val geometry: KeyboardGeometry,
+    private val weights: EngineWeights = EngineWeights.ENGLISH,
+) : ErrorModel {
     private val apostrophe = Alphabet.symbolOf(Alphabet.APOSTROPHE)
+    private val substitutionCosts = FloatArray(Alphabet.size * Alphabet.size)
 
-    override val transposition = EngineConstants.TRANSPOSITION
+    init {
+        for (a in 0 until Alphabet.size) {
+            for (b in 0 until Alphabet.size) {
+                val distance = geometry.distance(a, b)
+                substitutionCosts[a * Alphabet.size + b] = when {
+                    a == b -> 0f
+                    distance.isNaN() -> EngineConstants.SUB_MAX
+                    else -> minOf(EngineConstants.SUB_MAX, weights.subBase + weights.subPerKey * distance)
+                }
+            }
+        }
+    }
 
-    override val firstLetterFactor = EngineConstants.FIRST_LETTER_FACTOR
+    override val transposition = weights.transposition
 
-    override fun substitution(typed: IntArray, i: Int, intended: Int) = geometry.substitutionCost(typed[i], intended)
+    override val firstLetterFactor = weights.firstLetterFactor
+
+    override fun substitution(typed: IntArray, i: Int, intended: Int) = substitutionCost(typed[i], intended)
+
+    /** The cost of typing the [typed] symbol instead of the [intended] one. */
+    fun substitutionCost(typed: Int, intended: Int) = substitutionCosts[typed * Alphabet.size + intended]
 
     override fun insertion(typed: IntArray, i: Int): Float {
         val symbol = typed[i]
         val nearPrevious = i > 0 && (typed[i - 1] == symbol || geometry.areNeighbours(typed[i - 1], symbol))
         val nearNext = i + 1 < typed.size && geometry.areNeighbours(typed[i + 1], symbol)
-        return if (nearPrevious || nearNext) EngineConstants.INS_NEAR else EngineConstants.INS_DEFAULT
+        return if (nearPrevious || nearNext) weights.insNear else EngineConstants.INS_DEFAULT
     }
 
     override fun deletion(intended: Int, previous: Int): Float {
         return when (intended) {
-            apostrophe -> EngineConstants.DEL_APOSTROPHE
-            previous -> EngineConstants.DEL_DOUBLE
+            apostrophe -> weights.delApostrophe
+            previous -> weights.delDouble
             else -> EngineConstants.DEL_DEFAULT
         }
     }
