@@ -28,6 +28,8 @@ class LanguageCase(
     val offensiveWords: List<String> = emptyList(),
     /** The largest share of each typo dataset that autocorrect may change into a wrong word. */
     val maxAutocorrectWrong: Float = 0.05f,
+    /** The largest share of valid words missing from the dictionary that autocorrect may change. */
+    val maxUnknownChanged: Float = 0.1f,
 ) {
     val rules: LanguageRules
         get() = LanguageRules.forLocale(locale)
@@ -113,8 +115,34 @@ class LanguageCase(
             offensiveWords = listOf("porra", "merda"),
         )
 
+        val GERMAN = LanguageCase(
+            locale = "de_DE",
+            geometry = layout(
+                KeyRow("qwertzuiopü", GERMAN_KEY),
+                KeyRow("asdfghjklöä", GERMAN_KEY),
+                KeyRow("yxcvbnm", start = SHIFT),
+            ),
+            isSourceWord = ::isLetterWord,
+            sizes = 115_000..145_000,
+            commonestWord = "der",
+            mustCorrect = listOf(
+                "fur" to "für", "uber" to "über", "strasse" to "Straße", "haus" to "Haus", "mussen" to "müssen",
+                "konnen" to "können", "Madchen" to "Mädchen",
+            ),
+            mustSuggest = listOf(
+                "danle" to "danke", "nicjt" to "nicht", "vielleichr" to "vielleicht", "schon" to "schon",
+                "schön" to "schön", "essen" to "essen", "Essen" to "Essen",
+            ),
+            expectedWords = listOf("Straße", "für", "Haus", "essen", "Bär", "bar", "E-Mail", "Mädchen", "groß"),
+            absentWords = listOf("fur", "uber", "strasse", "Madchen"),
+            offensiveWords = listOf("Arschloch", "scheiße"),
+            // German capitalizes nouns like names, so a name looks like a capitalized typo of a short word at the
+            // start of a sentence (Rewe, Rede)
+            maxUnknownChanged = 0.15f,
+        )
+
         /** Every language with a dictionary, English first. */
-        val ALL = listOf(ENGLISH, SPANISH, PORTUGUESE)
+        val ALL = listOf(ENGLISH, SPANISH, PORTUGUESE, GERMAN)
 
         fun of(locale: String) = ALL.first { it.locale == locale }
 
@@ -137,6 +165,9 @@ class LanguageCase(
 
         /** Where the letters of the bottom row start, after the shift key. */
         private const val SHIFT = 15f
+
+        /** The width of the keys of the German layout, which has eleven keys in its upper rows. */
+        private const val GERMAN_KEY = 9.05f
         private const val SCALE = 100
         private const val ROW_HEIGHT = 1500
     }

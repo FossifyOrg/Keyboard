@@ -72,9 +72,22 @@ class LanguageDictionaryTest(locale: String) {
         }
     }
 
+    @Test
+    fun loadsQuickly() {
+        val start = System.nanoTime()
+        val loaded = TestDictionary.file(language.locale).inputStream().use { DictionaryLoader.load(it) }
+        val millis = (System.nanoTime() - start) / NANOS_PER_MILLI
+        val sizes = "${loaded.wordCount} words | ${loaded.nodeCount} nodes"
+        println("| ${language.locale} | $sizes | %.0f ms |".format(millis))
+        assertTrue("$millis ms", millis < MAX_LOAD_MILLIS)
+    }
+
     companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{0}")
         fun locales() = LanguageCase.ALL.map { it.locale }
+
+        private const val NANOS_PER_MILLI = 1e6
+        private const val MAX_LOAD_MILLIS = 3000
     }
 }

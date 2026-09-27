@@ -59,11 +59,25 @@ data class LanguageRules(
             extraSeparators = CLOSING_PUNCTUATION,
         )
 
+        /** Tuned by the weights study on the German datasets. German also closes quotes with “, as in „Hallo“. */
+        val GERMAN = LanguageRules(
+            weights = EngineWeights(
+                subBase = 0.39f, subPerKey = 0.3f, insNear = 0.78f, delApostrophe = 0.07f, delDouble = 0.59f,
+                transposition = 0.66f, firstLetterFactor = 1.11f, costWeight = 3.14f, jwWeight = 6.68f, margin = 0.6f,
+            ),
+            restoresAccents = true,
+            splitsAtHyphen = true,
+            compounds = true,
+            keepsLearnedCapitals = true,
+            extraSeparators = "$CLOSING_PUNCTUATION“",
+        )
+
         fun forLocale(locale: String): LanguageRules {
             return when (locale) {
                 "en_US" -> ENGLISH
                 "es" -> SPANISH
                 "pt_BR" -> PORTUGUESE
+                "de_DE" -> GERMAN
                 else -> DEFAULT
             }
         }

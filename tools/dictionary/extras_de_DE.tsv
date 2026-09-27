@@ -1,0 +1,50 @@
+# Words to add on top of the Hunspell dictionary: word<TAB>optional zipf override. Surfaces keep their case.
+# Words with hyphens, which wordfreq splits
+E-Mail	4.6
+E-Mails	4.0
+T-Shirt	4.0
+T-Shirts	3.6
+U-Bahn	4.0
+S-Bahn	4.0
+Baden-Württemberg	4.0
+Nordrhein-Westfalen	4.0
+Mecklenburg-Vorpommern	3.5
+Schleswig-Holstein	3.6
+Sachsen-Anhalt	3.6
+Rheinland-Pfalz	3.6
+Know-how	3.5
+Make-up	3.5
+Check-in	3.3
+Hip-Hop	3.5
+Coca-Cola	3.3
+Science-Fiction	3.3
+# Chat abbreviations, flagged n in deny_de_DE.tsv
+lg	4.0
+hdl	3.5
+hdgdl	3.0
+vllt	4.0
+bzw	4.5
+usw	4.5
+evtl	4.0
+ggf	4.0
+zb	4.0
+ca	4.0
+lol	4.0
+ok	5.0
+okay	4.5
+# Informal words
+nö	4.0
+jo	4.0
+joa	3.3
+moin	4.0
+tschö	3.5
+geht's	4.0
+gibt's	4.0
+wie's	3.5
+# Everyday technology words
+WLAN	4.0
+WhatsApp	4.5
+YouTube	4.5
+Instagram	4.0
+Homeoffice	3.8
+online	4.5

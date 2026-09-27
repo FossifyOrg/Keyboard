@@ -1,0 +1,53 @@
+# Words to drop or restrict, matched by lowercase spelling: word<TAB>flags.
+#   x = drop the word (default)
+#   o = offensive: valid when typed, but never suggested or corrected to
+#   n = valid and suggested, but never corrected to
+#
+# Offensive
+scheiße	o
+scheiß	o
+scheisse	o
+arsch	o
+arschloch	o
+arschlöcher	o
+fotze	o
+fotzen	o
+wichser	o
+wichsen	o
+ficken	o
+fick	o
+gefickt	o
+fickt	o
+hurensohn	o
+hurensöhne	o
+hure	o
+huren	o
+nutte	o
+nutten	o
+schlampe	o
+schlampen	o
+schwuchtel	o
+missgeburt	o
+spast	o
+spasti	o
+mongo	o
+neger	o
+kanake	o
+kanaken	o
+fresse	o
+pisser	o
+bumsen	o
+titten	o
+pimmel	o
+# Chat abbreviations: suggested, but never corrected to
+lg	n
+hdl	n
+hdgdl	n
+vllt	n
+bzw	n
+usw	n
+evtl	n
+ggf	n
+zb	n
+ca	n
+lol	n

@@ -1,0 +1,44 @@
+de_DE.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+
+================================================================================
+Word frequencies: wordfreq 3.1.1
+================================================================================
+
+Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in de_DE.tsv are an adaptation of that data
+(converted from Zipf values to integers) and are shared under the same license.
+
+wordfreq's data is derived from Wikipedia, the OpenSubtitles corpus via ParaCrawl and OPUS, SUBTLEX, news and web
+text, Google Books Ngrams, Reddit, Twitter and other sources; see the wordfreq README for the full list and credits.
+The SUBTLEX data is freely available and was made by Marc Brysbaert, Boris New, Emmanuel Keuleers and others.
+
+================================================================================
+Word list: de_DE_frami, based on igerman98
+================================================================================
+
+The words were selected with the Hunspell spelling dictionary de_DE_frami of the LibreOffice dictionaries repository
+(https://github.com/LibreOffice/dictionaries, commit 32b006a2c22a4ac7e8ed3f03346f7b3d85a970a4). Their notice follows.
+
+Bei dem Wörterbuch xxx_frami handelt es sich um ein Addon. Es enthält
+alle Wörter des Basiswörterbuchs, zusätzlich jedoch etliche, die entweder
+im Basiswörterbuch noch fehlen oder die nicht unbedingt zum Kernwortschatz
+des Deutschen gehören. Die zusätzlichen Aufnahmen sind ungeprüft.
+Dieses Wörterbuch basiert auf dem igerman98 Ispell-Wörterbuch, zu finden
+unter https://www.j3e.de/ispell/igerman98/ .
+
+Das Wörterbuch und alle enthaltenen Wortlisten sind lizenziert unter der
+GNU GPL, Version 2 oder 3.
+Fehlermeldungen oder Ergänzungswünsche können gemailt werden an:
+Franz Michael Baumann <fm.baumann@uni-muenster.de>
+
+Autor des Grundwörterbuchs:
+Bjoern Jacke <bjoern@j3e.de>
+
+Autor der Erweiterung
+Franz Michael Baumann <fm.baumann@uni-muenster.de>
+
+(In English: the de_DE_frami dictionary is an extension of Björn Jacke's igerman98 dictionary
+(https://www.j3e.de/ispell/igerman98/) by Franz Michael Baumann. The dictionary and all word lists in it are
+licensed under the GNU GPL, version 2 or 3. de_DE.tsv uses them under the GNU GPL version 3, the license of Fossify
+Keyboard.)

@@ -88,7 +88,7 @@ class TypoEvaluationTest(locale: String) {
             assertTrue("$name wrong ${result.wrong}", result.wrong <= language.maxAutocorrectWrong)
         }
 
-        assertTrue(changedUnknownWords <= MAX_UNKNOWN_WORDS_CHANGED)
+        assertTrue("unknown words changed $changedUnknownWords", changedUnknownWords <= language.maxUnknownChanged)
         assertTrue(changedValidWords == 0f)
         assertTrue(changedAmbiguousWords.toString(), changedAmbiguousWords.isEmpty())
     }
@@ -186,6 +186,5 @@ class TypoEvaluationTest(locale: String) {
         private const val MARGIN_EPSILON = 1e-4f
 
         private const val MIN_AUTOCORRECT_RIGHT = 0.35f
-        private const val MAX_UNKNOWN_WORDS_CHANGED = 0.1f
     }
 }

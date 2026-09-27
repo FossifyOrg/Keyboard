@@ -219,6 +219,22 @@ LANGUAGES["pt_BR"] = Language(
     accentless_max_gap=1.0,
 )
 
+LANGUAGES["de_DE"] = Language(
+    locale="de_DE",
+    wordfreq="de",
+    hunspell=(
+        Hunspell(
+            "de/de_DE_frami",
+            "4ca3c958b0e5545910999bc246f668840bf8ede3df8e5e6790d05edd5a586c38",
+            "646bf3333ac69c23e9d794533ee5241d6f755c359e8fe10a648f87613743d594",
+        ),
+    ),
+    credit="(c) Björn Jacke (igerman98) and Franz Michael Baumann, GPL-2.0 or GPL-3.0",
+    single_letters=frozenset(),
+    max_entries=130_000,
+    sharp_s=True,
+)
+
 
 @dataclass
 class Word:
