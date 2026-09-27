@@ -72,8 +72,30 @@ class LanguageCase(
             offensiveWords = listOf("shit"),
         )
 
+        val SPANISH = LanguageCase(
+            locale = "es",
+            geometry = layout(KeyRow("qwertyuiop"), KeyRow("asdfghjklñ"), KeyRow("zxcvbnm", start = SHIFT)),
+            isSourceWord = ::isLetterWord,
+            sizes = 90_000..115_000,
+            commonestWord = "de",
+            mustCorrect = listOf(
+                "tambien" to "también", "aora" to "ahora", "despues" to "después", "manana" to "mañana",
+                "qeu" to "que", "ano" to "año", "ademas" to "además",
+            ),
+            mustSuggest = listOf(
+                "graciad" to "gracias", "hoal" to "hola", "cpmo" to "como", "porqie" to "porque",
+                "exelente" to "excelente", "nesecito" to "necesito", "esta" to "esta", "está" to "está",
+            ),
+            expectedWords = listOf("año", "está", "esta", "sí", "si", "niño", "España", "también", "qué", "que"),
+            absentWords = listOf("ano", "nesecito", "tambien", "aora"),
+            offensiveWords = listOf("mierda", "puta"),
+            // Spanish misspellings are often phonetic (haiga, llendo, aser), which a model of keyboard slips can't
+            // tell from slips of other words
+            maxAutocorrectWrong = 0.06f,
+        )
+
         /** Every language with a dictionary, English first. */
-        val ALL = listOf(ENGLISH)
+        val ALL = listOf(ENGLISH, SPANISH)
 
         fun of(locale: String) = ALL.first { it.locale == locale }
 
@@ -94,6 +116,8 @@ class LanguageCase(
             return requireNotNull(KeyboardGeometry.fromKeyBounds(bounds))
         }
 
+        /** Where the letters of the bottom row start, after the shift key. */
+        private const val SHIFT = 15f
         private const val SCALE = 100
         private const val ROW_HEIGHT = 1500
     }

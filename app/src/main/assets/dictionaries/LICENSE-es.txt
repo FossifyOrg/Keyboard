@@ -1,0 +1,62 @@
+es.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+
+================================================================================
+Word frequencies: wordfreq 3.1.1
+================================================================================
+
+Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in es.tsv are an adaptation of that data
+(converted from Zipf values to integers) and are shared under the same license.
+
+wordfreq's data is derived from Wikipedia, the OpenSubtitles corpus via ParaCrawl and OPUS, SUBTLEX, news and web
+text, Google Books Ngrams, Reddit, Twitter and other sources; see the wordfreq README for the full list and credits.
+The SUBTLEX data is freely available and was made by Marc Brysbaert, Boris New, Emmanuel Keuleers and others.
+
+================================================================================
+Word list: RLA-ES Spanish dictionaries (Spain and the Americas)
+================================================================================
+
+The words were selected with the Hunspell spelling dictionaries es_ES, es_AR, es_BO, es_CL, es_CO, es_CR, es_CU,
+es_DO, es_EC, es_GT, es_HN, es_MX, es_NI, es_PA, es_PE, es_PR, es_PY, es_SV, es_US and es_VE of the LibreOffice
+dictionaries repository (https://github.com/LibreOffice/dictionaries, commit 32b006a2c22a4ac7e8ed3f03346f7b3d85a970a4). Their notice follows.
+
+1. AUTOR
+
+   Este diccionario ha sido desarrollado inicialmente por Santiago Bosio;
+quien actualmente coordina el desarrollo de todos los diccionarios localizados.
+
+   El diccionario es un desarrollo completamente nuevo, y NO ESTÁ BASADO en el
+trabajo de Jesús Carretero y Santiago Rodríguez, ni en la versión adaptada al
+formato de MySpell por Richard Holt.
+
+2. LICENCIA
+
+   Este diccionario para corrección ortográfica, integrado por el fichero
+de afijos y la lista de palabras (__LOCALE__[.aff|.dic]) se distribuye
+bajo un triple esquema de licencias disjuntas: GNU GPL versión 3 o posterior,
+GNU LGPL versión 3 o posterior, ó MPL versión 1.1 o posterior. Puede
+seleccionar libremente bajo cuál de estas licencias utilizará este diccionario.
+En el fichero LICENSE.md encontrá más detalles.
+
+# Licencia
+
+El proyecto y los diccionarios se distribuyen bajo un triple esquema de
+licencias disjuntas: [GNU GPL versión 3 o posterior](https://www.gnu.org/licenses/gpl-3.0.en.html), [GNU LGPL versión 3 o
+posterior](https://www.gnu.org/licenses/lgpl-3.0.en.html) o [MPL versión 1.1 o posterior](https://www.mozilla.org/en-US/MPL/1.1/).
+Puede seleccionar libremente bajo cuál de estas licencias realizará el uso.
+
+El detalle de cada licencia está accesible en:
+
+- https://www.gnu.org/licenses/gpl-3.0.en.html
+- https://www.gnu.org/licenses/lgpl-3.0.en.html
+- https://www.mozilla.org/en-US/MPL/1.1/
+
+y en los ficheros:
+- LICENSE/GPLv3.txt  
+- LICENSE/LGPLv3.txt
+- LICENSE/MPL-1.1.txt
+
+(In English: the dictionaries were developed by Santiago Bosio, who coordinates the RLA-ES project, and are
+distributed under a triple license: GNU GPL version 3 or later, GNU LGPL version 3 or later, or MPL version 1.1 or
+later. es.tsv uses them under the GNU GPL version 3 or later, the license of Fossify Keyboard.)

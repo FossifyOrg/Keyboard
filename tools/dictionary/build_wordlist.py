@@ -90,6 +90,119 @@ class Language:
 
 LANGUAGES: dict[str, Language] = {}
 
+LANGUAGES["es"] = Language(
+    locale="es",
+    wordfreq="es",
+    # Spain first, then the Americas: a word is valid if any of them has it. es_UY is left out, as spylls can't read
+    # its affix file; es_AR has the words of the Río de la Plata
+    hunspell=(
+        Hunspell(
+            "es/es_ES",
+            "6975dddec3d5d2c676069537bc67b4b5f786c65c5d4cf6703a82acf779ac9ec1",
+            "e73a9bf8e1383f4986a5dc9e2fbed49371c0c61f511c626d15586bd433c1cad9",
+        ),
+        Hunspell(
+            "es/es_AR",
+            "4fe3e193425bb3841ee218d36a9fc95d85b8daa8909363bdbba55a2f9f4e3d1d",
+            "e9a96514295f8664db270d024c345700ccb9410a384eb71aec0fe5f0931d8c70",
+        ),
+        Hunspell(
+            "es/es_BO",
+            "c882b993a0ae83c94ab94c4b84a8f8300979e0e44fc4dceb2f15eaba521a30e7",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_CL",
+            "e249a50ed9c9b939801bd2ba12099c9decb59217782c59fc65e7f72831b0b401",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_CO",
+            "10f5e38e1c6898194cd860c237b1569725f721eb5eb0705e3a7158c69652c226",
+            "243d5dc50b68261dd10118799724beb95a6c19d4f9d6848ebfc977430bf2f8e2",
+        ),
+        Hunspell(
+            "es/es_CR",
+            "073b27663394a297eb1c896419b5b5518bd5b345acfe244d00968433ad9709bd",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_CU",
+            "3fc1bb0eeffdb99ec8851166453b8d32745da51e9d1036c689f2512dd22c887c",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_DO",
+            "194293e1785b2a0ce9b8166cdc4164afebc1ef57db92305786b32350fcb13832",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_EC",
+            "caeea1b6bb09c80ca1ff36c81a02ca868fe709f330ac4303806cbf1cd7a6bc0b",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_GT",
+            "f424e3546db88d36b38bbc735fd01126296a4f7500ca1368d7017fac561107e7",
+            "2cdfcb8d86b70090b3f23f2fe2b6d9d6cfa5f76c803fa8229c674af2b87e6adc",
+        ),
+        Hunspell(
+            "es/es_HN",
+            "a1fa7c74a68cb4e7746bae221dd53a27467c320a1cdc2d712cf55926896ee28d",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_MX",
+            "44ce35af220962c68f97962776639bef271f7d90a85ba924b539a36e33315f82",
+            "d966cb748e4a688ed75ec84b50c0835ac438e5325ee4fce703a093794f9cba7e",
+        ),
+        Hunspell(
+            "es/es_NI",
+            "4d7ecc54d369aab904733e64729fffa42413412e14e6a27a32f7fbd56e9161b9",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_PA",
+            "bd87e7e25b776d8fe96c4197360909b41d45289ec91c7c47eb000948c04a3ae2",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_PE",
+            "1d810a0a319fee329000538cf4df76621bb71228172558b87490f8b9c19b9d75",
+            "d966cb748e4a688ed75ec84b50c0835ac438e5325ee4fce703a093794f9cba7e",
+        ),
+        Hunspell(
+            "es/es_PR",
+            "11e0815f41a25aac5d6871a13767b1c14a1c6ad5a7c40b359fc4c22f8297ff7f",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_PY",
+            "f9a18929f9e5234bc4aba83df1744351156932cb47b77b2ed3358c3170bb41ff",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_SV",
+            "3a015f4469046d37806bf374c4d88149cdf570f467a60732f50d736f23d9cac5",
+            "dc8213bb8fb08e51dd5869b348d873de23f89e3315656396ca3031fe1d7ffcea",
+        ),
+        Hunspell(
+            "es/es_US",
+            "d46932a5c0ec3881fdf265333df4de45a73de51741baedcb5bb54d37b03979c8",
+            "674c5a4b4d39fd3b4452f045a4e6e0649db4a2ce23f5903df8c311e21f1a757c",
+        ),
+        Hunspell(
+            "es/es_VE",
+            "57eb3aa695c24e1f8f469ac86367b952194c08ee25bc2b761ba4681686ccc723",
+            "d966cb748e4a688ed75ec84b50c0835ac438e5325ee4fce703a093794f9cba7e",
+        ),
+    ),
+    credit="(c) Santiago Bosio and others (RLA-ES), GPL-3.0+ or LGPL-3.0+ or MPL-1.1+",
+    single_letters=frozenset("aeouy"),
+    max_entries=100_000,
+    accentless_max_gap=1.0,
+)
+
 
 @dataclass
 class Word:

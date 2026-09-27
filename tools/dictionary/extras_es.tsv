@@ -1,0 +1,35 @@
+# Words to add on top of the Hunspell dictionaries: word<TAB>optional zipf override. Surfaces keep their case.
+# Chat abbreviations, flagged n in deny_es.tsv
+q	5.0
+xq	4.0
+pq	4.0
+tb	4.0
+tmb	3.5
+ntp	3.0
+tqm	3.0
+bss	3.0
+# Informal words
+porfa	3.5
+porfis	3.0
+finde	3.5
+jaja	4.5
+jajaja	4.5
+jajajaja	4.0
+jeje	4.0
+lol	4.0
+ok	5.0
+okey	4.0
+wasap	3.0
+# Everyday technology words
+wifi	4.0
+email	4.0
+emails	3.5
+app	4.0
+apps	3.5
+online	4.0
+emoji	3.5
+emojis	3.5
+selfie	3.5
+WhatsApp	4.5
+YouTube	4.5
+Instagram	4.0

@@ -34,9 +34,24 @@ data class LanguageRules(
         /** The rules of dictionaries without rules of their own. */
         val DEFAULT = LanguageRules()
 
+        /** Closing quotes and the ellipsis, which end a word in languages that use them. */
+        private const val CLOSING_PUNCTUATION = "»”…"
+
+        /** Tuned by the weights study on the Spanish datasets. */
+        val SPANISH = LanguageRules(
+            weights = EngineWeights(
+                subBase = 0.32f, subPerKey = 0.32f, insNear = 0.78f, delApostrophe = 0.06f, delDouble = 0.71f,
+                transposition = 0.78f, firstLetterFactor = 1.23f, costWeight = 3.04f, jwWeight = 6.06f, margin = 0.8f,
+            ),
+            restoresAccents = true,
+            splitsAtHyphen = true,
+            extraSeparators = CLOSING_PUNCTUATION,
+        )
+
         fun forLocale(locale: String): LanguageRules {
             return when (locale) {
                 "en_US" -> ENGLISH
+                "es" -> SPANISH
                 else -> DEFAULT
             }
         }

@@ -1,0 +1,77 @@
+# Words to drop or restrict, matched by lowercase spelling: word<TAB>flags.
+#   x = drop the word (default)
+#   o = offensive: valid when typed, but never suggested or corrected to
+#   n = valid and suggested, but never corrected to
+#
+# Rare words that are almost always a more common word typed without its accent, besides those dropped by
+# accentless_max_gap
+ojala	x
+# Offensive
+puta	o
+putas	o
+puto	o
+putos	o
+putada	o
+putear	o
+mierda	o
+mierdas	o
+coño	o
+coños	o
+cabrón	o
+cabrona	o
+cabrones	o
+joder	o
+jodido	o
+jodida	o
+jodidos	o
+gilipollas	o
+pendejo	o
+pendeja	o
+pendejos	o
+pendejas	o
+chingar	o
+chingada	o
+chingado	o
+chingados	o
+verga	o
+vergas	o
+culero	o
+culera	o
+culo	o
+culos	o
+maricón	o
+maricones	o
+marica	o
+maricas	o
+puñeta	o
+puñetas	o
+polla	o
+pollas	o
+mamón	o
+mamada	o
+mamadas	o
+hijueputa	o
+hijoputa	o
+malparido	o
+malparida	o
+carajo	o
+follar	o
+follando	o
+follado	o
+negrata	o
+sudaca	o
+sudacas	o
+tortillera	o
+travelo	o
+subnormal	o
+mongólico	o
+# Chat abbreviations: suggested, but never corrected to
+q	n
+xq	n
+pq	n
+tb	n
+tmb	n
+ntp	n
+tqm	n
+bss	n
+lol	n

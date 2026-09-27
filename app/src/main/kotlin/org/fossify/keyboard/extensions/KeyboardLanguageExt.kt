@@ -124,6 +124,8 @@ fun Int.dictionaryLocale(): String? {
         LANGUAGE_ENGLISH_SOUL,
         LANGUAGE_ENGLISH_WORKMAN -> "en_US"
 
+        LANGUAGE_SPANISH -> "es"
+
         else -> null
     }
 }
