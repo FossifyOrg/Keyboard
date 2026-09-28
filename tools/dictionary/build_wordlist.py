@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Builds the word lists behind word suggestions, app/src/main/assets/dictionaries/<locale>.tsv.
+"""Builds the word lists behind word suggestions, wordlists/<locale>.tsv, and packs each into the dictionary the app
+reads, app/src/main/assets/dictionaries/<locale>.dict.
 
 English words come from SCOWL, the words of other languages from the Hunspell dictionaries of LibreOffice, and wordfreq
 decides how common they are. See README.md for details.
@@ -8,6 +9,7 @@ decides how common they are. See README.md for details.
 import argparse
 import hashlib
 import json
+import struct
 import tarfile
 import textwrap
 import unicodedata
@@ -43,6 +45,13 @@ FREQ_SCALE = 30
 HEADER_WIDTH = 110
 ALPHABET = set("abcdefghijklmnopqrstuvwxyz'-")
 
+# The packed dictionary, read by DictionaryLoader.kt: this header, the entry count, then the words, frequencies and
+# flags of all entries, each in a section of their own. See README.md.
+DICT_HEADER = b"FKD1"
+MAX_SHARED_PREFIX = 255
+WORD_END = b"\n"
+PACKED_FLAGS = {"o": 1, "n": 2}
+
 # Folding, like Alphabet.kt: these letters are spelled out, and these chars are apostrophes and hyphens.
 EXPANSIONS = {"ß": "ss", "æ": "ae", "œ": "oe"}
 APOSTROPHE_LIKE = "’‘ʼ`´"
@@ -58,6 +67,7 @@ LIBREOFFICE_URL = f"https://raw.githubusercontent.com/LibreOffice/dictionaries/{
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 ASSETS = ROOT / "app/src/main/assets/dictionaries"
+WORDLISTS = HERE / "wordlists"
 
 
 @dataclass(frozen=True)
@@ -443,6 +453,32 @@ def write_tsv(entries, path: Path, locale: str, credits: list[str]):
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def pack(wordlist: Path, output: Path) -> int:
+    """Packs a word list into the dictionary format of DictionaryLoader.kt and returns its number of entries."""
+    words, freqs, flags = bytearray(), bytearray(), bytearray()
+    previous = b""
+    rows = read_tsv(wordlist)
+    for key, freq, flag, *surface in rows:
+        # The key isn't stored, as it's the folded word
+        word = surface[0] if surface else key
+        if fold(word) != key or (surface and word == key):
+            raise ValueError(f"{wordlist}: {word} isn't stored like its key {key}")
+
+        # Each word is stored as the length of the prefix it shares with the previous word, in UTF-8 bytes, and the rest
+        data = word.encode("utf-8")
+        shared = 0
+        while shared < min(len(data), len(previous), MAX_SHARED_PREFIX) and data[shared] == previous[shared]:
+            shared += 1
+        words += bytes([shared]) + data[shared:] + WORD_END
+        freqs.append(int(freq))
+        flags.append(sum(PACKED_FLAGS[f] for f in flag if f != "-"))
+        previous = data
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(DICT_HEADER + struct.pack(">i", len(rows)) + words + freqs + flags)
+    return len(rows)
+
+
 def build_english(cache: Path, output: Path):
     scowl = read_scowl(download_scowl(cache))
     words = collect_words(scowl, read_tsv(HERE / "extras_en.tsv"), read_tsv(HERE / "deny_en.tsv"))
@@ -648,17 +684,25 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lang", default="en_US", choices=["en_US", *LANGUAGES, "all"], help="the locale to build")
     parser.add_argument("--cache", type=Path, default=HERE / ".cache", help="where to keep downloads and lookups")
-    parser.add_argument("--output", type=Path, help="the file to write, by default the asset of the locale")
+    parser.add_argument("--output", type=Path, help="write the word list here instead, without packing it")
+    parser.add_argument("--pack-only", action="store_true", help="only pack the existing word lists")
     args = parser.parse_args()
 
     locales = ["en_US", *LANGUAGES] if args.lang == "all" else [args.lang]
     for locale in locales:
-        output = args.output if args.output and len(locales) == 1 else ASSETS / f"{locale}.tsv"
-        if locale == "en_US":
-            entries = build_english(args.cache, output)
-        else:
-            entries = build_hunspell_language(LANGUAGES[locale], args.cache, output)
-        print(f"Wrote {len(entries)} entries to {output}")
+        wordlist = WORDLISTS / f"{locale}.tsv"
+        if not args.pack_only:
+            output = args.output if args.output and len(locales) == 1 else wordlist
+            if locale == "en_US":
+                entries = build_english(args.cache, output)
+            else:
+                entries = build_hunspell_language(LANGUAGES[locale], args.cache, output)
+            print(f"Wrote {len(entries)} entries to {output}")
+            if output.resolve() != wordlist:
+                continue
+
+        dictionary = ASSETS / f"{locale}.dict"
+        print(f"Packed {pack(wordlist, dictionary)} entries into {dictionary}")
 
 
 if __name__ == "__main__":

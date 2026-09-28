@@ -36,6 +36,15 @@ class LanguageDictionaryTest(locale: String) {
     }
 
     @Test
+    fun packedDictionaryHasTheWordList() {
+        val wordList = TestDictionary.wordList(language.locale).inputStream().use { WordList.parse(it) }
+        assertEquals(wordList.size, entries.size)
+        for (i in wordList.indices) {
+            assertEquals(wordList[i], entries[i])
+        }
+    }
+
+    @Test
     fun sizeIsExpected() {
         assertTrue("${entries.size} words", entries.size in language.sizes)
     }

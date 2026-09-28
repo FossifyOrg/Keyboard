@@ -1,4 +1,5 @@
-en_US.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+en_US.dict, packed from the word list tools/dictionary/wordlists/en_US.tsv of the Fossify Keyboard source code, is a
+derived work combining two sources. Both are distributed under the terms of both notices below.
 
 ================================================================================
 Word frequencies: wordfreq 3.1.1
@@ -6,7 +7,7 @@ Word frequencies: wordfreq 3.1.1
 
 Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
 licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
-(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in en_US.tsv are an adaptation of that data
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in en_US.dict are an adaptation of that data
 (converted from Zipf values to integers) and are shared under the same license.
 
 wordfreq's data is derived from Google Books Ngrams, the Leeds Internet Corpus, the OpenSubtitles corpus via

@@ -46,7 +46,7 @@ class DictionaryRepository(private val context: Context) {
     @Suppress("TooGenericExceptionCaught")
     private fun read(locale: String): ArrayTrie? {
         return try {
-            context.assets.open("$DICTIONARIES_FOLDER/$locale.tsv").use { DictionaryLoader.load(it) }
+            context.assets.open("$DICTIONARIES_FOLDER/$locale.dict").use { DictionaryLoader.load(it) }
         } catch (e: Exception) {
             // A missing or malformed dictionary means no suggestions rather than a crashed keyboard
             Log.w(TAG, "Dictionary $locale is unavailable", e)

@@ -1,4 +1,5 @@
-pt_BR.tsv is a derived work combining two sources. It is distributed under the terms of both notices below.
+pt_BR.dict, packed from the word list tools/dictionary/wordlists/pt_BR.tsv of the Fossify Keyboard source code, is a
+derived work combining two sources. Both are distributed under the terms of both notices below.
 
 ================================================================================
 Word frequencies: wordfreq 3.1.1
@@ -6,7 +7,7 @@ Word frequencies: wordfreq 3.1.1
 
 Word frequencies come from wordfreq (https://github.com/rspeer/wordfreq) by Robyn Speer. The wordfreq data is
 licensed under the Creative Commons Attribution-ShareAlike 4.0 International license
-(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in pt_BR.tsv are an adaptation of that data
+(https://creativecommons.org/licenses/by-sa/4.0/). The frequencies in pt_BR.dict are an adaptation of that data
 (converted from Zipf values to integers) and are shared under the same license.
 
 wordfreq's data is derived from Wikipedia, the OpenSubtitles corpus via ParaCrawl and OPUS, SUBTLEX, news and web
@@ -50,5 +51,5 @@ http://pt-br.libreoffice.org/projetos/projeto-vero-verificador-ortografico/
 *                                                                     *
 ***********************************************************************
 
-(pt_BR.tsv uses the dictionary under the GNU LGPL version 3, which allows its use in Fossify Keyboard, licensed
+(pt_BR.dict uses the dictionary under the GNU LGPL version 3, which allows its use in Fossify Keyboard, licensed
 under the GNU GPL version 3.)

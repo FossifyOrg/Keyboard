@@ -4,6 +4,8 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.io.ByteArrayOutputStream
+import java.nio.ByteBuffer
 
 class ArrayTrieTest {
 
@@ -98,29 +100,64 @@ class ArrayTrieTest {
     }
 
     @Test
-    fun loaderParsesTsv() {
-        val tsv = """
-            # comment
-            don't	150	-
-            shit	90	o
-            teh	10	n
-            the	230	-
-            tv	120	-	TV
-        """.trimIndent()
-        val parsed = DictionaryLoader.parse(tsv.byteInputStream())
+    fun loaderReadsPackedDictionary() {
+        val packed = packed(
+            words = listOf(0 to "cafe", 3 to "é", 0 to "don't", 0 to "shit", 0 to "teh", 1 to "he", 0 to "TV"),
+            freqs = listOf(80, 95, 150, 90, 10, 230, 120),
+            flags = listOf(0, 0, 0, 1, 2, 0, 0),
+        )
         assertEquals(
             listOf(
+                DictionaryEntry("cafe", 80),
+                DictionaryEntry("cafe", 95, surface = "café"),
                 DictionaryEntry("don't", 150),
                 DictionaryEntry("shit", 90, ArrayTrie.OFFENSIVE),
                 DictionaryEntry("teh", 10, ArrayTrie.NO_AUTOCORRECT_TO),
                 DictionaryEntry("the", 230),
                 DictionaryEntry("tv", 120, surface = "TV"),
             ),
-            parsed
+            DictionaryLoader.read(packed.inputStream())
         )
 
-        val loaded = DictionaryLoader.load(tsv.byteInputStream())
+        val loaded = DictionaryLoader.load(packed.inputStream())
         assertEquals("TV", loaded.primarySurface(loaded.find("tv"), "tv"))
+        val surfaces = ArrayList<String>()
+        loaded.forEachWord(loaded.find("cafe"), "cafe") { surface, _, _ -> surfaces.add(surface) }
+        assertEquals(listOf("café", "cafe"), surfaces)
+    }
+
+    @Test
+    fun loaderRejectsMalformedDictionaries() {
+        val packed = packed(words = listOf(0 to "the"), freqs = listOf(230), flags = listOf(0))
+        val malformed = listOf(
+            packed.copyOf(packed.size - 1),
+            packed + 0.toByte(),
+            packed.copyOf().also { it[0] = 'X'.code.toByte() },
+            packed(words = listOf(1 to "the"), freqs = listOf(230), flags = listOf(0)),
+        )
+        for (bytes in malformed) {
+            val error = runCatching { DictionaryLoader.read(bytes.inputStream()) }.exceptionOrNull()
+            assertTrue("$error", error is IllegalArgumentException)
+        }
+    }
+
+    /**
+     * Packs a dictionary like `tools/dictionary/build_wordlist.py`, from words given as the length of the prefix they
+     * share with the previous word and the rest.
+     */
+    private fun packed(words: List<Pair<Int, String>>, freqs: List<Int>, flags: List<Int>): ByteArray {
+        val out = ByteArrayOutputStream()
+        out.write("FKD1".toByteArray())
+        out.write(ByteBuffer.allocate(Int.SIZE_BYTES).putInt(words.size).array())
+        for ((shared, rest) in words) {
+            out.write(shared)
+            out.write(rest.toByteArray())
+            out.write('\n'.code)
+        }
+
+        freqs.forEach(out::write)
+        flags.forEach(out::write)
+        return out.toByteArray()
     }
 
     @Test(expected = IllegalArgumentException::class)

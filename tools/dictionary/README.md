@@ -1,8 +1,9 @@
 # Dictionary pipeline
 
-`build_wordlist.py` generates `app/src/main/assets/dictionaries/<locale>.tsv`, the word lists behind word suggestions
-and autocorrect. The script is run by hand and its output is committed, so the build doesn't need Python or network
-access.
+`build_wordlist.py` generates `wordlists/<locale>.tsv`, the word lists behind word suggestions and autocorrect, and
+packs each into `app/src/main/assets/dictionaries/<locale>.dict`, the dictionary the app reads. The script is run by
+hand and its output is committed, so the build doesn't need Python or network access. The word lists are kept for
+review and the packed dictionaries ship, as they are half the size in the APK.
 
 ## Reproducing
 
@@ -13,6 +14,7 @@ cd tools/dictionary
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python build_wordlist.py --lang en_US    # or a locale of LANGUAGES, or all
+.venv/bin/python build_wordlist.py --lang all --pack-only    # only pack the word lists again
 ```
 
 The script downloads its sources into `.cache/` and checks each file against a pinned SHA-256: the SCOWL 2020.12.07
@@ -91,6 +93,8 @@ Rules:
 
 ## Output format
 
+The word list:
+
 ```
 key<TAB>freq<TAB>flags[<TAB>surface]
 ```
@@ -99,6 +103,19 @@ key<TAB>freq<TAB>flags[<TAB>surface]
 - `freq` is `round(zipf × 30)`, clamped to 1–255.
 - `flags` is a combination of `o` and `n`, or `-`.
 - `surface` is present when the word isn't written like its key.
+
+The packed dictionary has the same entries in the same order, stored so they compress well, and `DictionaryLoader.kt`
+reads it back:
+
+- the header `FKD1` and the number of entries, a big-endian 32-bit int,
+- every word: its surface, or its key when it has none, as the key is the folded surface. A word is stored as the
+  number of UTF-8 bytes it shares with the previous word, one byte, then the rest of its UTF-8 bytes and a newline,
+- the `freq` of every entry, one byte each,
+- the flags of every entry, one byte each: 1 for `o`, 2 for `n`.
+
+The frequencies are kept apart from the words, and each word only stores what differs from the previous one, which
+makes the dictionaries half the size in the APK. Tests check that each packed dictionary has the entries of its word
+list.
 
 Licenses are in `app/src/main/assets/dictionaries/LICENSE-<locale>.txt`. SCOWL uses an MIT-like license; the Hunspell
 dictionaries are under the GPL, the LGPL or the MPL, as listed there; wordfreq data is CC BY-SA 4.0. spylls
