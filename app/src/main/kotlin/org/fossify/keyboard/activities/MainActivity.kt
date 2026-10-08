@@ -81,7 +81,7 @@ class MainActivity : SimpleActivity() {
     private fun refreshMenuItems() {
         binding.mainToolbar.menu.apply {
             findItem(R.id.more_apps_from_us).isVisible =
-                !resources.getBoolean(R.bool.hide_google_relations)
+                resources.getBoolean(R.bool.is_google_play_build)
         }
     }
 
@@ -94,7 +94,7 @@ class MainActivity : SimpleActivity() {
         val licenses = LICENSE_GSON
 
         val faqItems = ArrayList<FAQItem>()
-        if (!resources.getBoolean(R.bool.hide_google_relations)) {
+        if (resources.getBoolean(R.bool.is_google_play_build)) {
             faqItems.add(FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
             faqItems.add(FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons))
         }
