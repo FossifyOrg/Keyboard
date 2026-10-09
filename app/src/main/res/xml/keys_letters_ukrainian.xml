@@ -55,7 +55,7 @@
             app:topSmallNumber="3" />
         <Key
             app:keyLabel="е"
-            app:popupCharacters="4"
+            app:popupCharacters="éе4ë"
             app:popupKeyboard="@xml/keyboard_popup_template"
             app:topSmallNumber="4" />
         <Key
