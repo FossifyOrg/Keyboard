@@ -16,7 +16,7 @@
     <string name="clip_text">Cortar texto</string>
     <string name="pin_text">Fixar texto</string>
     <string name="text_pinned">Texto fixado</string>
-    <string name="export_clipboard_items">Exportar itens para a área de transferência</string>
+    <string name="export_clipboard_items">Exportar itens da área de transferência</string>
     <string name="import_clipboard_items">Importar itens da área de transferência</string>
     <string name="keycode_delete">Eliminar</string>
     <string name="keycode_mode_change">Alterar tipo de teclado</string>
