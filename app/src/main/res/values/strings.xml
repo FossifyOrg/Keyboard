@@ -43,6 +43,10 @@
     <string name="show_key_borders">Show key borders</string>
     <string name="show_numbers_row">Show numbers on a separate row</string>
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
+    <string name="space_bar_cursor_speed">Cursor movement speed</string>
+    <string name="cursor_speed_slow">Slow</string>
+    <string name="cursor_speed_normal">Normal</string>
+    <string name="cursor_speed_fast">Fast</string>
     <string name="show_emoji_key">Show emoji key</string>
     <string name="show_language_switch_key">Show language switch key</string>
     <!-- Emojis -->

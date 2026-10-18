@@ -20,6 +20,9 @@ import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
 import org.fossify.keyboard.extensions.getVoiceInputMethods
 import org.fossify.keyboard.extensions.getVoiceInputRadioItems
+import org.fossify.keyboard.helpers.CURSOR_SPEED_FAST
+import org.fossify.keyboard.helpers.CURSOR_SPEED_NORMAL
+import org.fossify.keyboard.helpers.CURSOR_SPEED_SLOW
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_100_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_120_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_140_PERCENT
@@ -65,6 +68,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowLanguageSwitchKey()
         setupShowClipboardContent()
         setupSentencesCapitalization()
+        setupSpaceBarCursorSpeed()
         setupShowNumbersRow()
         setupVoiceInputMethod()
 
@@ -271,6 +275,31 @@ class SettingsActivity : SimpleActivity() {
             }
         }
     }
+
+    private fun setupSpaceBarCursorSpeed() {
+        binding.apply {
+            settingsSpaceBarCursorSpeed.text = getCursorSpeedText(config.spaceBarCursorSpeed)
+            settingsSpaceBarCursorSpeedHolder.setOnClickListener {
+                val items = arrayListOf(
+                    RadioItem(CURSOR_SPEED_SLOW, getString(R.string.cursor_speed_slow)),
+                    RadioItem(CURSOR_SPEED_NORMAL, getString(R.string.cursor_speed_normal)),
+                    RadioItem(CURSOR_SPEED_FAST, getString(R.string.cursor_speed_fast))
+                )
+                RadioGroupDialog(this@SettingsActivity, items, config.spaceBarCursorSpeed) {
+                    config.spaceBarCursorSpeed = it as Int
+                    settingsSpaceBarCursorSpeed.text = getCursorSpeedText(config.spaceBarCursorSpeed)
+                }
+            }
+        }
+    }
+
+    private fun getCursorSpeedText(speed: Int): String = getString(
+        when (speed) {
+            CURSOR_SPEED_SLOW -> R.string.cursor_speed_slow
+            CURSOR_SPEED_NORMAL -> R.string.cursor_speed_normal
+            else -> R.string.cursor_speed_fast
+        }
+    )
 
     private fun setupShowEmojiKey() {
         binding.apply {

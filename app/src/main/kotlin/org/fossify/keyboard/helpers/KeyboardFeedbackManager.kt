@@ -36,7 +36,7 @@ class KeyboardFeedbackManager(private val context: Context) {
         if (isOreoMr1Plus()) {
             @Suppress("DEPRECATION")
             view.performHapticFeedback(
-                HapticFeedbackConstants.TEXT_HANDLE_MOVE,
+                HapticFeedbackConstants.KEYBOARD_TAP,
                 HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
             )
         }

@@ -67,6 +67,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getString(VOICE_INPUT_METHOD, "")!!
         set(voiceInputMethod) = prefs.edit().putString(VOICE_INPUT_METHOD, voiceInputMethod).apply()
 
+    var spaceBarCursorSpeed: Int
+        get() = prefs.getInt(SPACE_BAR_CURSOR_SPEED, CURSOR_SPEED_NORMAL)
+        set(spaceBarCursorSpeed) = prefs.edit().putInt(SPACE_BAR_CURSOR_SPEED, spaceBarCursorSpeed).apply()
+
     var selectedLanguages: MutableSet<Int>
         get() {
             val defaultLanguage = getDefaultLanguage().toString()

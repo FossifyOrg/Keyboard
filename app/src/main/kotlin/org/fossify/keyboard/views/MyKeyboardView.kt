@@ -86,6 +86,8 @@ import org.fossify.keyboard.extensions.isDeviceLocked
 import org.fossify.keyboard.extensions.onScroll
 import org.fossify.keyboard.extensions.safeStorageContext
 import org.fossify.keyboard.helpers.AccessHelper
+import org.fossify.keyboard.helpers.CURSOR_SPEED_NORMAL
+import org.fossify.keyboard.helpers.CURSOR_SPEED_SLOW
 import org.fossify.keyboard.helpers.EMOJI_SPEC_FILE_PATH
 import org.fossify.keyboard.helpers.EmojiData
 import org.fossify.keyboard.helpers.KeyboardFeedbackManager
@@ -116,6 +118,7 @@ import org.fossify.keyboard.models.ClipsSectionLabel
 import org.fossify.keyboard.models.ListItem
 import java.util.Arrays
 import java.util.Locale
+import kotlin.math.abs
 
 @SuppressLint("UseCompatLoadingForDrawables", "ClickableViewAccessibility")
 class MyKeyboardView @JvmOverloads constructor(
@@ -194,13 +197,16 @@ class MyKeyboardView @JvmOverloads constructor(
     private var mRepeatKeyIndex = NOT_A_KEY
     private var mPopupLayout = 0
     private var mAbortKey = false
-    private var mCursorControlActive = false
-    private var mLastSpaceMoveX = 0
+    private var mSpaceCursorArmed = false
+    private var mSpaceCursorActive = false
+    private var mSpaceCursorDownX = 0
+    private var mSpaceCursorAnchorX = 0
+    private var mSpaceCursorStepPx = 0
+    private val mSpaceCursorSlopPx = ViewConfiguration.get(context).scaledTouchSlop
     private var mPopupMaxMoveDistance = 0f
     private var mTopSmallNumberSize = 0f
     private var mTopSmallNumberMarginWidth = 0f
     private var mTopSmallNumberMarginHeight = 0f
-    private val mSpaceMoveThreshold: Int
     private var ignoreTouches = false
 
     private var mKeyBackground: Drawable? = null
@@ -270,7 +276,6 @@ class MyKeyboardView @JvmOverloads constructor(
         mLabelTextSize = resources.getDimension(R.dimen.label_text_size).toInt()
         mSpaceBarTextSize = resources.getDimension(R.dimen.space_bar_text_size).toInt()
         mPreviewHeight = resources.getDimension(R.dimen.key_height).toInt()
-        mSpaceMoveThreshold = resources.getDimension(R.dimen.medium_margin).toInt()
 
         with(safeStorageContext) {
             mTextColor = getProperTextColor()
@@ -1439,11 +1444,11 @@ class MyKeyboardView @JvmOverloads constructor(
 
                     val msg = mHandler!!.obtainMessage(MSG_REPEAT)
                     mHandler!!.sendMessageDelayed(msg, REPEAT_START_DELAY.toLong())
-                    // if the user long presses space bar, move the cursor after swiping left/right
+                    // holding the space bar and swiping left/right moves the cursor instead of repeating the key
                     if (mKeys[mCurrentKey].code == KEYCODE_SPACE) {
-                        mLastSpaceMoveX = -1
-                        mCursorControlActive = false
+                        armSpaceCursor(touchX)
                     } else {
+                        mSpaceCursorArmed = false
                         repeatKey()
                     }
 
@@ -1488,29 +1493,10 @@ class MyKeyboardView @JvmOverloads constructor(
                     }
                 }
 
-                // activate cursor control immediately on sufficient movement
-                val currentKey = mKeys.getOrNull(mCurrentKey)
-                if (currentKey?.code == KEYCODE_SPACE && mLastSpaceMoveX != 0) {
-                    if (mLastSpaceMoveX == -1) {
-                        mLastSpaceMoveX = mLastX
-                    }
-
-                    val diff = mLastX - mLastSpaceMoveX
-                    if (diff < -mSpaceMoveThreshold) {
-                        for (i in diff / mSpaceMoveThreshold until 0) {
-                            mOnKeyboardActionListener?.moveCursorLeft()
-                        }
-                        mLastSpaceMoveX = mLastX
-                        if (!mCursorControlActive) mHandler?.removeMessages(MSG_LONGPRESS)
-                        mCursorControlActive = true
-                    } else if (diff > mSpaceMoveThreshold) {
-                        for (i in 0 until diff / mSpaceMoveThreshold) {
-                            mOnKeyboardActionListener?.moveCursorRight()
-                        }
-                        mLastSpaceMoveX = mLastX
-                        if (!mCursorControlActive) mHandler?.removeMessages(MSG_LONGPRESS)
-                        mCursorControlActive = true
-                    }
+                // move the cursor when the space bar is held and swiped, without waiting for a long press
+                val isSpaceCursorSwipe = mSpaceCursorArmed && mKeys.getOrNull(mCurrentKey)?.code == KEYCODE_SPACE
+                if (isSpaceCursorSwipe) {
+                    moveCursorBySpaceSwipe(touchX)
                 } else if (!continueLongPress) {
                     // Cancel old long-press
                     mHandler!!.removeMessages(MSG_LONGPRESS)
@@ -1530,7 +1516,7 @@ class MyKeyboardView @JvmOverloads constructor(
             MotionEvent.ACTION_UP -> {
                 setCurrentKeyPressed(false)
 
-                mLastSpaceMoveX = 0
+                mSpaceCursorArmed = false
                 removeMessages()
                 if (keyIndex == mCurrentKey) {
                     mCurrentKeyTime += eventTime - mLastMoveTime
@@ -1554,18 +1540,18 @@ class MyKeyboardView @JvmOverloads constructor(
                 // If we're not on a repeating key (which sends on a DOWN event)
                 if (mRepeatKeyIndex == NOT_A_KEY && !mMiniKeyboardOnScreen && !mAbortKey) {
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
-                } else if (currentKeyCode == KEYCODE_SPACE && !mCursorControlActive) {
+                } else if (currentKeyCode == KEYCODE_SPACE && !mSpaceCursorActive) {
                     detectAndSendKey(mCurrentKey, touchX, touchY, eventTime)
                 }
 
                 mRepeatKeyIndex = NOT_A_KEY
                 mOnKeyboardActionListener!!.onActionUp()
-                mCursorControlActive = false
+                mSpaceCursorActive = false
             }
 
             MotionEvent.ACTION_CANCEL -> {
-                mCursorControlActive = false
-                mLastSpaceMoveX = 0
+                mSpaceCursorActive = false
+                mSpaceCursorArmed = false
                 removeMessages()
                 dismissPopupKeyboard()
                 mAbortKey = true
@@ -1607,17 +1593,72 @@ class MyKeyboardView @JvmOverloads constructor(
         setupStoredClips()
     }
 
-    private fun onSpaceBarLongPressed(): Boolean {
-        return if (!mCursorControlActive) {
-            setCurrentKeyPressed(false)
-            mRepeatKeyIndex = NOT_A_KEY
-            mHandler?.removeMessages(MSG_REPEAT)
-            vibrateIfNeeded()
-            SwitchLanguageDialog(this) {
-                mOnKeyboardActionListener?.reloadKeyboard()
+    /**
+     * Arms cursor control for a space bar press. Nothing moves yet: the finger must first travel past the touch
+     * slop for the press to count as a swipe (which cancels the pending long press), and the cursor then moves one
+     * character per [mSpaceCursorStepPx] of further travel.
+     */
+    private fun armSpaceCursor(downX: Int) {
+        mSpaceCursorArmed = true
+        mSpaceCursorActive = false
+        mSpaceCursorDownX = downX
+        mSpaceCursorAnchorX = downX
+        mSpaceCursorStepPx = getSpaceCursorStepPx()
+    }
+
+    /**
+     * Moves the cursor left/right by one character for each [mSpaceCursorStepPx] the finger travelled along the
+     * space bar. The long press is cancelled as soon as the finger moves, so the language dialog never opens
+     * mid-swipe.
+     */
+    private fun moveCursorBySpaceSwipe(x: Int) {
+        if (!mSpaceCursorActive) {
+            if (abs(x - mSpaceCursorDownX) <= mSpaceCursorSlopPx) return
+            mSpaceCursorActive = true
+            mHandler?.removeMessages(MSG_LONGPRESS)
+        }
+
+        val diff = x - mSpaceCursorAnchorX
+        when {
+            diff <= -mSpaceCursorStepPx -> repeat(-diff / mSpaceCursorStepPx) {
+                mOnKeyboardActionListener?.moveCursorLeft()
             }
-            true
-        } else false
+            diff >= mSpaceCursorStepPx -> repeat(diff / mSpaceCursorStepPx) {
+                mOnKeyboardActionListener?.moveCursorRight()
+            }
+            else -> return
+        }
+        mSpaceCursorAnchorX = x
+    }
+
+    /**
+     * Distance the finger must travel along the space bar to move the cursor by one character, based on the speed
+     * setting.
+     */
+    private fun getSpaceCursorStepPx(): Int {
+        val step = when (context.config.spaceBarCursorSpeed) {
+            CURSOR_SPEED_SLOW -> R.dimen.space_cursor_step_slow
+            CURSOR_SPEED_NORMAL -> R.dimen.space_cursor_step_normal
+            else -> R.dimen.space_cursor_step_fast // CURSOR_SPEED_FAST, the original Fossify speed
+        }
+        return resources.getDimension(step).toInt()
+    }
+
+    private fun onSpaceBarLongPressed(): Boolean {
+        if (mSpaceCursorActive) {
+            return false
+        }
+
+        // the language dialog takes over, so stop tracking the space bar for cursor control
+        mSpaceCursorArmed = false
+        setCurrentKeyPressed(false)
+        mRepeatKeyIndex = NOT_A_KEY
+        mHandler?.removeMessages(MSG_REPEAT)
+        vibrateIfNeeded()
+        SwitchLanguageDialog(this) {
+            mOnKeyboardActionListener?.reloadKeyboard()
+        }
+        return true
     }
 
     private fun onEmojiOrLanguageLongPressed(): Boolean {

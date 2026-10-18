@@ -13,6 +13,10 @@
     <dimen name="emoji_palette_btn_size">42dp</dimen>
     <dimen name="suggestion_max_width">200dp</dimen>
 
+    <dimen name="space_cursor_step_slow">24dp</dimen>
+    <dimen name="space_cursor_step_normal">16dp</dimen>
+    <dimen name="space_cursor_step_fast">8dp</dimen>
+
     <dimen name="keyboard_text_size">22sp</dimen>
     <dimen name="preview_text_size">26sp</dimen>
     <dimen name="label_text_size">16sp</dimen>      <!-- text size used at keys with longer labels, like "123" -->
