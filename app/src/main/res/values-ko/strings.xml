@@ -19,7 +19,7 @@
     <string name="keycode_shift">시프트</string>
     <string name="keycode_enter">엔터</string>
     <string name="keycode_space">스페이스 바</string>
-    <string name="show_popup">누른 키 팝업 표시</string>
+    <string name="show_popup">누른 키 팝업 표시하기</string>
     <string name="vibrate_on_keypress">키 누름 진동</string>
     <string name="show_clipboard_content">가능한 경우 클립보드 콘텐츠 표시하기</string>
     <string name="start_sentences_capitalized">문장 첫 글자 대문자로 시작하기</string>
