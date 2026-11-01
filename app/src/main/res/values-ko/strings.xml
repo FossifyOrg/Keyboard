@@ -42,4 +42,17 @@
     <string name="sound_on_keypress">키 누름 소리</string>
     <string name="sound_none">꺼짐</string>
     <string name="sound_system">시스템에 따르기</string>
+    <string name="sound_always">항상 켜짐</string>
+    <string name="show_emoji_key">이모지 키 표시</string>
+    <string name="show_language_switch_key">언어 전환 키 표시</string>
+    <string name="recently_used">최근 사용</string>
+    <string name="smileys_and_emotions">스마일리 및 감정</string>
+    <string name="people_and_body">사람 및 신체</string>
+    <string name="animals_and_nature">동물 및 자연</string>
+    <string name="food_and_drink">음식 및 음료</string>
+    <string name="travel_and_places">여행 및 장소</string>
+    <string name="activities">활동</string>
+    <string name="objects">사물</string>
+    <string name="symbols">기호</string>
+    <string name="flags">깃발</string>
 </resources>
