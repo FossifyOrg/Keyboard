@@ -24,6 +24,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_SOUL
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_WORKMAN
 import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
+import org.fossify.keyboard.helpers.LANGUAGE_FINNISH
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_AZERTY
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_BEPO
 import org.fossify.keyboard.helpers.LANGUAGE_GERMAN
@@ -84,6 +85,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_ENGLISH_SOUL -> "${getString(R.string.translation_english)} (Soul)"
         LANGUAGE_ENGLISH_WORKMAN -> "${getString(R.string.translation_english)} (Workman)"
         LANGUAGE_ESPERANTO -> getString(R.string.translation_esperanto)
+        LANGUAGE_FINNISH -> getString(R.string.translation_finnish)
         LANGUAGE_FRENCH_AZERTY -> "${getString(R.string.translation_french)} (AZERTY)"
         LANGUAGE_FRENCH_BEPO -> "${getString(R.string.translation_french)} (BEPO)"
         LANGUAGE_GERMAN -> getString(R.string.translation_german)
