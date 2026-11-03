@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Row app:isNumbersRow="true">
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="۱"
+            app:topSmallNumber="1" />
+        <Key
+            app:keyLabel="۲"
+            app:topSmallNumber="2" />
+        <Key
+            app:keyLabel="۳"
+            app:topSmallNumber="3" />
+        <Key
+            app:keyLabel="۴"
+            app:topSmallNumber="4" />
+        <Key
+            app:keyLabel="۵"
+            app:topSmallNumber="5" />
+        <Key
+            app:keyLabel="۶"
+            app:topSmallNumber="6" />
+        <Key
+            app:keyLabel="۷"
+            app:topSmallNumber="7" />
+        <Key
+            app:keyLabel="۸"
+            app:topSmallNumber="8" />
+        <Key
+            app:keyLabel="۹"
+            app:topSmallNumber="9" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="۰"
+            app:topSmallNumber="0" />
+    </Row>
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ض"
+            app:popupCharacters="ًٌٍَُِّْ۱"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="َ۱" />
+        <Key
+            app:keyLabel="ص"
+            app:popupCharacters="۲"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۲" />
+        <Key
+            app:keyLabel="ق"
+            app:popupCharacters="۳"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۳" />
+        <Key
+            app:keyLabel="ف"
+            app:popupCharacters="ڤ۴"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۴" />
+        <Key
+            app:keyLabel="غ"
+            app:popupCharacters="۵"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۵" />
+        <Key
+            app:keyLabel="ع"
+            app:popupCharacters="۶"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۶" />
+        <Key
+            app:keyLabel="ه"
+            app:popupCharacters="۷"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۷" />
+        <Key
+            app:keyLabel="خ"
+            app:popupCharacters="۸"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۸" />
+        <Key
+            app:keyLabel="ح"
+            app:popupCharacters="۹"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="۹" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="ج"
+            app:popupCharacters="چ۰"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+    </Row>
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ش" />
+        <Key app:keyLabel="س" />
+        <Key
+            app:keyLabel="ی"
+            app:popupCharacters="يىئ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="ب"
+            app:popupCharacters="پ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ل" />
+        <Key
+            app:keyLabel="ا"
+            app:popupCharacters="أإآٱء"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ت" />
+        <Key app:keyLabel="ن" />
+
+        <Key app:keyLabel="م" />
+
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="ک"
+            app:popupCharacters="گ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+    </Row>
+    <Row app:keyWidth="9.4444%p">
+        <Key
+            app:keyLabel="ظ"
+            app:popupCharacters="؟؛،"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ط" />
+        <Key app:keyLabel="ذ" />
+        <Key app:keyLabel="د" />
+        <Key
+            app:keyLabel="ز"
+            app:popupCharacters="ژ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ر" />
+        <Key
+            app:keyLabel="و"
+            app:popupCharacters="ۆ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ة" />
+        <Key app:keyLabel="ث" />
+        <Key
+            app:code="-5"
+            app:isRepeatable="true"
+            app:keyEdgeFlags="right"
+            app:keyIcon="@drawable/ic_clear_vector"
+            app:keyWidth="15%p" />
+    </Row>
+    <Row>
+        <Key
+            app:code="-2"
+            app:keyEdgeFlags="left"
+            app:keyLabel="\?123"
+            app:keyWidth="15%p" />
+
+        <Key
+            app:code="-6"
+            app:keyEdgeFlags="left"
+            app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
+            app:keyWidth="12%p"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
+        <Key
+            app:code="32"
+            app:isRepeatable="true"
+            app:keyWidth="46%p" />
+        <Key
+            app:keyLabel="."
+            app:keyWidth="12%p"
+            app:popupCharacters=":؛؍،؟!"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:code="-4"
+            app:keyEdgeFlags="right"
+            app:keyIcon="@drawable/ic_enter_vector"
+            app:keyWidth="15%p" />
+    </Row>
+</Keyboard>
