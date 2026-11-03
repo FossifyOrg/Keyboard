@@ -1,0 +1,8 @@
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed the letter ё being untypeable on the Russian keyboard; long-press the е key to type it 
+
