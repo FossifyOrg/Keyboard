@@ -64,4 +64,5 @@
         Haven't found some strings? There's more at
         https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
+    <string name="translation_urdu">Urdu</string>
 </resources>

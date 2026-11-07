@@ -46,6 +46,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_SWEDISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
 import org.fossify.keyboard.helpers.LANGUAGE_UKRAINIAN
+import org.fossify.keyboard.helpers.LANGUAGE_URDU
 import org.fossify.keyboard.helpers.LANGUAGE_VIETNAMESE_TELEX
 
 fun Context.getSelectedLanguagesSorted(): List<Int> {
@@ -106,6 +107,7 @@ fun Context.getKeyboardLanguageText(language: Int): String {
         LANGUAGE_TURKISH -> getString(R.string.translation_turkish)
         LANGUAGE_TURKISH_Q -> "${getString(R.string.translation_turkish)} (Q)"
         LANGUAGE_UKRAINIAN -> getString(R.string.translation_ukrainian)
+        LANGUAGE_URDU -> getString(R.string.translation_urdu)
         LANGUAGE_VIETNAMESE_TELEX -> "${getString(R.string.translation_vietnamese)} (Telex)"
         else -> "${getString(R.string.translation_english)} (QWERTY)"
     }

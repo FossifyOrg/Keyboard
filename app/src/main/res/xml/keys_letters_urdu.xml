@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Urdu (Perso-Arabic) 4-row mobile layout specification.
+  Accommodates the full 39-grapheme unicameral inventory without shift-state dependency.
+  Rows 1-3 maintain standard 10% unit width; row 4 applies 9.4444% base budgeting with 15% terminal delete.
+-->
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Contextual numeric row toggle -->
+    <Row app:isNumbersRow="true">
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="1"
+            app:popupCharacters="۱"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="2"
+            app:popupCharacters="۲"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="3"
+            app:popupCharacters="۳"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="4"
+            app:popupCharacters="۴"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="5"
+            app:popupCharacters="۵"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="6"
+            app:popupCharacters="۶"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="7"
+            app:popupCharacters="۷"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="8"
+            app:popupCharacters="۸"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="9"
+            app:popupCharacters="۹"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="0"
+            app:popupCharacters="۰"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+    </Row>
+
+    <!-- Row 1: High-frequency stops and retroflexes with contextual digit hints -->
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ض"
+            app:popupCharacters="ًٌٍََُِّْ۱"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="1" />
+        <Key
+            app:keyLabel="ص"
+            app:popupCharacters="۲"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="2" />
+        <Key
+            app:keyLabel="غ"
+            app:popupCharacters="۳"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="3" />
+        <Key
+            app:keyLabel="ڑ"
+            app:popupCharacters="۴"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="4" />
+        <Key
+            app:keyLabel="ٹ"
+            app:popupCharacters="۵"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="5" />
+        <Key
+            app:keyLabel="ث"
+            app:popupCharacters="۶"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="6" />
+        <Key
+            app:keyLabel="ح"
+            app:popupCharacters="۷"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="7" />
+        <Key
+            app:keyLabel="ئ"
+            app:popupCharacters="ء۸"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="8" />
+        <Key
+            app:keyLabel="ظ"
+            app:popupCharacters="۹"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="9" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="ط"
+            app:popupCharacters="۰"
+            app:popupKeyboard="@xml/keyboard_popup_template"
+            app:topSmallNumber="0" />
+    </Row>
+
+    <!-- Row 2: Vowels, semivowels, and velar/labial consonants -->
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ق" />
+        <Key
+            app:keyLabel="و"
+            app:popupCharacters="ؤۆۄۇ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ع" />
+        <Key app:keyLabel="ر" />
+        <Key app:keyLabel="ت" />
+        <Key
+            app:keyLabel="ے"
+            app:popupCharacters="ۓ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ء" />
+        <Key
+            app:keyLabel="ی"
+            app:popupCharacters="ئىي"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyLabel="ہ"
+            app:popupCharacters="ۃۂه"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="پ" />
+    </Row>
+
+    <!-- Row 3: Medial sonorants, dentals, and glides -->
+    <Row>
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ا"
+            app:popupCharacters="آأإٱء"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="س" />
+        <Key app:keyLabel="ڈ" />
+        <Key app:keyLabel="د" />
+        <Key
+            app:keyLabel="ف"
+            app:popupCharacters="ڤ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="گ" />
+        <Key app:keyLabel="ھ" />
+        <Key app:keyLabel="ج" />
+        <Key app:keyLabel="ک" />
+        <Key
+            app:keyEdgeFlags="right"
+            app:keyLabel="ل" />
+    </Row>
+
+    <!-- Row 4: Sibilants, nasals, and terminal backspace -->
+    <Row app:keyWidth="9.4444%p">
+        <Key
+            app:keyEdgeFlags="left"
+            app:keyLabel="ذ" />
+        <Key
+            app:keyLabel="ز"
+            app:popupCharacters="ژ"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key app:keyLabel="ش" />
+        <Key app:keyLabel="خ" />
+        <Key app:keyLabel="چ" />
+        <Key app:keyLabel="ب" />
+        <Key app:keyLabel="ں" />
+        <Key app:keyLabel="ن" />
+        <Key app:keyLabel="م" />
+        <Key
+            app:code="-5"
+            app:isRepeatable="true"
+            app:keyEdgeFlags="right"
+            app:keyIcon="@drawable/ic_clear_vector"
+            app:keyWidth="15%p" />
+    </Row>
+
+    <!-- Action tier: symbol toggle, IME/emoji dispatch, spacebar, punctuation cluster, enter -->
+    <Row>
+        <Key
+            app:code="-2"
+            app:keyEdgeFlags="left"
+            app:keyLabel="\?123"
+            app:keyWidth="15%p" />
+        <Key
+            app:code="-6"
+            app:keyEdgeFlags="left"
+            app:keyIcon="@drawable/ic_emoji_emotions_outline_vector"
+            app:keyWidth="12%p"
+            app:secondaryKeyIcon="@drawable/ic_language_outlined" />
+        <Key
+            app:code="32"
+            app:isRepeatable="true"
+            app:keyWidth="46%p" />
+        <Key
+            app:keyLabel="."
+            app:keyWidth="12%p"
+            app:popupCharacters="!؟:؛،"
+            app:popupKeyboard="@xml/keyboard_popup_template" />
+        <Key
+            app:code="-4"
+            app:keyEdgeFlags="right"
+            app:keyIcon="@drawable/ic_enter_vector"
+            app:keyWidth="15%p" />
+    </Row>
+</Keyboard>

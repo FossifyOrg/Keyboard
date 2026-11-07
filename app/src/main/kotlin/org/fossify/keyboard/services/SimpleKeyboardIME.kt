@@ -117,6 +117,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_SWEDISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
 import org.fossify.keyboard.helpers.LANGUAGE_UKRAINIAN
+import org.fossify.keyboard.helpers.LANGUAGE_URDU
 import org.fossify.keyboard.helpers.MyKeyboard
 import org.fossify.keyboard.helpers.SHOW_KEY_BORDERS
 import org.fossify.keyboard.helpers.SHOW_NUMBERS_ROW
@@ -582,6 +583,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_TURKISH -> R.xml.keys_letters_turkish
             LANGUAGE_TURKISH_Q -> R.xml.keys_letters_turkish_q
             LANGUAGE_UKRAINIAN -> R.xml.keys_letters_ukrainian
+            LANGUAGE_URDU -> R.xml.keys_letters_urdu
             else -> R.xml.keys_letters_english_qwerty
         }
     }
