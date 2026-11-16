@@ -44,7 +44,7 @@
     <string name="objects">物件</string>
     <string name="symbols">符號</string>
     <string name="flags">旗幟</string>
-    <string name="voice_typing_method">語音輸入方法</string>
+    <string name="voice_typing_method">語音輸入方式</string>
     <string name="switch_to_voice_typing">切換至語音輸入</string>
     <string name="layout_and_appearance">版面與外觀</string>
     <string name="keypress">按鍵</string>
