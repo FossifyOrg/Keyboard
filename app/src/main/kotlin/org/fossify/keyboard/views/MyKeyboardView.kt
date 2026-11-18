@@ -1797,7 +1797,7 @@ class MyKeyboardView @JvmOverloads constructor(
 
     private fun setupEmojiAdapter(emojis: List<EmojiData>) {
         val emojiCategories = prepareEmojiCategories(emojis)
-        var emojiItems = prepareEmojiItems(emojiCategories)
+        val emojiItems = prepareEmojiItems(emojiCategories)
 
         val emojiLayoutManager = AutoGridLayoutManager(
             context = context,
@@ -1856,11 +1856,10 @@ class MyKeyboardView @JvmOverloads constructor(
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
 
+                // Persist the tap now, but leave the visible order alone until the
+                // palette is reopened, so quick successive taps don't reshuffle the
+                // Recently Used row underneath the user's finger.
                 context.config.addRecentEmoji(emoji.emoji)
-                (adapter as? EmojisAdapter)?.apply {
-                    emojiItems = prepareEmojiItems(prepareEmojiCategories(emojis))
-                    updateItems(emojiItems)
-                }
             }
 
             clearOnScrollListeners()
