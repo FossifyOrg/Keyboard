@@ -1856,11 +1856,9 @@ class MyKeyboardView @JvmOverloads constructor(
                 mOnKeyboardActionListener!!.onText(emoji.emoji)
                 vibrateIfNeeded()
 
+                // Persist recently used, but do not rebuild the list while the picker is open.
+                // Immediate rebuild reorders the Recently Used section mid-tap and causes mis-taps (#364).
                 context.config.addRecentEmoji(emoji.emoji)
-                (adapter as? EmojisAdapter)?.apply {
-                    emojiItems = prepareEmojiItems(prepareEmojiCategories(emojis))
-                    updateItems(emojiItems)
-                }
             }
 
             clearOnScrollListeners()
