@@ -24,17 +24,32 @@ import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_100_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_120_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_140_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_160_PERCENT
+import org.fossify.keyboard.helpers.DEFAULT_DICTIONARY_LANG
+import org.fossify.keyboard.helpers.DICTIONNARY_EXTRA_LANG
+import org.fossify.keyboard.helpers.DictionnaryClient
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_70_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_80_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_90_PERCENT
 import org.fossify.keyboard.helpers.SOUND_ALWAYS
 import org.fossify.keyboard.helpers.SOUND_NONE
 import org.fossify.keyboard.helpers.SOUND_SYSTEM
+import org.fossify.keyboard.helpers.dictionaryLangForKeyboardLanguage
 import java.util.Locale
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
+
+    companion object {
+        private const val REQUEST_DOWNLOAD_DICTIONARY = 1001
+        private val REQUEST_PICK_DICTIONNARY_APK = DictionnaryClient.REQUEST_PICK_DICTIONNARY_APK
+    }
+
+    private var installProposalShown = false
+
+    // languages a download was already attempted for during this settings visit, so a failing
+    // download is not relaunched in a loop from onActivityResult
+    private val dictionaryDownloadAttempts = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +81,11 @@ class SettingsActivity : SimpleActivity() {
         setupShowClipboardContent()
         setupSentencesCapitalization()
         setupShowNumbersRow()
+        setupShowSuggestions()
+        setupAutoCorrect()
+        setupDictionnaryStatus()
         setupVoiceInputMethod()
+        maybeProposeDictionnaryInstall()
 
         binding.apply {
             updateTextColors(settingsNestedScrollview)
@@ -186,7 +205,109 @@ class SettingsActivity : SimpleActivity() {
             settingsManageKeyboardLanguagesHolder.setOnClickListener {
                 ManageKeyboardLanguagesDialog(this@SettingsActivity) {
                     settingsKeyboardLanguage.text = getKeyboardLanguageText(config.keyboardLanguage)
+                    ensureDictionariesForSelectedLanguages()
                 }
+            }
+        }
+    }
+
+    /**
+     * For every selected keyboard language that has a dictionary but no local copy yet,
+     * launches the Dictionnary app to download it (or proposes to install that app).
+     */
+    private fun ensureDictionariesForSelectedLanguages() {
+        val missingLangs = config.selectedLanguages
+            .mapNotNull { dictionaryLangForKeyboardLanguage(it) }
+            .distinct()
+            .filter { !DictionnaryClient.isLocalDictionaryAvailable(this, it) }
+        if (missingLangs.isNotEmpty()) {
+            ensureDictionary(missingLangs.first())
+        }
+    }
+
+    private fun ensureDictionaryForCurrentLanguage() {
+        val lang = dictionaryLangForKeyboardLanguage(config.keyboardLanguage) ?: return
+        if (!DictionnaryClient.isLocalDictionaryAvailable(this, lang)) {
+            ensureDictionary(lang)
+        }
+    }
+
+    private fun ensureDictionary(lang: String) {
+        if (!dictionaryDownloadAttempts.add(lang)) {
+            return
+        }
+        if (DictionnaryClient.isDictionnaryInstalled(this)) {
+            DictionnaryClient.launchDictionaryDownload(this, lang, REQUEST_DOWNLOAD_DICTIONARY)
+        } else {
+            DictionnaryClient.proposeInstallDictionnary(this, lang, REQUEST_PICK_DICTIONNARY_APK)
+        }
+    }
+
+    /** settings row showing whether the Dictionnary app is installed, tap to install/open it */
+    private fun setupDictionnaryStatus() {
+        binding.apply {
+            val installed = DictionnaryClient.isDictionnaryInstalled(this@SettingsActivity)
+            settingsDictionnaryValue.text = getString(
+                if (installed) R.string.dictionnary_installed else R.string.dictionnary_not_installed
+            )
+            settingsDictionnaryHolder.setOnClickListener {
+                val lang = dictionaryLangForKeyboardLanguage(config.keyboardLanguage)
+                when {
+                    !installed -> {
+                        if (lang != null) {
+                            DictionnaryClient.proposeInstallDictionnary(this@SettingsActivity, lang, REQUEST_PICK_DICTIONNARY_APK)
+                        } else {
+                            DictionnaryClient.proposeInstallDictionnary(this@SettingsActivity, DEFAULT_DICTIONARY_LANG, REQUEST_PICK_DICTIONNARY_APK)
+                        }
+                    }
+
+                    lang != null && !DictionnaryClient.isLocalDictionaryAvailable(this@SettingsActivity, lang) ->
+                        ensureDictionary(lang)
+
+                    else -> DictionnaryClient.openDictionnaryApp(this@SettingsActivity)
+                }
+            }
+        }
+    }
+
+    /**
+     * If suggestions or auto-correct are enabled but the dictionary is missing and the
+     * Dictionnary app is not installed, propose to install it (once per settings visit).
+     */
+    private fun maybeProposeDictionnaryInstall() {
+        if (installProposalShown) {
+            return
+        }
+        if (!config.showSuggestions && !config.autoCorrectOnSpace) {
+            return
+        }
+        val lang = dictionaryLangForKeyboardLanguage(config.keyboardLanguage) ?: return
+        if (DictionnaryClient.isLocalDictionaryAvailable(this, lang)) {
+            return
+        }
+        if (DictionnaryClient.isDictionnaryInstalled(this)) {
+            return
+        }
+        installProposalShown = true
+        DictionnaryClient.proposeInstallDictionnary(this, lang, REQUEST_PICK_DICTIONNARY_APK)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        if (requestCode == REQUEST_DOWNLOAD_DICTIONARY) {
+            val lang = resultData?.getStringExtra(DICTIONNARY_EXTRA_LANG)
+            val file = DictionnaryClient.handleDownloadResult(this, resultCode, resultData)
+            if (file != null) {
+                toast(getString(R.string.dictionary_downloaded_ok, lang.orEmpty()))
+            } else if (lang != null) {
+                toast(getString(R.string.dictionary_download_failed, lang))
+            }
+            // continue with the other missing languages, if any
+            ensureDictionariesForSelectedLanguages()
+        } else if (requestCode == REQUEST_PICK_DICTIONNARY_APK && resultCode == RESULT_OK) {
+            resultData?.data?.let {
+                // hand the picked APK to the system package installer
+                DictionnaryClient.installApkFromUri(this, it)
             }
         }
     }
@@ -306,6 +427,32 @@ class SettingsActivity : SimpleActivity() {
             settingsShowNumbersRowHolder.setOnClickListener {
                 settingsShowNumbersRow.toggle()
                 config.showNumbersRow = settingsShowNumbersRow.isChecked
+            }
+        }
+    }
+
+    private fun setupShowSuggestions() {
+        binding.apply {
+            settingsShowSuggestions.isChecked = config.showSuggestions
+            settingsShowSuggestionsHolder.setOnClickListener {
+                settingsShowSuggestions.toggle()
+                config.showSuggestions = settingsShowSuggestions.isChecked
+                if (settingsShowSuggestions.isChecked) {
+                    ensureDictionaryForCurrentLanguage()
+                }
+            }
+        }
+    }
+
+    private fun setupAutoCorrect() {
+        binding.apply {
+            settingsAutoCorrect.isChecked = config.autoCorrectOnSpace
+            settingsAutoCorrectHolder.setOnClickListener {
+                settingsAutoCorrect.toggle()
+                config.autoCorrectOnSpace = settingsAutoCorrect.isChecked
+                if (settingsAutoCorrect.isChecked) {
+                    ensureDictionaryForCurrentLanguage()
+                }
             }
         }
     }

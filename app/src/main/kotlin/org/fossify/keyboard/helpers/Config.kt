@@ -78,14 +78,51 @@ class Config(context: Context) : BaseConfig(context) {
             prefs.edit().putStringSet(SELECTED_LANGUAGES, stringSet).apply()
         }
 
-    fun getDefaultLanguage(): Int {
-        val conf = context.resources.configuration
-        return if (conf.locale.toString().lowercase(Locale.getDefault()).startsWith("ru_")) {
-            LANGUAGE_RUSSIAN
-        } else {
-            LANGUAGE_ENGLISH_QWERTY
+    fun getDefaultLanguage(): Int = languageForLocale(context.resources.configuration.locale)
+
+    /** maps the system locale to the closest supported keyboard language (English QWERTY as fallback) */
+    private fun languageForLocale(locale: Locale): Int {
+        val country = locale.country.uppercase(Locale.getDefault())
+        return when (locale.language.lowercase(Locale.getDefault())) {
+            "fr" -> LANGUAGE_FRENCH_AZERTY
+            "de" -> if (country == "DE") LANGUAGE_GERMAN else LANGUAGE_GERMAN_QWERTZ
+            "es" -> LANGUAGE_SPANISH
+            "it" -> LANGUAGE_ITALIAN
+            "pt" -> LANGUAGE_PORTUGUESE
+            "nl" -> LANGUAGE_DUTCH
+            "pl" -> LANGUAGE_POLISH
+            "sv" -> LANGUAGE_SWEDISH
+            "da" -> LANGUAGE_DANISH
+            "nb", "no" -> LANGUAGE_NORWEGIAN
+            "ru" -> LANGUAGE_RUSSIAN
+            "uk" -> LANGUAGE_UKRAINIAN
+            "cs" -> LANGUAGE_CZECH_QWERTY
+            "tr" -> LANGUAGE_TURKISH
+            "el" -> LANGUAGE_GREEK
+            "he" -> LANGUAGE_HEBREW
+            "ar" -> LANGUAGE_ARABIC
+            "bn" -> LANGUAGE_BENGALI
+            "lv" -> LANGUAGE_LATVIAN
+            "lt" -> LANGUAGE_LITHUANIAN
+            "ro" -> LANGUAGE_ROMANIAN
+            "sl" -> LANGUAGE_SLOVENIAN
+            "bg" -> LANGUAGE_BULGARIAN
+            "eo" -> LANGUAGE_ESPERANTO
+            else -> LANGUAGE_ENGLISH_QWERTY
         }
     }
+
+    var wasDictionaryLanguageProposed: Boolean
+        get() = prefs.getBoolean(DICTIONARY_LANGUAGE_PROPOSED, false)
+        set(wasDictionaryLanguageProposed) = prefs.edit().putBoolean(DICTIONARY_LANGUAGE_PROPOSED, wasDictionaryLanguageProposed).apply()
+
+    var showSuggestions: Boolean
+        get() = prefs.getBoolean(SHOW_SUGGESTIONS, false)
+        set(showSuggestions) = prefs.edit().putBoolean(SHOW_SUGGESTIONS, showSuggestions).apply()
+
+    var autoCorrectOnSpace: Boolean
+        get() = prefs.getBoolean(AUTO_CORRECT_ON_SPACE, false)
+        set(autoCorrectOnSpace) = prefs.edit().putBoolean(AUTO_CORRECT_ON_SPACE, autoCorrectOnSpace).apply()
 
     var recentlyUsedEmojis: List<String>
         get() = prefs.getString(RECENTLY_USED_EMOJIS, "\uD83D\uDC30")!!.split("|").filter { it.isNotEmpty() }

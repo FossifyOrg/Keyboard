@@ -31,6 +31,23 @@ const val SHOW_NUMBERS_ROW = "show_numbers_row"
 const val SELECTED_LANGUAGES = "selected_languages"
 const val VOICE_INPUT_METHOD = "voice_input_method"
 const val RECENTLY_USED_EMOJIS = "recently_used_emojis"
+const val SHOW_SUGGESTIONS = "show_suggestions"
+const val AUTO_CORRECT_ON_SPACE = "auto_correct_on_space"
+const val DICTIONARY_LANGUAGE_PROPOSED = "dictionnary_language_proposed"
+
+// the keyboard app has no internet permission: the external Dictionnary app downloads the
+// language files of the auto-correct and shares them through this content provider authority
+const val DICTIONNARY_AUTHORITY = "org.fossify.dictionnary.provider"
+const val DICTIONNARY_ACCESS_PERMISSION = "org.fossify.dictionnary.ACCESS_DICTIONARIES"
+const val DEFAULT_DICTIONARY_LANG = "en_US"
+
+// intent used to launch the Dictionnary app so it downloads a dictionary and hands the result back
+const val DICTIONNARY_ACTION_DOWNLOAD = "org.fossify.dictionnary.action.DOWNLOAD_DICTIONARY"
+const val DICTIONNARY_EXTRA_LANG = "lang"
+const val DICTIONNARY_EXTRA_CALLING_PACKAGE = "calling_package"
+const val DICTIONNARY_EXTRA_RESULT_URI = "result_uri"
+const val DICTIONNARY_EXTRA_ERROR = "error"
+const val DICTIONNARY_PACKAGE = "org.fossify.dictionnary"
 
 // differentiate current and pinned clips at the keyboards' Clipboard section
 const val ITEM_SECTION_LABEL = 0

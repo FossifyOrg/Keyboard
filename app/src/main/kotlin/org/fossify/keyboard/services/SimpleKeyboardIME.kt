@@ -19,6 +19,10 @@ import android.text.InputType.TYPE_CLASS_TEXT
 import android.text.InputType.TYPE_MASK_CLASS
 import android.text.InputType.TYPE_MASK_VARIATION
 import android.text.InputType.TYPE_NULL
+import android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD
+import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+import android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+import android.text.InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD
 import android.text.TextUtils
 import android.util.Size
 import android.view.KeyEvent
@@ -47,7 +51,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.updatePadding
+import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.beGone
+import org.fossify.commons.extensions.beVisible
+import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.getSharedPrefs
@@ -117,10 +125,15 @@ import org.fossify.keyboard.helpers.LANGUAGE_SWEDISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH
 import org.fossify.keyboard.helpers.LANGUAGE_TURKISH_Q
 import org.fossify.keyboard.helpers.LANGUAGE_UKRAINIAN
+import org.fossify.keyboard.helpers.AUTO_CORRECT_ON_SPACE
+import org.fossify.keyboard.helpers.DEFAULT_DICTIONARY_LANG
 import org.fossify.keyboard.helpers.MyKeyboard
 import org.fossify.keyboard.helpers.SHOW_KEY_BORDERS
+import org.fossify.keyboard.helpers.SHOW_SUGGESTIONS
 import org.fossify.keyboard.helpers.SHOW_NUMBERS_ROW
 import org.fossify.keyboard.helpers.ShiftState
+import org.fossify.keyboard.helpers.SpellChecker
+import org.fossify.keyboard.helpers.dictionaryLangForKeyboardLanguage
 import org.fossify.keyboard.helpers.VOICE_INPUT_METHOD
 import org.fossify.keyboard.helpers.cachedVNTelexData
 import org.fossify.keyboard.interfaces.OnKeyboardActionListener
@@ -134,6 +147,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     companion object {
         // How quickly do we have to double tap shift to enable permanent caps lock
         private var SHIFT_PERM_TOGGLE_SPEED = 500
+        private const val DIVIDER_ALPHA = 0.3f
 
         // Keyboard modes
         const val KEYBOARD_LETTERS = 0
@@ -153,12 +167,24 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     private var enterKeyType = IME_ACTION_NONE
     private var switchToLetters = false
     private var breakIterator: BreakIterator? = null
+    private var spellChecker: SpellChecker? = null
+    private val wordBuffer = StringBuilder()
+    private var currentSuggestions: List<String> = emptyList()
+    // last suggestion applied by tapping the strip, excluded from the next-word predictions
+    private var lastAppliedSuggestion: String? = null
 
     private lateinit var binding: KeyboardViewKeyboardBinding
 
     override fun onInitializeInterface() {
         super.onInitializeInterface()
         safeStorageContext.getSharedPrefs().registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        spellChecker?.destroy()
+        spellChecker = null
+        safeStorageContext.getSharedPrefs().unregisterOnSharedPreferenceChangeListener(this)
     }
 
     override fun onCreateInputView(): View {
@@ -171,7 +197,38 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             mOnKeyboardActionListener = this@SimpleKeyboardIME
         }
 
+        setupSpellChecker()
+
         return binding.root
+    }
+
+    private fun setupSpellChecker() {
+        spellChecker?.destroy()
+        spellChecker = null
+        if (!config.showSuggestions && !config.autoCorrectOnSpace) {
+            return
+        }
+        val dictionaryLang = dictionaryLangForKeyboardLanguage(config.keyboardLanguage) ?: DEFAULT_DICTIONARY_LANG
+        spellChecker = SpellChecker(this, dictionaryLang)
+        spellChecker?.onSuggestionsReady = { suggestions ->
+            if (isPasswordField()) {
+                clearSpellSuggestions()
+            } else {
+                currentSuggestions = suggestions
+                if (config.showSuggestions) {
+                    showSpellSuggestions(suggestions)
+                }
+            }
+        }
+        spellChecker?.onDictionaryLoaded = {
+            if (wordBuffer.isNotEmpty()) {
+                triggerSpellCheck()
+            } else if (endsWithSpaceBeforeCursor()) {
+                // the dictionary finished loading while the cursor sits right after a
+                // space: propose the most probable next words
+                showNextWordSuggestions()
+            }
+        }
     }
 
     override fun onStartInputView(editorInfo: EditorInfo?, restarting: Boolean) {
@@ -200,6 +257,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             breakIterator = BreakIterator.getCharacterInstance(ULocale.getDefault())
         }
         updateShiftKeyState()
+        wordBuffer.clear()
+        clearSpellSuggestions()
     }
 
     private fun updateShiftKeyState() {
@@ -269,6 +328,16 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     inputConnection.deleteSurroundingText(count, 0)
                 } else {
                     inputConnection.commitText("", 1)
+                }
+                if (wordBuffer.isNotEmpty()) wordBuffer.deleteAt(wordBuffer.length - 1)
+                if (wordBuffer.isEmpty()) {
+                    if (endsWithSpaceBeforeCursor()) {
+                        showNextWordSuggestions()
+                    } else {
+                        clearSpellSuggestions()
+                    }
+                } else {
+                    triggerSpellCheck()
                 }
             }
 
@@ -374,6 +443,9 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                     if (originalText != newText) {
                         switchToLetters = keyboardMode != KEYBOARD_SYMBOLS_ALT
                     }
+                } else if (code == MyKeyboard.KEYCODE_SPACE) {
+                    handleAutoCorrectSpace()
+                    updateShiftKeyState()
                 } else {
                     when {
                         !originalText.isNullOrEmpty() && cachedVNTelexData.isNotEmpty() -> {
@@ -404,6 +476,15 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
                             inputConnection.commitText(codeChar.toString(), 1)
                             updateShiftKeyState()
                         }
+                    }
+
+                    if (Character.isLetter(codeChar)) {
+                        wordBuffer.append(codeChar.lowercaseChar())
+                        lastAppliedSuggestion = null
+                        triggerSpellCheck()
+                    } else {
+                        wordBuffer.clear()
+                        clearSpellSuggestions()
                     }
                 }
             }
@@ -505,6 +586,19 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
         if (newSelStart == newSelEnd) {
             keyboardView?.closeClipboardManager()
         }
+
+        val expectedPosition = oldSelEnd + 1
+        if (newSelStart != expectedPosition || newSelStart != newSelEnd) {
+            wordBuffer.clear()
+            if (newSelStart == newSelEnd && endsWithSpaceBeforeCursor()) {
+                // cursor moved right after a space (or a suggestion was just applied):
+                // propose the most probable next words
+                showNextWordSuggestions(afterWord = lastAppliedSuggestion)
+            } else {
+                clearSpellSuggestions()
+            }
+        }
+
         updateShiftKeyState()
     }
 
@@ -598,8 +692,8 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
 
         val rippleBg = resources.getDrawable(R.drawable.clipboard_background, theme) as RippleDrawable
         val layerDrawable = rippleBg.findDrawableByLayerId(R.id.clipboard_background_holder) as LayerDrawable
-        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(getStrokeColor())
-        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(getProperBackgroundColor())
+        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_stroke).applyColorFilter(safeStorageContext.getStrokeColor())
+        layerDrawable.findDrawableByLayerId(R.id.clipboard_background_shape).applyColorFilter(safeStorageContext.getProperBackgroundColor())
 
         val maxWidth = resources.getDimensionPixelSize(R.dimen.suggestion_max_width)
         val height = resources.getDimensionPixelSize(R.dimen.label_text_size) + verticalPadding * 2
@@ -623,13 +717,13 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             .setTitleStyle(
                 TextViewStyle.Builder()
                     .setLayoutMargin(0, 0, horizontalPadding, 0)
-                    .setTextColor(getProperTextColor())
+                    .setTextColor(safeStorageContext.getProperTextColor())
                     .setTextSize(textSize)
                     .build()
             )
             .setSubtitleStyle(
                 TextViewStyle.Builder()
-                    .setTextColor(getProperTextColor())
+                    .setTextColor(safeStorageContext.getProperTextColor())
                     .setTextSize(textSize)
                     .build()
             )
@@ -639,6 +733,11 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == KEYBOARD_LANGUAGE || key == SHOW_SUGGESTIONS || key == AUTO_CORRECT_ON_SPACE) {
+            // (re)create or tear down the spell checker depending on whether suggestions or
+            // auto-correct are enabled, and reload the dictionary of the newly selected language
+            setupSpellChecker()
+        }
         if (key != null && key in arrayOf(
                 SHOW_KEY_BORDERS, KEYBOARD_LANGUAGE, HEIGHT_PERCENTAGE, SHOW_NUMBERS_ROW, VOICE_INPUT_METHOD,
                 TEXT_COLOR, BACKGROUND_COLOR, PRIMARY_COLOR, ACCENT_COLOR, CUSTOM_TEXT_COLOR, CUSTOM_BACKGROUND_COLOR,
@@ -731,5 +830,135 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             }
         }
         return keyboard
+    }
+
+    private fun showSpellSuggestions(suggestions: List<String>) {
+        if (suggestions.isEmpty()) {
+            binding.spellSuggestionsHolder.beGone()
+            binding.clipboardValue.beVisibleIf(config.showClipboardContent)
+            return
+        }
+
+        binding.clipboardValue.beGone()
+        binding.spellSuggestionsHolder.beVisible()
+
+        val textColor = safeStorageContext.getProperTextColor()
+        val dividerColor = textColor.adjustAlpha(DIVIDER_ALPHA)
+
+        val slot0 = suggestions.getOrNull(1)
+        val slot1 = suggestions.getOrNull(0) // best candidate in middle
+        val slot2 = suggestions.getOrNull(2)
+
+        binding.suggestionSlot0.apply {
+            text = slot0 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot0?.let { applySuggestion(it) } }
+        }
+        binding.suggestionDivider0.setTextColor(dividerColor)
+
+        binding.suggestionSlot1.apply {
+            text = slot1 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot1?.let { applySuggestion(it) } }
+        }
+        binding.suggestionDivider1.setTextColor(dividerColor)
+
+        binding.suggestionSlot2.apply {
+            text = slot2 ?: ""
+            setTextColor(textColor)
+            setOnClickListener { slot2?.let { applySuggestion(it) } }
+        }
+    }
+
+    private fun clearSpellSuggestions() {
+        currentSuggestions = emptyList()
+        if (::binding.isInitialized) {
+            binding.spellSuggestionsHolder.beGone()
+            binding.clipboardValue.beVisibleIf(config.showClipboardContent)
+        }
+    }
+
+    private fun applySuggestion(word: String) {
+        val currentWord = wordBuffer.toString()
+        if (currentWord.isNotEmpty()) {
+            currentInputConnection?.deleteSurroundingText(currentWord.length, 0)
+        }
+        currentInputConnection?.commitText("$word ", 1)
+        wordBuffer.clear()
+        // the suggestion is committed with a trailing space: predict the next word
+        lastAppliedSuggestion = word
+        showNextWordSuggestions(afterWord = word)
+    }
+
+    private fun isPasswordField(): Boolean {
+        return inputTypeClassVariation == TYPE_TEXT_VARIATION_PASSWORD ||
+            inputTypeClassVariation == TYPE_TEXT_VARIATION_VISIBLE_PASSWORD ||
+            inputTypeClassVariation == TYPE_TEXT_VARIATION_WEB_PASSWORD ||
+            inputTypeClassVariation == TYPE_NUMBER_VARIATION_PASSWORD
+    }
+
+    private fun triggerSpellCheck() {
+        if (isPasswordField()) {
+            clearSpellSuggestions()
+            return
+        }
+
+        if (!config.showSuggestions && !config.autoCorrectOnSpace) {
+            clearSpellSuggestions()
+            return
+        }
+
+        if (wordBuffer.length >= 2) {
+            spellChecker?.checkWord(wordBuffer.toString())
+        } else {
+            clearSpellSuggestions()
+        }
+    }
+
+    private fun handleAutoCorrectSpace() {
+        val currentWord = wordBuffer.toString()
+        val topSuggestion = currentSuggestions.firstOrNull()
+
+        val shouldAutoCorrect = config.autoCorrectOnSpace &&
+            !isPasswordField() &&
+            topSuggestion != null &&
+            currentWord.isNotEmpty() &&
+            spellChecker?.isValidWord(currentWord) == false
+
+        if (shouldAutoCorrect) {
+            currentInputConnection?.deleteSurroundingText(currentWord.length, 0)
+            currentInputConnection?.commitText("$topSuggestion ", 1)
+        } else {
+            currentInputConnection?.commitText(" ", 1)
+        }
+
+        wordBuffer.clear()
+        // the cursor now sits right after a space: propose the most probable next
+        // words so one can be picked before its first letter is typed
+        lastAppliedSuggestion = if (shouldAutoCorrect) topSuggestion else currentWord
+        showNextWordSuggestions(afterWord = lastAppliedSuggestion)
+    }
+
+    /**
+     * Shows the most probable words following the current word (used after a space, before
+     * the first letter of the next word is typed). Tapping one inserts it followed by a space.
+     */
+    private fun showNextWordSuggestions(afterWord: String? = null) {
+        if (!config.showSuggestions || isPasswordField()) {
+            clearSpellSuggestions()
+            return
+        }
+        val suggestions = spellChecker?.nextWordSuggestions(exclude = afterWord).orEmpty()
+        currentSuggestions = suggestions
+        if (suggestions.isEmpty()) {
+            clearSpellSuggestions()
+        } else {
+            showSpellSuggestions(suggestions)
+        }
+    }
+
+    private fun endsWithSpaceBeforeCursor(): Boolean {
+        val before = currentInputConnection?.getTextBeforeCursor(1, 0)?.toString() ?: return false
+        return before.isNotEmpty() && before.last().isWhitespace()
     }
 }

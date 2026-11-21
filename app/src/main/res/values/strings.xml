@@ -45,6 +45,19 @@
     <string name="start_sentences_capitalized">Start sentences with a capital letter</string>
     <string name="show_emoji_key">Show emoji key</string>
     <string name="show_language_switch_key">Show language switch key</string>
+    <string name="show_suggestions">Show word suggestions</string>
+    <string name="auto_correct_on_space">Auto-correct on space</string>
+    <string name="dictionnary_app_not_installed">Install the Dictionnary app to download the language dictionaries used for suggestions and auto-correct</string>
+    <string name="install">Install</string>
+    <string name="dictionnary_app">Dictionnary (dictionaries)</string>
+    <string name="dictionnary_installed">installed</string>
+    <string name="dictionnary_not_installed">not installed, tap to install</string>
+    <string name="install_dictionnary_title">Dictionnary app required</string>
+    <string name="install_dictionnary_message">The %1$s dictionary used for word suggestions and auto-correct is downloaded by the separate Dictionnary app (this keyboard has no internet permission). Install Dictionnary to get it?</string>
+    <string name="install_dictionnary_pick_apk">Choose APK file…</string>
+    <string name="open_play_store">Open Play Store</string>
+    <string name="dictionary_downloaded_ok">Dictionary %1$s downloaded</string>
+    <string name="dictionary_download_failed">Could not download the %1$s dictionary</string>
     <!-- Emojis -->
     <string name="emojis">Emojis</string>
     <string name="recently_used">Recently used</string>

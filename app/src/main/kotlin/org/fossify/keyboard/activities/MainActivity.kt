@@ -12,6 +12,7 @@ import org.fossify.commons.extensions.getContrastColor
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.hideKeyboard
 import org.fossify.commons.extensions.launchMoreAppsFromUsIntent
+import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.updateTextColors
 import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.LICENSE_GSON
@@ -19,10 +20,19 @@ import org.fossify.commons.models.FAQItem
 import org.fossify.keyboard.BuildConfig
 import org.fossify.keyboard.R
 import org.fossify.keyboard.databinding.ActivityMainBinding
+import org.fossify.keyboard.extensions.config
 import org.fossify.keyboard.extensions.inputMethodManager
+import org.fossify.keyboard.helpers.DICTIONNARY_EXTRA_LANG
+import org.fossify.keyboard.helpers.DictionnaryClient
+import org.fossify.keyboard.helpers.dictionaryLangForKeyboardLanguage
 
 class MainActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityMainBinding::inflate)
+
+    companion object {
+        private const val REQUEST_DOWNLOAD_DICTIONARY = 1001
+        private val REQUEST_PICK_DICTIONNARY_APK = DictionnaryClient.REQUEST_PICK_DICTIONNARY_APK
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,9 +71,57 @@ class MainActivity : SimpleActivity() {
                 }
             }
         }
+        maybeProposeDictionaryLanguage()
 
         updateTextColors(binding.mainNestedScrollview)
         updateChangeKeyboardColor()
+    }
+
+    /**
+     * At launch, in addition to asking to add the keyboard to the enabled input methods,
+     * ask the user to install the dictionary of the current keyboard language: launch the
+     * Dictionnary app's download flow when it is installed, otherwise propose to install
+     * that app. Asked only once, and again later if the dictionary is missing again.
+     */
+    private fun maybeProposeDictionaryLanguage() {
+        if (!config.showSuggestions && !config.autoCorrectOnSpace) {
+            return
+        }
+        val lang = dictionaryLangForKeyboardLanguage(config.keyboardLanguage) ?: return
+        if (DictionnaryClient.isLocalDictionaryAvailable(this, lang)) {
+            config.wasDictionaryLanguageProposed = false
+            return
+        }
+        if (config.wasDictionaryLanguageProposed) {
+            return
+        }
+        config.wasDictionaryLanguageProposed = true
+        if (DictionnaryClient.isDictionnaryInstalled(this)) {
+            DictionnaryClient.launchDictionaryDownload(this, lang, REQUEST_DOWNLOAD_DICTIONARY)
+        } else {
+            DictionnaryClient.proposeInstallDictionnary(this, lang, REQUEST_PICK_DICTIONNARY_APK)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        when (requestCode) {
+            REQUEST_DOWNLOAD_DICTIONARY -> {
+                val lang = resultData?.getStringExtra(DICTIONNARY_EXTRA_LANG)
+                val file = DictionnaryClient.handleDownloadResult(this, resultCode, resultData)
+                if (file != null) {
+                    toast(getString(R.string.dictionary_downloaded_ok, lang.orEmpty()))
+                } else if (lang != null) {
+                    toast(getString(R.string.dictionary_download_failed, lang))
+                }
+            }
+
+            REQUEST_PICK_DICTIONNARY_APK -> {
+                if (resultCode == RESULT_OK) {
+                    resultData?.data?.let { DictionnaryClient.installApkFromUri(this, it) }
+                }
+            }
+        }
     }
 
     private fun setupOptionsMenu() {

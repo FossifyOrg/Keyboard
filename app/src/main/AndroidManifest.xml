@@ -11,6 +11,19 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
 
+    <!-- no INTERNET permission here on purpose: the external Dictionnary app downloads the
+         auto-correct language files and shares them with us through content URIs -->
+    <uses-permission android:name="org.fossify.dictionnary.ACCESS_DICTIONARIES" />
+
+    <queries>
+        <provider android:authorities="org.fossify.dictionnary.provider" />
+        <package android:name="org.fossify.dictionnary" />
+        <package android:name="org.fossify.dictionnary.debug" />
+        <intent>
+            <action android:name="org.fossify.dictionnary.action.DOWNLOAD_DICTIONARY" />
+        </intent>
+    </queries>
+
     <application
         android:name="org.fossify.keyboard.App"
         android:allowBackup="true"

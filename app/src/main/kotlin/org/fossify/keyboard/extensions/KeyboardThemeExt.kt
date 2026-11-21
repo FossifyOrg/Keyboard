@@ -10,10 +10,12 @@ import org.fossify.commons.extensions.lightenColor
 import org.fossify.keyboard.R
 
 fun Context.getKeyboardBackgroundColor(): Int {
-    val color = if (isDynamicTheme()) {
+    // use safeStorageContext: these helpers also run inside the directBootAware IME service,
+    // where credential encrypted SharedPreferences are not available before user unlock
+    val color = if (safeStorageContext.isDynamicTheme()) {
         resources.getColor(R.color.you_keyboard_background_color, theme)
     } else {
-        getProperBackgroundColor().darkenColor(2)
+        safeStorageContext.getProperBackgroundColor().darkenColor(2)
     }
 
     // use darker background color when key borders are enabled
@@ -30,7 +32,7 @@ fun Context.getKeyboardBackgroundColor(): Int {
 }
 
 fun Context.getStrokeColor(): Int {
-    return if (isDynamicTheme()) {
+    return if (safeStorageContext.isDynamicTheme()) {
         if (isSystemInDarkMode()) {
             resources.getColor(R.color.md_grey_800, theme)
         } else {

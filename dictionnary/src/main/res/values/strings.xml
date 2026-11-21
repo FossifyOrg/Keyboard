@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dictionnary</string>
+    <string name="access_dictionaries">Access downloaded dictionaries</string>
+    <string name="download_dictionaries">Download dictionaries</string>
+    <string name="dictionnary_description">Dictionnary downloads the language dictionaries used by the keyboard for auto-correct and word suggestions. The keyboard app itself has no internet permission: it reads the files provided by this app through content URIs and keeps local copies.</string>
+    <string name="dictionary_downloaded">%1$s: downloaded (%2$d KB)</string>
+    <string name="dictionary_missing">%1$s: not downloaded yet</string>
+    <string name="downloading_dictionary">%1$s: downloading…</string>
+</resources>

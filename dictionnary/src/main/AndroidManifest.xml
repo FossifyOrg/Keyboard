@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Only this app holds the internet permission. The keyboard app has none and gets
+         the downloaded dictionary files through the content provider below (content URIs). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- signature permission so that only apps signed with the same key (the keyboard) can read -->
+    <permission
+        android:name="org.fossify.dictionnary.ACCESS_DICTIONARIES"
+        android:label="@string/access_dictionaries"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- launched by the keyboard app to download a dictionary and hand the result back -->
+            <intent-filter>
+                <action android:name="org.fossify.dictionnary.action.DOWNLOAD_DICTIONARY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".providers.DictionaryProvider"
+            android:authorities="org.fossify.dictionnary.provider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:readPermission="org.fossify.dictionnary.ACCESS_DICTIONARIES" />
+    </application>
+</manifest>

@@ -335,6 +335,59 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_show_suggestions_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_show_suggestions"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_suggestions" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_auto_correct_holder"
+                style="@style/SettingsHolderSwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/settings_auto_correct"
+                    style="@style/SettingsSwitchStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_correct_on_space" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_dictionnary_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_dictionnary"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dictionnary_app" />
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/settings_dictionnary_value"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_dictionnary"
+                    tools:text="@string/dictionnary_not_installed" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_voice_input_method_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"

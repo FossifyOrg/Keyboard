@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- En debug, la permission est "normal" : elle est accordée automatiquement à
+         l'installation, donc les deux apps n'ont pas besoin d'être signées avec la même
+         clé (pratique quand les builds debug viennent de machines/CI différentes).
+         En release, la définition du manifest principal s'applique : "signature". -->
+    <permission
+        android:name="org.fossify.dictionnary.ACCESS_DICTIONARIES"
+        android:label="@string/access_dictionaries"
+        android:protectionLevel="normal"
+        tools:node="replace" />
+</manifest>
