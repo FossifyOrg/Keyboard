@@ -131,7 +131,7 @@
         <Key app:keyLabel="ر" />
         <Key
             app:keyLabel="و"
-            app:popupCharacters="ۆ"
+            app:popupCharacters="ؤ"
             app:popupKeyboard="@xml/keyboard_popup_template" />
         <Key app:keyLabel="ة" />
         <Key app:keyLabel="ث" />
