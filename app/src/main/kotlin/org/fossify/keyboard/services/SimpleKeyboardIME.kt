@@ -95,6 +95,7 @@ import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_QWERTZ
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_SOUL
 import org.fossify.keyboard.helpers.LANGUAGE_ENGLISH_WORKMAN
 import org.fossify.keyboard.helpers.LANGUAGE_ESPERANTO
+import org.fossify.keyboard.helpers.LANGUAGE_FINNISH
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_AZERTY
 import org.fossify.keyboard.helpers.LANGUAGE_FRENCH_BEPO
 import org.fossify.keyboard.helpers.LANGUAGE_GERMAN
@@ -560,6 +561,7 @@ class SimpleKeyboardIME : InputMethodService(), OnKeyboardActionListener, Shared
             LANGUAGE_ENGLISH_SOUL -> R.xml.keys_letters_english_soul
             LANGUAGE_ENGLISH_WORKMAN -> R.xml.keys_letters_english_workman
             LANGUAGE_ESPERANTO -> R.xml.keys_letters_esperanto
+            LANGUAGE_FINNISH -> R.xml.keys_letters_swedish
             LANGUAGE_FRENCH_AZERTY -> R.xml.keys_letters_french_azerty
             LANGUAGE_FRENCH_BEPO -> R.xml.keys_letters_french_bepo
             LANGUAGE_GERMAN -> R.xml.keys_letters_german
